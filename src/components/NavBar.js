@@ -1,9 +1,14 @@
 import React from 'react';
+import { Nav } from './styled/NavBarElements';
 
+ 
 const NavBar = () => {
   return(
-    <div>
-      
-    </div>
+    <>
+      <Nav>
+
+      </Nav>
+    </>
   )
 }
+export default NavBar;
