@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 
 export const Nav = styled.nav`
-  background: blue;
   height: 70px;
   padding: 25px;
   display: flex;
+  font-weight: bold;
   justify-content: center;
 `
 
 export const NavLink = styled(Link)`
   margin: 0 50px 0 50px;
-  color: black;
+  color: #005776;
   display: flex;
   text-decoration: none;
 `
@@ -27,7 +27,8 @@ export const NavBtnLink = styled(Link)`
   height: 30px;
   text-align: center;
   width: 100px;
-  color: #000000;
+  font-weight: bold;
+  color: #005776;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   margin-left: 50px;
