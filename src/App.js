@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import {Route, Switch } from 'react-router-dom';
 import HomePage from './containers/HomePage';
 import EventsPage from './containers/EventsPage';
