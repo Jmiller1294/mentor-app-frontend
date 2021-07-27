@@ -6,6 +6,7 @@ export const Row = styled.div`
   display: flex;
   height: ${ (props) => props.height};
   background: ${ (props) => props.background};
+  padding: ${ (props => props.padding)};
 `
 
 export const Col = styled.div`

@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: Helvetica, sans-serif;
   } 
 `
 
