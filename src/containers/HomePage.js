@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Grid, Row, Col }from '../components/styled/Grid';
 import { BackgroundImage }from '../components/styled/BackgroundImage';
-import { Card, CardAvatar } from '../components/styled/Card';
+import { Card, CardAvatar, CardDescription } from '../components/styled/Card';
 import Background from '../assets/background.jpg';
 import Pic1 from '../assets/pic1.jpg'
 import Pic2 from '../assets/pic2.jpg'
@@ -30,26 +30,44 @@ const HomePage = () => {
           <Header style={{textAlign: 'center'}}>Where young professionals <br></br>can find Mentors</Header>
         </Col>
       </Row>
-      <Row padding={'0 40px 0 40px'} height={'400px'} background={'#f8f7f2'}>
+      <Row padding={'0 40px 0 40px'} height={'auto'} background={'#f8f7f2'}>
         <Col size={1}>
-          <Card style={{ padding: '20px'}}>
+          <Card>
             <CardAvatar src={Pic1} />
+            <CardDescription>
+              jhjfahjshfjsdhfjhsjfhjsdhjfhdsjhfjhdsfjhjs
+              dhfjsjvjhjfvvhbjhhvbjchbjhdfjhfjhffhsdjfhj
+              sdhfjsdhfjdshjfhdsjshcjhdjhsdjchjdschjcdhj
+              hsdjchdsjchjsdhcjsdjchdsjchjdshcjdcsh
+            </CardDescription>
           </Card>
         </Col>
         <Col size={1}>
-          <Card style={{ padding: '20px'}}>
+          <Card>
             <CardAvatar src={Pic2} />
+            <CardDescription>
+              jhjfahjshfjsdhfjhsjfhjsdhjfhdsjhfjhdsfjhjs
+              dhfjsjvjhjfvvhbjhhvbjchbjhdfjhfjhffhsdjfhj
+              sdhfjsdhfjdshjfhdsjshcjhdjhsdjchjdschjcdhj
+              hsdjchdsjchjsdhcjsdjchdsjchjdshcjdcsh
+            </CardDescription>
           </Card>
         </Col>
         <Col size={1}>
-          <Card style={{ padding: '20px'}}>
+          <Card>
             <CardAvatar src={Pic3} />
+            <CardDescription>
+              jhjfahjshfjsdhfjhsjfhjsdhjfhdsjhfjhdsfjhjs
+              dhfjsjvjhjfvvhbjhhvbjchbjhdfjhfjhffhsdjfhj
+              sdhfjsdhfjdshjfhdsjshcjhdjhsdjchjdschjcdhj
+              hsdjchdsjchjsdhcjsdjchdsjchjdshcjdcsh
+            </CardDescription>
           </Card>
         </Col>
       </Row>
       <Row height={'400px'}>
         <Col size={1}>
-          1
+          
         </Col>
       </Row>
     </Grid>

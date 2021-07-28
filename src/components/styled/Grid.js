@@ -10,6 +10,8 @@ export const Row = styled.div`
 `
 
 export const Col = styled.div`
+  display: flex;
+  justify-content: center;
   flex: ${ (props) => props.size};
   height: 100%;
 `

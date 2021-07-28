@@ -1,10 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+import { Grid } from '../components/styled/Grid';
+
+
 
 const MentorsPage = () => {
   return(
-    <h1>
-      MentorsPage
-    </h1>
+    <Grid>
+      
+    </Grid>
   )
 }
 export default MentorsPage;
