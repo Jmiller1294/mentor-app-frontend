@@ -13,6 +13,7 @@ const ListItem = styled.li`
   display: flex;
   height: 200px;
   border: 1px solid #f8f7f2;
+  padding: 20px;
 `
 
 const AvatarImage = styled.img`
