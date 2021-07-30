@@ -33,5 +33,17 @@ export const finishLogin = (data) => ({
   payload: data
 })
 
+export const logout = () => {
+  return(dispatch) => {
+    fetch("http://localhost:3001/logout", {
+      method: "DELETE",
+      credentials: "include"
+    })
+    .then(() => dispatch(finishLogout))
+  }
+}
 
+export const finishLogout = () => ({
+  type: "LOGOUT"
+})
 
