@@ -10,24 +10,26 @@ const LoginForm = styled.form`
   text-align: center;
   min-height: 400px;
   align-items: center;
-  margin-top: 35px;
+  margin-top: 10%;
   width: 25%;
   border-radius: 25px;
 `
 
 const LoginInput = styled.input`
-  height: 30px;
-  width: 175px;
+  display: flex;
+  height: 8%;
+  width: 60%;
   border-radius: 10px;
   margin: 5px;
 `
 
 const LoginBtn = styled.button`
   color: #005776;
-  width: 65px;
-  height: 25px;
+  width: 100px;
+  height: 35px;
   background-color: #808080;
   border-radius: 10px;
+  font-size: 20px;
 `
 
 
@@ -37,6 +39,7 @@ const LoginPage = () => {
       <Row>
         <Col size={1}>
           <LoginForm>
+            <h2>Please Login</h2>
             <LoginInput placeholder="Email"></LoginInput>
             <LoginInput placeholder="Password"></LoginInput>
             <LoginBtn>Login</LoginBtn>
