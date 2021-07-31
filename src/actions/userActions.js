@@ -1,3 +1,32 @@
+export const startCreateUser = (data) => {
+  return (dispatch) => {
+    fetch("http://localhost:3001/registrations", {
+      method: "POST",
+      credentials: "include",
+      headers: { 
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+    .then(resp => resp.json())
+    .then(data => dispatch(finishCreateUser(data)))
+  }
+}
+
+const finishCreateUser = (data) => {
+  return {
+    type: "CREATE_USER",
+    payload: data
+  }
+}
+
+
+
+
+
+
+
+//checks if a user is logged in
 export const checkLoggedInStatues = () => {
   return(dispatch) => {
     fetch("http://localhost:3001/logged_in", {
@@ -8,11 +37,16 @@ export const checkLoggedInStatues = () => {
   }
 }
 
+//sets the current user
 export const setCurrentUser = (data) => ({
   type: "SET_CURRENT_USER",
   payload: data
 })
 
+/*
+starts a user login session and sends 
+user data via dispatch function to the user reducer
+*/
 export const startLogin = (data) => {
   return(dispatch) => {
     fetch("http://localhost:3001/sessions", {
@@ -28,11 +62,13 @@ export const startLogin = (data) => {
   }
 }
 
+//Login action creator
 export const finishLogin = (data) => ({
   type: "LOGIN",
   payload: data
 })
 
+//logs out a user 
 export const logout = () => {
   return(dispatch) => {
     fetch("http://localhost:3001/logout", {
@@ -43,6 +79,7 @@ export const logout = () => {
   }
 }
 
+//logout action creator
 export const finishLogout = () => ({
   type: "LOGOUT"
 })
