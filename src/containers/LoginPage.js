@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
 import { startLogin } from '../actions/userActions'
@@ -33,9 +34,9 @@ const LoginBtn = styled.button`
   font-size: 20px;
 `
 
-
 const LoginPage = () => {
-
+  const dispatch = useDispatch();
+  
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: ''
@@ -47,7 +48,7 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    startLogin(loginInfo);
+    dispatch(startLogin(loginInfo));
   }
 
   return(

@@ -3,7 +3,6 @@ const INITIAL_STATE = {
   loggedIn: false
 }
 
-
 export const userReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case "CREATE_USER":
@@ -30,7 +29,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         currentUser: null,
         loggedIn: false
       }
-
     default: 
       return state;
   }

@@ -20,6 +20,7 @@ const finishCreateUser = (data) => {
   }
 }
 
+
 //checks if a user is logged in
 export const checkLoggedInStatues = () => {
   return(dispatch) => {
@@ -48,8 +49,8 @@ export const startLogin = (data) => {
       credentials: "include",
       headers: { 
         "Content-type": "application/json",
-        body: JSON.stringify(data)
-      }
+      },
+      body: JSON.stringify(data)
     })
     .then(resp => resp.json())
     .then(data => dispatch(finishLogin(data)))
