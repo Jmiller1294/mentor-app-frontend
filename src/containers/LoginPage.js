@@ -36,22 +36,18 @@ const LoginBtn = styled.button`
 
 const LoginPage = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [loginInfo, setLoginInfo] = useState({
+    email: '',
+    password: ''
+  });
 
-  const handleEmailChange = (event) => {
-    this.setEmail(event.target.value)
-    
+  const handleInputChange = (event) => {
+    setLoginInfo({...loginInfo, [event.target.name]: event.target.value})
   }
 
-  const handlePasswordChange = (event) => {
-    this.setPassword(event.target.value)
-  }
-
-  
   const handleSubmit = (event) => {
     event.preventDefault();
-    startLogin();
+    startLogin(loginInfo);
   }
 
   return(
@@ -60,8 +56,8 @@ const LoginPage = () => {
         <Col size={1}>
           <LoginForm>
             <h2>Please Login</h2>
-            <LoginInput placeholder="Email" onChange={(e) => handleEmailChange(e)}></LoginInput>
-            <LoginInput placeholder="Password" onChange={(e) => handlePasswordChange(e)}></LoginInput>
+            <LoginInput onChange={(e) => handleInputChange(e)} type="text" name="email" value={loginInfo.email} placeholder="Email"></LoginInput>
+            <LoginInput onChange={(e) => handleInputChange(e)} type="text" name="password" value={loginInfo.password} placeholder="Password"></LoginInput>
             <LoginBtn onClick={(e) => handleSubmit(e)}>Login</LoginBtn>
           </LoginForm>
         </Col>
