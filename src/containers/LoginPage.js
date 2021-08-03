@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
+import { startLogin } from '../actions/userActions'
 
 const LoginForm = styled.form`
   background-color: #f8f7f2;
@@ -34,15 +35,34 @@ const LoginBtn = styled.button`
 
 
 const LoginPage = () => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (event) => {
+    this.setEmail(event.target.value)
+    
+  }
+
+  const handlePasswordChange = (event) => {
+    this.setPassword(event.target.value)
+  }
+
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    startLogin();
+  }
+
   return(
     <Grid>
       <Row>
         <Col size={1}>
           <LoginForm>
             <h2>Please Login</h2>
-            <LoginInput placeholder="Email"></LoginInput>
-            <LoginInput placeholder="Password"></LoginInput>
-            <LoginBtn>Login</LoginBtn>
+            <LoginInput placeholder="Email" onChange={(e) => handleEmailChange(e)}></LoginInput>
+            <LoginInput placeholder="Password" onChange={(e) => handlePasswordChange(e)}></LoginInput>
+            <LoginBtn onClick={(e) => handleSubmit(e)}>Login</LoginBtn>
           </LoginForm>
         </Col>
       </Row>

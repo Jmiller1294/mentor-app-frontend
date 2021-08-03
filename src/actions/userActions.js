@@ -20,12 +20,6 @@ const finishCreateUser = (data) => {
   }
 }
 
-
-
-
-
-
-
 //checks if a user is logged in
 export const checkLoggedInStatues = () => {
   return(dispatch) => {
