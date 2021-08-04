@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch } from 'react-redux';
 import {Route, Switch } from 'react-router-dom';
+import ProtectedRoute from "./components/ProtectedRoute";
 import HomePage from './containers/HomePage';
 import EventsPage from './containers/EventsPage';
 import AccountPage from './containers/AccountPage';
@@ -26,10 +27,10 @@ export const GlobalStyle = createGlobalStyle`
 const App = () => {
   const dispatch = useDispatch()
 
-  useEffect = (() => {
-    
-  }, [])
-
+  useEffect(() => {
+   dispatch(checkLoggedInStatus)
+   console.log('loaded')
+  }, );
 
 
   return (
@@ -38,11 +39,11 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/events" component={EventsPage} />
-        <Route exact path="/accounts" component={AccountPage} />
         <Route exact path="/about" component={AboutPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/mentors" component={MentorsPage} />
         <Route exact path="/registration" component={RegistrationPage} />
+        <ProtectedRoute exact path="/accounts" component={AccountPage} />
       </Switch>
       <GlobalStyle />
     </React.Fragment>
