@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch } from 'react-redux';
 import {Route, Switch } from 'react-router-dom';
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/navigation/ProtectedRoute";
 import HomePage from './containers/HomePage';
 import EventsPage from './containers/EventsPage';
 import AccountPage from './containers/AccountPage';
@@ -10,7 +10,7 @@ import AboutPage from './containers/AboutPage';
 import LoginPage from './containers/LoginPage';
 import MentorsPage from './containers/MentorsPage';
 import RegistrationPage from './containers/RegistrationPage';
-import NavBar from './components/NavBar';
+import NavBar from './components/navigation/NavBar';
 import { createGlobalStyle } from 'styled-components';
 import { checkLoggedInStatus } from "./actions/userActions";
 
