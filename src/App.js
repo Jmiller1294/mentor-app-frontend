@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useDispatch } from 'react-redux';
 import {Route, Switch } from 'react-router-dom';
 import HomePage from './containers/HomePage';
 import EventsPage from './containers/EventsPage';
@@ -10,6 +11,7 @@ import MentorsPage from './containers/MentorsPage';
 import RegistrationPage from './containers/RegistrationPage';
 import NavBar from './components/NavBar';
 import { createGlobalStyle } from 'styled-components';
+import { checkLoggedInStatus } from "./actions/userActions";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -22,6 +24,14 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
+  const dispatch = useDispatch()
+
+  useEffect = (() => {
+    
+  }, [])
+
+
+
   return (
     <React.Fragment>
       <NavBar />

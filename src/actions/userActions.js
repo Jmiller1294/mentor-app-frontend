@@ -22,7 +22,7 @@ const finishCreateUser = (data) => {
 
 
 //checks if a user is logged in
-export const checkLoggedInStatues = () => {
+export const checkLoggedInStatus = () => {
   return(dispatch) => {
     fetch("http://localhost:3001/logged_in", {
       credentials: "include"

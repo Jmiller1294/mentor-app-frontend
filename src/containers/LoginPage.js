@@ -57,8 +57,18 @@ const LoginPage = () => {
         <Col size={1}>
           <LoginForm>
             <h2>Please Login</h2>
-            <LoginInput onChange={(e) => handleInputChange(e)} type="text" name="email" value={loginInfo.email} placeholder="Email"></LoginInput>
-            <LoginInput onChange={(e) => handleInputChange(e)} type="text" name="password" value={loginInfo.password} placeholder="Password"></LoginInput>
+            <LoginInput onChange={(e) => handleInputChange(e)} 
+              type="text" 
+              name="email" 
+              value={loginInfo.email} 
+              placeholder="Email">
+            </LoginInput>
+            <LoginInput onChange={(e) => handleInputChange(e)} 
+              type="text" 
+              name="password" 
+              value={loginInfo.password} 
+              placeholder="Password">
+            </LoginInput>
             <LoginBtn onClick={(e) => handleSubmit(e)}>Login</LoginBtn>
           </LoginForm>
         </Col>
