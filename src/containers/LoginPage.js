@@ -34,7 +34,7 @@ const LoginBtn = styled.button`
   font-size: 20px;
 `
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const dispatch = useDispatch();
   
   const [loginInfo, setLoginInfo] = useState({
@@ -49,6 +49,7 @@ const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(startLogin(loginInfo));
+    props.history.push('/')
   }
 
   return(

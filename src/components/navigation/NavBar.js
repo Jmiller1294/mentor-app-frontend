@@ -22,7 +22,16 @@ const NavBar = () => {
         <NavLink to="/registration">Signup</NavLink>
         {loggedIn ? <NavLink to="/accounts">Account</NavLink> : null}
         <NavBtn>
-          {loggedIn ? <NavBtnLink to="/" onClick={() => handleLogout()}>Logout</NavBtnLink> : <NavBtnLink to="/login">Login</NavBtnLink>}
+          {loggedIn ? 
+          <NavBtnLink 
+            to="/" 
+            onClick={() => handleLogout()}>
+            Logout
+          </NavBtnLink> 
+          : <NavBtnLink 
+              to="/login">
+              Login
+            </NavBtnLink>}
         </NavBtn>
       </Nav>
     </>
