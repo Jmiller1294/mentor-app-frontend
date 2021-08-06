@@ -30,6 +30,22 @@ const InfoContainer = styled.div`
 let faker = require('faker')
 
 const Mentor = ({ id, name, title, field}) => {
+
+  const createPhoneNumber = () => {
+    let arr = [];
+    let i = 0;
+
+    while(i < 11) {
+      if(i % 2) {
+        arr.push('-');
+      }
+      else {
+        arr.push(Math.floor(Math.random() * 10))
+      }
+      i++;
+    } 
+    console.log(arr.join(''));
+  }
   return (
     <ListItem key={id}>
       <AvatarImage alt="avatar" src={faker.image.avatar()}></AvatarImage>
@@ -38,6 +54,7 @@ const Mentor = ({ id, name, title, field}) => {
         <Bio>
           {title} <br></br>
           Industry: {field}
+          Phone Number: {createPhoneNumber()}
         </Bio>
       </InfoContainer>
     </ListItem>
