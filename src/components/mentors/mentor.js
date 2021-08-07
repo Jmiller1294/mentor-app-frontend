@@ -35,17 +35,13 @@ const Mentor = ({ id, name, title, field}) => {
     let arr = [];
     let i = 0;
 
-    while(i < 11) {
-      if(i % 2) {
-        arr.push('-');
-      }
-      else {
-        arr.push(Math.floor(Math.random() * 10))
-      }
+    while(i < 3) {
+      arr.push(Math.floor(Math.random() * 800) + 100);
       i++;
     } 
-    console.log(arr.join(''));
+    return arr.join('-');
   }
+
   return (
     <ListItem key={id}>
       <AvatarImage alt="avatar" src={faker.image.avatar()}></AvatarImage>
@@ -53,7 +49,7 @@ const Mentor = ({ id, name, title, field}) => {
         <Header>{name}</Header>
         <Bio>
           {title} <br></br>
-          Industry: {field}
+          Industry: {field} <br></br>
           Phone Number: {createPhoneNumber()}
         </Bio>
       </InfoContainer>
