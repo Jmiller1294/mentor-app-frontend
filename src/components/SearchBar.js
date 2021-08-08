@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const SearchContainer = styled.div`
@@ -7,20 +7,35 @@ const SearchContainer = styled.div`
   justify-content: center;
   height: 35px;
 `
-
 const SearchInput = styled.input`
   width: 15%;
-  height: 25px;
+  height: 30px;
 `
 const SearchButton = styled.button`
-  height: 25px;
+  height: 30px;
 `
 
-const SearchBar = () => {
+const SearchBar = ({ onChildClick }) => {
+  const[term, setTerm] = useState('');
+  
+  const handleClick = (event) => {
+    event.preventDefault();
+    onChildClick(term)
+  }
+
+  const handleChange = (event) => {
+    setTerm(event.target.value);
+    console.log(event.target.value)
+  }
+
   return (
     <SearchContainer>
-      <SearchInput />
-      <SearchButton>Search</SearchButton>
+      <SearchInput 
+        value={term}
+        onChange={(e) => handleChange(e)}
+        placeholder="Search by Mentor, City, or Industry" 
+      />
+      <SearchButton onClick={(e) => handleClick(e)}>Search</SearchButton>
     </SearchContainer>
   )
 }
