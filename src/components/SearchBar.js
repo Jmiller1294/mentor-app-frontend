@@ -28,11 +28,18 @@ const SearchBar = ({ onChildClick }) => {
     console.log(event.target.value)
   }
 
+  const handleKeyPress = (event) => {
+    if(event.key === 'Enter') {
+      onChildClick(term)
+    }
+  }
+
   return (
     <SearchContainer>
       <SearchInput 
         value={term}
         onChange={(e) => handleChange(e)}
+        onKeyPress={(e) => handleKeyPress(e)}
         placeholder="Search by Mentor, City, or Industry" 
       />
       <SearchButton onClick={(e) => handleClick(e)}>Search</SearchButton>

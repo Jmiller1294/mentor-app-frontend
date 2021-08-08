@@ -9,6 +9,9 @@ const List = styled.ul`
   list-style: none;
   padding: 0;
 `
+const MentorCount = styled.h2`
+  margin-left: 25px;
+`
 
 const MentorsPage = () => {
   const [mentors, setMentors] = useState([]);
@@ -36,7 +39,7 @@ const MentorsPage = () => {
     <Grid>
       <SearchBar onChildClick={(term) => handleChildClick(term)} />
       <List>
-        <h2>{filterItems.length} Mentors Available</h2>
+        <MentorCount>{filterItems.length} Mentors Available</MentorCount>
         {filterItems.map(mentor => 
           <Mentor 
             key={mentor.id} 
