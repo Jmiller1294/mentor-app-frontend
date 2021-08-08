@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 const ListItem = styled.li`
   display: flex;
-  height: 200px;
+  height: 270px;
   border: 1px solid #f8f7f2;
-  padding: 20px;
+  padding: 25px;
+  padding-bottom: 30px;
 `
 const AvatarImage = styled.img`
   display: flex;
@@ -25,9 +26,12 @@ const Bio = styled.p`
 `
 const InfoContainer = styled.div`
   height: 100px;
+  line-height: 1.5;
 `
-
-let faker = require('faker')
+const AddButton = styled.button`
+  height: 25px;
+  width: 120px;
+`
 
 const Mentor = ({ id, name, title, field, avatar, email, city, age}) => {
 
@@ -43,6 +47,7 @@ const Mentor = ({ id, name, title, field, avatar, email, city, age}) => {
           City: {city} <br></br>
           Age: {age}
         </Bio>
+        <AddButton>Add Mentor</AddButton>
       </InfoContainer>
     </ListItem>
   )
