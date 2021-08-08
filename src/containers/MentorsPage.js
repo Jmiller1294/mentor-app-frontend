@@ -36,11 +36,20 @@ const MentorsPage = () => {
     .catch((error) => console.error('Error:', error))
   },[])
 
+  useEffect(() => {
+
+  }, [])
+
   const handleChange = (event) => {
-    setSearchTerm(event.target.name);
+    setSearchTerm(event.target.value);
   }
 
-  let filteredItems = mentors.filter(mentor => mentor.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  let filterItems = (mentors.filter(mentor => {
+    return mentor.name.toLowerCase().includes(searchTerm.toLowerCase()) 
+    || mentor.city.toLowerCase().includes(searchTerm.toLowerCase()) 
+    || mentor.title.toLowerCase().includes(searchTerm.toLowerCase()) 
+    || mentor.field.toLowerCase().includes(searchTerm.toLowerCase())
+  }))
 
   return(
     <Grid>
@@ -49,12 +58,18 @@ const MentorsPage = () => {
         <SearchButton>Search</SearchButton>
       </SearchContainer>
       <List>
-        {filteredItems.map(mentor => <Mentor 
-          id={mentor.id} 
-          name={mentor.name} 
-          title={mentor.title} 
-          field={mentor.field} />
-        )}
+        {filterItems.map(mentor => 
+            <Mentor 
+              key={mentor.id} 
+              name={mentor.name} 
+              title={mentor.title} 
+              field={mentor.field}
+              avatar={mentor.avatar}
+              email={mentor.email}
+              city={mentor.city}
+              age={mentor.age}
+            />
+          )}
       </List>
     </Grid>
   )
