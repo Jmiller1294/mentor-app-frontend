@@ -25,7 +25,6 @@ const SearchBar = ({ onChildClick }) => {
 
   const handleChange = (event) => {
     setTerm(event.target.value);
-    console.log(event.target.value)
   }
 
   const handleKeyPress = (event) => {

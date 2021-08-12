@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   currentUser: null,
-  loggedIn: false
+  loggedIn: false,
+  mentors: []
 }
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -28,6 +29,11 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         currentUser: null,
         loggedIn: false
+      }
+    case "ADD_MENTOR":
+      return {
+        ...state,
+        mentors: [...action.payload]
       }
     default: 
       return state;

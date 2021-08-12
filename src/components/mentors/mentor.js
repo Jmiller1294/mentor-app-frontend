@@ -47,7 +47,7 @@ const Mentor = ({ id, name, title, field, avatar, email, city, age}) => {
           City: {city} <br></br>
           Age: {age}
         </Bio>
-        <AddButton>Add Mentor</AddButton>
+        <AddButton >Add Mentor</AddButton>
       </InfoContainer>
     </ListItem>
   )

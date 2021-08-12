@@ -24,17 +24,19 @@ const MentorsPage = () => {
     .catch((error) => console.error('Error:', error))
   },[])
 
-  const handleChildClick = (t) => {
-    setSearchTerm(t)
+  const handleChildClick = (term) => {
+    setSearchTerm(term)
   }
 
-  let filterItems = (mentors.filter(mentor => {
+  const filterItems = (mentors.filter(mentor => {
     return mentor.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.city.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.title.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.field.toLowerCase().includes(searchTerm.toLowerCase())
   }))
 
+  
+  if(filterItems && filterItems.length !== 0) {
   return(
     <Grid>
       <SearchBar onChildClick={(term) => handleChildClick(term)} />
@@ -54,7 +56,10 @@ const MentorsPage = () => {
         )}
       </List>
     </Grid>
-  )
+  )}
+  else {
+    return "...Loading"
+  }
 }
 export default MentorsPage;
 

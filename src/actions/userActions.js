@@ -79,3 +79,8 @@ export const finishLogout = () => ({
   type: "LOGOUT"
 })
 
+export const addMentor = (data) => ({
+  type: "ADD_MENTOR",
+  payload: data
+})
+
