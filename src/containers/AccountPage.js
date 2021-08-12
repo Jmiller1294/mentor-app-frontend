@@ -1,9 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMentors } from '../actions/userActions';
 
 const AccountPage = () => {
   const userInfo = useSelector(state => state.currentUser);
   const mentors = useSelector(state => state.mentors);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMentors());
+  }, [])
 
   return(
     !!userInfo ?
@@ -17,7 +23,7 @@ const AccountPage = () => {
         </p>
       </div>
       <div>
-        {mentors.map(mentor => <h2>{mentor.name}</h2>)}
+        {mentors.map(mentor => <h2>{mentor.mentor.name}</h2>)}
       </div>
     </>
     : null

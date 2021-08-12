@@ -30,10 +30,10 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         currentUser: null,
         loggedIn: false
       }
-    case "ADD_MENTOR":
+    case "ADD_MENTORS":
       return {
         ...state,
-        mentors: [...state.mentors, action.payload]
+        mentors: action.payload
       }
     default: 
       return state;

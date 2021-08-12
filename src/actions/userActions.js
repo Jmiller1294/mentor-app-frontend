@@ -79,21 +79,32 @@ export const finishLogout = () => ({
   type: "LOGOUT"
 })
 
-export const addMentor = (userId, data) => {
+export const addMentor = (mentor, userId) => {
   return(dispatch) => {
-    fetch(`http://localhost:3001/users/${userId}/mentors`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+    fetch(`http://localhost:3001/users/${userId}/bookings`, {
+      method: "POST",
+      credentials: "include",
+      headers: { 
+        "Content-type": "application/json",
       },
-      method: 'POST',
-      body: JSON.stringify(data)
+      body: JSON.stringify(mentor)
     })
     .then(resp => resp.json())
-    .then(mentor => {
-      return dispatch({ type: 'ADD_MENTOR', payload: mentor})
-    })
+    .then(mentor => console.log(mentor))
   }
 }
+
+export const getMentors = (userId) => {
+  return(dispatch) => {
+    fetch(`http://localhost:3001/users/${userId}/bookings`)
+    .then(resp => resp.json())
+    .then(data => dispatch(setUserMentors(data)))
+  }
+}
+
+export const setUserMentors = (data) => ({
+  type: "ADD_MENTORS",
+  payload: data
+})
 
 

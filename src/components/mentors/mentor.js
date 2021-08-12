@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { addMentor } from '../../actions/userActions';
 
@@ -38,9 +38,10 @@ const AddButton = styled.button`
 const Mentor = ({ mentor }) => {
 
   const dispatch = useDispatch()
+  const user = useSelector(state => state.currentUser)
 
-  const handleClick = (mentor) => {
-    dispatch(addMentor(mentor));
+  const handleClick = (user) => {
+    dispatch(addMentor(mentor, user.id));
   }
 
   return (
@@ -55,7 +56,7 @@ const Mentor = ({ mentor }) => {
           City: {mentor.city} <br></br>
           Age: {mentor.age}
         </Bio>
-        <AddButton onClick={() => handleClick(mentor)}>Add Mentor</AddButton>
+        <AddButton onClick={() => handleClick(user)}>Add Mentor</AddButton>
       </InfoContainer>
     </ListItem>
   )
