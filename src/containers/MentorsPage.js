@@ -28,21 +28,21 @@ const MentorsPage = () => {
     setSearchTerm(term)
   }
 
-  const filterItems = (mentors.filter(mentor => {
+  let filteredItems = (mentors.filter(mentor => {
+    console.log(mentor.field)
     return mentor.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.city.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.title.toLowerCase().includes(searchTerm.toLowerCase()) 
-    || mentor.field.toLowerCase().includes(searchTerm.toLowerCase())
   }))
 
   
-  if(filterItems && filterItems.length !== 0) {
+  if(filteredItems && filteredItems.length !== 0) {
   return(
     <Grid>
       <SearchBar onChildClick={(term) => handleChildClick(term)} />
       <List>
-        <MentorCount>{filterItems.length} Mentors Available</MentorCount>
-        {filterItems.map(mentor => 
+        <MentorCount>{filteredItems.length} Mentors Available</MentorCount>
+        {filteredItems.map(mentor => 
           <Mentor 
            key={mentor.id}
            mentor={mentor}
