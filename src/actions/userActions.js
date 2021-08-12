@@ -79,8 +79,21 @@ export const finishLogout = () => ({
   type: "LOGOUT"
 })
 
-export const addMentor = (data) => ({
-  type: "ADD_MENTOR",
-  payload: data
-})
+export const addMentor = (userId, data) => {
+  return(dispatch) => {
+    fetch(`http://localhost:3001/users/${userId}/mentors`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(resp => resp.json())
+    .then(mentor => {
+      return dispatch({ type: 'ADD_MENTOR', payload: mentor})
+    })
+  }
+}
+
 

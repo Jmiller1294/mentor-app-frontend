@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { addMentor } from '../../actions/userActions';
 
 
 const ListItem = styled.li`
@@ -33,21 +35,27 @@ const AddButton = styled.button`
   width: 120px;
 `
 
-const Mentor = ({ id, name, title, field, avatar, email, city, age}) => {
+const Mentor = ({ mentor }) => {
+
+  const dispatch = useDispatch()
+
+  const handleClick = (mentor) => {
+    dispatch(addMentor(mentor));
+  }
 
   return (
-    <ListItem key={id}>
-      <AvatarImage alt="avatar" src={avatar}></AvatarImage>
+    <ListItem key={mentor.id}>
+      <AvatarImage alt="avatar" src={mentor.avatar}></AvatarImage>
       <InfoContainer>
-        <Header>{name}</Header>
+        <Header>{mentor.name}</Header>
         <Bio>
-          {title} <br></br>
-          Industry: {field} <br></br>
-          Email: {email} <br></br>
-          City: {city} <br></br>
-          Age: {age}
+          {mentor.title} <br></br>
+          Industry: {mentor.field} <br></br>
+          Email: {mentor.email} <br></br>
+          City: {mentor.city} <br></br>
+          Age: {mentor.age}
         </Bio>
-        <AddButton >Add Mentor</AddButton>
+        <AddButton onClick={() => handleClick(mentor)}>Add Mentor</AddButton>
       </InfoContainer>
     </ListItem>
   )

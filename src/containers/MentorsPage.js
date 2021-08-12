@@ -44,14 +44,8 @@ const MentorsPage = () => {
         <MentorCount>{filterItems.length} Mentors Available</MentorCount>
         {filterItems.map(mentor => 
           <Mentor 
-            key={mentor.id} 
-            name={mentor.name} 
-            title={mentor.title} 
-            field={mentor.field}
-            avatar={mentor.avatar}
-            email={mentor.email}
-            city={mentor.city}
-            age={mentor.age}
+           key={mentor.id}
+           mentor={mentor}
           />
         )}
       </List>

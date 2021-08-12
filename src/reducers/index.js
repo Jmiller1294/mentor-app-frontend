@@ -33,7 +33,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
     case "ADD_MENTOR":
       return {
         ...state,
-        mentors: [...action.payload]
+        mentors: [...state.mentors, action.payload]
       }
     default: 
       return state;
