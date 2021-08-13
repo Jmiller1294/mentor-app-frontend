@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBooking } from '../actions/userActions';
+import { getAtendees, getBooking } from '../actions/userActions';
 
 const AccountPage = () => {
   const userInfo = useSelector(state => state.currentUser);
@@ -9,6 +9,7 @@ const AccountPage = () => {
 
   useEffect(() => {
     dispatch(getBooking());
+    dispatch(getAtendees())
   }, [])
 
   return(

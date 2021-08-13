@@ -1,21 +1,25 @@
-import React, { useEffect } from 'react';
-import {useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
 const EventsPage = () => {
-  const dispatch = useDispatch()
-  const user = useSelector(state => state.currentUser)
-  cons
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    console.log("hello")
+    fetch('http://localhost:3001/events')
+    .then(resp => resp.json())
+    .then(data => setEvents(data))
+    .catch((error) => console.error('Error:', error))
   }, [])
-
 
   return (
     <>
       <h1>EventsPage</h1>
       <ul>
-
+        {events.map(({ name, date, description}) => 
+          <li>
+            {name}<br></br>
+            {date}<br></br>
+            {description}
+          </li>)}
       </ul>
     </>
   )

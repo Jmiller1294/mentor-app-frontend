@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { CreateBooking } from '../../actions/userActions';
+import { createBooking } from '../../actions/userActions';
 
 
 const ListItem = styled.li`
@@ -41,7 +41,7 @@ const Mentor = ({ mentor }) => {
   const user = useSelector(state => state.currentUser)
 
   const handleClick = (user) => {
-    dispatch(CreateBooking(mentor, user.id));
+    dispatch(createBooking(mentor, user.id));
   }
 
   return (

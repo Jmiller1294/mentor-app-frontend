@@ -79,7 +79,7 @@ export const finishLogout = () => ({
   type: "LOGOUT"
 })
 
-export const CreateBooking = (mentor, userId) => {
+export const createBooking = (mentor, userId) => {
     fetch(`http://localhost:3001/users/${userId}/bookings`, {
       method: "POST",
       credentials: "include",
@@ -105,7 +105,7 @@ export const setUserMentors = (data) => ({
   payload: data
 })
 
-export const CreateAttendance = (event, userId) => {
+export const createAttendance = (event, userId) => {
   fetch(`http://localhost:3001/users/${userId}/attendances`, {
       method: "POST",
       credentials: "include",
@@ -118,13 +118,16 @@ export const CreateAttendance = (event, userId) => {
     .then(event => console.log(event))
   }
 
-export const GetAtendees = (userId) => {
+export const getAtendees = (userId) => {
   return(dispatch) => {
     fetch(`http://localhost:3001/users/${userId}/attendances`)
     .then(resp => resp.json())
-    .then(data => dispatch(setAttendees))
+    .then(events => dispatch(setAttendees(events)))
   }
 }
 
-
+export const setAttendees = (events) => ({
+  type: 'SET_ATTENDEES',
+  payload: events
+})
 
