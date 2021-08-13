@@ -25,7 +25,7 @@ const HomePage = () => {
           <BackgroundImage src={Background}/>
         </Col>
       </Row>
-      <Row height={'400px'}>
+      <Row height={'400px'} >
         <Col size={1}>
           <Header style={{textAlign: 'center'}}>Where young professionals <br></br>can find Mentors</Header>
         </Col>

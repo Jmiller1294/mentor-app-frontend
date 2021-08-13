@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMentors } from '../actions/userActions';
+import { getBooking } from '../actions/userActions';
 
 const AccountPage = () => {
   const userInfo = useSelector(state => state.currentUser);
@@ -8,7 +8,7 @@ const AccountPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMentors());
+    dispatch(getBooking());
   }, [])
 
   return(
@@ -23,7 +23,10 @@ const AccountPage = () => {
         </p>
       </div>
       <div>
-        {mentors.map(mentor => <h2 key={mentor.id}>{mentor.mentor.name}</h2>)}
+        {mentors.map(mentor => 
+          <h2 key={mentor.id}>
+            {mentor.mentor.name}
+          </h2>)}
       </div>
     </>
     : null

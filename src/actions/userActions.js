@@ -79,8 +79,7 @@ export const finishLogout = () => ({
   type: "LOGOUT"
 })
 
-export const addMentor = (mentor, userId) => {
-  return(dispatch) => {
+export const CreateBooking = (mentor, userId) => {
     fetch(`http://localhost:3001/users/${userId}/bookings`, {
       method: "POST",
       credentials: "include",
@@ -91,10 +90,9 @@ export const addMentor = (mentor, userId) => {
     })
     .then(resp => resp.json())
     .then(mentor => console.log(mentor))
-  }
 }
 
-export const getMentors = (userId) => {
+export const getBooking = (userId) => {
   return(dispatch) => {
     fetch(`http://localhost:3001/users/${userId}/bookings`)
     .then(resp => resp.json())
@@ -106,5 +104,27 @@ export const setUserMentors = (data) => ({
   type: "ADD_MENTORS",
   payload: data
 })
+
+export const CreateAttendance = (event, userId) => {
+  fetch(`http://localhost:3001/users/${userId}/attendances`, {
+      method: "POST",
+      credentials: "include",
+      headers: { 
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(event)
+    })
+    .then(resp => resp.json())
+    .then(event => console.log(event))
+  }
+
+export const GetAtendees = (userId) => {
+  return(dispatch) => {
+    fetch(`http://localhost:3001/users/${userId}/attendances`)
+    .then(resp => resp.json())
+    .then(data => dispatch(setAttendees))
+  }
+}
+
 
 
