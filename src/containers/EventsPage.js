@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Event from '../components/event';
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -14,12 +15,11 @@ const EventsPage = () => {
     <>
       <h1>EventsPage</h1>
       <ul>
-        {events.map(({ name, date, description}) => 
-          <li>
-            {name}<br></br>
-            {date}<br></br>
-            {description}
-          </li>)}
+        {events.map(event => 
+        <li key={event.id}>
+          <Event event={event}></Event>
+        </li>
+        )}
       </ul>
     </>
   )

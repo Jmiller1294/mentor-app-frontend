@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { createBooking } from '../../actions/userActions';
+import { createBooking } from '../actions/userActions';
 
 
 const ListItem = styled.li`

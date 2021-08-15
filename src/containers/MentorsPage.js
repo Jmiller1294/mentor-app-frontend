@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Mentor from '../components/mentors/mentor';
+import Mentor from '../components/mentor';
 import SearchBar from '../components/SearchBar';
 import styled from 'styled-components';
 import { Grid } from '../components/styled/Grid';
@@ -35,7 +35,6 @@ const MentorsPage = () => {
     || mentor.title.toLowerCase().includes(searchTerm.toLowerCase()) 
   }))
 
-  
   if(filteredItems && filteredItems.length !== 0) {
   return(
     <Grid>
