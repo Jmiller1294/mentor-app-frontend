@@ -39,10 +39,12 @@ const List = styled.ul`
 `
 const ListItem = styled.li`
   height: 250px;
-  width: 250px;
+  width: 300px;
   float: left;
+  padding: 10px;
 `
 const Avatar = styled.img`
+  display: block;
   height: 100px;
   width: 100px;
   border-radius: 50px;
@@ -67,10 +69,9 @@ const HomePage = () => {
           <Card>
             <CardAvatar src={Pic1} />
             <CardDescription>
-              jhjfahjshfjsdhfjhsjfhjsdhjfhdsjhfjhdsfjhjs
-              dhfjsjvjhjfvvhbjhhvbjchbjhdfjhfjhffhsdjfhj
-              sdhfjsdhfjdshjfhdsjshcjhdjhsdjchjdschjcdhj
-              hsdjchdsjchjsdhcjsdjchdsjchjdshcjdcsh
+              Meet and network with professionals in your field.
+              We host weekly events that in major cities around the country.
+              This is a great opportunity to meet new people.
             </CardDescription>
           </Card>
         </Col>
@@ -78,10 +79,9 @@ const HomePage = () => {
           <Card>
             <CardAvatar src={Pic2} />
             <CardDescription>
-              jhjfahjshfjsdhfjhsjfhjsdhjfhdsjhfjhdsfjhjs
-              dhfjsjvjhjfvvhbjhhvbjchbjhdfjhfjhffhsdjfhj
-              sdhfjsdhfjdshjfhdsjshcjhdjhsdjchjdschjcdhj
-              hsdjchdsjchjsdhcjsdjchdsjchjdshcjdcsh
+              We help turn new graduates into career professionals.
+              By helping members develop the skills 
+              crucial to thriving in your career path. Get started now!
             </CardDescription>
           </Card>
         </Col>
@@ -89,10 +89,9 @@ const HomePage = () => {
           <Card>
             <CardAvatar src={Pic3} />
             <CardDescription>
-              jhjfahjshfjsdhfjhsjfhjsdhjfhdsjhfjhdsfjhjs
-              dhfjsjvjhjfvvhbjhhvbjchbjhdfjhfjhffhsdjfhj
-              sdhfjsdhfjdshjfhdsjshcjhdjhsdjchjdschjcdhj
-              hsdjchdsjchjsdhcjsdjchdsjchjdshcjdcsh
+              We offer materials to help develop you 
+              into a perfect canidate for potential jobs. We over a 
+              range of career developemnt classes in person and online.
             </CardDescription>
           </Card>
         </Col>
@@ -116,35 +115,34 @@ const HomePage = () => {
           <h1>Testimonials</h1>
         </Col>
       </Row>
-      <Row height={'250px'}>
+      <Row height={'270px'}>
         <Col size={1}>
           <List>
             <ListItem>
               <Avatar src={faker.image.avatar()} alt="avatar1" />  
-              bnbnbnnbnnbbnbnbnnnbbbn
-              bjbnbnbnbnjjnbnnbnbnbnb
-              hjhjhjhjhjhjhjhjhjhjhjj
-              hjhjhjhjhjhjhjhjhjhjhjh
+              Mentors changed my life without
+              this program I dont Know where 
+              I would be. This website helped 
+              get on the right track.
               <br></br>
               <br></br>
               - John Smith
             </ListItem>
             <ListItem>
               <Avatar src={faker.image.avatar()} alt="avatar2" />
-              jfkjskfjksasdasdasdasdd
-              adasdasdasdasdsadasdsad
-              asdasddaddasdasdasdasdd
-              asdasdasdasdadasdasdasd
+              Mentors.com is a great website. This
+              is an easy way to get paired up 
+              with mentors an jumpstart your career.
+              You will not regret making the decision.
               <br></br>
               <br></br>
               -Alex Miller
             </ListItem>
             <ListItem>
               <Avatar src={faker.image.avatar()} alt="avatar3" />
-              jfkjskfjksdasdasdasdasd
-              asdasdasdasdasdasdadsd
-              adasdasdasdasdasdaddasd
-              dasdasdasdasdasdasdasdas
+              This website is essential for finding 
+              finding something in your field. Being able to 
+              talk to people who have proven experience.
               <br></br>
               <br></br>
               -Dustin Wilson
@@ -152,35 +150,35 @@ const HomePage = () => {
           </List>
         </Col>
       </Row>
-      <Row height={'250px'}>
+      <Row height={'280px'}>
         <Col size={1}>
           <List>
             <ListItem>
               <Avatar src={faker.image.avatar()} alt="avatar4" />
-              jfkjskfjksadasdasdasdad
-              adasdasdasdasdadasdadads
-              asdasdasdasdasdasdasdads
-              asdasdasdasdasdasdasdads
+              The events that mentors.com hosts are 
+              great ways to network and meet people.
+              I waas able to connect with a mentor and land
+              my dream job!
               <br></br>
               <br></br>
               -Max Filmore
             </ListItem>
             <ListItem>
               <Avatar src={faker.image.avatar()} alt="avatar5" />
-              jfkjskfjksadasdasdasdad
-              adasdasdasdasdadasdadads
-              asdasdasdasdasdasdasdads
-              asdasdasdasdasdasdasdads
+              After graduating college I was lost 
+              and I needed some guidance. Mentor.com
+              helped me find a mentor and start to 
+              get the advice I needed to get a job.
               <br></br>
               <br></br>
               -Kyle Perez
             </ListItem>
             <ListItem>
               <Avatar src={faker.image.avatar()} alt="avatar6" />
-              jfkjskfjksadasdasdasdad
-              adasdasdasdasdadasdadads
-              asdasdasdasdasdasdasdads
-              asdasdasdasdasdasdasdads
+              Mentors are an important part of 
+              become a career professional. Thats why
+              I joined. I dont regret taking the step 
+              and connecting.
               <br></br>
               <br></br>
               -Felix Conway
