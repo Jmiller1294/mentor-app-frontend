@@ -8,7 +8,8 @@ const AccountPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBooking());
+    console.log(userInfo.user_id)
+    dispatch(getBooking(userInfo.id));
     dispatch(getAtendees())
   }, [])
 

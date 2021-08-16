@@ -65,7 +65,7 @@ const LoginPage = (props) => {
               placeholder="Email">
             </LoginInput>
             <LoginInput onChange={(e) => handleInputChange(e)} 
-              type="text" 
+              type="password" 
               name="password" 
               value={loginInfo.password} 
               placeholder="Password">

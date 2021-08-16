@@ -36,12 +36,23 @@ const AddButton = styled.button`
 `
 
 const Mentor = ({ mentor }) => {
-
-  const dispatch = useDispatch()
   const user = useSelector(state => state.currentUser)
 
+  const createBooking = (mentor, userId) => {
+    fetch(`http://localhost:3001/users/${userId}/bookings`, {
+      method: "POST",
+      credentials: "include",
+      headers: { 
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(mentor)
+    })
+    .then(resp => resp.json())
+    .then(mentor => console.log(mentor))
+}
+  
   const handleClick = (user) => {
-    dispatch(createBooking(mentor, user.id));
+    createBooking(mentor, user.id);
   }
 
   return (

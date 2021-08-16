@@ -12,14 +12,20 @@ import logo2 from '../assets/logo2.png';
 import logo3 from '../assets/logo3.png';
 import logo4 from '../assets/logo4.png';
 import logo5 from '../assets/logo5.png';
+import cityImg1 from '../assets/newYork.jpg';
+import cityImg2 from '../assets/houston.jpg';
+import cityImg3 from '../assets/chicago.jpg';
+import cityImg4 from '../assets/atlanta.jpg';
+import cityImg5 from '../assets/losAngeles.jpg';
+import icon1 from '../assets/instagram.png';
+import icon2 from '../assets/linkedIn.png';
+import icon3 from '../assets/twitter.png';
+import icon4 from '../assets/youtube.png';
+import icon5 from '../assets/github.png';
+
 
 
 const faker = require('faker');
-const array = []
-const createTestimonials = () => {
-  array.push(faker.image.avatar())
-}
-
 
 const Header = styled.h1`
   font-size: 40px;
@@ -49,6 +55,27 @@ const Avatar = styled.img`
   width: 100px;
   border-radius: 50px;
   margin-bottom: 20px;
+`
+const CityCard = styled.div`
+  height: 300px;
+  width: 250px;
+`
+const CardImage = styled.img`
+  width: 100%;
+  height: 50%;
+`
+
+const CardDesc = styled.p`
+  display: block;
+`
+
+const Footer = styled.ul`
+  list-style: none;
+  float: left;
+`
+const FooterIcon = styled.img`
+  height: 35px;
+  margin-left: 100px;
 `
 
 const HomePage = () => {
@@ -186,8 +213,95 @@ const HomePage = () => {
           </List>
         </Col>
       </Row>
-      <Row height={'400px'} background={'#f8f7f2'}>
+      <Row height={'400px'} background={'#f8f7f2'} padding={'40px 40px 0 40px'}>
+        <Col size={1}>
+          <List>
+            <ListItem>
+              <CityCard>
+                <CardImage src={cityImg1}></CardImage>
+                New York
+                <CardDesc>
+                  cjkhjckhjvjcvxhjxhcc
+                  xvxcvxcvxcvxcvxvvxcv
+                  xcvxcvxcvxcvxcvxcvxcv
+                  xvxcvxcvxcvxcvxvvxvxc
+                  fsdfdsfdsfsdfsdfsdfds
+                  sdfsdfsdfsdfsdfsdfdfsfds
+                </CardDesc>
+              </CityCard>
+            </ListItem>
+            <ListItem>
+              <CityCard>
+                <CardImage src={cityImg5}></CardImage>
+                Los Angeles
+                <CardDesc>
+                  cjkhjckhjvjcvxhjxhcc
+                  xvxcvxcvxcvxcvxvvxcv
+                  xcvxcvxcvxcvxcvxcvxcv
+                  xvxcvxcvxcvxcvxvvxvxc
+                  fsdfdsfdsfsdfsdfsdfds
+                  sdfsdfsdfsdfsdfsdfdfsfds
+                </CardDesc>
+              </CityCard>
+            </ListItem>
+            <ListItem>
+              <CityCard>
+                <CardImage src={cityImg3}></CardImage>
+                Chicago
+                <CardDesc>
+                  cjkhjckhjvjcvxhjxhcc
+                  xvxcvxcvxcvxcvxvvxcv
+                  xcvxcvxcvxcvxcvxcvxcv
+                  xvxcvxcvxcvxcvxvvxvxc
+                  fsdfdsfdsfsdfsdfsdfds
+                  sdfsdfsdfsdfsdfsdfdfsfds
+                </CardDesc>
+              </CityCard>
+            </ListItem>
+            <ListItem>
+              <CityCard>
+                <CardImage src={cityImg2}></CardImage>
+                Houston
+                <CardDesc>
+                  cjkhjckhjvjcvxhjxhcc
+                  xvxcvxcvxcvxcvxvvxcv
+                  xcvxcvxcvxcvxcvxcvxcv
+                  xvxcvxcvxcvxcvxvvxvxc
+                  fsdfdsfdsfsdfsdfsdfds
+                  sdfsdfsdfsdfsdfsdfdfsfds
+                </CardDesc>
+              </CityCard>
+            </ListItem>
+            <ListItem>
+              <CityCard>
+                <CardImage src={cityImg4}></CardImage>
+                Atlanta
+                <CardDesc>
+                  cjkhjckhjvjcvxhjxhcc
+                  xvxcvxcvxcvxcvxvvxcv
+                  xcvxcvxcvxcvxcvxcvxcv
+                  xvxcvxcvxcvxcvxvvxvxc
+                  fsdfdsfdsfsdfsdfsdfds
+                  sdfsdfsdfsdfsdfsdfdfsfds
+                </CardDesc>
+              </CityCard>
+            </ListItem>
+          </List>
+        </Col>
+      </Row>
+      <Row height={'400px'}>
 
+      </Row>
+      <Row height={'70px'} background={'#f8f7f2'}>
+        <Col size={1}>
+          <Footer>
+            <FooterIcon src={icon1}/>
+            <FooterIcon src={icon2}/>
+            <FooterIcon src={icon3}/>
+            <FooterIcon src={icon4}/>
+            <FooterIcon src={icon5}/>
+          </Footer>
+        </Col>
       </Row>
     </Grid>
   )

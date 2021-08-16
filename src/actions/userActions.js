@@ -79,21 +79,9 @@ export const finishLogout = () => ({
   type: "LOGOUT"
 })
 
-export const createBooking = (mentor, userId) => {
-    fetch(`http://localhost:3001/users/${userId}/bookings`, {
-      method: "POST",
-      credentials: "include",
-      headers: { 
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(mentor)
-    })
-    .then(resp => resp.json())
-    .then(mentor => console.log(mentor))
-}
-
 export const getBooking = (userId) => {
   return(dispatch) => {
+    console.log('inside')
     fetch(`http://localhost:3001/users/${userId}/bookings`)
     .then(resp => resp.json())
     .then(data => dispatch(setUserMentors(data)))
@@ -101,7 +89,7 @@ export const getBooking = (userId) => {
 }
 
 export const setUserMentors = (data) => ({
-  type: "ADD_MENTORS",
+  type: "SET_MENTORS",
   payload: data
 })
 
