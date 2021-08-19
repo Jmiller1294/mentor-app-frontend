@@ -1,5 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import Event from '../components/event';
+import {Grid, Row, Col }from '../components/styled/Grid';
+
+const EventList = styled.ul`
+  list-style: none;
+`
+
+const EventItem = styled.li`
+  margin: 30px;
+  height: 170px;
+  width: 650px;
+  box-shadow: 5px 10px 18px #888888;
+`
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -12,16 +25,25 @@ const EventsPage = () => {
   }, [])
 
   return (
-    <>
-      <h1>EventsPage</h1>
-      <ul>
-        {events.map(event => 
-        <li key={event.id}>
-          <Event event={event}></Event>
-        </li>
-        )}
-      </ul>
-    </>
+    <Grid>
+      <Row>
+        <Col size={1}>
+          1
+        </Col>
+        <Col size={1}>
+          <EventList>
+            {events.map(event => 
+              <EventItem key={event.id}>
+                <Event event={event}></Event>
+              </EventItem>
+            )}
+          </EventList>
+        </Col>
+        <Col size={1}>
+          3
+        </Col>
+      </Row>
+    </Grid>
   )
 }
 export default EventsPage;
