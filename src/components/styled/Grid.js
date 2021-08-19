@@ -11,6 +11,7 @@ export const Row = styled.div`
 
 export const Col = styled.div`
   display: flex;
+  flex-direction: ${ (props) => props.direction};
   justify-content: center;
   flex: ${ (props) => props.size};
   height: 100%;

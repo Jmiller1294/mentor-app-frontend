@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Event from '../components/event';
+import EventSearchBar from '../components/EventSearchBar';
+
 import {Grid, Row, Col }from '../components/styled/Grid';
 
 const EventList = styled.ul`
   list-style: none;
+  margin-bottom: 30px;
+  padding: 0;
 `
 
 const EventItem = styled.li`
-  margin: 30px;
   height: 170px;
   width: 650px;
   box-shadow: 5px 10px 18px #888888;
@@ -30,7 +33,8 @@ const EventsPage = () => {
         <Col size={1}>
           1
         </Col>
-        <Col size={1}>
+        <Col size={1} direction={'column'}>
+          <EventSearchBar />
           <EventList>
             {events.map(event => 
               <EventItem key={event.id}>

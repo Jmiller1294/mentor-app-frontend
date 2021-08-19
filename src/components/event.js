@@ -3,7 +3,7 @@ import React from 'react';
 const Event = ({ event }) => {
   return(
     <div>
-      {event.name}<br></br>
+      <h3>{event.name}</h3><br></br>
       {event.date}<br></br>
       {event.time}<br></br>
       {event.location}<br></br>
