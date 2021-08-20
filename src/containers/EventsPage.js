@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Event from '../components/event';
-import EventSearchBar from '../components/EventSearchBar';
+import EventSearchBar from '../components/EventsSearchBar';
 
 import {Grid, Row, Col }from '../components/styled/Grid';
 
@@ -30,8 +30,8 @@ const EventsPage = () => {
   return (
     <Grid>
       <Row>
-        <Col size={1}>
-          1
+        <Col size={1} direction={'column'}>
+          <h2>Filters</h2>
         </Col>
         <Col size={1} direction={'column'}>
           <EventSearchBar />

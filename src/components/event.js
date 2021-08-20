@@ -1,6 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const AddButton = styled.button`
+  color: blue;
+  height: 30px;
+  width: 25px;
+`
+
 
 const Event = ({ event }) => {
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log('clicked');
+  }
+
+
   return(
     <div>
       <h3>{event.name}</h3><br></br>
@@ -9,6 +24,7 @@ const Event = ({ event }) => {
       {event.location}<br></br>
       {event.description}<br></br>
       {event.likes} likes<br></br>
+      <AddButton onClick={(e) => handleClick(e)}>Add Event</AddButton>
     </div>
   )
 }

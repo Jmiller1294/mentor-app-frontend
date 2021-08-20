@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const SearchForm = styled.form`
@@ -15,16 +15,22 @@ const SearchInput = styled.input`
   outline: none;
   border-bottom: 2px solid;
 `
-const SearchButton = styled.button`
-  height: 30px;
-  width: 20%;
-`
 
 const EventsSearchBar = () => {
+  const[term, setTerm] = useState('');
+  
+  const handleChange = (event) => {
+    setTerm(event.target.value)
+  }
+  
   return (
     <SearchForm>
-      <SearchInput type="text"/>
-      <SearchButton>Search</SearchButton>
+      <SearchInput 
+        type="text"
+        value={term}
+        placeholder="Search Events"
+        onChange={ (e) => handleChange(e) }
+      />
     </SearchForm>
   )
 }
