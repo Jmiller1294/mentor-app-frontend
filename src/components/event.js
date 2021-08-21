@@ -15,7 +15,6 @@ const Event = ({ event }) => {
     console.log('clicked');
   }
 
-
   return(
     <div>
       <h3>{event.name}</h3><br></br>

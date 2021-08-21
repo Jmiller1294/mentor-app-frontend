@@ -28,11 +28,14 @@ import icon5 from '../assets/github.png';
 const faker = require('faker');
 
 const Header = styled.h1`
+  display: flex;
   font-size: 40px;
   font-weight: 300;
   text-transform: uppercase;
   color: #005776;
   margin-top: 100px;
+  text-align: center;
+  flex-direction: col;
 `
 const Logo = styled.img`
   height: 35px;
@@ -41,12 +44,14 @@ const Logo = styled.img`
   margin: 0 35px 0 35px;
 `
 const List = styled.ul`
+  height: 100%;
+  width: 100%;
+  display: flex;
   list-style: none;
 `
 const ListItem = styled.li`
-  height: 250px;
-  width: 300px;
-  float: left;
+  height: 150px;
+  flex-basis: 33%;
   padding: 10px;
 `
 const Avatar = styled.img`
@@ -77,6 +82,12 @@ const FooterIcon = styled.img`
   height: 35px;
   margin-left: 100px;
 `
+const Featured = styled.h3`
+  
+`
+const Testimonials = styled.h3`
+ 
+`
 
 const HomePage = () => {
   return (
@@ -87,8 +98,8 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row height={'400px'} >
-        <Col size={1}>
-          <Header style={{textAlign: 'center'}}>Where young professionals <br></br>can find Mentors</Header>
+        <Col size={1} justify={'center'}>
+          <Header>Where young professionals <br></br>can find Mentors</Header>
         </Col>
       </Row>
       <Row padding={'0 40px 0 40px'} height={'auto'} background={'#f8f7f2'}>
@@ -124,12 +135,12 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row height={'100px'} padding={'20px 40px 45px 20px'}>
-        <Col size={1}>
-          <h3>AS FEATURED IN</h3>
+        <Col size={1} justify={'center'}>
+          <Featured>AS FEATURED IN</Featured>
         </Col>
       </Row>
       <Row height={'200px'} padding={'0 40px 0 40px'}>
-        <Col size={2}>
+        <Col size={2} justify={'center'}>
           <Logo src={logo1} alt="logo1" />
           <Logo src={logo2} alt="logo2" />
           <Logo src={logo3} alt="logo3" />
@@ -138,15 +149,15 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row height={'100px'}>
-        <Col size={1}>
-          <h1>Testimonials</h1>
+        <Col size={1} justify={'center'}>
+          <Testimonials>Testimonials</Testimonials>
         </Col>
       </Row>
-      <Row height={'270px'}>
-        <Col size={1}>
+      <Row height={'470px'}>
+        <Col size={1} justify={'center'} direction={'column'} wrap={'wrap'}>
           <List>
             <ListItem>
-              <Avatar src={faker.image.avatar()} alt="avatar1" />  
+              <Avatar alt="avatar1" />  
               Mentors changed my life without
               this program I dont Know where 
               I would be. This website helped 
@@ -156,7 +167,7 @@ const HomePage = () => {
               - John Smith
             </ListItem>
             <ListItem>
-              <Avatar src={faker.image.avatar()} alt="avatar2" />
+              <Avatar  alt="avatar2" />
               Mentors.com is a great website. This
               is an easy way to get paired up 
               with mentors an jumpstart your career.
@@ -166,7 +177,7 @@ const HomePage = () => {
               -Alex Miller
             </ListItem>
             <ListItem>
-              <Avatar src={faker.image.avatar()} alt="avatar3" />
+              <Avatar  alt="avatar3" />
               This website is essential for finding 
               finding something in your field. Being able to 
               talk to people who have proven experience.
@@ -174,14 +185,8 @@ const HomePage = () => {
               <br></br>
               -Dustin Wilson
             </ListItem>
-          </List>
-        </Col>
-      </Row>
-      <Row height={'280px'}>
-        <Col size={1}>
-          <List>
             <ListItem>
-              <Avatar src={faker.image.avatar()} alt="avatar4" />
+              <Avatar  alt="avatar4" />
               The events that mentors.com hosts are 
               great ways to network and meet people.
               I waas able to connect with a mentor and land
@@ -191,7 +196,7 @@ const HomePage = () => {
               -Max Filmore
             </ListItem>
             <ListItem>
-              <Avatar src={faker.image.avatar()} alt="avatar5" />
+              <Avatar  alt="avatar5" />
               After graduating college I was lost 
               and I needed some guidance. Mentor.com
               helped me find a mentor and start to 
@@ -201,7 +206,7 @@ const HomePage = () => {
               -Kyle Perez
             </ListItem>
             <ListItem>
-              <Avatar src={faker.image.avatar()} alt="avatar6" />
+              <Avatar  alt="avatar6" />
               Mentors are an important part of 
               become a career professional. Thats why
               I joined. I dont regret taking the step 
@@ -213,8 +218,13 @@ const HomePage = () => {
           </List>
         </Col>
       </Row>
-      <Row height={'400px'} background={'#f8f7f2'} padding={'40px 40px 0 40px'}>
+      <Row height={'280px'}>
         <Col size={1}>
+          
+        </Col>
+      </Row>
+      <Row height={'400px'} background={'#f8f7f2'} padding={'40px 40px 0 40px'}>
+        <Col size={1} wrap={'wrap'}>
           <List>
             <ListItem>
               <CityCard>
