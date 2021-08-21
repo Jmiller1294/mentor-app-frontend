@@ -76,11 +76,9 @@ const CardImage = styled.img`
   width: 100%;
   height: 50%;
 `
-
 const CardDesc = styled.p`
   display: block;
 `
-
 const Footer = styled.ul`
   list-style: none;
   float: left;
@@ -97,7 +95,7 @@ const Testimonials = styled.h3`
 `
 
 const HomePage = () => {
-  
+
   return (
     <Grid>
       <Row>

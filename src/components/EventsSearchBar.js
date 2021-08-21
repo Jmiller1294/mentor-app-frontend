@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const SearchForm = styled.form`
   margin: 20px;
-  margin-bottom: 0;
+  margin: 50px;
   display: flex;
   justify-content: center;
   height: 35px;

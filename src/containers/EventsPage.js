@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Event from '../components/event';
 import EventSearchBar from '../components/EventsSearchBar';
-import {Grid, Row, Col }from '../components/styled/Grid';
+import Sidebar from '../components/Sidebar';
+import { Grid, Row, Col }from '../components/styled/Grid';
 
 const EventList = styled.ul`
   list-style: none;
@@ -10,9 +11,12 @@ const EventList = styled.ul`
   padding: 0;
 `
 const EventItem = styled.li`
-  height: 170px;
-  width: 650px;
+  display: flex;
+  height: 220px;
+  width: 70%;
+  padding: 10px;
   box-shadow: 5px 10px 18px #888888;
+  margin-left: 160px;
 `
 
 const EventsPage = () => {
@@ -27,11 +31,12 @@ const EventsPage = () => {
 
   return (
     <Grid>
-      <Row>
+      <Row height={'auto'}>
         <Col size={1} direction={'column'}>
           <h2>Filters</h2>
+          <Sidebar />
         </Col>
-        <Col size={3} direction={'column'}>
+        <Col size={3} direction={'column'} justify={'center'}>
           <EventSearchBar />
           <EventList>
             {events.map(event => 

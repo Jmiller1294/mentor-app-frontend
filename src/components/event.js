@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AddButton = styled.button`
-  color: blue;
-  height: 30px;
-  width: 25px;
+  background-color: orange;
+  height: 40px;
+  width: 65px;
 `
 
 
