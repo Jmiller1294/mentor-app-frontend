@@ -44,15 +44,13 @@ const Logo = styled.img`
   margin: 0 35px 0 35px;
 `
 const List = styled.ul`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  list-style: none;
+ list-style: none;
 `
 const ListItem = styled.li`
-  height: 150px;
-  flex-basis: 33%;
-  padding: 10px;
+  float: left;
+  height: 200px;
+  width: 33%;
+  padding: 150px;
 `
 const Avatar = styled.img`
   display: block;
@@ -103,7 +101,7 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row padding={'0 40px 0 40px'} height={'auto'} background={'#f8f7f2'}>
-        <Col size={1}>
+        <Col size={1} justify={'space-between'}>
           <Card>
             <CardAvatar src={Pic1} />
             <CardDescription>
@@ -112,8 +110,6 @@ const HomePage = () => {
               This is a great opportunity to meet new people.
             </CardDescription>
           </Card>
-        </Col>
-        <Col size={1}>
           <Card>
             <CardAvatar src={Pic2} />
             <CardDescription>
@@ -122,8 +118,6 @@ const HomePage = () => {
               crucial to thriving in your career path. Get started now!
             </CardDescription>
           </Card>
-        </Col>
-        <Col size={1}>
           <Card>
             <CardAvatar src={Pic3} />
             <CardDescription>
@@ -153,8 +147,8 @@ const HomePage = () => {
           <Testimonials>Testimonials</Testimonials>
         </Col>
       </Row>
-      <Row height={'470px'}>
-        <Col size={1} justify={'center'} direction={'column'} wrap={'wrap'}>
+      <Row height={'auto'}>
+        <Col size={1} justify={'space-between'} direction={'row'}>
           <List>
             <ListItem>
               <Avatar alt="avatar1" />  
@@ -223,7 +217,7 @@ const HomePage = () => {
           
         </Col>
       </Row>
-      <Row height={'400px'} background={'#f8f7f2'} padding={'40px 40px 0 40px'}>
+      <Row height={'auto'} background={'#f8f7f2'} padding={'40px 40px 0 40px'}>
         <Col size={1} wrap={'wrap'}>
           <List>
             <ListItem>
