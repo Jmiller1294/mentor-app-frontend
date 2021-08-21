@@ -46,11 +46,20 @@ const Logo = styled.img`
 const List = styled.ul`
  list-style: none;
 `
+const TestimonialItem = styled.li`
+  float: left;
+  height: 200px;
+  width: 32%;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-bottom: 40px;
+  margin: 5px;
+`
 const ListItem = styled.li`
   float: left;
   height: 200px;
-  width: 33%;
-  padding: 150px;
+  width: 15%;
+  margin: 40px;
 `
 const Avatar = styled.img`
   display: block;
@@ -88,6 +97,7 @@ const Testimonials = styled.h3`
 `
 
 const HomePage = () => {
+  
   return (
     <Grid>
       <Row>
@@ -101,7 +111,7 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row padding={'0 40px 0 40px'} height={'auto'} background={'#f8f7f2'}>
-        <Col size={1} justify={'space-between'}>
+        <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'}>
           <Card>
             <CardAvatar src={Pic1} />
             <CardDescription>
@@ -129,12 +139,12 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row height={'100px'} padding={'20px 40px 45px 20px'}>
-        <Col size={1} justify={'center'}>
+        <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'}>
           <Featured>AS FEATURED IN</Featured>
         </Col>
       </Row>
       <Row height={'200px'} padding={'0 40px 0 40px'}>
-        <Col size={2} justify={'center'}>
+        <Col size={2} justify={'center'} wrap={'wrap'} direction={'row'}>
           <Logo src={logo1} alt="logo1" />
           <Logo src={logo2} alt="logo2" />
           <Logo src={logo3} alt="logo3" />
@@ -148,9 +158,9 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row height={'auto'}>
-        <Col size={1} justify={'space-between'} direction={'row'}>
+        <Col size={1} justify={'space-between'} direction={'row'} wrap={'wrap'}>
           <List>
-            <ListItem>
+            <TestimonialItem>
               <Avatar alt="avatar1" />  
               Mentors changed my life without
               this program I dont Know where 
@@ -159,8 +169,8 @@ const HomePage = () => {
               <br></br>
               <br></br>
               - John Smith
-            </ListItem>
-            <ListItem>
+            </TestimonialItem>
+            <TestimonialItem>
               <Avatar  alt="avatar2" />
               Mentors.com is a great website. This
               is an easy way to get paired up 
@@ -169,8 +179,8 @@ const HomePage = () => {
               <br></br>
               <br></br>
               -Alex Miller
-            </ListItem>
-            <ListItem>
+            </TestimonialItem>
+            <TestimonialItem>
               <Avatar  alt="avatar3" />
               This website is essential for finding 
               finding something in your field. Being able to 
@@ -178,8 +188,8 @@ const HomePage = () => {
               <br></br>
               <br></br>
               -Dustin Wilson
-            </ListItem>
-            <ListItem>
+            </TestimonialItem>
+            <TestimonialItem>
               <Avatar  alt="avatar4" />
               The events that mentors.com hosts are 
               great ways to network and meet people.
@@ -188,8 +198,8 @@ const HomePage = () => {
               <br></br>
               <br></br>
               -Max Filmore
-            </ListItem>
-            <ListItem>
+            </TestimonialItem>
+            <TestimonialItem>
               <Avatar  alt="avatar5" />
               After graduating college I was lost 
               and I needed some guidance. Mentor.com
@@ -198,8 +208,8 @@ const HomePage = () => {
               <br></br>
               <br></br>
               -Kyle Perez
-            </ListItem>
-            <ListItem>
+            </TestimonialItem>
+            <TestimonialItem>
               <Avatar  alt="avatar6" />
               Mentors are an important part of 
               become a career professional. Thats why
@@ -208,17 +218,12 @@ const HomePage = () => {
               <br></br>
               <br></br>
               -Felix Conway
-            </ListItem>
+            </TestimonialItem>
           </List>
         </Col>
       </Row>
-      <Row height={'280px'}>
-        <Col size={1}>
-          
-        </Col>
-      </Row>
-      <Row height={'auto'} background={'#f8f7f2'} padding={'40px 40px 0 40px'}>
-        <Col size={1} wrap={'wrap'}>
+      <Row height={'420px'} background={'#f8f7f2'} padding={'40px 40px 0 40px'}>
+        <Col size={1} wrap={'wrap'} justify={'center'}>
           <List>
             <ListItem>
               <CityCard>
@@ -297,7 +302,7 @@ const HomePage = () => {
 
       </Row>
       <Row height={'70px'} background={'#f8f7f2'}>
-        <Col size={1}>
+        <Col size={1} justify={'center'}>
           <Footer>
             <FooterIcon src={icon1}/>
             <FooterIcon src={icon2}/>
