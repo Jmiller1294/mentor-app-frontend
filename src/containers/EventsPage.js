@@ -25,6 +25,7 @@ const SidebarContainer = styled.div`
   background-color: grey;
   width: 15%;
   height: 900px;
+  padding: 25px;
 `
 
 const EventsPage = () => {
@@ -42,7 +43,7 @@ const EventsPage = () => {
       <Row height={'auto'}>
         <Col size={1} direction={'column'}>
         <SidebarContainer>
-          <h2>Filters</h2>
+          <h2 style={{borderBottom: 'black 2px solid', paddingBottom: '10px'}}>Filters</h2>
           <Sidebar />
         </SidebarContainer>
         </Col>
@@ -57,7 +58,7 @@ const EventsPage = () => {
           </EventList>
         </Col>
         <Col size={1}>
-          3
+          
         </Col>
       </Row>
     </Grid>

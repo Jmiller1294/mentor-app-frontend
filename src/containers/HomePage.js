@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Grid, Row, Col }from '../components/styled/Grid';
 import { BackgroundImage }from '../components/styled/BackgroundImage';
-import { Card, CardAvatar, CardDescription } from '../components/styled/Card';
+//import { Card, CardAvatar, CardDescription } from '../components/styled/Card';
 import Background from '../assets/background.jpg';
 import Pic1 from '../assets/pic1.jpg';
 import Pic2 from '../assets/pic2.jpg';
@@ -28,14 +28,34 @@ import icon5 from '../assets/github.png';
 const faker = require('faker');
 
 const Header = styled.h1`
-  display: flex;
   font-size: 40px;
   font-weight: 300;
   text-transform: uppercase;
   color: #005776;
-  margin-top: 100px;
+  margin: 200px auto;
   text-align: center;
-  flex-direction: col;
+`
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+`
+const Card = styled.div`
+  text-align: center;
+  height: 340px;
+  width: 350px;
+`
+const CardAvatar = styled.img`
+  height: 200px;
+  width: 250px;
+`
+const CardDescription = styled.p`
+  
+  /* overflow: hidden;
+  line-height: 2.5;
+  overflow-wrap: break-word; */
 `
 const Logo = styled.img`
   height: 35px;
@@ -104,40 +124,42 @@ const HomePage = () => {
           <BackgroundImage src={Background}/>
         </Col>
       </Row>
-      <Row height={'400px'} >
-        <Col size={1} justify={'center'}>
+      <Row>
+        <Col size={1}>
           <Header>Where young professionals <br></br>can find Mentors</Header>
         </Col>
       </Row>
-      <Row padding={'0 40px 0 40px'} height={'auto'} background={'#f8f7f2'}>
-        <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'} align={'center'}>
-          <Card>
-            <CardAvatar src={Pic1} />
-            <CardDescription>
-              Meet and network with professionals in your field.
-              We host weekly events that in major cities around the country.
-              This is a great opportunity to meet new people.
-            </CardDescription>
-          </Card>
-          <Card>
-            <CardAvatar src={Pic2} />
-            <CardDescription>
-              We help turn new graduates into career professionals.
-              By helping members develop the skills 
-              crucial to thriving in your career path. Get started now!
-            </CardDescription>
-          </Card>
-          <Card>
-            <CardAvatar src={Pic3} />
-            <CardDescription>
-              We offer materials to help develop you 
-              into a perfect canidate for potential jobs. We over a 
-              range of career developemnt classes in person and online.
-            </CardDescription>
-          </Card>
+      <Row background={'#f8f7f2'}>
+        <Col size={1}>
+          <CardContainer>
+            <Card>
+              <CardAvatar src={Pic1} />
+              <CardDescription>
+                Meet and network with professionals in your field.
+                We host weekly events that in major cities around the country.
+                This is a great opportunity to meet new people.
+              </CardDescription>
+            </Card>
+            <Card>
+              <CardAvatar src={Pic2} />
+              <CardDescription>
+                We help turn new graduates into career professionals.
+                By helping members develop the skills 
+                crucial to thriving in your career path. Get started now!
+              </CardDescription>
+            </Card>
+            <Card>
+              <CardAvatar src={Pic3} />
+              <CardDescription>
+                We offer materials to help develop you 
+                into a perfect canidate for potential jobs. We over a 
+                range of career developemnt classes in person and online.
+              </CardDescription>
+            </Card>
+          </CardContainer>
         </Col>
       </Row>
-      <Row height={'auto'} padding={'20px 40px 45px 20px'}>
+      {/* <Row height={'auto'} padding={'20px 40px 45px 20px'}>
         <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'} align={'center'}>
           <Featured>AS FEATURED IN</Featured>
         </Col>
@@ -302,7 +324,7 @@ const HomePage = () => {
             <FooterIcon src={icon5}/>
           </Footer>
         </Col>
-      </Row>
+      </Row> */}
     </Grid>
   )
 }

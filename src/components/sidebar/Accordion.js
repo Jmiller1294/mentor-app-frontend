@@ -11,8 +11,8 @@ const Accordion = ({title, names}) => {
   return (
     <AccordionItem>
         <div onClick={() => setIsActive(!isActive)}>
-          <h2>{title}</h2>
-          <span>{isActive ? '-' : '+'}</span>
+          <h2 style={{display: 'inline', fontSize: '25px', marginRight: '50px'}}>{title}</h2>
+          <span style={{ fontSize: '25px', justifyContent: 'flex-end'}}>{isActive ? '-' : '+'}</span>
         </div>
         {isActive && <div className="accordion-content">
         <form>

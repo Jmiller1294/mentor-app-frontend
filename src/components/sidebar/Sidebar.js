@@ -18,9 +18,10 @@ const data = [
 ]
 
 const AccordionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   height: auto;
   width: 100%;
-  padding: 20px;
 ` 
 const Sidebar = () => {
   

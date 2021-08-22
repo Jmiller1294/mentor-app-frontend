@@ -13,7 +13,7 @@ const LoginForm = styled.form`
   min-height: 400px;
   align-items: center;
   margin-top: 10%;
-  width: 25%;
+  width: 40%;
   border-radius: 25px;
 `
 
@@ -55,7 +55,7 @@ const LoginPage = (props) => {
   return(
     <Grid>
       <Row>
-        <Col size={1}>
+        <Col size={1} justify={'center'}>
           <LoginForm>
             <h2>Please Login</h2>
             <LoginInput onChange={(e) => handleInputChange(e)} 
