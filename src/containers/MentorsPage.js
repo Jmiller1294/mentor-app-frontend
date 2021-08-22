@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Mentor from '../components/mentor';
 import SearchBar from '../components/SearchBar';
 import styled from 'styled-components';
-import { Grid } from '../components/styled/Grid';
+import { Col, Grid, Row } from '../components/styled/Grid';
 
 
 const List = styled.ul`
+  display: flex;  
+  flex-direction: column;
   list-style: none;
   padding: 0;
 `
 const MentorCount = styled.h2`
-  margin-left: 25px;
+  margin-left: 35px;
 `
 
 const MentorsPage = () => {
@@ -38,20 +40,28 @@ const MentorsPage = () => {
   if(filteredItems && filteredItems.length !== 0) {
   return(
     <Grid>
-      <SearchBar onChildClick={(term) => handleChildClick(term)} />
-      <List>
-        <MentorCount>{filteredItems.length} Mentors Available</MentorCount>
-        {filteredItems.map(mentor => 
-          <Mentor 
-           key={mentor.id}
-           mentor={mentor}
-          />
-        )}
-      </List>
+      <Row>
+        <Col size={1}>
+          <SearchBar onChildClick={(term) => handleChildClick(term)} />
+        </Col>
+      </Row>
+      <Row>
+        <Col size={1}>
+          <List>
+            <MentorCount>{filteredItems.length} Mentors Available</MentorCount>
+              {filteredItems.map(mentor => 
+                <Mentor 
+                  key={mentor.id}
+                  mentor={mentor}
+                />
+              )}
+          </List>
+        </Col>
+      </Row>
     </Grid>
   )}
   else {
-    return "...Loading"
+    return <h3>"...Loading"</h3>
   }
 }
 export default MentorsPage;

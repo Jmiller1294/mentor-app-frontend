@@ -10,7 +10,6 @@ const AddButton = styled.button`
   align-self: flex-end;
 `
 
-
 const Event = ({ event }) => {
   const user = useSelector(state => state.currentUser);
 
