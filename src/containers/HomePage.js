@@ -72,21 +72,21 @@ const Logo = styled.img`
   margin: 0 35px 0 35px;
 `
 const List = styled.ul`
-  padding-left: 0;
   list-style: none;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
-  
+  margin-left: 60px;
+  margin-right: 60px;
+  column-gap: 10px;
+  padding-left: 0;
 `
 const TestimonialItem = styled.li`
-  align-items: center;
-  text-align: center;
   height: auto;
-  width: 32%;
+  flex-basis: 32%;
   margin: 5px;
+  padding: 55px;
 `
 const CityItem = styled.li`
   float: left;
@@ -119,9 +119,7 @@ const FooterIcon = styled.img`
 const Featured = styled.h3`
   
 `
-const Testimonials = styled.h3`
- 
-`
+
 
 const HomePage = () => {
 
@@ -169,7 +167,7 @@ const HomePage = () => {
       </Row>
       <Row>
         <Col size={1}>
-          <Featured style={{textAlign: 'center'}}>AS FEATURED IN</Featured>
+          <Featured style={{textAlign: 'center', margin: '50px'}}>AS FEATURED IN</Featured>
         </Col>
       </Row>
       <Row>
@@ -183,12 +181,12 @@ const HomePage = () => {
           </LogoContainer>
         </Col>
       </Row>
-      <Row height={'100px'}>
-        <Col size={1} justify={'center'}>
-          <Testimonials>Testimonials</Testimonials>
+      <Row>
+        <Col size={1}>
+          <h2 style={{margin: '35px'}}>Testimonials</h2>
         </Col>
       </Row>
-      <Row height={'auto'}>
+      <Row>
         <Col size={1}>
           <List>
             <TestimonialItem>
