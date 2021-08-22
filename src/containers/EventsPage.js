@@ -18,6 +18,13 @@ const EventItem = styled.li`
   box-shadow: 5px 10px 18px #888888;
   margin-left: 160px;
 `
+const SidebarContainer = styled.div`
+  position: fixed;
+  top: 70px;
+  background-color: grey;
+  width: 15%;
+  height: 900px;
+`
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -33,8 +40,10 @@ const EventsPage = () => {
     <Grid>
       <Row height={'auto'}>
         <Col size={1} direction={'column'}>
+        <SidebarContainer>
           <h2>Filters</h2>
           <Sidebar />
+        </SidebarContainer>
         </Col>
         <Col size={3} direction={'column'} justify={'center'}>
           <EventSearchBar />

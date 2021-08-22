@@ -20,7 +20,6 @@ const data = [
 const AccordionContainer = styled.div`
   height: auto;
   width: 100%;
-  background-color: orange;
   padding: 20px;
 ` 
 const Sidebar = () => {
