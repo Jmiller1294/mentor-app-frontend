@@ -35,6 +35,9 @@ const Header = styled.h1`
   margin: 200px auto;
   text-align: center;
 `
+const CityName = styled.span`
+  font-weight: bold;
+`
 const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -60,16 +63,15 @@ const CardAvatar = styled.img`
   width: 100%;
 `
 const CardDescription = styled.p`
-  
-  /* overflow: hidden;
+  overflow: hidden;
   line-height: 2.5;
-  overflow-wrap: break-word; */
+  overflow-wrap: break-word; 
 `
 const Logo = styled.img`
   height: 35px;
   width: 150px;
   justify-content: space-between;
-  margin: 0 35px 0 35px;
+  margin: 0 35px 15px 35px;
 `
 const List = styled.ul`
   list-style: none;
@@ -89,10 +91,10 @@ const TestimonialItem = styled.li`
   padding: 55px;
 `
 const CityItem = styled.li`
-  float: left;
-  height: 300px;
-  width: 15%;
+  height: auto;
+  flex-basis: 15%;
   margin: 25px;
+  padding: 5px;
 `
 const Avatar = styled.img`
   display: block;
@@ -109,15 +111,16 @@ const CardDesc = styled.p`
   
 `
 const Footer = styled.ul`
-  
-  float: left;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 0;
+  flex-wrap: wrap;
 `
 const FooterIcon = styled.img`
   height: 35px;
-  margin-left: 100px;
-`
-const Featured = styled.h3`
-  
+  margin: 10px 75px;
 `
 
 
@@ -167,7 +170,7 @@ const HomePage = () => {
       </Row>
       <Row>
         <Col size={1}>
-          <Featured style={{textAlign: 'center', margin: '50px'}}>AS FEATURED IN</Featured>
+          <h3 style={{textAlign: 'center', margin: '50px'}}>AS FEATURED IN</h3>
         </Col>
       </Row>
       <Row>
@@ -253,68 +256,53 @@ const HomePage = () => {
           </List>
         </Col>
       </Row>
-      <Row height={'auto'} background={'#f8f7f2'} >
-        <Col size={1} wrap={'wrap'} justify={'center'} align={'center'} direction={'row'}>
+      <Row>
+        <Col size={1}>
           <List>
             <CityItem>
                 <CardImage src={cityImg1}></CardImage>
-                New York
-                <CardDesc>
+                <CityName>New York</CityName>
+                <CardDescription>
                   cjkhjckhjvjcvxhjxhcc
                   xvxcvxcvxcvxcvxvvxcv
                   xcvxcvxcvxcvxcvxcvxcv
-                  xvxcvxcvxcvxcvxvvxvxc
-                  fsdfdsfdsfsdfsdfsdfds
-                  sdfsdfsdfsdfsdfsdfdfsfds
-                </CardDesc>
+                </CardDescription>
             </CityItem>
             <CityItem>
                 <CardImage src={cityImg5}></CardImage>
-                Los Angeles
-                <CardDesc>
+                <CityName>Los Angeles</CityName>
+                <CardDescription>
                   cjkhjckhjvjcvxhjxhcc
                   xvxcvxcvxcvxcvxvvxcv
                   xcvxcvxcvxcvxcvxcvxcv
-                  xvxcvxcvxcvxcvxvvxvxc
-                  fsdfdsfdsfsdfsdfsdfds
-                  sdfsdfsdfsdfsdfsdfdfsfds
-                </CardDesc>
+                </CardDescription>
             </CityItem>
             <CityItem>
                 <CardImage src={cityImg3}></CardImage>
-                Chicago
-                <CardDesc>
+                <CityName>Chicago</CityName>
+                <CardDescription>
                   cjkhjckhjvjcvxhjxhcc
                   xvxcvxcvxcvxcvxvvxcv
                   xcvxcvxcvxcvxcvxcvxcv
-                  xvxcvxcvxcvxcvxvvxvxc
-                  fsdfdsfdsfsdfsdfsdfds
-                  sdfsdfsdfsdfsdfsdfdfsfds
-                </CardDesc>
+                </CardDescription>
             </CityItem>
             <CityItem>
                 <CardImage src={cityImg2}></CardImage>
-                Houston
-                <CardDesc>
+                <CityName>Houston</CityName>
+                <CardDescription>
                   cjkhjckhjvjcvxhjxhcc
                   xvxcvxcvxcvxcvxvvxcv
                   xcvxcvxcvxcvxcvxcvxcv
-                  xvxcvxcvxcvxcvxvvxvxc
-                  fsdfdsfdsfsdfsdfsdfds
-                  sdfsdfsdfsdfsdfsdfdfsfds
-                </CardDesc>
+                </CardDescription>
             </CityItem>
             <CityItem>
                 <CardImage src={cityImg4}></CardImage>
-                Atlanta
-                <CardDesc>
+                <CityName>Atlanta</CityName>
+                <CardDescription>
                   cjkhjckhjvjcvxhjxhcc
                   xvxcvxcvxcvxcvxvvxcv
                   xcvxcvxcvxcvxcvxcvxcv
-                  xvxcvxcvxcvxcvxvvxvxc
-                  fsdfdsfdsfsdfsdfsdfds
-                  sdfsdfsdfsdfsdfsdfdfsfds
-                </CardDesc>
+                </CardDescription>
             </CityItem>
           </List>
         </Col>
@@ -322,8 +310,8 @@ const HomePage = () => {
       <Row height={'400px'}>
 
       </Row>
-      <Row height={'70px'} background={'#f8f7f2'}>
-        <Col size={1} justify={'center'}>
+      <Row background={'#f8f7f2'}>
+        <Col size={1}>
           <Footer>
             <FooterIcon src={icon1}/>
             <FooterIcon src={icon2}/>
@@ -332,7 +320,7 @@ const HomePage = () => {
             <FooterIcon src={icon5}/>
           </Footer>
         </Col>
-      </Row> */}
+      </Row>
     </Grid>
   )
 }
