@@ -256,7 +256,7 @@ const HomePage = () => {
           </List>
         </Col>
       </Row>
-      <Row>
+      <Row background={'#f8f7f2'}>
         <Col size={1}>
           <List>
             <CityItem>

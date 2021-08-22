@@ -2,22 +2,19 @@ import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 
 export const Nav = styled.nav`
+  display: flex;
+  flex-direction: row;
   background: #f8f7f2;
   height: 70px;
   padding: 25px;
-  display: flex;
   font-weight: bold;
-  justify-content: center;
+  justify-content: space-around;
 `
-
 export const NavLink = styled(Link)`
-  margin: 0 50px 0 50px;
   color: #005776;
-  display: flex;
   text-decoration: none;
 `
 export const NavBtn = styled.nav`
-  display: flex;
   align-items: center;
   margin-right: 24px;
 `
