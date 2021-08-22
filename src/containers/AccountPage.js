@@ -25,10 +25,15 @@ const AccountPage = () => {
         </p>
       </div>
       <div>
+      <h2>Mentors</h2>
         {mentors.map(mentor => 
-          <h2 key={mentor.id}>
+          <h4 key={mentor.id}>
             {mentor.mentor.name}
-          </h2>)}
+          </h4>)}
+      </div>
+      <div>
+        <h2>Events</h2>
+        
       </div>
     </>
     : null

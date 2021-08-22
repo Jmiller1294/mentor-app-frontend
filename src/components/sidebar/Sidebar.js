@@ -27,7 +27,7 @@ const Sidebar = () => {
   return(
     <>
       <AccordionContainer className="accordion">
-        {data.map(({ index, title, names }) => (
+        {data.map(({ title, names}, index) => (
           <Accordion key={index} title={title} names={names} />
         ))}
       </AccordionContainer>

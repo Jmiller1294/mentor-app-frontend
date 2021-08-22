@@ -67,7 +67,7 @@ const Mentor = ({ mentor }) => {
           City: {mentor.city} <br></br>
           Age: {mentor.age}
         </Bio>
-        <AddButton onClick={() => handleClick(user)}>Add Mentor</AddButton>
+        {user ? <AddButton onClick={() => handleClick(user)}>Add Mentor</AddButton> : null}
       </InfoContainer>
     </ListItem>
   )

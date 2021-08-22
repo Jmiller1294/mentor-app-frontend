@@ -93,18 +93,6 @@ export const setUserMentors = (data) => ({
   payload: data
 })
 
-export const createAttendance = (event, userId) => {
-  fetch(`http://localhost:3001/users/${userId}/attendances`, {
-      method: "POST",
-      credentials: "include",
-      headers: { 
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(event)
-    })
-    .then(resp => resp.json())
-    .then(event => console.log(event))
-  }
 
 export const getAtendees = (userId) => {
   return(dispatch) => {
@@ -118,4 +106,5 @@ export const setAttendees = (events) => ({
   type: 'SET_ATTENDEES',
   payload: events
 })
+
 
