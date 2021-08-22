@@ -14,7 +14,6 @@ const LoginForm = styled.form`
   border-radius: 20px;
   justify-content: center;
 `
-
 const LoginInput = styled.input`
   border-radius: 25px;
   height: 10%;

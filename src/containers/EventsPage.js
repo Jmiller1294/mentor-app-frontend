@@ -6,6 +6,9 @@ import Sidebar from '../components/sidebar/Sidebar';
 import { Grid, Row, Col }from '../components/styled/Grid';
 
 const EventList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   list-style: none;
   margin-bottom: 30px;
   padding: 0;
@@ -13,19 +16,11 @@ const EventList = styled.ul`
 const EventItem = styled.li`
   display: flex;
   flex-direction: column;
-  height: 220px;
-  width: 70%;
-  padding: 10px;
+  height: 200px;
+  width: 80%;
+  padding: 15px;
   box-shadow: 5px 10px 18px #888888;
-  margin-left: 160px;
-`
-const SidebarContainer = styled.div`
-  position: fixed;
-  top: 70px;
-  background-color: grey;
-  width: 15%;
-  height: 900px;
-  padding: 25px;
+  margin: 5px;
 `
 
 const EventsPage = () => {
@@ -40,12 +35,10 @@ const EventsPage = () => {
 
   return (
     <Grid>
-      <Row height={'auto'}>
-        <Col size={1} direction={'column'}>
-        <SidebarContainer>
+      <Row>
+        <Col size={1}>
           <h2 style={{borderBottom: 'black 2px solid', paddingBottom: '10px'}}>Filters</h2>
           <Sidebar />
-        </SidebarContainer>
         </Col>
         <Col size={3} direction={'column'} justify={'center'}>
           <EventSearchBar />
