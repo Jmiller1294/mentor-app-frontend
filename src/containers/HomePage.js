@@ -41,6 +41,14 @@ const CardContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  margin: 75px 0;
+`
+const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 50px;
 `
 const Card = styled.div`
   text-align: center;
@@ -49,7 +57,7 @@ const Card = styled.div`
 `
 const CardAvatar = styled.img`
   height: 200px;
-  width: 250px;
+  width: 100%;
 `
 const CardDescription = styled.p`
   
@@ -159,18 +167,20 @@ const HomePage = () => {
           </CardContainer>
         </Col>
       </Row>
-      {/* <Row height={'auto'} padding={'20px 40px 45px 20px'}>
-        <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'} align={'center'}>
-          <Featured>AS FEATURED IN</Featured>
+      <Row>
+        <Col size={1}>
+          <Featured style={{textAlign: 'center'}}>AS FEATURED IN</Featured>
         </Col>
       </Row>
-      <Row height={'auto'} padding={'0 40px 0 40px'}>
-        <Col size={2} justify={'center'} wrap={'wrap'} direction={'row'}>
-          <Logo src={logo1} alt="logo1" />
-          <Logo src={logo2} alt="logo2" />
-          <Logo src={logo3} alt="logo3" />
-          <Logo src={logo4} alt="logo4" />
-          <Logo src={logo5} alt="logo5" />
+      <Row>
+        <Col size={1}>
+          <LogoContainer>
+            <Logo src={logo1} alt="logo1" />
+            <Logo src={logo2} alt="logo2" />
+            <Logo src={logo3} alt="logo3" />
+            <Logo src={logo4} alt="logo4" />
+            <Logo src={logo5} alt="logo5" />
+          </LogoContainer>
         </Col>
       </Row>
       <Row height={'100px'}>
