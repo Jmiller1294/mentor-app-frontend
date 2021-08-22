@@ -12,10 +12,8 @@ const ListItem = styled.li`
   padding-bottom: 30px;
 `
 const AvatarImage = styled.img`
-  display: flex;
-  float: left;
-  height: 100px;
-  width: 5%;
+  height: 50%;
+  flex-basis: 7%;
   border-radius: 50px;
   margin-right: 30px;
 `

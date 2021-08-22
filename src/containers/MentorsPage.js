@@ -61,7 +61,7 @@ const MentorsPage = () => {
     </Grid>
   )}
   else {
-    return <h3>"...Loading"</h3>
+    return <h3>...Loading</h3>
   }
 }
 export default MentorsPage;

@@ -22,6 +22,15 @@ const EventItem = styled.li`
   box-shadow: 5px 10px 18px #888888;
   margin: 5px;
 `
+const SidebarContainer = styled.div`
+  display: flex;
+  position: fixed;
+  height: 900px;
+  width: 20%;
+  flex-direction: column;
+  background-color: gray;
+  padding: 15px;
+`
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -37,8 +46,10 @@ const EventsPage = () => {
     <Grid>
       <Row>
         <Col size={1}>
-          <h2 style={{borderBottom: 'black 2px solid', paddingBottom: '10px'}}>Filters</h2>
-          <Sidebar />
+          <SidebarContainer>
+            <h2 style={{ marginTop: '20px', borderBottom: 'black 2px solid', paddingBottom: '10px'}}>Filters</h2>
+            <Sidebar />
+          </SidebarContainer>
         </Col>
         <Col size={3} direction={'column'} justify={'center'}>
           <EventSearchBar />

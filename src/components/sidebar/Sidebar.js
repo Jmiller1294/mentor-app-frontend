@@ -20,7 +20,7 @@ const data = [
 const AccordionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 17%;
   width: 100%;
 ` 
 const Sidebar = () => {
