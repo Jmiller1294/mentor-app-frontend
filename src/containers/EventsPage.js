@@ -12,6 +12,7 @@ const EventList = styled.ul`
 `
 const EventItem = styled.li`
   display: flex;
+  flex-direction: column;
   height: 220px;
   width: 70%;
   padding: 10px;

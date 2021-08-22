@@ -1,12 +1,15 @@
 import React from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const AddButton = styled.button`
   background-color: orange;
   height: 40px;
-  width: 65px;
+  width: 100px;
+  border-radius: 25px;
+  align-self: flex-end;
 `
+
 
 const Event = ({ event }) => {
   const user = useSelector(state => state.currentUser);
@@ -29,15 +32,17 @@ const Event = ({ event }) => {
   }
 
   return(
-    <div>
-      <h3>{event.name}</h3><br></br>
-      {event.date}<br></br>
-      {event.time}<br></br>
-      {event.location}<br></br>
-      {event.description}<br></br>
-      {event.likes} likes<br></br>
+    <>
+      <h3>{event.name}</h3>
+      <span style={{color: 'orange'}}>
+        {event.date} at {event.time}
+      </span>
+      <span></span>
+      <span>Location: {event.location}</span>
+      <span>Description: {event.description}</span>
+      <span>{event.likes} Likes</span>
       {user ? <AddButton onClick={() => handleClick()}>Add Event</AddButton> : null}
-    </div>
+    </>
   )
 }
 export default Event;
