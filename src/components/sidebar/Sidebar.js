@@ -1,37 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import Accordian from './Accordian';
+import Accordion from './Accordion';
 
-const AccordianContainer = styled.div`
+const data = [
+  {
+    title: "Date",
+    names: [ "August - October","November - January", "Feburary - April", "May - July" ]
+  },
+  {
+    title: "Time",
+    names: [ "7am - 11pm","12pm - 4pm", "5pm - 9pm", "10pm - 1am"]
+  },
+  {
+    title: "Location",
+    names: [ "New York","Los Angeles", "Atlanta", "Chicago"]
+  }
+]
+
+const AccordionContainer = styled.div`
   height: auto;
   width: 100%;
   background-color: orange;
   padding: 20px;
 ` 
-
 const Sidebar = () => {
-  const data = [
-    {
-      title: "Date",
-      names: [ "August - October","November - January"]
-    },
-    {
-      title: "Time",
-      names: [ "7am - 11pm","12pm - 4pm", "5pm - 9pm"]
-    },
-    {
-      title: "Location",
-      names: [ "New York","Los Angeles", "Atlanta", "Chicago"]
-    }
-    
-  ]
+  
   return(
     <>
-      <AccordianContainer className="accordion">
+      <AccordionContainer className="accordion">
         {data.map(({ index, title, names }) => (
-          <Accordian key={index} title={title} names={names} />
+          <Accordion key={index} title={title} names={names} />
         ))}
-      </AccordianContainer>
+      </AccordionContainer>
     </>
   )
 }

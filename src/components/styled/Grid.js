@@ -15,5 +15,6 @@ export const Col = styled.div`
   flex-direction: ${ (props) => props.direction};
   flex-wrap: ${ (props) => props.wrap};
   flex: ${ (props) => props.size};
+  align-items: ${ (props) => props.align};
   height: 100%;
 `

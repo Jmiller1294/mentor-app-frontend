@@ -44,22 +44,27 @@ const Logo = styled.img`
   margin: 0 35px 0 35px;
 `
 const List = styled.ul`
- list-style: none;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  
 `
 const TestimonialItem = styled.li`
-  float: left;
-  height: 200px;
+  align-items: center;
+  text-align: center;
+  height: auto;
   width: 32%;
-  padding-left: 80px;
-  padding-right: 80px;
-  margin-bottom: 40px;
   margin: 5px;
 `
-const ListItem = styled.li`
+const CityItem = styled.li`
   float: left;
-  height: 200px;
+  height: 300px;
   width: 15%;
-  margin: 40px;
+  margin: 25px;
 `
 const Avatar = styled.img`
   display: block;
@@ -68,19 +73,15 @@ const Avatar = styled.img`
   border-radius: 50px;
   margin-bottom: 20px;
 `
-const CityCard = styled.div`
-  height: 300px;
-  width: 250px;
-`
 const CardImage = styled.img`
   width: 100%;
   height: 50%;
 `
 const CardDesc = styled.p`
-  display: block;
+  
 `
 const Footer = styled.ul`
-  list-style: none;
+  
   float: left;
 `
 const FooterIcon = styled.img`
@@ -109,7 +110,7 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row padding={'0 40px 0 40px'} height={'auto'} background={'#f8f7f2'}>
-        <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'}>
+        <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'} align={'center'}>
           <Card>
             <CardAvatar src={Pic1} />
             <CardDescription>
@@ -136,12 +137,12 @@ const HomePage = () => {
           </Card>
         </Col>
       </Row>
-      <Row height={'100px'} padding={'20px 40px 45px 20px'}>
-        <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'}>
+      <Row height={'auto'} padding={'20px 40px 45px 20px'}>
+        <Col size={1} justify={'center'} wrap={'wrap'} direction={'row'} align={'center'}>
           <Featured>AS FEATURED IN</Featured>
         </Col>
       </Row>
-      <Row height={'200px'} padding={'0 40px 0 40px'}>
+      <Row height={'auto'} padding={'0 40px 0 40px'}>
         <Col size={2} justify={'center'} wrap={'wrap'} direction={'row'}>
           <Logo src={logo1} alt="logo1" />
           <Logo src={logo2} alt="logo2" />
@@ -156,7 +157,7 @@ const HomePage = () => {
         </Col>
       </Row>
       <Row height={'auto'}>
-        <Col size={1} justify={'space-between'} direction={'row'} wrap={'wrap'}>
+        <Col size={1}>
           <List>
             <TestimonialItem>
               <Avatar alt="avatar1" />  
@@ -209,6 +210,7 @@ const HomePage = () => {
             </TestimonialItem>
             <TestimonialItem>
               <Avatar  alt="avatar6" />
+              <CardDesc>
               Mentors are an important part of 
               become a career professional. Thats why
               I joined. I dont regret taking the step 
@@ -216,15 +218,15 @@ const HomePage = () => {
               <br></br>
               <br></br>
               -Felix Conway
+              </CardDesc>
             </TestimonialItem>
           </List>
         </Col>
       </Row>
-      <Row height={'420px'} background={'#f8f7f2'} padding={'40px 40px 0 40px'}>
-        <Col size={1} wrap={'wrap'} justify={'center'}>
+      <Row height={'auto'} background={'#f8f7f2'} >
+        <Col size={1} wrap={'wrap'} justify={'center'} align={'center'} direction={'row'}>
           <List>
-            <ListItem>
-              <CityCard>
+            <CityItem>
                 <CardImage src={cityImg1}></CardImage>
                 New York
                 <CardDesc>
@@ -235,10 +237,8 @@ const HomePage = () => {
                   fsdfdsfdsfsdfsdfsdfds
                   sdfsdfsdfsdfsdfsdfdfsfds
                 </CardDesc>
-              </CityCard>
-            </ListItem>
-            <ListItem>
-              <CityCard>
+            </CityItem>
+            <CityItem>
                 <CardImage src={cityImg5}></CardImage>
                 Los Angeles
                 <CardDesc>
@@ -249,10 +249,8 @@ const HomePage = () => {
                   fsdfdsfdsfsdfsdfsdfds
                   sdfsdfsdfsdfsdfsdfdfsfds
                 </CardDesc>
-              </CityCard>
-            </ListItem>
-            <ListItem>
-              <CityCard>
+            </CityItem>
+            <CityItem>
                 <CardImage src={cityImg3}></CardImage>
                 Chicago
                 <CardDesc>
@@ -263,10 +261,8 @@ const HomePage = () => {
                   fsdfdsfdsfsdfsdfsdfds
                   sdfsdfsdfsdfsdfsdfdfsfds
                 </CardDesc>
-              </CityCard>
-            </ListItem>
-            <ListItem>
-              <CityCard>
+            </CityItem>
+            <CityItem>
                 <CardImage src={cityImg2}></CardImage>
                 Houston
                 <CardDesc>
@@ -277,10 +273,8 @@ const HomePage = () => {
                   fsdfdsfdsfsdfsdfsdfds
                   sdfsdfsdfsdfsdfsdfdfsfds
                 </CardDesc>
-              </CityCard>
-            </ListItem>
-            <ListItem>
-              <CityCard>
+            </CityItem>
+            <CityItem>
                 <CardImage src={cityImg4}></CardImage>
                 Atlanta
                 <CardDesc>
@@ -291,8 +285,7 @@ const HomePage = () => {
                   fsdfdsfdsfsdfsdfsdfds
                   sdfsdfsdfsdfsdfsdfdfsfds
                 </CardDesc>
-              </CityCard>
-            </ListItem>
+            </CityItem>
           </List>
         </Col>
       </Row>

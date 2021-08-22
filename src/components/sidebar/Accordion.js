@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const AccordianItem = styled.div`
+const AccordionItem = styled.div`
   height: 33%;
   width: 100%;
 ` 
-const Accordian = ({title, names}) => {
+const Accordion = ({title, names}) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <AccordianItem className="accordion-item">
-        <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
+    <AccordionItem>
+        <div onClick={() => setIsActive(!isActive)}>
           <h2>{title}</h2>
           <span>{isActive ? '-' : '+'}</span>
         </div>
@@ -24,7 +24,7 @@ const Accordian = ({title, names}) => {
           )}
         </form>
       </div>}
-    </AccordianItem>
+    </AccordionItem>
   )
 }
-export default Accordian;
+export default Accordion;
