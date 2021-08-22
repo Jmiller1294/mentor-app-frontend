@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAtendees, getBooking } from '../actions/userActions';
+import { getEvents, getMentors } from '../actions/userActions';
 
 const AccountPage = () => {
   const userInfo = useSelector(state => state.currentUser);
   const mentors = useSelector(state => state.mentors);
+  const events = useSelector(state => state.events)
   const dispatch = useDispatch();
 
   useEffect(() => {
     console.log(userInfo.user_id)
-    dispatch(getBooking(userInfo.id));
-    dispatch(getAtendees())
+    dispatch(getMentors(userInfo.id));
+    dispatch(getEvents(userInfo.id))
   }, [])
 
   return(
@@ -33,7 +34,10 @@ const AccountPage = () => {
       </div>
       <div>
         <h2>Events</h2>
-        
+        {events.map(event => 
+          <h4 key={event.id}>
+            {event.event.name}
+          </h4>)}
       </div>
     </>
     : null

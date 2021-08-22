@@ -79,30 +79,29 @@ export const finishLogout = () => ({
   type: "LOGOUT"
 })
 
-export const getBooking = (userId) => {
+export const getMentors = (userId) => {
   return(dispatch) => {
     console.log('inside')
     fetch(`http://localhost:3001/users/${userId}/bookings`)
     .then(resp => resp.json())
-    .then(data => dispatch(setUserMentors(data)))
+    .then(data => dispatch(setMentors(data)))
   }
 }
 
-export const setUserMentors = (data) => ({
+export const setMentors = (data) => ({
   type: "SET_MENTORS",
   payload: data
 })
 
-
-export const getAtendees = (userId) => {
+export const getEvents = (userId) => {
   return(dispatch) => {
     fetch(`http://localhost:3001/users/${userId}/attendances`)
     .then(resp => resp.json())
-    .then(events => dispatch(setAttendees(events)))
+    .then(events => dispatch(setEvents(events)))
   }
 }
 
-export const setAttendees = (events) => ({
+export const setEvents = (events) => ({
   type: 'SET_ATTENDEES',
   payload: events
 })
