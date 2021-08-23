@@ -13,15 +13,6 @@ const EventList = styled.ul`
   margin-bottom: 30px;
   padding: 0;
 `
-const EventItem = styled.li`
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  width: 80%;
-  padding: 15px;
-  box-shadow: 5px 10px 18px #888888;
-  margin: 5px;
-`
 const SidebarContainer = styled.div`
   display: flex;
   position: fixed;
@@ -34,6 +25,7 @@ const SidebarContainer = styled.div`
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:3001/events')
@@ -41,6 +33,14 @@ const EventsPage = () => {
     .then(data => setEvents(data))
     .catch((error) => console.error('Error:', error))
   }, [])
+
+  const handleChildClick = (term) => {
+    setSearchTerm(term);
+  }
+
+  let filteredItems = (events.filter(event => {
+    return event.name.toLowerCase().includes(searchTerm.toLowerCase()) 
+  }))
 
   return (
     <Grid>
@@ -52,16 +52,14 @@ const EventsPage = () => {
           </SidebarContainer>
         </Col>
         <Col size={3} direction={'column'} justify={'center'}>
-          <EventSearchBar />
+          <EventSearchBar onChildClick={(term) => handleChildClick(term)}/>
           <EventList>
-            {events.map(event => 
-              <EventItem key={event.id}>
-                <Event event={event}></Event>
-              </EventItem>
+            {filteredItems.map(event => 
+              <Event key={event.id} event={event}/> 
             )}
           </EventList>
         </Col>
-        <Col size={1}>
+        <Col size={2}>
           
         </Col>
       </Row>

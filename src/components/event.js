@@ -9,6 +9,15 @@ const AddButton = styled.button`
   border-radius: 25px;
   align-self: flex-end;
 `
+const EventsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 80%;
+  padding: 15px;
+  box-shadow: 5px 10px 18px #888888;
+  margin: 5px;
+`
 
 const Event = ({ event }) => {
   const user = useSelector(state => state.currentUser);
@@ -31,7 +40,7 @@ const Event = ({ event }) => {
   }
 
   return(
-    <>
+    <EventsContainer>
       <h3>{event.name}</h3>
       <span style={{color: 'orange'}}>
         {event.date} at {event.time}
@@ -41,7 +50,7 @@ const Event = ({ event }) => {
       <span>Description: {event.description}</span>
       <span>{event.likes} Likes</span>
       {user ? <AddButton onClick={() => handleClick()}>Add Event</AddButton> : null}
-    </>
+    </EventsContainer>
   )
 }
 export default Event;

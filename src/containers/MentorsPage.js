@@ -31,7 +31,6 @@ const MentorsPage = () => {
   }
 
   let filteredItems = (mentors.filter(mentor => {
-    console.log(mentor.field)
     return mentor.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.city.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.title.toLowerCase().includes(searchTerm.toLowerCase()) 

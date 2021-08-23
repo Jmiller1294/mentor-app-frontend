@@ -14,7 +14,7 @@ const ListItem = styled.li`
 const AvatarImage = styled.img`
   height: 50%;
   flex-basis: 7%;
-  border-radius: 50px;
+  border-radius: 50%;
   margin-right: 30px;
 `
 const Header = styled.h2`
@@ -29,6 +29,8 @@ const InfoContainer = styled.div`
   line-height: 1.5;
 `
 const AddButton = styled.button`
+  background-color: orange;
+  border-radius: 20px;
   height: 25px;
   width: 120px;
 `
