@@ -53,7 +53,7 @@ const EventsPage = () => {
                   'August', 'September', 'October', 
                   'November', 'December'
                 ];
-     
+  
     return months[num];
   }
 

@@ -17,11 +17,11 @@ import cityImg2 from '../assets/houston.jpg';
 import cityImg3 from '../assets/chicago.jpg';
 import cityImg4 from '../assets/atlanta.jpg';
 import cityImg5 from '../assets/losAngeles.jpg';
-import icon1 from '../assets/instagram.png';
-import icon2 from '../assets/linkedIn.png';
-import icon3 from '../assets/twitter.png';
-import icon4 from '../assets/youtube.png';
-import icon5 from '../assets/github.png';
+import instagram from '../assets/instagram.png';
+import linkedIn from '../assets/linkedIn.png';
+import twitter from '../assets/twitter.png';
+import youtube from '../assets/youtube.png';
+import github from '../assets/github.png';
 
 
 
@@ -321,11 +321,11 @@ const HomePage = () => {
         <Row background={'#f8f7f2'}>
           <Col size={1}>
             <Footer>
-              <FooterIcon src={icon1}/>
-              <FooterIcon src={icon2}/>
-              <FooterIcon src={icon3}/>
-              <FooterIcon src={icon4}/>
-              <FooterIcon src={icon5}/>
+              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" ><FooterIcon src={instagram}/></a>
+              <a href="https://www.linkedin.com/in/justinmiller92/" target="_blank" rel="noreferrer" ><FooterIcon src={linkedIn}/></a>
+              <a href="https://twitter.com/" target="_blank" rel="noreferrer"><FooterIcon src={twitter}/></a>
+              <a href="https://www.youtube.com/channel/UCQeSn6i6siaUjXyctSDA3Mw" target="_blank" rel="noreferrer"><FooterIcon src={youtube}/></a>
+              <a href="https://github.com/Jmiller1294/mentor-app-frontend" target="_blank" rel="noreferrer"><FooterIcon src={github}/></a>
             </Footer>
           </Col>
         </Row>
