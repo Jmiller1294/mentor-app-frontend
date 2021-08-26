@@ -47,21 +47,24 @@ const EventsPage = () => {
     setSearchTerm(data);
   }
 
-  const getDate = () => {
+  const getMonthName = (num) => {
     let months = [ 'January', 'February', 'March', 
                   'April', 'May', 'June', 'July', 
                   'August', 'September', 'October', 
                   'November', 'December'
                 ];
-    let month = months[new Date().getMonth()]; 
-    return month;
+     
+    return months[num];
   }
 
   let filteredItems = (events.filter(event => {
     return event.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     || event.location.toLowerCase().includes(searchTerm.toLowerCase())
     || event.date.toLowerCase().includes(searchTerm.toLowerCase())
-    
+    || event.date.toLowerCase().includes(searchTerm === "This Month" ? 
+      getMonthName(new Date().getMonth()).slice(0, 3).toLowerCase() : null)
+    || event.date.toLowerCase().includes(searchTerm === "Next Month" ? 
+      getMonthName(new Date().getMonth() + 1).slice(0, 3).toLowerCase() : null)
   }))
 
   return (
