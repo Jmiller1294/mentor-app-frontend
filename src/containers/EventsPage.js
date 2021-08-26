@@ -22,6 +22,11 @@ const SidebarContainer = styled.div`
   background-color: gray;
   padding: 15px;
 `
+const SidebarHeader = styled.h2`
+  margin-top: 20px; 
+  border-bottom: black 2px solid; 
+  padding-bottom: 10px;
+`
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -47,21 +52,22 @@ const EventsPage = () => {
       <Row>
         <Col size={1}>
           <SidebarContainer>
-            <h2 style={{ marginTop: '20px', borderBottom: 'black 2px solid', paddingBottom: '10px'}}>Filters</h2>
+            <SidebarHeader>Filters</SidebarHeader>
             <Sidebar />
           </SidebarContainer>
         </Col>
-        <Col size={3} direction={'column'} justify={'center'}>
+        <Col size={3}>
           <EventSearchBar onChildClick={(term) => handleChildClick(term)}/>
           <EventList>
             {filteredItems.map(event => 
-              <Event key={event.id} event={event}/> 
+              <Event 
+                key={event.id} 
+                event={event}
+              /> 
             )}
           </EventList>
         </Col>
-        <Col size={2}>
-          
-        </Col>
+        <Col size={2} />
       </Row>
     </Grid>
   )

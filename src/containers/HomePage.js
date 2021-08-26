@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {Grid, Row, Col }from '../components/styled/Grid';
 import { BackgroundImage }from '../components/styled/BackgroundImage';
@@ -125,6 +125,14 @@ const FooterIcon = styled.img`
 
 
 const HomePage = () => {
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/mentors')
+    .then(resp => resp.json())
+    .then(data => setTestimonials(data))
+    .catch((error) => console.error('Error:', error))
+  },[])
 
   return (
     <Grid>

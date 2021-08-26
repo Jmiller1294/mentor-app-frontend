@@ -23,11 +23,6 @@ const EventsSearchBar = ({ onChildClick }) => {
   const handleChange = (event) => {
     setTerm(event.target.value)
   }
-  
-  const handleClick = (event) => {
-    event.preventDefault();
-    onChildClick(term)
-  }
 
   const handleKeyPress = (event) => {
     if(event.key === 'Enter') {
@@ -37,7 +32,7 @@ const EventsSearchBar = ({ onChildClick }) => {
   }
 
   return (
-    <SearchForm >
+    <SearchForm>
       <SearchInput 
         type="text"
         value={term}
