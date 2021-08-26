@@ -201,56 +201,56 @@ const HomePage = () => {
         <Col size={1}>
           <List>
             <TestimonialItem>
-              <Avatar alt="avatar1" />  
+              <Avatar src={testimonials[0].avatar} alt="avatar1" />  
               Mentors changed my life without
               this program I dont Know where 
               I would be. This website helped 
               get on the right track.
               <br></br>
               <br></br>
-              - John Smith
+              -{testimonials[0].name}
             </TestimonialItem>
             <TestimonialItem>
-              <Avatar  alt="avatar2" />
+              <Avatar  src={testimonials[1].avatar} alt="avatar2" />
               Mentors.com is a great website. This
               is an easy way to get paired up 
               with mentors an jumpstart your career.
               You will not regret making the decision.
               <br></br>
               <br></br>
-              -Alex Miller
+              -{testimonials[1].name}
             </TestimonialItem>
             <TestimonialItem>
-              <Avatar  alt="avatar3" />
+              <Avatar  src={testimonials[2].avatar} alt="avatar3" />
               This website is essential for finding 
               finding something in your field. Being able to 
               talk to people who have proven experience.
               <br></br>
               <br></br>
-              -Dustin Wilson
+              -{testimonials[2].name}
             </TestimonialItem>
             <TestimonialItem>
-              <Avatar  alt="avatar4" />
+              <Avatar src={testimonials[3].avatar} alt="avatar4" />
               The events that mentors.com hosts are 
               great ways to network and meet people.
               I waas able to connect with a mentor and land
               my dream job!
               <br></br>
               <br></br>
-              -Max Filmore
+              -{testimonials[3].name}
             </TestimonialItem>
             <TestimonialItem>
-              <Avatar  alt="avatar5" />
+              <Avatar  src={testimonials[4].avatar} alt="avatar5" />
               After graduating college I was lost 
               and I needed some guidance. Mentor.com
               helped me find a mentor and start to 
               get the advice I needed to get a job.
               <br></br>
               <br></br>
-              -Kyle Perez
+              -{testimonials[4].name}
             </TestimonialItem>
             <TestimonialItem>
-              <Avatar  alt="avatar6" />
+              <Avatar  src={testimonials[5].avatar} alt="avatar6" />
               <CardDesc>
               Mentors are an important part of 
               become a career professional. Thats why
@@ -258,7 +258,7 @@ const HomePage = () => {
               and connecting.
               <br></br>
               <br></br>
-              -Felix Conway
+              -{testimonials[5].name}
               </CardDesc>
             </TestimonialItem>
           </List>
