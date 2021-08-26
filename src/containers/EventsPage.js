@@ -43,8 +43,25 @@ const EventsPage = () => {
     setSearchTerm(term);
   }
 
+  const handleChild = (data) => {
+    setSearchTerm(data);
+  }
+
+  const getDate = () => {
+    let months = [ 'January', 'February', 'March', 
+                  'April', 'May', 'June', 'July', 
+                  'August', 'September', 'October', 
+                  'November', 'December'
+                ];
+    let month = months[new Date().getMonth()]; 
+    return month;
+  }
+
   let filteredItems = (events.filter(event => {
     return event.name.toLowerCase().includes(searchTerm.toLowerCase()) 
+    || event.location.toLowerCase().includes(searchTerm.toLowerCase())
+    || event.date.toLowerCase().includes(searchTerm.toLowerCase())
+    
   }))
 
   return (
@@ -53,7 +70,7 @@ const EventsPage = () => {
         <Col size={1}>
           <SidebarContainer>
             <SidebarHeader>Filters</SidebarHeader>
-            <Sidebar />
+            <Sidebar onChildClick={(data) => handleChild(data)}/>
           </SidebarContainer>
         </Col>
         <Col size={3}>
