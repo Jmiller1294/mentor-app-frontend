@@ -32,9 +32,8 @@ const SidebarHeader = styled.h2`
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [date, setDate] = useState('');
-  const [location, setLocation] = useState('');
-  const [time, setTime] = useState('');
+  const date = useSelector(state => state.date)
+  const location = useSelector(state => state.location);
 
   useEffect(() => {
     fetch('http://localhost:3001/events')
@@ -67,13 +66,24 @@ const EventsPage = () => {
   }
 
   let filteredItems = (events.filter(event => {
-    return event.name.toLowerCase().includes(searchTerm.toLowerCase()) 
-    || event.location.toLowerCase().includes(searchTerm.toLowerCase())
-    || event.date.toLowerCase().includes(searchTerm.toLowerCase())
+    let item;
+    if(date === "This Month") {
+      item = getMonthName(new Date().getMonth()).slice(0, 3).toLowerCase();
+    }
+    else if(date === "Next Month"){
+      item = getMonthName(new Date().getMonth() + 1).slice(0, 3).toLowerCase();
+    }
+    else {
+      item = date;
+    }
+    
+    return (event.date.toLowerCase().includes(item.toLowerCase()) && event.location.toLowerCase().includes(location.toLowerCase()))
+    /* || event.location.toLowerCase().includes(searchTerm.toLowerCase())
+    
     || event.date.toLowerCase().includes(searchTerm === "This Month" ? 
-      getMonthName(new Date().getMonth()).slice(0, 3).toLowerCase() : null)
+       : null)
     || event.date.toLowerCase().includes(searchTerm === "Next Month" ? 
-      getMonthName(new Date().getMonth() + 1).slice(0, 3).toLowerCase() : null)
+      getMonthName(new Date().getMonth() + 1).slice(0, 3).toLowerCase() : null) */
   }))
 
   return (

@@ -18,7 +18,7 @@ const Accordion = ({title, names, onChildClick }) => {
   const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
 
-  const handleClick = (event) => {
+  const handleChange = (event) => {
     if(event.target.value === "Today"
       || event.target.value === "Tomorrow" 
       || event.target.value === "This Month"
@@ -53,7 +53,7 @@ const Accordion = ({title, names, onChildClick }) => {
         <Categories>
           {names.map((name, index) => 
             <div key={index}>
-              <input onClick={(e) => handleClick(e)} type="radio" id="name" name="value" value={name} />
+              <input onChange={(e) => handleChange(e)} type="radio" id="name" name="value" value={name} />
               <label htmlFor='name'>{name}</label>
             </div>
           )}
