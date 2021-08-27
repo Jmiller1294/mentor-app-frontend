@@ -5,10 +5,6 @@ import EventSearchBar from '../components/EventsSearchBar';
 import Sidebar from '../components/sidebar/Sidebar';
 import { Grid, Row, Col }from '../components/styled/Grid';
 
-
-
-
-
 const EventList = styled.ul`
   display: flex;
   flex-direction: column;

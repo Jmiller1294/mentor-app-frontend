@@ -1,14 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-
-const EventContext = React.createContext({
-  date: '',
-  setDate: '',
-  location: '',
-  setLocation: '',
-  time: '',
-  setTime: ''
-})
 
 const AccordionItem = styled.div`
   height: 100%;
@@ -21,44 +12,33 @@ const Expand = styled.span`
 const Categories = styled.form`
   margin: 15px 0;
 `
-class Accordion extends React.Component {
-  
+const Accordion = ({title, names, onChildClick }) => {
+  const [isActive, setIsActive] = useState(false);
 
-  state = {
-    isActive: false
-  }
-  
-  handleChange = (event) => {
-    //onChildClick(event.target.value);
+  const handleChange = (event) => {
+    onChildClick(event.target.value);
   }
 
-  handleClick = (event) => {
-    //setIsActive(!isActive);
-    //onChildClick(isActive);
+  const handleClick = (event) => {
+    setIsActive(!isActive);
+    onChildClick(isActive);
   }
 
-  render() {
   return (
-    <EventContext.Consumer>
-      {({}) => (
     <AccordionItem >
-          <h2 onClick={() => this.setState(prevState => ({isActive: prevState.isActive}))} style={{display: 'inline', fontSize: '25px', marginRight: 'auto'}}>{this.props.title}</h2>
-          <Expand onClick={(e) => this.handleClick(e)} style={{ }}>{this.state.isActive ? '-' : '+'}</Expand>
-        {this.state.isActive && <div className="accordion-content">
+          <h2 onClick={() => setIsActive(!isActive)} style={{display: 'inline', fontSize: '25px', marginRight: 'auto'}}>{title}</h2>
+          <Expand onClick={(e) => handleClick(e)} style={{ }}>{isActive ? '-' : '+'}</Expand>
+        {isActive && <div className="accordion-content">
         <Categories>
-          {this.props.names.map((name, index) => 
+          {names.map((name, index) => 
             <div key={index}>
-              <input onChange={(e) => this.handleChange(e)} type="radio" id="name" name="value" value={name} />
+              <input onChange={(e) => handleChange(e)} type="radio" id="name" name="value" value={name} />
               <label htmlFor='name'>{name}</label>
             </div>
           )}
         </Categories>
       </div>}
     </AccordionItem>
-    )}
-    </EventContext.Consumer>
-    
   )
-  }
 }
 export default Accordion;

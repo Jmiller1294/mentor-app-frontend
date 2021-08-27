@@ -2,7 +2,10 @@ const INITIAL_STATE = {
   currentUser: null,
   loggedIn: false,
   mentors: [],
-  events: []
+  events: [],
+  date: '',
+  location: '',
+  time: ''
 }
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -40,6 +43,21 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         events: action.payload
+      }
+    case "SET_DATE":
+      return {
+        ...state,
+        date: action.payload
+      }
+    case "SET_LOCATION":
+      return {
+        ...state,
+        location: action.payload
+      }
+    case "SET_TIME":
+      return {
+        ...state,
+        time: action.payload
       }
     default: 
       return state;

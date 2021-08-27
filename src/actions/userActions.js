@@ -106,4 +106,17 @@ export const setEvents = (events) => ({
   payload: events
 })
 
+export const setDate = (date) => ({
+  type: 'SET_DATE',
+  payload: date
+})
 
+export const setLocation = (location) => ({
+  type: 'SET_LOCATION',
+  payload: location
+})
+
+export const setTime = (time) => ({
+  type: 'SET_DATE',
+  payload: time
+})
