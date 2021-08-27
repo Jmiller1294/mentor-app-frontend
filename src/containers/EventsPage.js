@@ -36,7 +36,7 @@ const EventsPage = () => {
   const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const date = useSelector(state => state.date);
-  const location = useSelector(state => state.date);
+  const location = useSelector(state => state.location);
   const dispatch = useDispatch();
 
   useEffect(() => {

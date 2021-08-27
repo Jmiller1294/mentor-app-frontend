@@ -25,29 +25,31 @@ const Accordion = ({title, names, onChildClick }) => {
   const date = useSelector(state => state.date);
 
   const handleClick = (event) => {
-    if(event.target.value === "Today"
-      || event.target.value === "Tomorrow" 
-      || event.target.value === "This Month"
-      || event.target.value === "Next Month") 
-    {
-      dispatch(setDate(event.target.value))
+    console.log(event.target.value);
+    switch(event.target.value) {
+      case "Today" : 
+      case "Tomorrow" :
+      case "This Month" :
+      case "Next Month" :
+        dispatch(setDate(event.target.value))
+        break;
+      case "Morning" :
+      case "Afternoon" : 
+      case "Evening" :
+        dispatch(setTime(event.target.value))
+        break;
+      case "New York" :
+      case "Los Angeles" :
+      case "Atlanta" :
+      case "Chicago" :
+        dispatch(setLocation(event.target.value))
+        break;
+      default:
+        console.log("not found")
     }
-    if(event.target.value === "Morning"
-      || event.target.value === "Afternoon" 
-      || event.target.value === "Evening")  
-    {
-      dispatch(setTime(event.target.value));
-    }
-    if(event.target.value === "New York"
-    || event.target.value === "Los Angeles" 
-    || event.target.value === "Atlanta"
-    || event.target.value === "Chicago") 
-    {
-      dispatch(setLocation(event.target.value));
-    }  
   }
 
-  const handleAccordion = (event) => {
+  const handleAccordion = () => {
     setIsActive(!isActive);
     onChildClick(isActive, title);
   }
@@ -56,9 +58,9 @@ const Accordion = ({title, names, onChildClick }) => {
       <Header onClick={() => setIsActive(!isActive)}>{title}</Header>
       <Expand 
         type={title} 
-        onClick={(title) => handleAccordion(title)}>{isActive ? '-' : '+'}
+        onClick={() => handleAccordion()}>{isActive ? '-' : '+'}
       </Expand>
-      {isActive ?
+      {isActive &&
         <Categories>
           {names.map((name, index) => 
             <div key={index}>
@@ -71,8 +73,7 @@ const Accordion = ({title, names, onChildClick }) => {
               <label htmlFor='name'>{name}</label>
             </div>
           )}
-        </Categories>
-      : null}
+        </Categories>}
     </AccordionItem>
   )
 }

@@ -33,8 +33,8 @@ const Sidebar = ({ onChildClick }) => {
             key={index} 
             title={title} 
             names={names} 
-            onChildClick={(isActive, data) => 
-            onChildClick(isActive, data)} 
+            onChildClick={(active, data) => 
+            onChildClick(active, data)} 
           />
         ))}
       </AccordionContainer>
