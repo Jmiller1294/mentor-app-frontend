@@ -7,6 +7,11 @@ const AccordionItem = styled.div`
   height: 100%;
   flex-basis: 100%;
 ` 
+const Header = styled.h2`
+  display: inline;
+  font-size: 25px;
+  margin-right: auto;
+`
 const Expand = styled.span`
   float: right;
   font-size: 25px;
@@ -48,18 +53,26 @@ const Accordion = ({title, names, onChildClick }) => {
   }
   return (
     <AccordionItem >
-          <h2 onClick={() => setIsActive(!isActive)} style={{display: 'inline', fontSize: '25px', marginRight: 'auto'}}>{title}</h2>
-          <Expand type={title} onClick={(title) => handleAccordion(title)} style={{ }}>{isActive ? '-' : '+'}</Expand>
-        {isActive && <div className="accordion-content">
+      <Header onClick={() => setIsActive(!isActive)}>{title}</Header>
+      <Expand 
+        type={title} 
+        onClick={(title) => handleAccordion(title)}>{isActive ? '-' : '+'}
+      </Expand>
+      {isActive ?
         <Categories>
           {names.map((name, index) => 
             <div key={index}>
-              <input onClick={(e) => handleClick(e)} type="radio" id="name" name="value" value={name} />
+              <input onClick={(e) => handleClick(e)} 
+                type="radio" 
+                id="name" 
+                name="value" 
+                value={name} 
+              />
               <label htmlFor='name'>{name}</label>
             </div>
           )}
         </Categories>
-      </div>}
+      : null}
     </AccordionItem>
   )
 }
