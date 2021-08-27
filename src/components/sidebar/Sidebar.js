@@ -29,7 +29,7 @@ const Sidebar = ({ onChildClick }) => {
     <>
       <AccordionContainer className="accordion">
         {data.map(({ title, names}, index) => (
-          <Accordion key={index} title={title} names={names} onChildClick={(data) => onChildClick(data)} />
+          <Accordion key={index} title={title} names={names} onChildClick={(data, isActive) => onChildClick(data, isActive)} />
         ))}
       </AccordionContainer>
     </>

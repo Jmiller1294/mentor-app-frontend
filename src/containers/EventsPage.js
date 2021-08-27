@@ -44,7 +44,12 @@ const EventsPage = () => {
   }
 
   const handleChild = (data) => {
-    setSearchTerm(data);
+    if(data === true) {
+      setSearchTerm("");
+    }
+    if(data !== true && data !== false){
+      setSearchTerm(data);
+    }
   }
 
   const getMonthName = (num) => {
@@ -57,6 +62,8 @@ const EventsPage = () => {
     return months[num];
   }
 
+  
+  
   let filteredItems = (events.filter(event => {
     return event.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     || event.location.toLowerCase().includes(searchTerm.toLowerCase())
@@ -73,7 +80,7 @@ const EventsPage = () => {
         <Col size={1}>
           <SidebarContainer>
             <SidebarHeader>Filters</SidebarHeader>
-            <Sidebar onChildClick={(data) => handleChild(data)}/>
+            <Sidebar onChildClick={(data, isActive) => handleChild(data, isActive)}/>
           </SidebarContainer>
         </Col>
         <Col size={3}>
