@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   events: [],
   date: '',
   location: '',
-  time: ''
+  time: '',
+  isActive: false
 }
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -59,6 +60,13 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         time: action.payload
       }
+    case "TOGGLE_ACTIVE":
+      console.log(state.isActive)
+      return {
+        ...state,
+        isActive: !state.isActive
+      }
+      
     default: 
       return state;
   }

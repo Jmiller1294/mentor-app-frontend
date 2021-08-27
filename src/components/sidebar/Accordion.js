@@ -17,13 +17,15 @@ const Categories = styled.form`
 const Accordion = ({title, names, onChildClick }) => {
   const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
+  const date = useSelector(state => state.date);
 
-  const handleChange = (event) => {
+  const handleClick = (event) => {
     if(event.target.value === "Today"
       || event.target.value === "Tomorrow" 
       || event.target.value === "This Month"
-      || event.target.value === "Next Month") {
-        dispatch(setDate(event.target.value))
+      || event.target.value === "Next Month") 
+    {
+      dispatch(setDate(event.target.value))
     }
     if(event.target.value === "Morning"
       || event.target.value === "Afternoon" 
@@ -42,18 +44,17 @@ const Accordion = ({title, names, onChildClick }) => {
 
   const handleAccordion = (event) => {
     setIsActive(!isActive);
-    onChildClick(isActive);
+    onChildClick(isActive, title);
   }
-
   return (
     <AccordionItem >
           <h2 onClick={() => setIsActive(!isActive)} style={{display: 'inline', fontSize: '25px', marginRight: 'auto'}}>{title}</h2>
-          <Expand onClick={(e) => handleAccordion(e)} style={{ }}>{isActive ? '-' : '+'}</Expand>
+          <Expand type={title} onClick={(title) => handleAccordion(title)} style={{ }}>{isActive ? '-' : '+'}</Expand>
         {isActive && <div className="accordion-content">
         <Categories>
           {names.map((name, index) => 
             <div key={index}>
-              <input onChange={(e) => handleChange(e)} type="radio" id="name" name="value" value={name} />
+              <input onClick={(e) => handleClick(e)} type="radio" id="name" name="value" value={name} />
               <label htmlFor='name'>{name}</label>
             </div>
           )}

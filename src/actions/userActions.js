@@ -117,6 +117,11 @@ export const setLocation = (location) => ({
 })
 
 export const setTime = (time) => ({
-  type: 'SET_DATE',
+  type: 'SET_TIME',
   payload: time
 })
+
+export const toggleActive = (time) => ({
+  type: 'TOGGLE_ACTIVE'
+})
+

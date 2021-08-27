@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setDate, setLocation, setTime } from '../actions/userActions';
 import styled from 'styled-components';
 import Event from '../components/event';
 import EventSearchBar from '../components/EventsSearchBar';
@@ -29,11 +30,14 @@ const SidebarHeader = styled.h2`
   padding-bottom: 10px;
 `
 
+
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
+  const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const date = useSelector(state => state.date)
-  const location = useSelector(state => state.location);
+  const date = useSelector(state => state.date);
+  const location = useSelector(state => state.date);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch('http://localhost:3001/events')
@@ -46,12 +50,12 @@ const EventsPage = () => {
     setSearchTerm(term);
   }
 
-  const handleChild = (data) => {
-    if(data === true) {
-      setSearchTerm("");
+  const handleCallback = (active, data) => {
+    if(active === true && data === "Date") {
+      dispatch(setDate(''));
     }
-    if(data !== true && data !== false){
-      setSearchTerm(data);
+    if(active === true && data === "Location") {
+      dispatch(setLocation(''));
     }
   }
 
@@ -61,29 +65,28 @@ const EventsPage = () => {
                   'August', 'September', 'October', 
                   'November', 'December'
                 ];
-  
+
     return months[num];
   }
 
   let filteredItems = (events.filter(event => {
-    let item;
+    let month;
     if(date === "This Month") {
-      item = getMonthName(new Date().getMonth()).slice(0, 3).toLowerCase();
+      month = getMonthName(new Date().getMonth()).slice(0, 3).toLowerCase();
     }
     else if(date === "Next Month"){
-      item = getMonthName(new Date().getMonth() + 1).slice(0, 3).toLowerCase();
+      month = getMonthName(new Date().getMonth() + 1).slice(0, 3).toLowerCase();
     }
     else {
-      item = date;
+      month = date;
     }
-    
-    return (event.date.toLowerCase().includes(item.toLowerCase()) && event.location.toLowerCase().includes(location.toLowerCase()))
-    /* || event.location.toLowerCase().includes(searchTerm.toLowerCase())
-    
-    || event.date.toLowerCase().includes(searchTerm === "This Month" ? 
-       : null)
-    || event.date.toLowerCase().includes(searchTerm === "Next Month" ? 
-      getMonthName(new Date().getMonth() + 1).slice(0, 3).toLowerCase() : null) */
+    return (event.date.toLowerCase().includes(month.toLowerCase()) 
+    && event.location.toLowerCase().includes(location.toLowerCase()))
+  }))
+
+  let filteredByTerm = (events.filter(event => {
+    return event.name.toLowerCase().includes(searchTerm.toLowerCase())
+    || event.location.toLowerCase().includes(searchTerm.toLowerCase())
   }))
 
   return (
@@ -92,18 +95,27 @@ const EventsPage = () => {
         <Col size={1}>
           <SidebarContainer>
             <SidebarHeader>Filters</SidebarHeader>
-            <Sidebar onChildClick={(data, isActive) => handleChild(data, isActive)}/>
+            <Sidebar onChildClick={(active, data) => handleCallback(active, data)} />
           </SidebarContainer>
         </Col>
         <Col size={3}>
           <EventSearchBar onChildClick={(term) => handleChildClick(term)}/>
           <EventList>
-            {filteredItems.map(event => 
+          {searchTerm !== '' ?
+            filteredByTerm.map(event => 
               <Event 
                 key={event.id} 
                 event={event}
               /> 
-            )}
+            )
+          : 
+          filteredItems.map(event => 
+              <Event 
+                key={event.id} 
+                event={event}
+              /> 
+            )
+          }
           </EventList>
         </Col>
         <Col size={2} />
