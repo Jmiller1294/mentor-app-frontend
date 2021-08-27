@@ -1,4 +1,5 @@
-import React, { useEffect, useState,useContext } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Event from '../components/event';
 import EventSearchBar from '../components/EventsSearchBar';
