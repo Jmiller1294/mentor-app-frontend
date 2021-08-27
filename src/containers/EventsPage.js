@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import styled from 'styled-components';
 import Event from '../components/event';
 import EventSearchBar from '../components/EventsSearchBar';
 import Sidebar from '../components/sidebar/Sidebar';
 import { Grid, Row, Col }from '../components/styled/Grid';
+
+
+
+
 
 const EventList = styled.ul`
   display: flex;
@@ -31,6 +35,9 @@ const SidebarHeader = styled.h2`
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [date, setDate] = useState('');
+  const [location, setLocation] = useState('');
+  const [time, setTime] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:3001/events')
@@ -62,8 +69,6 @@ const EventsPage = () => {
     return months[num];
   }
 
-  
-  
   let filteredItems = (events.filter(event => {
     return event.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     || event.location.toLowerCase().includes(searchTerm.toLowerCase())
