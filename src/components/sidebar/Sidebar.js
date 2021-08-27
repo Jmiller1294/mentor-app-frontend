@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Accordion from './Accordion';
 
@@ -29,7 +29,13 @@ const Sidebar = ({ onChildClick }) => {
     <>
       <AccordionContainer className="accordion">
         {data.map(({ title, names}, index) => (
-          <Accordion key={index} title={title} names={names} onChildClick={(isActive, data) => onChildClick(isActive, data)} />
+          <Accordion 
+            key={index} 
+            title={title} 
+            names={names} 
+            onChildClick={(isActive, data) => 
+            onChildClick(isActive, data)} 
+          />
         ))}
       </AccordionContainer>
     </>
