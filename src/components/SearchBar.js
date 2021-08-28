@@ -1,48 +1,47 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const SearchContainer = styled.div`
+
+const SearchForm = styled.form`
   margin: 20px;
+  margin: 50px;
   display: flex;
   justify-content: center;
-  height: 35px;
+  height: 55px;
 `
 const SearchInput = styled.input`
-  width: 15%;
-  height: 30px;
-`
-const SearchButton = styled.button`
-  height: 30px;
+  width: 60%;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  border-bottom: 2px solid;
 `
 
-const SearchBar = ({ onChildClick }) => {
+const SearchBar = ({ onChildClick, text }) => {
   const[term, setTerm] = useState('');
   
-  const handleClick = (event) => {
-    event.preventDefault();
-    onChildClick(term)
-  }
-
   const handleChange = (event) => {
     setTerm(event.target.value);
   }
 
   const handleKeyPress = (event) => {
     if(event.key === 'Enter') {
+      event.preventDefault();
       onChildClick(term)
     }
   }
 
   return (
-    <SearchContainer>
+    <SearchForm>
       <SearchInput 
+        type='text'
         value={term}
         onChange={(e) => handleChange(e)}
         onKeyPress={(e) => handleKeyPress(e)}
-        placeholder="Search by Mentor, City, or Industry" 
+        placeholder={text} 
       />
-      <SearchButton onClick={(e) => handleClick(e)}>Search</SearchButton>
-    </SearchContainer>
+    </SearchForm>
   )
 }
 export default SearchBar

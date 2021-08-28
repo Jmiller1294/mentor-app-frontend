@@ -41,7 +41,10 @@ const MentorsPage = () => {
     <Grid>
       <Row>
         <Col size={1}>
-          <SearchBar onChildClick={(term) => handleChildClick(term)} />
+          <SearchBar 
+            onChildClick={(term) => handleChildClick(term)} 
+            text="Search by Mentor, City, or Industry"
+          />
         </Col>
       </Row>
       <Row>

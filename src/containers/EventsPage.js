@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setDate, setLocation, setTime } from '../actions/userActions';
 import styled from 'styled-components';
 import Event from '../components/event';
-import EventSearchBar from '../components/EventsSearchBar';
+import SearchBar from '../components/SearchBar';
 import Sidebar from '../components/sidebar/Sidebar';
 import { Grid, Row, Col }from '../components/styled/Grid';
 
@@ -37,6 +37,7 @@ const EventsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const date = useSelector(state => state.date);
   const location = useSelector(state => state.location);
+  const time = useSelector(state => state.time);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -57,6 +58,9 @@ const EventsPage = () => {
     if(active === true && data === "Location") {
       dispatch(setLocation(''));
     }
+    if(active === true && data === "Time") {
+      dispatch(setTime(''));
+    }
   }
 
   const getMonthName = (num) => {
@@ -69,8 +73,19 @@ const EventsPage = () => {
     return months[num];
   }
 
+  const getTime = (string) => {
+    let time = parseInt(string.replace(/[^0-9]/g, ''));
+    if(t < 1200 && string.includes("PM")) {
+      time += 1200;
+    }
+    return time;
+  }
+
   let filteredItems = (events.filter(event => {
+    console.log(getTime(event.time));
     let month;
+    let day;
+    
     if(date === "This Month") {
       month = getMonthName(new Date().getMonth()).slice(0, 3).toLowerCase();
     }
@@ -99,7 +114,10 @@ const EventsPage = () => {
           </SidebarContainer>
         </Col>
         <Col size={3}>
-          <EventSearchBar onChildClick={(term) => handleChildClick(term)}/>
+          <SearchBar 
+            onChildClick={(term) => handleChildClick(term)} 
+            text="Search Events"
+          />
           <EventList>
           {searchTerm !== '' ?
             filteredByTerm.map(event => 
