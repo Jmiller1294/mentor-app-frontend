@@ -30,7 +30,6 @@ const SidebarHeader = styled.h2`
   padding-bottom: 10px;
 `
 
-
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
   const [isActive, setIsActive] = useState(false);
@@ -73,19 +72,28 @@ const EventsPage = () => {
     return months[num];
   }
 
-  const getTime = (string) => {
+  const TimeOfDay = (string) => {
     let time = parseInt(string.replace(/[^0-9]/g, ''));
-    if(t < 1200 && string.includes("PM")) {
+    let timeOfDay;
+
+    if(time < 1200 && string.includes("PM")) {
       time += 1200;
     }
-    return time;
+    
+    if(time > 600 && time < 1200) {
+      timeOfDay = "Morning";
+    }
+    if(time > 1100 && time < 1900) {
+      timeOfDay = "Afternoon";
+    }
+    if(time > 1900 && time <= 2400) {
+      timeOfDay = "Evening";
+    }
+    return timeOfDay;
   }
 
-  let filteredItems = (events.filter(event => {
-    console.log(getTime(event.time));
+  const getMon = () => {
     let month;
-    let day;
-    
     if(date === "This Month") {
       month = getMonthName(new Date().getMonth()).slice(0, 3).toLowerCase();
     }
@@ -95,8 +103,16 @@ const EventsPage = () => {
     else {
       month = date;
     }
+    return month;
+  }
+
+  let filteredItems = (events.filter(event => {
+    let month = getMon();
+    let timeOfDay = TimeOfDay(event.time);
+
     return (event.date.toLowerCase().includes(month.toLowerCase()) 
-    && event.location.toLowerCase().includes(location.toLowerCase()))
+    && event.location.toLowerCase().includes(location.toLowerCase())
+    && timeOfDay.toLowerCase().includes(time.toLowerCase()))
   }))
 
   let filteredByTerm = (events.filter(event => {
