@@ -87,8 +87,8 @@ const List = styled.ul`
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left: 40px;
+  margin-right: 40px;
   column-gap: 10px;
   padding-left: 0;
 `
@@ -103,7 +103,7 @@ const CityItem = styled.div`
   flex-direction: column;
   height: auto;
   flex-basis: 15%;
-  margin: 25px;
+  margin: 20px;
   padding: 5px;
 `
 const Avatar = styled.img`
@@ -143,6 +143,7 @@ const IconText = styled.span`
   font-weight: bold;
   font-size: 17px;
   height: 25px;
+  width: 100;
   margin-top: 5px;
   margin-bottom: 5px;
   top: -20px;
@@ -160,7 +161,7 @@ const IconTextContainer = styled.div`
   padding-left: 5px;
   padding-top: 5px;
   height: 200px;
-  width: 50%;
+  width: 100%;
 `
 const IconContainer = styled.div`
   display: flex;
@@ -323,20 +324,30 @@ const HomePage = () => {
                       <Icon src={schoolIcon}></Icon>
                     </IconImageContainer>
                   <IconTextContainer>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
+                    <IconText>3800+ Members</IconText>
+                    <IconText>900+ Jobs Landed</IconText>
+                    <IconText>300 Local Events</IconText>
+                    <IconText>100 Mentors</IconText>
                   </IconTextContainer>
                 </IconContainer>
               </CityItem>
               <CityItem>
                   <CardImage src={cityImg5}></CardImage>
                   <CityName>Los Angeles</CityName>
-                  <Icon src={peopleIcon}></Icon>
-                  <Icon src={breiefcaseIcon}></Icon>
-                  <Icon src={calenderIcon}></Icon>
-                  <Icon src={schoolIcon}></Icon>
+                  <IconContainer>
+                    <IconImageContainer>
+                      <Icon src={peopleIcon}></Icon>
+                      <Icon src={breiefcaseIcon}></Icon>
+                      <Icon src={calenderIcon}></Icon>
+                      <Icon src={schoolIcon}></Icon>
+                    </IconImageContainer>
+                  <IconTextContainer>
+                    <IconText>1200+ Members</IconText>
+                    <IconText>400+ Jobs Landed</IconText>
+                    <IconText>100 Local Events </IconText>
+                    <IconText>200 Mentors</IconText>
+                  </IconTextContainer>
+                </IconContainer>
               </CityItem>
               <CityItem>
                   <CardImage src={cityImg3}></CardImage>
@@ -349,10 +360,10 @@ const HomePage = () => {
                       <Icon src={schoolIcon}></Icon>
                     </IconImageContainer>
                   <IconTextContainer>
-                    <IconText>1000+ M</IconText>
-                    <IconText>100+ Jobs</IconText>
-                    <IconText>100 events</IconText>
-                    <IconText>200 mentors</IconText>
+                    <IconText>1800+ Members</IconText>
+                    <IconText>300+ Jobs Landed</IconText>
+                    <IconText>100 Local Events</IconText>
+                    <IconText>200 Mentors</IconText>
                   </IconTextContainer>
                 </IconContainer>
               </CityItem>
@@ -367,10 +378,10 @@ const HomePage = () => {
                       <Icon src={schoolIcon}></Icon>
                     </IconImageContainer>
                   <IconTextContainer>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
+                    <IconText>1000+ Members</IconText>
+                    <IconText>250+ Jobs Landed</IconText>
+                    <IconText>90 Local Events</IconText>
+                    <IconText>150 Mentors</IconText>
                   </IconTextContainer>
                 </IconContainer>
               </CityItem>
@@ -385,10 +396,10 @@ const HomePage = () => {
                       <Icon src={schoolIcon}></Icon>
                     </IconImageContainer>
                   <IconTextContainer>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
-                    <IconText>Hello</IconText>
+                    <IconText>1000+ Members</IconText>
+                    <IconText>200+ Jobs Landed</IconText>
+                    <IconText>75 Local Events</IconText>
+                    <IconText>90 Mentors</IconText>
                   </IconTextContainer>
                 </IconContainer>
               </CityItem>
