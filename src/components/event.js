@@ -12,7 +12,7 @@ const AddButton = styled.button`
 const EventsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 220px;
   width: 80%;
   padding: 15px;
   box-shadow: 5px 10px 18px #888888;

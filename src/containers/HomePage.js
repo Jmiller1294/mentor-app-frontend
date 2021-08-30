@@ -17,6 +17,10 @@ import cityImg2 from '../assets/houston.jpg';
 import cityImg3 from '../assets/chicago.jpg';
 import cityImg4 from '../assets/atlanta.jpg';
 import cityImg5 from '../assets/losAngeles.jpg';
+import peopleIcon from '../assets/people.svg';
+import breiefcaseIcon from '../assets/briefcase.svg';
+import calenderIcon from '../assets/calender.svg';
+import schoolIcon from '../assets/school.svg';
 import instagram from '../assets/instagram.png';
 import linkedIn from '../assets/linkedIn.png';
 import twitter from '../assets/twitter.png';
@@ -37,6 +41,8 @@ const Header = styled.h1`
 `
 const CityName = styled.span`
   font-weight: bold;
+  font-size: 20px;
+  margin: 10px 0;
 `
 const CardContainer = styled.div`
   display: flex;
@@ -63,6 +69,8 @@ const CardAvatar = styled.img`
   width: 100%;
 `
 const CardDescription = styled.p`
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   line-height: 2.5;
   overflow-wrap: break-word; 
@@ -90,7 +98,9 @@ const TestimonialItem = styled.li`
   margin: 5px;
   padding: 55px;
 `
-const CityItem = styled.li`
+const CityItem = styled.div`
+  display: flex;
+  flex-direction: column;
   height: auto;
   flex-basis: 15%;
   margin: 25px;
@@ -105,7 +115,7 @@ const Avatar = styled.img`
 `
 const CardImage = styled.img`
   width: 100%;
-  height: 50%;
+  height: 150px;
 `
 const CardDesc = styled.p`
   
@@ -121,6 +131,41 @@ const Footer = styled.ul`
 const FooterIcon = styled.img`
   height: 35px;
   margin: 10px 75px;
+`
+const Icon = styled.img`
+  display: flex;
+  height: 25px;
+  width: 25px;
+  margin: 5px;
+`
+const IconText = styled.span`
+  display: flex;
+  font-weight: bold;
+  font-size: 17px;
+  height: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  top: -20px;
+  right: -40px;
+`
+const IconImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 25%;
+`
+const IconTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  padding-top: 5px;
+  height: 200px;
+  width: 50%;
+`
+const IconContainer = styled.div`
+  display: flex;
+  width: 100%;
+  position: relative;
 `
 
 const HomePage = () => {
@@ -270,47 +315,82 @@ const HomePage = () => {
               <CityItem>
                   <CardImage src={cityImg1}></CardImage>
                   <CityName>New York</CityName>
-                  <CardDescription>
-                    cjkhjckhjvjcvxhjxhcc
-                    xvxcvxcvxcvxcvxvvxcv
-                    xcvxcvxcvxcvxcvxcvxcv
-                  </CardDescription>
+                  <IconContainer>
+                    <IconImageContainer>
+                      <Icon src={peopleIcon}></Icon>
+                      <Icon src={breiefcaseIcon}></Icon>
+                      <Icon src={calenderIcon}></Icon>
+                      <Icon src={schoolIcon}></Icon>
+                    </IconImageContainer>
+                  <IconTextContainer>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                  </IconTextContainer>
+                </IconContainer>
               </CityItem>
               <CityItem>
                   <CardImage src={cityImg5}></CardImage>
                   <CityName>Los Angeles</CityName>
-                  <CardDescription>
-                    cjkhjckhjvjcvxhjxhcc
-                    xvxcvxcvxcvxcvxvvxcv
-                    xcvxcvxcvxcvxcvxcvxcv
-                  </CardDescription>
+                  <Icon src={peopleIcon}></Icon>
+                  <Icon src={breiefcaseIcon}></Icon>
+                  <Icon src={calenderIcon}></Icon>
+                  <Icon src={schoolIcon}></Icon>
               </CityItem>
               <CityItem>
                   <CardImage src={cityImg3}></CardImage>
                   <CityName>Chicago</CityName>
-                  <CardDescription>
-                    cjkhjckhjvjcvxhjxhcc
-                    xvxcvxcvxcvxcvxvvxcv
-                    xcvxcvxcvxcvxcvxcvxcv
-                  </CardDescription>
+                  <IconContainer>
+                    <IconImageContainer>
+                      <Icon src={peopleIcon}></Icon>
+                      <Icon src={breiefcaseIcon}></Icon>
+                      <Icon src={calenderIcon}></Icon>
+                      <Icon src={schoolIcon}></Icon>
+                    </IconImageContainer>
+                  <IconTextContainer>
+                    <IconText>1000+ M</IconText>
+                    <IconText>100+ Jobs</IconText>
+                    <IconText>100 events</IconText>
+                    <IconText>200 mentors</IconText>
+                  </IconTextContainer>
+                </IconContainer>
               </CityItem>
               <CityItem>
                   <CardImage src={cityImg2}></CardImage>
                   <CityName>Houston</CityName>
-                  <CardDescription>
-                    cjkhjckhjvjcvxhjxhcc
-                    xvxcvxcvxcvxcvxvvxcv
-                    xcvxcvxcvxcvxcvxcvxcv
-                  </CardDescription>
+                  <IconContainer>
+                    <IconImageContainer>
+                      <Icon src={peopleIcon}></Icon>
+                      <Icon src={breiefcaseIcon}></Icon>
+                      <Icon src={calenderIcon}></Icon>
+                      <Icon src={schoolIcon}></Icon>
+                    </IconImageContainer>
+                  <IconTextContainer>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                  </IconTextContainer>
+                </IconContainer>
               </CityItem>
               <CityItem>
                   <CardImage src={cityImg4}></CardImage>
                   <CityName>Atlanta</CityName>
-                  <CardDescription>
-                    cjkhjckhjvjcvxhjxhcc
-                    xvxcvxcvxcvxcvxvvxcv
-                    xcvxcvxcvxcvxcvxcvxcv
-                  </CardDescription>
+                  <IconContainer>
+                    <IconImageContainer>
+                      <Icon src={peopleIcon}></Icon>
+                      <Icon src={breiefcaseIcon}></Icon>
+                      <Icon src={calenderIcon}></Icon>
+                      <Icon src={schoolIcon}></Icon>
+                    </IconImageContainer>
+                  <IconTextContainer>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                    <IconText>Hello</IconText>
+                  </IconTextContainer>
+                </IconContainer>
               </CityItem>
             </List>
           </Col>
