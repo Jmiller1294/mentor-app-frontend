@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import magnifier from '../assets/magnifier.svg';
 
 
 const SearchForm = styled.form`
@@ -10,6 +11,9 @@ const SearchForm = styled.form`
   height: 55px;
 `
 const SearchInput = styled.input`
+  background: url(${magnifier})left center;    
+  background-repeat: no-repeat;
+  text-indent: 40px;
   width: 60%;
   height: 50px;
   border: none;
@@ -17,6 +21,7 @@ const SearchInput = styled.input`
   font-size: 20px;
   border-bottom: 2px solid;
 `
+
 
 const SearchBar = ({ onChildClick, text }) => {
   const[term, setTerm] = useState('');
@@ -39,7 +44,7 @@ const SearchBar = ({ onChildClick, text }) => {
         value={term}
         onChange={(e) => handleChange(e)}
         onKeyPress={(e) => handleKeyPress(e)}
-        placeholder={text} 
+        placeholder={text}
       />
     </SearchForm>
   )
