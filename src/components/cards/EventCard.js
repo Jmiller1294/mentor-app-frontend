@@ -1,7 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 
-
-const EventCard = () => {
+const EventCard = ({ event }) => {
   return (
     <div>
       jdjd

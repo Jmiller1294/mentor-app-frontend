@@ -1,16 +1,22 @@
 import React, { useEffect } from 'react';
-import Mentor from '../components/mentor';
+import MentorCard from '../components/cards/MentorCard';
+import EventCard from '../components/cards/EventCard';
 import { Grid, Row, Col } from '../components/styled/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEvents, getMentors } from '../actions/userActions';
 import styled from 'styled-components';
 
 const MentorsCon = styled.div`
- display: flex;
- flex-direction: row;
+  display: flex;
+  flex-direction: space-between;
+  height: auto;
+  width: 100%;
 `
 const EventsCon = styled.div`
- 
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
 `
 const AccountImg = styled.img`
   height: 75px;
@@ -18,19 +24,6 @@ const AccountImg = styled.img`
   margin-right: 20px;
 `
 const UserName = styled.span`
-`
-const MentorCard = styled.div`
-  
-  height: auto; 
-  border: 1px solid black;
-`
-const EventCard = styled.div`
-`
-const AvatarImage = styled.img`
-  height: 50%;
-  flex-basis: 7%;
-  border-radius: 50%;
-  margin-right: 30px;
 `
 
 const AccountPage = () => {
@@ -57,7 +50,10 @@ const AccountPage = () => {
           <h2>Mentors</h2>
           <MentorsCon>
             {mentors.map(mentor => 
-            <Mentor key={mentor.id} mentor={mentor.mentor}></Mentor>)}
+            <MentorCard 
+              key={mentor.id} 
+              mentor={mentor.mentor}
+            ></MentorCard>)}
           </MentorsCon>
         </Col>
       </Row>
@@ -66,8 +62,10 @@ const AccountPage = () => {
           <h2>Events</h2>
           <EventsCon>
             {events.map(event => 
-              <EventCard key={event.id}>
-                {event.event.name}
+              <EventCard 
+                key={event.id} 
+                event={event}
+              >
               </EventCard>)}
           </EventsCon>
         </Col>
