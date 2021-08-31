@@ -27,8 +27,6 @@ import twitter from '../assets/twitter.png';
 import youtube from '../assets/youtube.png';
 import github from '../assets/github.png';
 
-
-
 const faker = require('faker');
 
 const Header = styled.h1`

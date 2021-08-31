@@ -1,23 +1,37 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import HeartIcon from '../assets/unfilled-heart.svg';
 
 const AddButton = styled.button`
   background-color: orange;
   height: 40px;
   width: 100px;
   border-radius: 25px;
-  align-self: flex-end;
+  margin-left: auto;
+  margin-top: auto;
+`
+const LikeButton = styled.button`
+  background: url(${HeartIcon}) no-repeat left;
+  height: 40px;
+  width: 100px;
+  border: none;
 `
 const EventsContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 220px;
   width: 80%;
-  padding: 15px;
+  padding: 15px 15px 10px 15px;
   box-shadow: 5px 10px 18px #888888;
   margin: 5px;
 `
+const ButtonCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+`
+
 
 const Event = ({ event }) => {
   const user = useSelector(state => state.currentUser);
@@ -49,7 +63,10 @@ const Event = ({ event }) => {
       <span>Location: {event.location}</span>
       <span>Description: {event.description}</span>
       <span>{event.likes} Likes</span>
-      {user ? <AddButton onClick={() => handleClick()}>Add Event</AddButton> : null}
+      <ButtonCont>
+        {user ? <LikeButton onClick></LikeButton> : null}
+        {user ? <AddButton onClick={() => handleClick()}>Add Event</AddButton> : null}
+      </ButtonCont>
     </EventsContainer>
   )
 }

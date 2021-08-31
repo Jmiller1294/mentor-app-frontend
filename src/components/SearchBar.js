@@ -22,7 +22,6 @@ const SearchInput = styled.input`
   border-bottom: 2px solid;
 `
 
-
 const SearchBar = ({ onChildClick, text }) => {
   const[term, setTerm] = useState('');
   

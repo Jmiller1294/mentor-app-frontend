@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Grid, Row, Col } from '../components/styled/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEvents, getMentors } from '../actions/userActions';
 
@@ -16,30 +17,35 @@ const AccountPage = () => {
 
   return(
     !!userInfo ?
-    <>
-      <div>
-        <h1>AccountPage</h1>
-        <p>
-          name: {userInfo.name} 
-          <br></br>
-          email: {userInfo.email}
-        </p>
-      </div>
-      <div>
-      <h2>Mentors</h2>
-        {mentors.map(mentor => 
-          <h4 key={mentor.id}>
-            {mentor.mentor.name}
-          </h4>)}
-      </div>
-      <div>
-        <h2>Events</h2>
-        {events.map(event => 
-          <h4 key={event.id}>
-            {event.event.name}
-          </h4>)}
-      </div>
-    </>
+    <Grid>
+      <Row>
+        <Col size={1}>
+          <p>
+            name: {userInfo.name} 
+            <br></br>
+            email: {userInfo.email}
+          </p>
+        </Col>
+      </Row>
+      <Row>
+        <Col size={1}>
+          <h2>Mentors</h2>
+          {mentors.map(mentor => 
+            <h4 key={mentor.id}>
+              {mentor.mentor.name}
+            </h4>)}
+        </Col>
+      </Row>
+      <Row>
+        <Col size={1}>
+          <h2>Events</h2>
+          {events.map(event => 
+            <h4 key={event.id}>
+              {event.event.name}
+            </h4>)}
+        </Col>
+      </Row>
+    </Grid>
     : null
   )
 }
