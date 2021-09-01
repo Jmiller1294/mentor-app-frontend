@@ -1,7 +1,9 @@
 import React from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import HeartIcon from '../assets/unfilled-heart.svg';
+import UnfilledHeartIcon from '../assets/unfilled-heart.svg';
+import FilledHeartIcon from '../assets/filled-heart.png';
 
 const AddButton = styled.button`
   background-color: orange;
@@ -12,7 +14,13 @@ const AddButton = styled.button`
   margin-top: auto;
 `
 const LikeButton = styled.button`
-  background: url(${HeartIcon}) no-repeat left;
+  background: url(${UnfilledHeartIcon}) no-repeat left;
+  height: 40px;
+  width: 100px;
+  border: none;
+`
+const HeartButton = styled.button`
+   background: url(${FilledHeartIcon}) no-repeat left;
   height: 40px;
   width: 100px;
   border: none;
@@ -34,6 +42,7 @@ const ButtonCont = styled.div`
 
 
 const Event = ({ event }) => {
+  const [active, setActive] = useState(false);
   const user = useSelector(state => state.currentUser);
 
   const createAttendance = (event, userId) => {
@@ -49,25 +58,43 @@ const Event = ({ event }) => {
       .then(event => console.log(event))
     }
 
-  const handleClick = () => {
+  const AddButtonClick = () => {
     createAttendance(event, user.id);
   }
 
-  return(
-    <EventsContainer>
-      <h3>{event.name}</h3>
-      <span style={{color: 'orange'}}>
-        {event.date} at {event.time}
-      </span>
-      <span></span>
-      <span>Location: {event.location}</span>
-      <span>Description: {event.description}</span>
-      <span>{event.likes} Likes</span>
-      <ButtonCont>
-        {user ? <LikeButton onClick></LikeButton> : null}
-        {user ? <AddButton onClick={() => handleClick()}>Add Event</AddButton> : null}
-      </ButtonCont>
-    </EventsContainer>
-  )
+  const LikeButtonClick = () => {
+    setActive(!active);
+  }
+
+  if(user) {
+    return(
+      <EventsContainer>
+        <h3>{event.name}</h3>
+        <span style={{color: 'orange'}}>
+          {event.date} at {event.time}
+        </span>
+        <span>Location: {event.location}</span>
+        <span>Description: {event.description}</span>
+        <span>{event.likes} Likes</span>
+        <ButtonCont> 
+          {active ? <HeartButton onClick={() => LikeButtonClick()}></HeartButton> : <LikeButton onClick={() => LikeButtonClick()}></LikeButton>}
+          <AddButton onClick={() => AddButtonClick()}>Add Event</AddButton>
+        </ButtonCont>
+      </EventsContainer>
+    )
+  }
+  else {
+    return(
+      <EventsContainer>
+        <h3>{event.name}</h3>
+        <span style={{color: 'orange'}}>
+          {event.date} at {event.time}
+        </span>
+        <span>Location: {event.location}</span>
+        <span>Description: {event.description}</span>
+        <span>{event.likes} Likes</span>
+      </EventsContainer>
+    )
+  }
 }
 export default Event;

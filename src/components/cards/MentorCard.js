@@ -6,7 +6,6 @@ const MentorCon = styled.div`
   flex-direction: column;
   height: auto;   
   width: 20%;
-  border: 1px solid black;
   margin: 10px;
   padding: 5px;
 `

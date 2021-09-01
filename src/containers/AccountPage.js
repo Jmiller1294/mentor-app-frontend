@@ -64,7 +64,7 @@ const AccountPage = () => {
             {events.map(event => 
               <EventCard 
                 key={event.id} 
-                event={event}
+                event={event.event}
               >
               </EventCard>)}
           </EventsCon>
