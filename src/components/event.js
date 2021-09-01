@@ -13,16 +13,12 @@ const AddButton = styled.button`
   margin-left: auto;
   margin-top: auto;
 `
-const LikeButton = styled.button`
-  background: url(${UnfilledHeartIcon}) no-repeat left;
-  height: 40px;
-  width: 100px;
-  border: none;
-`
 const HeartButton = styled.button`
-   background: url(${FilledHeartIcon}) no-repeat left;
-  height: 40px;
-  width: 100px;
+  background: ${props => props.filled 
+    ? `url(${FilledHeartIcon}) no-repeat left`
+    : `url(${UnfilledHeartIcon}) no-repeat left`};
+  height: 32px;
+  width: 32px;
   border: none;
 `
 const EventsContainer = styled.div`
@@ -58,12 +54,20 @@ const Event = ({ event }) => {
       .then(event => console.log(event))
     }
 
-  const AddButtonClick = () => {
-    createAttendance(event, user.id);
+  const RegisterButtonClick = () => {
+    
   }
 
-  const LikeButtonClick = () => {
+  const LikeButtonClick = (evt, event) => {
+    evt.preventDefault()
     setActive(!active);
+    if(active) {
+      console.log('active');
+    }
+    else {
+      console.log('inactive');
+      //createAttendance(event, user.id);
+    }
   }
 
   if(user) {
@@ -77,8 +81,13 @@ const Event = ({ event }) => {
         <span>Description: {event.description}</span>
         <span>{event.likes} Likes</span>
         <ButtonCont> 
-          {active ? <HeartButton onClick={() => LikeButtonClick()}></HeartButton> : <LikeButton onClick={() => LikeButtonClick()}></LikeButton>}
-          <AddButton onClick={() => AddButtonClick()}>Add Event</AddButton>
+          {active ? 
+            <HeartButton 
+              filled 
+              onClick={(e) => LikeButtonClick(e)}
+            ></HeartButton> 
+          : <HeartButton onClick={(evt) => LikeButtonClick(evt,event)}></HeartButton>}
+          <AddButton onClick={(e) => RegisterButtonClick(e)}>Register</AddButton>
         </ButtonCont>
       </EventsContainer>
     )
