@@ -7,7 +7,14 @@ const MentorCon = styled.div`
   height: auto;   
   width: 20%;
   margin: 10px;
-  padding: 5px;
+  padding: 25px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+  &:hover {
+    -moz-box-shadow: 0 0 10px #777777;
+    -webkit-box-shadow: 0 0 10px #777777;
+    box-shadow: 0 0 10px #777777;
+  }
 `
 const AvatarImage = styled.img`
   height: 25%;
@@ -16,7 +23,7 @@ const AvatarImage = styled.img`
   margin-right: 30px;
   align-self: center;
 `
-const Header = styled.h2`
+const Header = styled.h3`
   height: 10px;
   align-self: center;
 `

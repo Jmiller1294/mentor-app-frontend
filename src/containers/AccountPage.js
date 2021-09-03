@@ -22,8 +22,12 @@ const AccountImg = styled.img`
   height: 75px;
   width: 75px;
   margin-right: 20px;
+  border: 1px solid black;
+  border-radius: 40px;
 `
 const UserName = styled.span`
+  font-size: 25px;
+  font-weight: bold;
 `
 
 const AccountPage = () => {
@@ -40,7 +44,7 @@ const AccountPage = () => {
 
   return(
     !!userInfo ?
-    <Grid margin={'25px'}>
+    <Grid margin={'30px'}>
       <Row>
           <AccountImg />
           <UserName>{userInfo.name}</UserName>
@@ -59,7 +63,7 @@ const AccountPage = () => {
       </Row>
       <Row>
         <Col size={1}>
-          <h2>Events</h2>
+          <h2>Favorited Events</h2>
           <EventsCon>
             {events.map(event => 
               <EventCard 

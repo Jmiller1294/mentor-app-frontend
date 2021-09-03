@@ -19,7 +19,8 @@ const NavBar = () => {
         <NavLink to="/mentors">Mentors</NavLink>
         <NavLink to="/events">Events</NavLink>
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/registration">Signup</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+        {!loggedIn ? <NavLink to="/registration">Signup</NavLink> : null}
         {loggedIn ? <NavLink to="/accounts">Account</NavLink> : null}
         <NavBtn>
           {loggedIn ? 

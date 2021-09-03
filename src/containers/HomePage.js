@@ -166,6 +166,17 @@ const IconContainer = styled.div`
   width: 100%;
   position: relative;
 `
+const FormCon = styled.div`
+  display: flex;
+`
+
+const ContactForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20px;
+  width: 30%;
+`
 
 const HomePage = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -405,7 +416,14 @@ const HomePage = () => {
           </Col>
         </Row>
         <Row height={'400px'}>
-
+          <Col size={1}>
+            <FormCon>
+              <ContactForm>
+                <input type="text" />
+                <input type="text" />
+              </ContactForm>
+            </FormCon>
+          </Col>
         </Row>
         <Row background={'#f8f7f2'}>
           <Col size={1}>

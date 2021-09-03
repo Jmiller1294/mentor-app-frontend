@@ -13,7 +13,7 @@ const AddButton = styled.button`
   margin-left: auto;
   margin-top: auto;
 `
-const HeartButton = styled.button`
+const FavButton = styled.button`
   background: ${props => props.filled 
     ? `url(${FilledHeartIcon}) no-repeat left`
     : `url(${UnfilledHeartIcon}) no-repeat left`};
@@ -21,7 +21,7 @@ const HeartButton = styled.button`
   width: 32px;
   border: none;
 `
-const EventsContainer = styled.div`
+const EventContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 220px;
@@ -29,6 +29,12 @@ const EventsContainer = styled.div`
   padding: 15px 15px 10px 15px;
   box-shadow: 5px 10px 18px #888888;
   margin: 5px;
+
+  &:hover {
+    -moz-box-shadow: 0 0 10px #777777;
+    -webkit-box-shadow: 0 0 10px #777777;
+    box-shadow: 0 0 10px #777777;
+  }
 `
 const ButtonCont = styled.div`
   display: flex;
@@ -58,7 +64,7 @@ const Event = ({ event }) => {
     
   }
 
-  const LikeButtonClick = (evt, event) => {
+  const FavButtonClick = (evt, event) => {
     evt.preventDefault()
     setActive(!active);
     if(active) {
@@ -72,7 +78,7 @@ const Event = ({ event }) => {
 
   if(user) {
     return(
-      <EventsContainer>
+      <EventContainer>
         <h3>{event.name}</h3>
         <span style={{color: 'orange'}}>
           {event.date} at {event.time}
@@ -82,19 +88,19 @@ const Event = ({ event }) => {
         <span>{event.likes} Likes</span>
         <ButtonCont> 
           {active ? 
-            <HeartButton 
+            <FavButton 
               filled 
-              onClick={(e) => LikeButtonClick(e)}
-            ></HeartButton> 
-          : <HeartButton onClick={(evt) => LikeButtonClick(evt,event)}></HeartButton>}
+              onClick={(e) => FavButtonClick(e)}
+            ></FavButton> 
+          : <FavButton onClick={(evt) => FavButtonClick(evt,event)}></FavButton>}
           <AddButton onClick={(e) => RegisterButtonClick(e)}>Register</AddButton>
         </ButtonCont>
-      </EventsContainer>
+      </EventContainer>
     )
   }
   else {
     return(
-      <EventsContainer>
+      <EventContainer>
         <h3>{event.name}</h3>
         <span style={{color: 'orange'}}>
           {event.date} at {event.time}
@@ -102,7 +108,7 @@ const Event = ({ event }) => {
         <span>Location: {event.location}</span>
         <span>Description: {event.description}</span>
         <span>{event.likes} Likes</span>
-      </EventsContainer>
+      </EventContainer>
     )
   }
 }

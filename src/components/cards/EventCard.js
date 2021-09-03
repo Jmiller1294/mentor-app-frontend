@@ -8,6 +8,13 @@ const EventCon = styled.div`
   width: 20%;
   margin: 10px;
   padding: 5px;
+  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+  
+  &:hover {
+    -moz-box-shadow: 0 0 10px #777777;
+    -webkit-box-shadow: 0 0 10px #777777;
+    box-shadow: 0 0 10px #777777;
+  }
 `
 const Header = styled.h2`
   height: 10px;

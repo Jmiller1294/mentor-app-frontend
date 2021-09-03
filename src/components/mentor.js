@@ -67,9 +67,36 @@ const Mentor = ({ mentor }) => {
           City: {mentor.city} <br></br>
           Age: {mentor.age}
         </Bio>
-        {user ? <AddButton onClick={() => handleClick(user)}>Add Mentor</AddButton> : null}
+        {user ? <AddButton onClick={() => handleClick(user)}>Book Mentor</AddButton> : null}
       </InfoContainer>
     </ListItem>
   )
 }
 export default Mentor;
+
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+ const reverseList = function(head) {
+    
+  let curr = head;
+  let prev = null;
+  let suc;
+  
+  while(curr !== null) {
+      suc = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = suc;
+  }
+  return prev;
+}
