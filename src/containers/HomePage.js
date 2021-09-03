@@ -167,15 +167,45 @@ const IconContainer = styled.div`
   position: relative;
 `
 const FormCon = styled.div`
+  text-align: left;
+  height: 100%;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const ContactForm = styled.form`
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  height: 20px;
-  width: 30%;
+  align-items: center;
+  flex-direction: column;
+  height: 90%;
+  width: 50%;
+  background-color: #f8f7f2;
+  margin: 30px 0;
+  border-radius: 25px;
+`
+const FormInput = styled.input`
+  height: 8%;
+  width: 90%;
+  margin: 10px 0;
+`
+const InputLabel = styled.label`
+  display: flex;
+  flex-direction: flex-start;
+  font-weight: bold;
+  margin-right: auto;
+  margin-left: 35px;
+`
+const Message = styled.textarea`
+  height: 25%;
+  width: 90%;
+  margin-top: 10px;
+`
+const SubmitButton = styled.button`
+  height: 40px;
+  width: 90px;
 `
 
 const HomePage = () => {
@@ -415,12 +445,20 @@ const HomePage = () => {
             </List>
           </Col>
         </Row>
-        <Row height={'400px'}>
+        <Row height={'600px'}>
           <Col size={1}>
             <FormCon>
               <ContactForm>
-                <input type="text" />
-                <input type="text" />
+                <h2>Contact Us</h2>
+                <InputLabel htmlFor="name">Full Name</InputLabel>
+                <FormInput type="text" />
+                <InputLabel htmlFor="name">Phone Number</InputLabel>
+                <FormInput type="text" />
+                <InputLabel htmlFor="name">Email</InputLabel>
+                <FormInput type="text" />
+                <InputLabel htmlFor="name">Message</InputLabel>
+                <Message></Message>
+                <SubmitButton>Submit</SubmitButton>
               </ContactForm>
             </FormCon>
           </Col>
