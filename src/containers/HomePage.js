@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import {Grid, Row, Col }from '../components/styled/Grid';
 import { BackgroundImage }from '../components/styled/BackgroundImage';
@@ -205,12 +205,15 @@ const Message = styled.textarea`
 `
 const SubmitButton = styled.button`
   height: 40px;
-  width: 90px;
+  width: 140px;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-left: 35px;
 `
 
 const HomePage = () => {
   const [testimonials, setTestimonials] = useState([]);
-
+  
   useEffect(() => {
     fetch('http://localhost:3001/mentors')
     .then(resp => resp.json())
@@ -445,9 +448,9 @@ const HomePage = () => {
             </List>
           </Col>
         </Row>
-        <Row height={'600px'}>
+        <Row height={'650px'}>
           <Col size={1}>
-            <FormCon>
+            <FormCon id="contact-form">
               <ContactForm>
                 <h2>Contact Us</h2>
                 <InputLabel htmlFor="name">Full Name</InputLabel>

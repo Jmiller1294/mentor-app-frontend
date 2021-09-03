@@ -1,9 +1,9 @@
 import React from 'react';
 import { logout } from '../../actions/userActions';
 import { useSelector, useDispatch } from 'react-redux';
-import { Nav, NavLink, NavBtn, NavBtnLink } from '../styled/NavBarElements';
+import { Nav, NavLink, NavBtn, NavBtnLink, ScrollLink } from '../styled/NavBarElements';
 
- 
+
 const NavBar = () => {
 
   const loggedIn = useSelector(state => state.loggedIn);
@@ -19,7 +19,7 @@ const NavBar = () => {
         <NavLink to="/mentors">Mentors</NavLink>
         <NavLink to="/events">Events</NavLink>
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        <ScrollLink to="contact-form" spy={true} smooth={true} offset={50} duration={500}>Contact</ScrollLink>
         {!loggedIn ? <NavLink to="/registration">Signup</NavLink> : null}
         {loggedIn ? <NavLink to="/accounts">Account</NavLink> : null}
         <NavBtn>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
+import { Link as Scroll } from 'react-scroll';
 
 export const Nav = styled.nav`
   display: flex;
@@ -11,6 +12,11 @@ export const Nav = styled.nav`
   justify-content: space-around;
 `
 export const NavLink = styled(Link)`
+  color: #005776;
+  text-decoration: none;
+`
+
+export const ScrollLink = styled(Scroll)`
   color: #005776;
   text-decoration: none;
 `
