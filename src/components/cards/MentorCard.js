@@ -5,9 +5,9 @@ const MentorCon = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;   
-  width: 20%;
+  width: 22%;
   margin: 10px;
-  padding: 25px 0;
+  padding: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
   &:hover {

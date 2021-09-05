@@ -5,6 +5,7 @@ import { Grid, Row, Col } from '../components/styled/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEvents, getMentors } from '../actions/userActions';
 import styled from 'styled-components';
+import profileImg from '../assets/profile-img.jpg';
 
 const MentorsCon = styled.div`
   display: flex;
@@ -46,8 +47,8 @@ const AccountPage = () => {
     !!userInfo ?
     <Grid margin={'30px'}>
       <Row>
-          <AccountImg />
-          <UserName>{userInfo.name}</UserName>
+        <AccountImg src={profileImg}/>
+        <UserName>{userInfo.name}</UserName>
       </Row>
       <Row>
         <Col size={1}>
