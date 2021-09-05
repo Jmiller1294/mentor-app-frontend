@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
 import backgroundPic from '../assets/background-pic1.jpg';
+import profilePic from '../assets/profile-img.jpg';
+import leadershipPic1 from '../assets/leadership-pic1.jpg';
+import leadershipPic2 from '../assets/leadership-pic2.jpg';
 
 const Header = styled.h1`
   display: flex;
@@ -29,10 +32,22 @@ const Leaders = styled.img`
   flex-direction: column;
   height: 200px;
   width: 200px;
-  margin: 30px;
+`
+const LeaderName = styled.span`
+  font-weight: bold;
+  margin-top: 10px;
+`
+const LeaderTitle = styled.span`
+`
+const Bio = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 35px;
 `
 
 const AboutPage = () => {
+
+
 
   return(
     <Grid>
@@ -57,15 +72,21 @@ const AboutPage = () => {
       </Row>
       <Row>
        <LeadershipCon>
-         <Leaders>
-
-         </Leaders>
-         <Leaders>
-
-         </Leaders>
-         <Leaders>
-           
-         </Leaders>
+        <Bio>
+          <Leaders src={profilePic} />
+          <LeaderName>Justin Miller</LeaderName>
+          <LeaderTitle>CEO & Founder</LeaderTitle>
+        </Bio>
+        <Bio>
+          <Leaders src={leadershipPic2} />
+          <LeaderName>Mary Smith</LeaderName>
+          <LeaderTitle>COO</LeaderTitle>
+        </Bio>
+        <Bio>
+          <Leaders src={leadershipPic1} />
+          <LeaderName>Jason Lee</LeaderName>
+          <LeaderTitle>CTO</LeaderTitle>
+        </Bio>
        </LeadershipCon>
       </Row>
     </Grid>
