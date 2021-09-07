@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
-import { startLogin } from '../actions/userActions'
+import { startLogin,checkLoggedInStatus } from '../actions/userActions'
 
 const LoginForm = styled.form`
   display: flex;
@@ -38,6 +38,11 @@ const LoginContainer = styled.div`
 
 const LoginPage = (props) => {
   const dispatch = useDispatch();
+  const loggedIn = useSelector(state => state.loggedIn);
+
+  useEffect(() => {
+    console.log(loggedIn);
+  }, [loggedIn])
   
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -51,7 +56,13 @@ const LoginPage = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(startLogin(loginInfo));
-    props.history.push('/')
+    setTimeout(() => {
+      checkLogged();
+    }, 500);
+  }
+
+  const checkLogged = () => {
+    return dispatch(checkLoggedInStatus())
   }
 
   return(
