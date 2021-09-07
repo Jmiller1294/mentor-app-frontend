@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
@@ -39,11 +39,23 @@ const LoginContainer = styled.div`
 const LoginPage = (props) => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.loggedIn);
+  const initialRender = useRef(true);
 
   useEffect(() => {
-    console.log(loggedIn);
-  }, [loggedIn])
-  
+    if(!initialRender.current) {
+      if(loggedIn) {
+        props.history.push('/');
+      } 
+      else {
+        console.log('not signed in');
+      }
+    } 
+    else {
+      initialRender.current = false;
+    }
+  }, [loggedIn, props.history])
+
+
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: ''
@@ -56,14 +68,8 @@ const LoginPage = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(startLogin(loginInfo));
-    setTimeout(() => {
-      checkLogged();
-    }, 500);
   }
 
-  const checkLogged = () => {
-    return dispatch(checkLoggedInStatus())
-  }
 
   return(
     <Grid>

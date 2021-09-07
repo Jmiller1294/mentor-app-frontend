@@ -37,31 +37,32 @@ const MentorsPage = () => {
   }))
 
   if(filteredItems && filteredItems.length !== 0) {
-  return(
-    <Grid>
-      <Row>
-        <Col size={1}>
-          <SearchBar 
-            onChildClick={(term) => handleChildClick(term)} 
-            text="Search by Mentor, City, or Industry"
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col size={1}>
-          <List>
-            <MentorCount>{filteredItems.length} Mentors Available</MentorCount>
-              {filteredItems.map(mentor => 
-                <Mentor 
-                  key={mentor.id}
-                  mentor={mentor}
-                />
-              )}
-          </List>
-        </Col>
-      </Row>
-    </Grid>
-  )}
+    return(
+      <Grid>
+        <Row>
+          <Col size={1}>
+            <SearchBar 
+              onChildClick={(term) => handleChildClick(term)} 
+              text="Search by Mentor, City, or Industry"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col size={1}>
+            <List>
+              <MentorCount>{filteredItems.length} Mentors Available</MentorCount>
+                {filteredItems.map(mentor => 
+                  <Mentor 
+                    key={mentor.id}
+                    mentor={mentor}
+                  />
+                )}
+            </List>
+          </Col>
+        </Row>
+      </Grid>
+    )
+  }
   else {
     return <h3>...Loading</h3>
   }

@@ -46,7 +46,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         events: action.payload
       }
     case "SET_DATE":
-      console.log(action.payload)
       return {
         ...state,
         date: action.payload
@@ -62,7 +61,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         time: action.payload
       }
     case "TOGGLE_ACTIVE":
-      
       return {
         ...state,
         isActive: !state.isActive
