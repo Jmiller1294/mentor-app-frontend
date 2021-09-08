@@ -58,21 +58,28 @@ const Event = ({ event }) => {
       })
       .then(resp => resp.json())
       .then(event => console.log(event))
-    }
+  }
+
+  const deleteAttendance = (userId, eventId) => {
+    fetch(`http://localhost:3001/users/${userId}/attendances/${eventId}`, {
+      method: "DELETE",
+    })
+  }
 
   const RegisterButtonClick = () => {
     
   }
 
-  const FavButtonClick = (evt, event) => {
+  const FavButtonClick = (evt) => {
     evt.preventDefault()
     setActive(!active);
     if(active) {
-      console.log('active');
+      console.log('active', event.id);
+      deleteAttendance(user.id, event.id);
     }
     else {
       console.log('inactive');
-      //createAttendance(event, user.id);
+      createAttendance(event, user.id);
     }
   }
 
@@ -92,7 +99,7 @@ const Event = ({ event }) => {
               filled 
               onClick={(e) => FavButtonClick(e)}
             ></FavButton> 
-          : <FavButton onClick={(evt) => FavButtonClick(evt,event)}></FavButton>}
+          : <FavButton onClick={(evt) => FavButtonClick(evt)}></FavButton>}
           <AddButton onClick={(e) => RegisterButtonClick(e)}>Register</AddButton>
         </ButtonCont>
       </EventContainer>

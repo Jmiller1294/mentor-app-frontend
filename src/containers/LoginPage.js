@@ -2,7 +2,7 @@ import React, { useEffect, useState,useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
-import { startLogin,checkLoggedInStatus } from '../actions/userActions'
+import { startLogin } from '../actions/userActions'
 
 const LoginForm = styled.form`
   display: flex;
@@ -35,11 +35,14 @@ const LoginContainer = styled.div`
   flex-direction: row;
   justify-content: center;
 `
-
 const LoginPage = (props) => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.loggedIn);
   const initialRender = useRef(true);
+  const [loginInfo, setLoginInfo] = useState({
+    email: '',
+    password: ''
+  });
 
   useEffect(() => {
     if(!initialRender.current) {
@@ -55,12 +58,6 @@ const LoginPage = (props) => {
     }
   }, [loggedIn, props.history])
 
-
-  const [loginInfo, setLoginInfo] = useState({
-    email: '',
-    password: ''
-  });
-
   const handleInputChange = (event) => {
     setLoginInfo({...loginInfo, [event.target.name]: event.target.value})
   }
@@ -69,7 +66,6 @@ const LoginPage = (props) => {
     event.preventDefault();
     dispatch(startLogin(loginInfo));
   }
-
 
   return(
     <Grid>

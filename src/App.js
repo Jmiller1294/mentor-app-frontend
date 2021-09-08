@@ -44,6 +44,7 @@ const App = () => {
         <Route exact path="/mentors" component={MentorsPage} />
         <Route exact path="/registration" component={RegistrationPage} />
         <ProtectedRoute exact path="/accounts" component={AccountPage} />
+        <ProtectedRoute exact path="/register" component={EventRegistration} />
       </Switch>
       <GlobalStyle />
     </React.Fragment>
