@@ -105,6 +105,25 @@ export const setEvents = (events) => ({
   payload: events
 })
 
+export const createAttendance = (userId, event) => {
+  fetch(`http://localhost:3001/users/${userId}/attendances`, {
+    method: "POST",
+    credentials: "include",
+    headers: { 
+      "Content-type": "application/json",
+    },
+      body: JSON.stringify(event)
+  })
+  .then(resp => resp.json())
+  .then(event => console.log(event))
+}
+
+export const deleteAttendance = (userId, eventId) => {
+  fetch(`http://localhost:3001/users/${userId}/attendances/${eventId}`, {
+    method: "DELETE",
+  })
+}
+
 export const setDate = (date) => ({
   type: 'SET_DATE',
   payload: date

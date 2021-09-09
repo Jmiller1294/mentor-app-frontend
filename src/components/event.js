@@ -1,9 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
+import { deleteAttendance, createAttendance } from '../actions/userActions';
 import styled from 'styled-components';
 import UnfilledHeartIcon from '../assets/unfilled-heart.svg';
 import FilledHeartIcon from '../assets/filled-heart.png';
+
 
 const AddButton = styled.button`
   background-color: orange;
@@ -46,28 +49,12 @@ const ButtonCont = styled.div`
 const Event = ({ event }) => {
   const [active, setActive] = useState(false);
   const user = useSelector(state => state.currentUser);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-  const createAttendance = (event, userId) => {
-    fetch(`http://localhost:3001/users/${userId}/attendances`, {
-        method: "POST",
-        credentials: "include",
-        headers: { 
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(event)
-      })
-      .then(resp => resp.json())
-      .then(event => console.log(event))
-  }
-
-  const deleteAttendance = (userId, eventId) => {
-    fetch(`http://localhost:3001/users/${userId}/attendances/${eventId}`, {
-      method: "DELETE",
-    })
-  }
-
-  const RegisterButtonClick = () => {
-    
+  const newRoute = () =>{ 
+    let path = `register`; 
+    history.push(path);
   }
 
   const FavButtonClick = (evt) => {
@@ -75,11 +62,11 @@ const Event = ({ event }) => {
     setActive(!active);
     if(active) {
       console.log('active', event.id);
-      deleteAttendance(user.id, event.id);
+      dispatch(deleteAttendance(user.id, event.id));
     }
     else {
       console.log('inactive');
-      createAttendance(event, user.id);
+      dispatch(createAttendance(event, user.id));
     }
   }
 
@@ -100,7 +87,7 @@ const Event = ({ event }) => {
               onClick={(e) => FavButtonClick(e)}
             ></FavButton> 
           : <FavButton onClick={(evt) => FavButtonClick(evt)}></FavButton>}
-          <AddButton onClick={(e) => RegisterButtonClick(e)}>Register</AddButton>
+          <AddButton onClick={newRoute}>Register</AddButton>
         </ButtonCont>
       </EventContainer>
     )

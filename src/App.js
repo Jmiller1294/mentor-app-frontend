@@ -10,6 +10,7 @@ import AboutPage from './containers/AboutPage';
 import LoginPage from './containers/LoginPage';
 import MentorsPage from './containers/MentorsPage';
 import RegistrationPage from './containers/RegistrationPage';
+import EventRegistration from "./containers/EventRegistration";
 import NavBar from './components/navigation/NavBar';
 import { createGlobalStyle } from 'styled-components';
 import { checkLoggedInStatus } from "./actions/userActions";
