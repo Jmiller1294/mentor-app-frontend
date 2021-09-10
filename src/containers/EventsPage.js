@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDate, setLocation, setTime } from '../actions/userActions';
 import styled from 'styled-components';
-import Event from '../components/event';
+import Event from '../components/Event';
 import SearchBar from '../components/SearchBar';
 import Sidebar from '../components/sidebar/Sidebar';
 import { Grid, Row, Col }from '../components/styled/Grid';

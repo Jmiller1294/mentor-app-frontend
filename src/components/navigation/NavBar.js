@@ -6,7 +6,6 @@ import { Nav, NavLink, NavBtn, NavBtnLink, ScrollLink } from '../styled/NavBarEl
 
 
 const NavBar = () => {
-
   const loggedIn = useSelector(state => state.loggedIn);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -16,7 +15,6 @@ const NavBar = () => {
   }
   return(
     <>
-    {console.log(location)}
       <Nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/mentors">Mentors</NavLink>
@@ -37,11 +35,11 @@ const NavBar = () => {
         {loggedIn ? <NavLink to="/accounts">Account</NavLink> : null}
         <NavBtn>
           {loggedIn ? 
-          <NavBtnLink 
-            to="/" 
-            onClick={() => handleLogout()}>
-            Logout
-          </NavBtnLink> 
+            <NavBtnLink 
+              to="/" 
+              onClick={() => handleLogout()}>
+              Logout
+            </NavBtnLink> 
           : <NavBtnLink 
               to="/login">
               Login

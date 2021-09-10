@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Mentor from '../components/mentor';
+import Mentor from '../components/Mentor';
 import SearchBar from '../components/SearchBar';
+import Loader from '../components/Loader';
 import styled from 'styled-components';
 import { Col, Grid, Row } from '../components/styled/Grid';
 
@@ -13,6 +14,11 @@ const List = styled.ul`
 `
 const MentorCount = styled.h2`
   margin-left: 35px;
+`
+const LoaderCon = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 `
 
 const MentorsPage = () => {
@@ -64,7 +70,7 @@ const MentorsPage = () => {
     )
   }
   else {
-    return <h3>...Loading</h3>
+    return <LoaderCon><Loader /></LoaderCon>
   }
 }
 export default MentorsPage;
