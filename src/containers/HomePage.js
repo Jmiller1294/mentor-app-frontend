@@ -221,6 +221,11 @@ const HomePage = () => {
     .catch((error) => console.error('Error:', error))
   },[])
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log('clicked')
+  }
+
   if(testimonials && testimonials.length !== 0) 
     return (
       <Grid>
@@ -461,7 +466,7 @@ const HomePage = () => {
                 <FormInput type="text" />
                 <InputLabel htmlFor="name">Message</InputLabel>
                 <Message></Message>
-                <SubmitButton>Submit</SubmitButton>
+                <SubmitButton onClick={(e) => handleClick(e)}>Submit</SubmitButton>
               </ContactForm>
             </FormCon>
           </Col>

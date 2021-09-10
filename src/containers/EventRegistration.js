@@ -5,7 +5,7 @@ import { Grid, Col, Row } from '../components/styled/Grid';
 const FormCon = styled.div`
   display: flex;
   flex-direction: column;
-  height: 700px;
+  height: 450px;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,10 @@ const FormInput = styled.input`
   margin: 0 10px;
 `
 const Button = styled.button`
-
+  background-color: orange;
+  height: 100px;
+  width: 10%;
+  border-radius: 25px;
 `
 
 const EventRegistration = () => {
@@ -45,10 +48,13 @@ const EventRegistration = () => {
               <h2>Contact Information</h2>
               <InputCon>
                 <FormInput type="text" name="first" placeholder="First Name" />
-                <FormInput type="text" name="email" placeholder="Email address" />
+                <FormInput type="text" name="last" placeholder="Last Name" />
               </InputCon>
               <InputCon>
-                <FormInput type="text" name="last" placeholder="Last Name" />
+                <FormInput type="text" name="last" placeholder="Email" />
+                <FormInput type="text" name="phone" placeholder="Phone Number" />
+              </InputCon>
+              <InputCon>
                 <FormInput type="text" name="phone" placeholder="Phone Number" />
               </InputCon>
               <Button>Register</Button>

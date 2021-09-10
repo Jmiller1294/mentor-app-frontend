@@ -8,7 +8,7 @@ const ListItem = styled.li`
   display: flex;
   height: 270px;
   border: 1px solid #f8f7f2;
-  padding: 25px;
+  padding: 35px;
   padding-bottom: 30px;
 `
 const AvatarImage = styled.img`
