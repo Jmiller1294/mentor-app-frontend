@@ -12,23 +12,27 @@ const FormCon = styled.div`
 `
 const EventForm = styled.form`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 30%;
   width: 100%;
   margin: 0 300px;
 `
 const InputCon = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 150px;
+  width: 450px;
+  height: 250px;
   margin: 20px;
   justify-content: center;
 `
 const FormInput = styled.input`
-  height: 50%;
-  width: 100%;
-  margin: 10px 0;
+  height: 60px;
+  width: 80%;
+  margin: 0 10px;
+`
+const Button = styled.button`
+
 `
 
 const EventRegistration = () => {
@@ -36,18 +40,18 @@ const EventRegistration = () => {
     <Grid>
       <Row>
         <Col size={1}>
-          
           <FormCon>
-            <h2>Contact Information</h2>
             <EventForm>
+              <h2>Contact Information</h2>
               <InputCon>
-                <FormInput type="text" name="" />
-                <FormInput type="text" name="" />
+                <FormInput type="text" name="first" placeholder="First Name" />
+                <FormInput type="text" name="email" placeholder="Email address" />
               </InputCon>
               <InputCon>
-                <FormInput type="text" name="" />
-                <FormInput type="text" name="" />
+                <FormInput type="text" name="last" placeholder="Last Name" />
+                <FormInput type="text" name="phone" placeholder="Phone Number" />
               </InputCon>
+              <Button>Register</Button>
             </EventForm>
           </FormCon>
         </Col>
