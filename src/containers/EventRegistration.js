@@ -53,7 +53,7 @@ const EventRegistration = (props) => {
   });
 
   const newRoute = () => { 
-    let path = ``; 
+    let path = `/message`; 
     history.push(path)
   }
 
@@ -83,7 +83,6 @@ const EventRegistration = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
     createEventRegistration(user.id,registrationInfo);
-    setTimeout(function() { alert("my message"); }, 500);
     newRoute();
   }
 
