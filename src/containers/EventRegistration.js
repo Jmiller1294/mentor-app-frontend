@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
-import { createEventRegistration } from '../actions/userActions';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Grid, Col, Row } from '../components/styled/Grid';
 
@@ -41,7 +40,6 @@ const Button = styled.button`
 `
 
 const EventRegistration = (props) => {
-  const dispatch = useDispatch();
   const user = useSelector(state => state.currentUser);
   const event = props.location.state.data;
   const [registrationInfo, setRegistrationInfo] = useState({
@@ -51,24 +49,24 @@ const EventRegistration = (props) => {
     phone: ''
   });
 
-  const createEventRegistration = (userId, event) => {
+  const createEventRegistration = (userId) => {
     fetch(`http://localhost:3001/users/${userId}/event_registrations`, {
       method: "POST",
       credentials: "include",
       headers: { 
         "Content-type": "application/json",
       },
-        body: JSON.stringify(event)
+        body: JSON.stringify(Object.assign(registrationInfo, event))
     })
     .then(resp => resp.json())
     .then(event => console.log(event))
   }
   
-  const deleteEventRegistration = (userId, eventId) => {
+  /* const deleteEventRegistration = (userId, eventId) => {
     fetch(`http://localhost:3001/users/${userId}/event_registrations/${eventId}`, {
       method: "DELETE",
     })
-  }
+  } */
 
   const handleInputChange = (event) => {
     setRegistrationInfo({...registrationInfo, [event.target.name]: event.target.value})
@@ -76,9 +74,8 @@ const EventRegistration = (props) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    createEventRegistration(user.id, event);
+    createEventRegistration(user.id,registrationInfo);
   }
-  console.log(props);
 
   return (
     <Grid>
@@ -88,12 +85,32 @@ const EventRegistration = (props) => {
             <EventForm>
               <h2>Contact Information</h2>
               <InputCon>
-                <FormInput onChange={handleInputChange} type="text" name="first" value={registrationInfo.first} placeholder="First Name" />
-                <FormInput onChange={handleInputChange} type="text" name="last" placeholder="Last Name" />
+                <FormInput 
+                  onChange={handleInputChange} 
+                  type="text" name="first" 
+                  value={registrationInfo.first} 
+                  placeholder="First Name" 
+                />
+                <FormInput 
+                  onChange={handleInputChange} 
+                  type="text" name="last" 
+                  value={registrationInfo.last} 
+                  placeholder="Last Name"
+                />
               </InputCon>
               <InputCon>
-                <FormInput onChange={handleInputChange} type="text" name="email" placeholder="Email" />
-                <FormInput onChange={handleInputChange} type="text" name="phone" placeholder="Phone Number" />
+                <FormInput 
+                  onChange={handleInputChange} 
+                  type="text" name="email" 
+                  value={registrationInfo.email} 
+                  placeholder="Email" 
+                />
+                <FormInput 
+                  onChange={handleInputChange} 
+                  type="text" name="phone" 
+                  value={registrationInfo.phone} 
+                  placeholder="Phone Number" 
+                />
               </InputCon>
               <Button onClick={(e) => handleClick(e) }>Register</Button>
             </EventForm>

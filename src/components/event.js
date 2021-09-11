@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { createEventRegistration, deleteEventRegistration } from '../actions/userActions';
 import styled from 'styled-components';
 import UnfilledHeartIcon from '../assets/unfilled-heart.svg';
 import FilledHeartIcon from '../assets/filled-heart.png';
@@ -67,11 +66,9 @@ const Event = ({ event }) => {
     setActive(!active);
     if(active) {
       console.log('active', event.id);
-      dispatch(deleteEventRegistration(user.id, event.id));
     }
     else {
       console.log('inactive');
-      dispatch(createEventRegistration(event, user.id));
     }
   }
 
