@@ -94,7 +94,7 @@ export const setMentors = (data) => ({
 
 export const getEvents = (userId) => {
   return(dispatch) => {
-    fetch(`http://localhost:3001/users/${userId}/attendances`)
+    fetch(`http://localhost:3001/users/${userId}/event_registrations`)
     .then(resp => resp.json())
     .then(events => dispatch(setEvents(events)))
   }
@@ -104,25 +104,6 @@ export const setEvents = (events) => ({
   type: 'SET_ATTENDEES',
   payload: events
 })
-
-export const createAttendance = (userId, event) => {
-  fetch(`http://localhost:3001/users/${userId}/attendances`, {
-    method: "POST",
-    credentials: "include",
-    headers: { 
-      "Content-type": "application/json",
-    },
-      body: JSON.stringify(event)
-  })
-  .then(resp => resp.json())
-  .then(event => console.log(event))
-}
-
-export const deleteAttendance = (userId, eventId) => {
-  fetch(`http://localhost:3001/users/${userId}/attendances/${eventId}`, {
-    method: "DELETE",
-  })
-}
 
 export const setDate = (date) => ({
   type: 'SET_DATE',

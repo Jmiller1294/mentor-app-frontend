@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { deleteAttendance, createAttendance } from '../actions/userActions';
+import { createEventRegistration, deleteEventRegistration } from '../actions/userActions';
 import styled from 'styled-components';
 import UnfilledHeartIcon from '../assets/unfilled-heart.svg';
 import FilledHeartIcon from '../assets/filled-heart.png';
@@ -52,9 +52,14 @@ const Event = ({ event }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const newRoute = () =>{ 
+  const newRoute = () => { 
     let path = `register`; 
-    history.push(path);
+    history.push({
+      pathname: path,
+      state: {
+        data: event
+      }
+    });
   }
 
   const FavButtonClick = (evt) => {
@@ -62,11 +67,11 @@ const Event = ({ event }) => {
     setActive(!active);
     if(active) {
       console.log('active', event.id);
-      dispatch(deleteAttendance(user.id, event.id));
+      dispatch(deleteEventRegistration(user.id, event.id));
     }
     else {
       console.log('inactive');
-      dispatch(createAttendance(event, user.id));
+      dispatch(createEventRegistration(event, user.id));
     }
   }
 

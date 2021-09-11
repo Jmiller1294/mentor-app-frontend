@@ -459,13 +459,13 @@ const HomePage = () => {
               <ContactForm>
                 <h2>Contact Us</h2>
                 <InputLabel htmlFor="name">Full Name</InputLabel>
-                <FormInput type="text" />
-                <InputLabel htmlFor="name">Phone Number</InputLabel>
-                <FormInput type="text" />
-                <InputLabel htmlFor="name">Email</InputLabel>
-                <FormInput type="text" />
-                <InputLabel htmlFor="name">Message</InputLabel>
-                <Message></Message>
+                <FormInput type="text" name="name" />
+                <InputLabel htmlFor="phone">Phone Number</InputLabel>
+                <FormInput type="text" name="phone" />
+                <InputLabel htmlFor="email">Email</InputLabel>
+                <FormInput type="text" name="email" />
+                <InputLabel htmlFor="message">Message</InputLabel>
+                <Message type="textarea" name="message"></Message>
                 <SubmitButton onClick={(e) => handleClick(e)}>Submit</SubmitButton>
               </ContactForm>
             </FormCon>
