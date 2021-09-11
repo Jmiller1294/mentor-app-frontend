@@ -12,6 +12,7 @@ import MentorsPage from './containers/MentorsPage';
 import RegistrationPage from './containers/RegistrationPage';
 import EventRegistration from "./containers/EventRegistration";
 import NavBar from './components/navigation/NavBar';
+import Message from "./components/Message";
 import { createGlobalStyle } from 'styled-components';
 import { checkLoggedInStatus } from "./actions/userActions";
 
@@ -46,6 +47,7 @@ const App = () => {
         <Route exact path="/registration" component={RegistrationPage} />
         <ProtectedRoute exact path="/accounts" component={AccountPage} />
         <ProtectedRoute exact path="/register" component={EventRegistration} />
+        <ProtectedRoute exact path="/message" component={Message} />
       </Switch>
       <GlobalStyle />
     </React.Fragment>

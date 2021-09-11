@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
 import { Grid, Col, Row } from '../components/styled/Grid';
 
@@ -42,12 +43,19 @@ const Button = styled.button`
 const EventRegistration = (props) => {
   const user = useSelector(state => state.currentUser);
   const event = props.location.state.data;
+  const history = useHistory();
+  
   const [registrationInfo, setRegistrationInfo] = useState({
     first: '',
     last: '',
     email: '',
     phone: ''
   });
+
+  const newRoute = () => { 
+    let path = ``; 
+    history.push(path)
+  }
 
   const createEventRegistration = (userId) => {
     fetch(`http://localhost:3001/users/${userId}/event_registrations`, {
@@ -75,6 +83,8 @@ const EventRegistration = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
     createEventRegistration(user.id,registrationInfo);
+    setTimeout(function() { alert("my message"); }, 500);
+    newRoute();
   }
 
   return (
