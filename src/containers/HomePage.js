@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import {Grid, Row, Col }from '../components/styled/Grid';
 import { BackgroundImage }from '../components/styled/BackgroundImage';
-//import { Card, CardAvatar, CardDescription } from '../components/styled/Card';
+import ContactForm from '../components/ContactForm';
 import Background from '../assets/background.jpg';
 import Pic1 from '../assets/pic1.jpg';
 import Pic2 from '../assets/pic2.jpg';
@@ -167,59 +167,10 @@ const IconContainer = styled.div`
   width: 100%;
   position: relative;
 `
-const FormCon = styled.div`
-  text-align: left;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
 
-const ContactForm = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 90%;
-  width: 50%;
-  background-color: #f8f7f2;
-  margin: 30px 0;
-  border-radius: 25px;
-`
-const FormInput = styled.input`
-  height: 8%;
-  width: 90%;
-  margin: 10px 0;
-`
-const InputLabel = styled.label`
-  display: flex;
-  flex-direction: flex-start;
-  font-weight: bold;
-  margin-right: auto;
-  margin-left: 35px;
-`
-const Message = styled.textarea`
-  height: 25%;
-  width: 90%;
-  margin-top: 10px;
-`
-const SubmitButton = styled.button`
-  height: 40px;
-  width: 140px;
-  margin-right: auto;
-  margin-top: 25px;
-  margin-left: 35px;
-`
 
 const HomePage = () => {
   const [testimonials, setTestimonials] = useState([]);
-  const [contactInfo, setContactInfo] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  });
   
   useEffect(() => {
     fetch('http://localhost:3001/mentors')
@@ -228,34 +179,7 @@ const HomePage = () => {
     .catch((error) => console.error('Error:', error))
   },[])
 
-  const handleInputChange = (event) => {
-    setContactInfo({ ...contactInfo, [event.target.name]: event.target.value })
-  }
   
-  const handleClick = (event) => {
-    event.preventDefault();
-    console.log('clicked')
-
-    fetch('http://localhost:3001/contact_infos', {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(contactInfo)
-    })
-    .then(resp => resp.json())
-    .then(data => console.log(data))
-
-    setContactInfo({
-      name: '',
-      phone: '',
-      email: '',
-      message: ''
-    })
-
-  }
-
   if(testimonials && testimonials.length !== 0) 
     return (
       <Grid>
@@ -485,20 +409,7 @@ const HomePage = () => {
         </Row>
         <Row height={'650px'}>
           <Col size={1}>
-            <FormCon id="contact-form">
-              <ContactForm>
-                <h2>Contact Us</h2>
-                <InputLabel htmlFor="name">Full Name</InputLabel>
-                <FormInput type="text" name="name" value={contactInfo.name} onChange={(e) => handleInputChange(e)} />
-                <InputLabel htmlFor="phone">Phone Number</InputLabel>
-                <FormInput type="text" name="phone" value={contactInfo.phone} onChange={(e) => handleInputChange(e)} />
-                <InputLabel htmlFor="email">Email</InputLabel>
-                <FormInput type="text" name="email" value={contactInfo.email} onChange={(e) => handleInputChange(e)} />
-                <InputLabel htmlFor="message">Message</InputLabel>
-                <Message type="textarea" name="message" value={contactInfo.message} onChange={(e) => handleInputChange(e)} />
-                <SubmitButton onClick={(e) => handleClick(e)}>Submit</SubmitButton>
-              </ContactForm>
-            </FormCon>
+            <ContactForm />
           </Col>
         </Row>
         <Row background={'#f8f7f2'}>
