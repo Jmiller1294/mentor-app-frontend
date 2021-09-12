@@ -136,19 +136,19 @@ const EventsPage = () => {
           />
           <EventList>
           {searchTerm !== '' ?
-            filteredByTerm.map(event => 
+            filteredByTerm.length !== 0 ? filteredByTerm.map(event => 
               <Event 
                 key={event.id} 
                 event={event}
               /> 
-            )
+            ) : <h2>No Events Found</h2>
           : 
-          filteredItems.map(event => 
+          filteredItems.length !== 0 ? filteredItems.map(event => 
               <Event 
                 key={event.id} 
                 event={event}
               /> 
-            )
+            ) : <h2>No Events Found</h2>
           }
           </EventList>
         </Col>
