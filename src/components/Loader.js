@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 const Spinner = styled.div`
@@ -15,9 +16,22 @@ const Spinner = styled.div`
   }
 `
 
-const Loader = () => {
+const Loader = ({ parentCallback }) => {
+  const history = useHistory();
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let id = setInterval(() => {
+      setCount(count + 1);
+      parentCallback(count);
+    }, 1000)
+    return () => clearInterval(id)
+  },[count])
+  
   return (
-    <Spinner />
+    <>
+       <Spinner /> 
+    </>
   )
 }
 export default Loader;

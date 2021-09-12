@@ -20,10 +20,15 @@ const LoaderCon = styled.div`
   justify-content: center;
   margin-top: 100px;
 `
+const Message = styled.h2`
+  display: flex;
+  justify-content: center;
+`
 
 const MentorsPage = () => {
   const [mentors, setMentors] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     fetch('http://localhost:3001/mentors')
@@ -36,12 +41,17 @@ const MentorsPage = () => {
     setSearchTerm(term)
   }
 
+  const handleParentCallback = (num) => {
+    setCount(num);
+  }
+
   let filteredItems = (mentors.filter(mentor => {
     return mentor.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.city.toLowerCase().includes(searchTerm.toLowerCase()) 
     || mentor.title.toLowerCase().includes(searchTerm.toLowerCase()) 
   }))
 
+  console.log(count);
   if(filteredItems && filteredItems.length !== 0) {
     return(
       <Grid>
@@ -69,8 +79,29 @@ const MentorsPage = () => {
       </Grid>
     )
   }
+  else if(count > 1) {
+    return(
+      <Grid>
+        <Row>
+          <Col size={1}>
+            <SearchBar 
+              onChildClick={(term) => handleChildClick(term)} 
+              text="Search by Mentor, City, or Industry"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col size={1}>
+            <List>
+              <Message>No Results Found</Message>
+            </List>
+          </Col>
+        </Row>
+      </Grid>
+    )
+  }
   else {
-    return <LoaderCon><Loader /></LoaderCon>
+    return <LoaderCon><Loader parentCallback={(num) => handleParentCallback(num)} /></LoaderCon>
   }
 }
 export default MentorsPage;
