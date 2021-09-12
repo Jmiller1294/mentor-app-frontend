@@ -64,7 +64,7 @@ const AccountPage = () => {
       </Row>
       <Row>
         <Col size={1}>
-          <h2>Favorited Events</h2>
+          <h2>Upcoming Events</h2>
           <EventsCon>
             {events.map(event => 
               <EventCard 

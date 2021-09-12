@@ -213,6 +213,12 @@ const SubmitButton = styled.button`
 
 const HomePage = () => {
   const [testimonials, setTestimonials] = useState([]);
+  const [contactInfo, setContactInfo] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
   
   useEffect(() => {
     fetch('http://localhost:3001/mentors')
@@ -221,9 +227,24 @@ const HomePage = () => {
     .catch((error) => console.error('Error:', error))
   },[])
 
+  const handleInputChange = (event) => {
+    setContactInfo({ ...contactInfo, [event.target.name]: event.target.value })
+  }
+  
   const handleClick = (event) => {
     event.preventDefault();
     console.log('clicked')
+
+    fetch('http://localhost:3001/contact_infos', {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(contactInfo)
+    })
+    .then(resp => resp.json())
+    .then(data => console.log(data))
   }
 
   if(testimonials && testimonials.length !== 0) 
@@ -459,13 +480,13 @@ const HomePage = () => {
               <ContactForm>
                 <h2>Contact Us</h2>
                 <InputLabel htmlFor="name">Full Name</InputLabel>
-                <FormInput type="text" name="name" />
+                <FormInput type="text" name="name" onChange={(e) => handleInputChange(e)} />
                 <InputLabel htmlFor="phone">Phone Number</InputLabel>
-                <FormInput type="text" name="phone" />
+                <FormInput type="text" name="phone" onChange={(e) => handleInputChange(e)} />
                 <InputLabel htmlFor="email">Email</InputLabel>
-                <FormInput type="text" name="email" />
+                <FormInput type="text" name="email" onChange={(e) => handleInputChange(e)} />
                 <InputLabel htmlFor="message">Message</InputLabel>
-                <Message type="textarea" name="message"></Message>
+                <Message type="textarea" name="message" onChange={(e) => handleInputChange(e)} />
                 <SubmitButton onClick={(e) => handleClick(e)}>Submit</SubmitButton>
               </ContactForm>
             </FormCon>
