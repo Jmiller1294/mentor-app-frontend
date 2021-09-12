@@ -26,6 +26,7 @@ import linkedIn from '../assets/linkedIn.png';
 import twitter from '../assets/twitter.png';
 import youtube from '../assets/youtube.png';
 import github from '../assets/github.png';
+import { useHistory } from 'react-router';
 
 const faker = require('faker');
 
@@ -245,6 +246,14 @@ const HomePage = () => {
     })
     .then(resp => resp.json())
     .then(data => console.log(data))
+
+    setContactInfo({
+      name: '',
+      phone: '',
+      email: '',
+      message: ''
+    })
+
   }
 
   if(testimonials && testimonials.length !== 0) 
@@ -480,13 +489,13 @@ const HomePage = () => {
               <ContactForm>
                 <h2>Contact Us</h2>
                 <InputLabel htmlFor="name">Full Name</InputLabel>
-                <FormInput type="text" name="name" onChange={(e) => handleInputChange(e)} />
+                <FormInput type="text" name="name" value={contactInfo.name} onChange={(e) => handleInputChange(e)} />
                 <InputLabel htmlFor="phone">Phone Number</InputLabel>
-                <FormInput type="text" name="phone" onChange={(e) => handleInputChange(e)} />
+                <FormInput type="text" name="phone" value={contactInfo.phone} onChange={(e) => handleInputChange(e)} />
                 <InputLabel htmlFor="email">Email</InputLabel>
-                <FormInput type="text" name="email" onChange={(e) => handleInputChange(e)} />
+                <FormInput type="text" name="email" value={contactInfo.email} onChange={(e) => handleInputChange(e)} />
                 <InputLabel htmlFor="message">Message</InputLabel>
-                <Message type="textarea" name="message" onChange={(e) => handleInputChange(e)} />
+                <Message type="textarea" name="message" value={contactInfo.message} onChange={(e) => handleInputChange(e)} />
                 <SubmitButton onClick={(e) => handleClick(e)}>Submit</SubmitButton>
               </ContactForm>
             </FormCon>

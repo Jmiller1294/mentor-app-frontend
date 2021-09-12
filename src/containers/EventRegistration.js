@@ -54,7 +54,7 @@ const EventRegistration = (props) => {
 
   const newRoute = () => { 
     let path = `/message`; 
-    history.push(path)
+    history.push(path);
   }
 
   const createEventRegistration = (userId) => {
@@ -62,7 +62,7 @@ const EventRegistration = (props) => {
       method: "POST",
       credentials: "include",
       headers: { 
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
       },
         body: JSON.stringify(Object.assign(registrationInfo, event))
     })
