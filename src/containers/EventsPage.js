@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDate, setLocation, setTime } from '../actions/userActions';
+import { setDate, setLocation, setTime } from '../actions/eventActions';
 import styled from 'styled-components';
 import Event from '../components/Event';
 import SearchBar from '../components/SearchBar';
@@ -34,7 +34,7 @@ const EventsPage = () => {
   const [events, setEvents] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const date = useSelector(state => state.date);
+  const date = useSelector(state => state.rootReducer);
   const location = useSelector(state => state.location);
   const time = useSelector(state => state.time);
   const dispatch = useDispatch();

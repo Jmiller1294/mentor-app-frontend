@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setDate, setLocation, setTime } from '../../actions/userActions';
+import { setDate, setLocation, setTime } from '../../actions/eventActions';
 import styled from 'styled-components';
 
 const AccordionItem = styled.div`

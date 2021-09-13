@@ -3,7 +3,8 @@ import MentorCard from '../components/cards/MentorCard';
 import EventCard from '../components/cards/EventCard';
 import { Grid, Row, Col } from '../components/styled/Grid';
 import { useDispatch, useSelector } from 'react-redux';
-import { getEvents, getMentors } from '../actions/userActions';
+import { getEvents } from '../actions/eventActions';
+import { getMentors } from '../actions/mentorActions';
 import styled from 'styled-components';
 import profileImg from '../assets/profile-img.jpg';
 
