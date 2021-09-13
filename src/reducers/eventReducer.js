@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   isActive: false
 }
 
-export const userReducer = (state = INITIAL_STATE, action) => {
+export const eventReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case "SET_ATTENDEES":
       return {
@@ -33,7 +33,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isActive: !state.isActive
       }
-      
     default: 
       return state;
   }
