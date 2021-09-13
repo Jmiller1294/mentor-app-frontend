@@ -93,7 +93,7 @@ const MentorsPage = () => {
         <Row>
           <Col size={1}>
             <List>
-              <Message>No Results Found</Message>
+              <Message>No Mentors Found</Message>
             </List>
           </Col>
         </Row>
