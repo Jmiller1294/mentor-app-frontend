@@ -1,5 +1,6 @@
 export const getEvents = (userId) => {
   return(dispatch) => {
+    console.log(userId);
     fetch(`http://localhost:3001/users/${userId}/event_registrations`)
     .then(resp => resp.json())
     .then(events => dispatch(setEvents(events)))

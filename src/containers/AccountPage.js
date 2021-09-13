@@ -39,10 +39,9 @@ const AccountPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(userInfo.user_id)
     dispatch(getMentors(userInfo.id));
     dispatch(getEvents(userInfo.id))
-  }, [])
+  }, [dispatch, userInfo.id])
 
   return(
     !!userInfo ?

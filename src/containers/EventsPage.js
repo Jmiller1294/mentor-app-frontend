@@ -34,7 +34,7 @@ const EventsPage = () => {
   const [events, setEvents] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const date = useSelector(state => state.rootReducer);
+  const date = useSelector(state => state.date);
   const location = useSelector(state => state.location);
   const time = useSelector(state => state.time);
   const dispatch = useDispatch();
