@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import MentorCard from '../components/cards/MentorCard';
 import EventCard from '../components/cards/EventCard';
+import AppointmentCard from '../components/cards/AppointmentCard';
 import { Grid, Row, Col } from '../components/styled/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEvents } from '../actions/eventActions';
 import { getMentors } from '../actions/mentorActions';
-
+import { getAppointments } from '../actions/appointmentActions';
 import styled from 'styled-components';
 import profileImg from '../assets/profile-img.jpg';
 
@@ -15,7 +16,7 @@ const MentorsCon = styled.div`
   height: auto;
   width: 100%;
 `
-const EventsCon = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: row;
   height: auto;
@@ -36,7 +37,8 @@ const UserName = styled.span`
 const AccountPage = () => {
   const userInfo = useSelector(state => state.currentUser);
   const mentors = useSelector(state => state.mentors);
-  const events = useSelector(state => state.events)
+  const events = useSelector(state => state.events);
+  const appointments = useSelector(state => state.appointments);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -55,34 +57,39 @@ const AccountPage = () => {
       <Row>
         <Col size={1}>
           <h2>Mentors</h2>
-          <MentorsCon>
+          <Container>
             {mentors.map(mentor => 
             <MentorCard 
               key={mentor.id} 
               mentor={mentor.mentor}
             ></MentorCard>)}
-          </MentorsCon>
+          </Container>
         </Col>
       </Row>
       <Row>
         <Col size={1}>
           <h2>Upcoming Events</h2>
-          <EventsCon>
+          <Container>
             {events.map(event => 
               <EventCard 
                 key={event.id} 
                 event={event.event}
               >
               </EventCard>)}
-          </EventsCon>
+          </Container>
         </Col>
       </Row>
       <Row>
         <Col size={1}>
           <h2>Upcoming Appointments</h2>
-          <EventsCon>
-            
-          </EventsCon>
+          <Container>
+            {appointments.map(appointment => 
+              <AppointmentCard 
+                key={appointment.id}
+                appointment={appointment}
+              />
+            )}
+          </Container>
         </Col>
       </Row>
     </Grid>

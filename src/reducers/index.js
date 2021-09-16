@@ -11,6 +11,7 @@ const INITIAL_STATE = {
   loggedIn: false,
   mentors: [],
   events: [],
+  appointments: [],
   date: '',
   location: '',
   time: '',
@@ -52,6 +53,11 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         events: action.payload
+      }
+    case "SET_APPOINTMENTS":
+      return {
+        ...state,
+        appointments: action.payload
       }
     case "SET_DATE":
       return {
