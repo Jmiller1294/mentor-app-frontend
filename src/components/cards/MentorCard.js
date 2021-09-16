@@ -30,8 +30,21 @@ const Header = styled.h3`
 const Bio = styled.p`
   align-self: center;
 `
+const Button = styled.button`
+  height: 35px;
+  width: 60%;
+  border-radius: 25px;
+  background-color: orange;
+  margin: 0 auto;
+`
 
 const MentorCard = ({ mentor }) => {
+
+  const handleClick = (event, mentor) => {
+    event.preventDefault();
+    
+  }
+
   return (
     <MentorCon>
       <AvatarImage src={mentor.avatar}/>
@@ -43,6 +56,7 @@ const MentorCard = ({ mentor }) => {
           City: {mentor.city} <br></br>
           Age: {mentor.age}
         </Bio>
+        <Button onClick={(e) => handleClick(e)}>Make Appointment</Button>
     </MentorCon>
   )
 }

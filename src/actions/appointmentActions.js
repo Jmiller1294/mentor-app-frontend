@@ -2,7 +2,7 @@ export const getAppointments = (UserId) => {
   return(dispatch) => {
     fetch(`http://localhost:3001/users/${UserId}/appointments`)
     .then(resp => resp.json())
-    .then(data => setAppointments(data))
+    .then(data => dispatch(setAppointments(data)))
   }
 }
 

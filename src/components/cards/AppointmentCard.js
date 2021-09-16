@@ -30,7 +30,7 @@ const AppointmentCard = ({ appointment }) => {
       <Header>{appointment.name}</Header>
         <Info>
           Day: {appointment.day} <br></br>
-          time: {appointment.time} <br></br>
+          Time: {appointment.time} <br></br>
         </Info>
     </AppointmentCon>
   )

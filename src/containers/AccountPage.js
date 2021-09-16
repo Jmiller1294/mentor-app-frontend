@@ -10,12 +10,7 @@ import { getAppointments } from '../actions/appointmentActions';
 import styled from 'styled-components';
 import profileImg from '../assets/profile-img.jpg';
 
-const MentorsCon = styled.div`
-  display: flex;
-  flex-direction: space-between;
-  height: auto;
-  width: 100%;
-`
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
