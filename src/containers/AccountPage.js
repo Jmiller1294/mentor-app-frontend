@@ -5,6 +5,7 @@ import { Grid, Row, Col } from '../components/styled/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEvents } from '../actions/eventActions';
 import { getMentors } from '../actions/mentorActions';
+
 import styled from 'styled-components';
 import profileImg from '../assets/profile-img.jpg';
 
@@ -40,7 +41,8 @@ const AccountPage = () => {
 
   useEffect(() => {
     dispatch(getMentors(userInfo.id));
-    dispatch(getEvents(userInfo.id))
+    dispatch(getEvents(userInfo.id));
+    dispatch(getAppointments(userInfo.id));
   }, [dispatch, userInfo.id])
 
   return(
@@ -72,6 +74,14 @@ const AccountPage = () => {
                 event={event.event}
               >
               </EventCard>)}
+          </EventsCon>
+        </Col>
+      </Row>
+      <Row>
+        <Col size={1}>
+          <h2>Upcoming Appointments</h2>
+          <EventsCon>
+            
           </EventsCon>
         </Col>
       </Row>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startCreateUser } from '../actions/userActions';
 import styled from 'styled-components';
@@ -36,13 +36,31 @@ const RegistrationContainer = styled.div`
   height: 700px;
 `
 
-const RegistrationPage = () => {
+const RegistrationPage = (props) => {
+  const dispatch = useDispatch();
+  const loggedIn = useSelector(state => state.loggedIn);
+  const initialRender = useRef(true);
   const [registrationInfo, setRegistrationInfo] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    passwordConfirmation: ''
   })
-  const dispatch = useDispatch();
+  
+
+  useEffect(() => {
+    if(!initialRender.current) {
+      if(loggedIn) {
+        props.history.push('/');
+      } 
+      else {
+        console.log('not signed in');
+      }
+    } 
+    else {
+      initialRender.current = false;
+    }
+  }, [loggedIn, props.history])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -60,7 +78,7 @@ const RegistrationPage = () => {
         <Col size={1}>
           <RegistrationContainer>
             <RegistrationForm>
-              <h2 style={{textAlign: 'center'}}>Register</h2>
+              <h2 style={{textAlign: 'center'}}>Signup</h2>
               <FormInput 
                 type="text" 
                 name="name" 
@@ -85,7 +103,15 @@ const RegistrationPage = () => {
                 onChange={(e) => handleInputChange(e)} 
               >
               </FormInput>
-              <RegistrationBtn onClick={(e) => handleSubmit(e)}>Register</RegistrationBtn>
+              <FormInput 
+                type="password" 
+                name="passwordConfirmation" 
+                value={registrationInfo.passwordConfirmation} 
+                placeholder="Retype Password"
+                onChange={(e) => handleInputChange(e)} 
+              >
+              </FormInput>
+              <RegistrationBtn onClick={(e) => handleSubmit(e)}>Signup</RegistrationBtn>
             </RegistrationForm>
           </RegistrationContainer>
         </Col>
