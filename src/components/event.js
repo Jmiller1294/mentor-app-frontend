@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
@@ -47,9 +47,12 @@ const ButtonCont = styled.div`
 
 const Event = ({ event }) => {
   const [active, setActive] = useState(false);
+  const [favorites, setFavorites] = useState([])
   const user = useSelector(state => state.currentUser);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  //if (favorites.includes(event.id)) console.log('found')
 
   const newRoute = () => { 
     let path = `register`; 
@@ -61,14 +64,42 @@ const Event = ({ event }) => {
     });
   }
 
+  const addFavorite = (favorite, user) => {
+    fetch('http://localhost:3001/favorites' , {
+      method: "POST",
+      credentials: "include",
+      headers: { 
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({...favorite, user_id: user.id })
+    })
+    .then(resp => resp.json())
+    .then(e => console.log(e.favorite_ids))
+  }
+
+  const deleteFavorite = (eventId) => {
+    fetch(`http://localhost:3001/favorites/${eventId}`, {
+      method: "DELETE",
+      credentials: "include",
+      headers: { 
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(user)
+    })
+    .then(resp => resp.json())
+    .then(res => console.log(res))
+  }
+
   const FavButtonClick = (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
     setActive(!active);
     if(active) {
       console.log('active', event.id);
+      deleteFavorite(event.id);
     }
     else {
       console.log('inactive');
+      addFavorite(event, user);
     }
   }
 
