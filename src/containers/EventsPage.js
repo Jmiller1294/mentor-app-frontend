@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDate, setLocation, setTime } from '../actions/eventActions';
+import { getFavorites } from '../actions/favoriteActions';
 import styled from 'styled-components';
 import Event from '../components/Event';
 import SearchBar from '../components/SearchBar';
@@ -35,16 +36,22 @@ const EventsPage = () => {
   const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const date = useSelector(state => state.date);
+  const user = useSelector(state => state.currentUser);
   const location = useSelector(state => state.location);
   const time = useSelector(state => state.time);
   const dispatch = useDispatch();
 
+  const rerenderParentCallback = () => {
+    setIsActive(!isActive);
+  }
+  
   useEffect(() => {
     fetch('http://localhost:3001/events')
     .then(resp => resp.json())
     .then(data => setEvents(data))
     .catch((error) => console.error('Error:', error))
-  }, [])
+    dispatch(getFavorites(user.id));
+  }, [isActive])
 
   const handleChildClick = (term) => {
     setSearchTerm(term);
@@ -140,6 +147,7 @@ const EventsPage = () => {
               <Event 
                 key={event.id} 
                 event={event}
+                rerenderParentCallback={rerenderParentCallback}
               /> 
             ) : <h2>No Events Found</h2>
           : 
@@ -147,6 +155,7 @@ const EventsPage = () => {
               <Event 
                 key={event.id} 
                 event={event}
+                rerenderParentCallback={rerenderParentCallback}
               /> 
             ) : <h2>No Events Found</h2>
           }

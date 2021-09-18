@@ -44,16 +44,16 @@ const ButtonCont = styled.div`
   margin-top: auto;
 `
 
-
-const Event = ({ event }) => {
+const Event = ({ event, rerenderParentCallback }) => {
   const [active, setActive] = useState(false);
-  const [favorites, setFavorites] = useState([])
   const user = useSelector(state => state.currentUser);
-  const dispatch = useDispatch();
+  const favorites = useSelector(state => state.favorites);
   const history = useHistory();
 
-  //if (favorites.includes(event.id)) console.log('found')
-
+  const matchFavorite = () => {
+    if (favorites.includes(event.id)) setActive(true);
+  }
+  
   const newRoute = () => { 
     let path = `register`; 
     history.push({
@@ -101,7 +101,12 @@ const Event = ({ event }) => {
       console.log('inactive');
       addFavorite(event, user);
     }
+    rerenderParentCallback();
   }
+
+  useEffect(()=> {
+    matchFavorite();
+  }, [])
 
   if(user) {
     return(

@@ -1,8 +1,8 @@
-export const getEvents = (userId) => {
+export const getFavorites = (userId) => {
   return(dispatch) => {
     fetch(`http://localhost:3001/users/${userId}/favorites`)
     .then(resp => resp.json())
-    .then(data => setFavorites(data))
+    .then(data => dispatch(setFavorites(data)))
   }
 }
 

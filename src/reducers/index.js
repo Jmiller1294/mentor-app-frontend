@@ -12,6 +12,7 @@ const INITIAL_STATE = {
   mentors: [],
   events: [],
   appointments: [],
+  favorites: [],
   date: '',
   location: '',
   time: '',
@@ -59,6 +60,11 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
         ...state,
         appointments: action.payload
       }
+      case "SET_FAVORITES":
+        return {
+          ...state,
+          favorites: action.payload
+        }
     case "SET_DATE":
       return {
         ...state,
