@@ -106,7 +106,7 @@ const Event = ({ event, rerenderParentCallback }) => {
 
   useEffect(()=> {
     matchFavorite();
-  }, [])
+  }, [matchFavorite])
 
   if(user) {
     return(

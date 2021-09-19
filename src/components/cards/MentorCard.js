@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const MentorCon = styled.div`
   display: flex;
@@ -39,10 +40,16 @@ const Button = styled.button`
 `
 
 const MentorCard = ({ mentor }) => {
+  const history = useHistory();
+
+  const newRoute = () => { 
+    let path = `/appointment`; 
+    history.push(path);
+  }
 
   const handleClick = (event, mentor) => {
     event.preventDefault();
-    
+    newRoute();
   }
 
   return (

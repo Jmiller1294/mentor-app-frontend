@@ -50,7 +50,7 @@ const EventsPage = () => {
     .then(resp => resp.json())
     .then(data => setEvents(data))
     .catch((error) => console.error('Error:', error))
-    dispatch(getFavorites(user.id));
+    if(user) { dispatch(getFavorites(user.id)) };
   }, [isActive])
 
   const handleChildClick = (term) => {

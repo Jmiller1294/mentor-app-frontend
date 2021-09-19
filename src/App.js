@@ -15,6 +15,7 @@ import NavBar from './components/navigation/NavBar';
 import Message from "./components/Message";
 import { createGlobalStyle } from 'styled-components';
 import { checkLoggedInStatus } from "./actions/userActions";
+import AppointmentPage from "./containers/AppointmentPage";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -47,6 +48,7 @@ const App = () => {
         <Route exact path="/registration" component={RegistrationPage} />
         <ProtectedRoute exact path="/accounts" component={AccountPage} />
         <ProtectedRoute exact path="/register" component={EventRegistration} />
+        <ProtectedRoute exact path="/appointment" component={AppointmentPage} />
         <ProtectedRoute exact path="/message" component={Message} />
       </Switch>
       <GlobalStyle />

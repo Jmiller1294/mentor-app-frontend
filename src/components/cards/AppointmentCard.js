@@ -21,13 +21,17 @@ const Header = styled.h3`
   align-self: center;
 `
 const Info = styled.p`
-  align-self: center;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-content: center;
 `
 
 const AppointmentCard = ({ appointment }) => {
+  console.log(appointment);
   return (
     <AppointmentCon>
-      <Header>{appointment.name}</Header>
+      <Header>{appointment.mentor.name}</Header>
         <Info>
           Day: {appointment.day} <br></br>
           Time: {appointment.time} <br></br>

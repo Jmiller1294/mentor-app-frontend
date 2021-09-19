@@ -40,11 +40,7 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
         loggedIn: action.payload.logged_in
       }
     case "LOGOUT":
-      return {
-        ...state,
-        currentUser: null,
-        loggedIn: false
-      }
+      return INITIAL_STATE; 
     case "SET_MENTORS":
       return {
         ...state,
