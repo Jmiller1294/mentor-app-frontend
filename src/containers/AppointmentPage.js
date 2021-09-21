@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Select from 'react-select';
 
 const AppointmentCon = styled.div`
   display: flex;
@@ -21,10 +22,10 @@ const AppointmentForm = styled.form`
   height: 75%;
   width: 40%;
 `
-const Select = styled.select`
+/* const Select = styled.select`
   margin-bottom: 20px;
   height: 30px;
-`
+` */
 const Option = styled.option`
 `
 const SubmitButton = styled.button`
@@ -32,46 +33,52 @@ const SubmitButton = styled.button`
   height: 25px;
   width: 25%;
 `
+const days = [
+  { value: 'monday', label: 'Chocolate' },
+  { value: 'tuesday', label: 'Strawberry' },
+  { value: 'wednesday', label: 'Vanilla' },
+  { value: 'thursday', label: 'Vanilla' },
+  { value: 'friday', label: 'Vanilla' },
+  { value: 'saturday', label: 'Vanilla' },
+  { value: 'sunday', label: 'Vanilla' },
+];
+
+const times = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
 
 
 const AppointmentPage = () => {
-  const [day, setDay] = useState('');
-  const [time, setTime] = useState('');
+  const [option, setOption] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
     console.log(event.target.value);
   }
+
+  const handleChange = option => {
+    setOption({ option });
+    console.log(`Option selected:`, option);
+  };
   
   return (
     <AppointmentCon>
       <AppointmentForm onSubmit={(e)=> handleSubmit(e)}>
         <Header>Please set an appointment</Header>
         <label for="day-select">Choose a Day:</label>
-        <Select name="days" id="day-select">
-          <Option>--Please choose an option--</Option>
-          <Option value="monday">Monday</Option>
-          <Option value="tuesday">Tuesday</Option>
-          <Option value="wednesday">Wednesday</Option>
-          <Option value="thursday">Thursday</Option>
-          <Option value="friday">Friday</Option>
-          <Option value="saturday">Saturday</Option>
-          <Option value="sunday">Sunday</Option>
-        </Select>
+        <Select 
+          value={option}
+          onChange={handleChange}
+          options={days}
+        />
         <label for="time-select">Choose a Time:</label>
-        <Select name="times" id="time-select">
-          <Option>--Please choose an option--</Option>
-          <Option value="9:00AM">9:00AM</Option>
-          <Option value="10:00AM">10:00AM</Option>
-          <Option value="11:00AM">11:00AM</Option>
-          <Option value="12:00PM">12:00PM</Option>
-          <Option value="1:00PM">1:00PM</Option>
-          <Option value="2:00PM">2:00PM</Option>
-          <Option value="3:00PM">3:00PM</Option>
-          <Option value="4:00PM">4:00PM</Option>
-          <Option value="5:00PM">5:00PM</Option>
-        </Select>
+        <Select 
+          value={option}
+          onChange={handleChange}
+          options={times}
+        />
         <SubmitButton>Make Appointment</SubmitButton>
       </AppointmentForm>
     </AppointmentCon>
