@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const AppointmentCon = styled.div`
@@ -35,41 +35,44 @@ const SubmitButton = styled.button`
 
 
 const AppointmentPage = () => {
+  const [day, setDay] = useState('');
+  const [time, setTime] = useState('');
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('clicked');
+    event.preventDefault();
+    
+    console.log(event.target.value);
   }
   
   return (
     <AppointmentCon>
-      <AppointmentForm>
+      <AppointmentForm onSubmit={(e)=> handleSubmit(e)}>
         <Header>Please set an appointment</Header>
-        <label for="pet-select">Choose a Day:</label>
-        <Select name="pets" id="pet-select">
-          <Option value="">--Please choose an option--</Option>
-          <Option value="dog">Monday</Option>
-          <Option value="cat">Tuesday</Option>
-          <Option value="hamster">Wednesday</Option>
-          <Option value="parrot">Thursday</Option>
-          <Option value="spider">Friday</Option>
-          <Option value="goldfish">Saturday</Option>
-          <Option value="goldfish">Sunday</Option>
+        <label for="day-select">Choose a Day:</label>
+        <Select name="days" id="day-select">
+          <Option>--Please choose an option--</Option>
+          <Option value="monday">Monday</Option>
+          <Option value="tuesday">Tuesday</Option>
+          <Option value="wednesday">Wednesday</Option>
+          <Option value="thursday">Thursday</Option>
+          <Option value="friday">Friday</Option>
+          <Option value="saturday">Saturday</Option>
+          <Option value="sunday">Sunday</Option>
         </Select>
-        <label for="pet-select">Choose a Time:</label>
-        <Select name="pets" id="pet-select">
-          <Option value="">--Please choose an option--</Option>
-          <Option value="dog">9:00AM</Option>
-          <Option value="cat">10:00AM</Option>
-          <Option value="hamster">11:00AM</Option>
-          <Option value="parrot">12:00PM</Option>
-          <Option value="spider">1:00PM</Option>
-          <Option value="goldfish">2:00PM</Option>
-          <Option value="goldfish">3:00PM</Option>
-          <Option value="goldfish">4:00PM</Option>
-          <Option value="goldfish">5:00PM</Option>
+        <label for="time-select">Choose a Time:</label>
+        <Select name="times" id="time-select">
+          <Option>--Please choose an option--</Option>
+          <Option value="9:00AM">9:00AM</Option>
+          <Option value="10:00AM">10:00AM</Option>
+          <Option value="11:00AM">11:00AM</Option>
+          <Option value="12:00PM">12:00PM</Option>
+          <Option value="1:00PM">1:00PM</Option>
+          <Option value="2:00PM">2:00PM</Option>
+          <Option value="3:00PM">3:00PM</Option>
+          <Option value="4:00PM">4:00PM</Option>
+          <Option value="5:00PM">5:00PM</Option>
         </Select>
-        <SubmitButton onClick={(e)=> handleSubmit(e)}>Make Appointment</SubmitButton>
+        <SubmitButton>Make Appointment</SubmitButton>
       </AppointmentForm>
     </AppointmentCon>
   )
