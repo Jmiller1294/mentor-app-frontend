@@ -22,61 +22,68 @@ const AppointmentForm = styled.form`
   height: 75%;
   width: 40%;
 `
-/* const Select = styled.select`
-  margin-bottom: 20px;
-  height: 30px;
-` */
-const Option = styled.option`
-`
 const SubmitButton = styled.button`
   align-self: center;
-  height: 25px;
-  width: 25%;
+  height: 10%;
+  width: 35%;
+  margin-top: 30px;
 `
+
+
 const days = [
-  { value: 'monday', label: 'Chocolate' },
-  { value: 'tuesday', label: 'Strawberry' },
-  { value: 'wednesday', label: 'Vanilla' },
-  { value: 'thursday', label: 'Vanilla' },
-  { value: 'friday', label: 'Vanilla' },
-  { value: 'saturday', label: 'Vanilla' },
-  { value: 'sunday', label: 'Vanilla' },
-];
+  { value: 'Monday', label: 'Monday' },
+  { value: 'Tuesday', label: 'Tuesday' },
+  { value: 'Wednesday', label: 'Wednesday' },
+  { value: 'Thursday', label: 'Thursday' },
+  { value: 'Friday', label: 'Friday' },
+  { value: 'Saturday', label: 'Saturday' },
+  { value: 'Sunday', label: 'Sunday' }
+]
 
 const times = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
+  { value: '9:00AM', label: '9:00AM' },
+  { value: '10:00AM', label: '10:00AM' },
+  { value: '11:00AM', label: '11:00AM' },
+  { value: '12:00PM', label: '12:00PM' },
+  { value: '1:00PM', label:  '1:00PM' },
+  { value: '2:00PM', label:  '2:00PM' },
+  { value: '3:00PM', label:  '3:00PM' },
+  { value: '4:00PM', label:  '4:00PM' },
+  { value: '5:00PM', label:  '5:00PM' }
+]
 
 
 const AppointmentPage = () => {
-  const [option, setOption] = useState(null);
+  const [dayOption, setDayOption] = useState(days[0]);
+  const [timeOption, setTimeOption] = useState(times[0]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
+    console.log(dayOption.value, timeOption.value);
   }
 
-  const handleChange = option => {
-    setOption({ option });
-    console.log(`Option selected:`, option);
-  };
+  const handleDayChange = event => {
+    setDayOption(event);
+  }
+
+  const handleTimeChange = event => {
+    setTimeOption(event);
+  }
   
   return (
     <AppointmentCon>
-      <AppointmentForm onSubmit={(e)=> handleSubmit(e)}>
+      <AppointmentForm onSubmit={(e) => handleSubmit(e)}>
         <Header>Please set an appointment</Header>
         <label for="day-select">Choose a Day:</label>
         <Select 
-          value={option}
-          onChange={handleChange}
+          value={dayOption}
+          onChange={(e) => handleDayChange(e)}
           options={days}
         />
         <label for="time-select">Choose a Time:</label>
         <Select 
-          value={option}
-          onChange={handleChange}
+          value={timeOption}
+          onChange={(e) => handleTimeChange(e)}
           options={times}
         />
         <SubmitButton>Make Appointment</SubmitButton>
