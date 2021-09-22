@@ -44,7 +44,12 @@ const MentorCard = ({ mentor }) => {
 
   const newRoute = () => { 
     let path = `/appointment`; 
-    history.push(path);
+    history.push({
+      pathname: path,
+      state: {
+        data: mentor
+      }
+    });
   }
 
   const handleClick = (event, mentor) => {

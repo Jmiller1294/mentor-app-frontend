@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Select from 'react-select';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const AppointmentCon = styled.div`
   display: flex;
@@ -57,14 +59,35 @@ const times = [
 ]
 
 
-const AppointmentPage = () => {
+const AppointmentPage = (props) => {
   const [dayOption, setDayOption] = useState(days[0]);
   const [timeOption, setTimeOption] = useState(times[0]);
+  const user = useSelector(state => state.currentUser);
+  const history = useHistory();
 
+  const addAppointment = (userId, data) => {
+    fetch(`http://localhost:3001/users/${userId}/appointments`, {
+      method: 'POST',
+      credentials: "include",
+      headers: { 
+        "Content-Type": "application/json",
+      },
+        body: JSON.stringify(Object.assign(user, data, { mentor: props.location.state.data}))
+    })
+  }
+   
+  
+  
   const handleSubmit = (event) => {
+    let obj = { day: dayOption.value, time: timeOption.value };
+
+    const newRoute = () => { 
+      let path = `/accounts`; 
+      history.push(path);
+    }
     event.preventDefault();
-    console.log(dayOption.value, timeOption.value);
-    
+    addAppointment(user.id, obj);
+    newRoute();
   }
 
   const handleDayChange = event => {
@@ -79,13 +102,13 @@ const AppointmentPage = () => {
     <AppointmentCon>
       <AppointmentForm onSubmit={(e) => handleSubmit(e)}>
         <Header>Please set an appointment</Header>
-        <label for="day-select">Choose a Day:</label>
+        <label htmlFor="day-select">Choose a Day:</label>
         <Select 
           value={dayOption}
           onChange={(e) => handleDayChange(e)}
           options={days}
         />
-        <label for="time-select">Choose a Time:</label>
+        <label htmlFor="time-select">Choose a Time:</label>
         <Select 
           value={timeOption}
           onChange={(e) => handleTimeChange(e)}

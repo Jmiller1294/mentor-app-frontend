@@ -56,11 +56,11 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
         ...state,
         appointments: action.payload
       }
-      case "SET_FAVORITES":
-        return {
-          ...state,
-          favorites: action.payload
-        }
+    case "SET_FAVORITES":
+      return {
+        ...state,
+        favorites: action.payload
+      }
     case "SET_DATE":
       return {
         ...state,
