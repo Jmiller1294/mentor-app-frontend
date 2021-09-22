@@ -10,3 +10,8 @@ export const setAppointments = (data) => ({
   type: 'SET_APPOINTMENTS',
   payload: data
 })
+
+export const addAppointments = (data) => ({
+  type: 'ADD_APPOINTMENT',
+  payload: data
+})

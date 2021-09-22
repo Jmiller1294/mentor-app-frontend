@@ -19,13 +19,17 @@ const AppointmentForm = styled.form`
   flex-direction: column;
   background-color: #f8f7f2;
   padding: 100px;
-  height: 75%;
+  height: 600px;
   width: 40%;
 `
 const SubmitButton = styled.button`
+  display: flex;
   align-self: center;
-  height: 10%;
-  width: 35%;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  height: 45px;
+  width: 100px;
   margin-top: 30px;
 `
 
@@ -60,6 +64,7 @@ const AppointmentPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(dayOption.value, timeOption.value);
+    
   }
 
   const handleDayChange = event => {
