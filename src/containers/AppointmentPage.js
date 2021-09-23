@@ -64,6 +64,7 @@ const AppointmentPage = (props) => {
   const [timeOption, setTimeOption] = useState(times[0]);
   const user = useSelector(state => state.currentUser);
   const history = useHistory();
+  const appointmentId = props.location.state.appointmentId;
 
   const addAppointment = (userId, data) => {
     fetch(`http://localhost:3001/users/${userId}/appointments`, {
@@ -76,6 +77,20 @@ const AppointmentPage = (props) => {
     })
   }
    
+  const updateAppointment = (data) => {
+    console.log(appointmentId)
+    fetch(`http://localhost:3001/appointments/${appointmentId}`, {
+      method: "PATCH",
+      credentials: "include",
+      headers: { 
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+    .then(resp => resp.json())
+    .then(res => console.log(res))
+  }
+  
   
   
   const handleSubmit = (event) => {
@@ -86,7 +101,14 @@ const AppointmentPage = (props) => {
       history.push(path);
     }
     event.preventDefault();
-    addAppointment(user.id, obj);
+    if(props.location.state.updated === true) {
+      console.log('update');
+      updateAppointment();
+    }
+    else {
+      console.log('added');
+      addAppointment(user.id, obj);
+    }
     newRoute();
   }
 
