@@ -75,6 +75,9 @@ const AppointmentPage = (props) => {
       },
         body: JSON.stringify(Object.assign(user, data, { mentor: props.location.state.data}))
     })
+    .then(resp => resp.json())
+    .then(res => console.log(res))
+    .catch((e) => console.log(e))
   }
    
   const updateAppointment = (data) => {
@@ -89,6 +92,7 @@ const AppointmentPage = (props) => {
     })
     .then(resp => resp.json())
     .then(res => console.log(res))
+    .catch((e) => console.log(e))
   }
   
   
@@ -103,7 +107,7 @@ const AppointmentPage = (props) => {
     event.preventDefault();
     if(props.location.state.updated === true) {
       console.log('update');
-      updateAppointment();
+      updateAppointment(obj);
     }
     else {
       console.log('added');
