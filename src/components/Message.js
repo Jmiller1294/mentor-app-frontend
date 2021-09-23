@@ -11,20 +11,28 @@ const Header = styled.h1`
 
 `
 
-const Message = () => {
+const Message = (props) => {
   const history = useHistory();
   
-  useEffect(() => {
-    const newRoute = () => { 
-      let path = `/events`; 
-      history.push(path)
+  const chooseRoute = () => {
+    let path; 
+    if(props.location.state.type === 'appointment') {
+      path = '/accounts'
     }
-    setTimeout(() => { newRoute() }, 1500)
+    else {
+      path = '/events'
+    }
+    history.push(path)
+  }
+
+  useEffect(() => {
+    console.log(props.location)
+    setTimeout(() => { chooseRoute() }, 1500)
   },[history])
 
   return(
     <MessageCon>
-      <Header>Thank You For Registering!</Header>
+      <Header>{props.location.state.message}</Header>
     </MessageCon>
   )
 }

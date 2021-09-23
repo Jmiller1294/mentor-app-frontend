@@ -54,7 +54,13 @@ const EventRegistration = (props) => {
 
   const newRoute = () => { 
     let path = `/message`; 
-    history.push(path);
+    history.push({
+      pathname: path,
+      state: {
+        message: "Thank You For Registering!",
+        type: 'event'
+      }
+    });
   }
 
   const createEventRegistration = (userId) => {

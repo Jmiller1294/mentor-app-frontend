@@ -95,24 +95,29 @@ const AppointmentPage = (props) => {
     .catch((e) => console.log(e))
   }
   
-  
-  
   const handleSubmit = (event) => {
     let obj = { day: dayOption.value, time: timeOption.value };
 
     const newRoute = () => { 
-      let path = `/accounts`; 
-      history.push(path);
+      let path = '/message'; 
+      history.push({
+        pathname: path,
+        state: {
+          message: "Appointment Made!",
+          type: 'appointment'
+        }
+      });
     }
     event.preventDefault();
     if(props.location.state.updated === true) {
-      console.log('update');
+      console.log('updated');
       updateAppointment(obj);
     }
     else {
       console.log('added');
       addAppointment(user.id, obj);
     }
+    
     newRoute();
   }
 
