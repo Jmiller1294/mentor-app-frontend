@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
 import UnfilledHeartIcon from '../assets/unfilled-heart.svg';
@@ -44,16 +44,11 @@ const ButtonCont = styled.div`
   margin-top: auto;
 `
 
-const Event = ({ event, rerenderParentCallback }) => {
-  const [active, setActive] = useState(false);
+const Event = ({ event, rerenderParentCallback,value }) => {
+  const [active, setActive] = useState(value);
   const user = useSelector(state => state.currentUser);
-  const favorites = useSelector(state => state.favorites);
   const history = useHistory();
 
-  const matchFavorite = () => {
-    if (favorites.includes(event.id)) setActive(true);
-    rerenderParentCallback();
-  }
   
   const newRoute = () => { 
     let path = `register`; 
@@ -91,7 +86,7 @@ const Event = ({ event, rerenderParentCallback }) => {
 
   const updateLikes = () => {
     let likeCount;
-    if(active === true) {
+    if(active) {
       likeCount = event.likes - 1;
     }
     else {
@@ -114,26 +109,24 @@ const Event = ({ event, rerenderParentCallback }) => {
     setActive(!active);
     if(active) {
       console.log('active', event.id);
-      deleteFavorite(event.id);
-      setTimeout(() => {
-        updateLikes();
-      },500) 
+      deleteFavorite(event.id); 
     }
     else {
       console.log('inactive');
-      addFavorite(event, user);
-      setTimeout(() => {
-        updateLikes();
-      },500) 
+      addFavorite(event, user); 
     }
     setTimeout(() => {
+      updateLikes();
+    },500)
+    setTimeout(() => {
       rerenderParentCallback();
-    },1000) 
+    }, 700);
   }
 
   useEffect(()=> {
-    matchFavorite();
-  }, [])
+    setActive(value);
+  },[value])
+
 
   if(user) {
     return(

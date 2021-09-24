@@ -38,20 +38,13 @@ const EventsPage = () => {
   const date = useSelector(state => state.date);
   const user = useSelector(state => state.currentUser);
   const location = useSelector(state => state.location);
+  const favorites = useSelector(state => state.favorites);
   const time = useSelector(state => state.time);
   const dispatch = useDispatch();
 
   const rerenderParentCallback = () => {
     setIsActive(!isActive);
   }
-  
-  useEffect(() => {
-    fetch('http://localhost:3001/events')
-    .then(resp => resp.json())
-    .then(data => setEvents(data))
-    .catch((error) => console.error('Error:', error))
-    if(user) { dispatch(getFavorites(user.id)) };
-  }, [isActive])
 
   const handleChildClick = (term) => {
     setSearchTerm(term);
@@ -127,6 +120,14 @@ const EventsPage = () => {
     || event.location.toLowerCase().includes(searchTerm.toLowerCase())
   }))
 
+  useEffect(() => {
+    fetch('http://localhost:3001/events')
+    .then(resp => resp.json())
+    .then(data => setEvents(data))
+    .catch((error) => console.error('Error:', error))
+    if(user) { dispatch(getFavorites(user.id)) };
+  }, [isActive])
+
   return (
     <Grid>
       <Row>
@@ -151,13 +152,16 @@ const EventsPage = () => {
               /> 
             ) : <h2>No Events Found</h2>
           : 
-          filteredItems.length !== 0 ? filteredItems.map(event => 
-              <Event 
+          filteredItems.length !== 0 ? filteredItems.map(function(event) {
+              let value;
+              if (favorites.includes(event.id)) value = true;
+              return <Event 
                 key={event.id} 
                 event={event}
+                value={value}
                 rerenderParentCallback={rerenderParentCallback}
               /> 
-            ) : <h2>No Events Found</h2>
+          }) : <h2>No Events Found</h2>
           }
           </EventList>
         </Col>
