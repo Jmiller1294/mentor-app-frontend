@@ -26,9 +26,8 @@ const Message = (props) => {
   }
 
   useEffect(() => {
-    console.log(props.location)
     setTimeout(() => { chooseRoute() }, 1500)
-  },[history])
+  })
 
   return(
     <MessageCon>

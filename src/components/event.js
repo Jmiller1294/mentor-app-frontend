@@ -52,6 +52,7 @@ const Event = ({ event, rerenderParentCallback }) => {
 
   const matchFavorite = () => {
     if (favorites.includes(event.id)) setActive(true);
+    rerenderParentCallback();
   }
   
   const newRoute = () => { 
@@ -74,7 +75,6 @@ const Event = ({ event, rerenderParentCallback }) => {
       body: JSON.stringify({...favorite, user_id: user.id })
     })
     .then(resp => resp.json())
-    .then(e => console.log(e.favorite_ids))
   }
 
   const deleteFavorite = (eventId) => {
@@ -87,7 +87,26 @@ const Event = ({ event, rerenderParentCallback }) => {
       body: JSON.stringify(user)
     })
     .then(resp => resp.json())
-    .then(res => console.log(res))
+  }
+
+  const updateLikes = () => {
+    let likeCount;
+    if(active === true) {
+      likeCount = event.likes - 1;
+    }
+    else {
+      likeCount = event.likes + 1;
+    }
+    fetch(`http://localhost:3001/events/${event.id}` , {
+      method: "PATCH",
+      credentials: "include",
+      headers: { 
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ likes: likeCount })
+    })
+    .then(resp => resp.json())
+    .catch(err => console.log(err))
   }
 
   const FavButtonClick = (evt) => {
@@ -96,17 +115,25 @@ const Event = ({ event, rerenderParentCallback }) => {
     if(active) {
       console.log('active', event.id);
       deleteFavorite(event.id);
+      setTimeout(() => {
+        updateLikes();
+      },500) 
     }
     else {
       console.log('inactive');
       addFavorite(event, user);
+      setTimeout(() => {
+        updateLikes();
+      },500) 
     }
-    rerenderParentCallback();
+    setTimeout(() => {
+      rerenderParentCallback();
+    },1000) 
   }
 
   useEffect(()=> {
     matchFavorite();
-  }, [matchFavorite])
+  }, [])
 
   if(user) {
     return(

@@ -99,7 +99,9 @@ const AppointmentPage = (props) => {
     let obj = { day: dayOption.value, time: timeOption.value };
 
     const newRoute = () => { 
+      event.preventDefault();
       let path = '/message'; 
+      
       history.push({
         pathname: path,
         state: {
@@ -108,7 +110,6 @@ const AppointmentPage = (props) => {
         }
       });
     }
-    event.preventDefault();
     if(props.location.state.updated === true) {
       console.log('updated');
       updateAppointment(obj);
@@ -117,7 +118,6 @@ const AppointmentPage = (props) => {
       console.log('added');
       addAppointment(user.id, obj);
     }
-    
     newRoute();
   }
 

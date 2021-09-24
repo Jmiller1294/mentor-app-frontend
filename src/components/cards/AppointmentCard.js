@@ -54,7 +54,6 @@ const AppointmentCard = ({ appointment }) => {
     .then(res => console.log(res))
   }
 
-  
   const handleDeleteClick = () => {
     console.log('deleted');
     deleteAppointment();
@@ -74,7 +73,6 @@ const AppointmentCard = ({ appointment }) => {
         }
       });
     }
-    //UpdateAppointment(appointment);
     newRoute();
   }
 
