@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
-import { startLogin } from '../actions/userActions'
+import { startLogin } from '../actions/userActions';
 
 const LoginForm = styled.form`
   display: flex;
@@ -35,9 +35,14 @@ const LoginContainer = styled.div`
   flex-direction: row;
   justify-content: center;
 `
+const Message = styled.p`
+  color: red;
+  text-align: center;
+`
 const LoginPage = (props) => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.loggedIn);
+  const [error, setError] = useState('')
   const initialRender = useRef(true);
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -65,6 +70,7 @@ const LoginPage = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(startLogin(loginInfo));
+    setError('Invalid Username/Password');
   }
 
   return(
@@ -73,6 +79,7 @@ const LoginPage = (props) => {
         <Col size={1}>
         <LoginContainer>
           <LoginForm>
+            <Message>{error}</Message>
             <h2 style={{textAlign: 'center'}}>Please Login</h2>
             <LoginInput onChange={(e) => handleInputChange(e)} 
               type="text" 

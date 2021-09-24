@@ -49,7 +49,7 @@ export const startLogin = (data) => {
       headers: { 
         "Content-type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({email: data.email.toLowerCase(), password: data.password})
     })
     .then(resp => resp.json())
     .then(data => dispatch(finishLogin(data)))
