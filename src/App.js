@@ -13,6 +13,7 @@ import RegistrationPage from './containers/RegistrationPage';
 import EventRegistration from "./containers/EventRegistration";
 import NavBar from './components/navigation/NavBar';
 import Message from "./components/Message";
+import FileUploadPage from "./containers/FileUploadPage";
 import { createGlobalStyle } from 'styled-components';
 import { checkLoggedInStatus } from "./actions/userActions";
 import AppointmentPage from "./containers/AppointmentPage";
@@ -50,7 +51,7 @@ const App = () => {
         <ProtectedRoute exact path="/register" component={EventRegistration} />
         <ProtectedRoute exact path="/appointment" component={AppointmentPage} />
         <ProtectedRoute exact path="/message" component={Message} />
-        <ProtectedRoute exact path="/upload" component={AppointmentPage} />
+        <ProtectedRoute exact path="/upload" component={FileUploadPage} />
       </Switch>
       <GlobalStyle />
     </React.Fragment>

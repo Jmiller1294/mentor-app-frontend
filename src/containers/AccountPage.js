@@ -67,7 +67,9 @@ const AccountPage = () => {
     !!userInfo ?
     <Grid margin={'30px'}>
       <Row>
-        {profileImg === null ? <EmptyAvatar><Link>Upload Image</Link></EmptyAvatar> :<AccountImg src={profile} />}
+        {profileImg === null ? 
+          <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
+        : <AccountImg src={profile} />}
         <UserName>{userInfo.name}</UserName>
       </Row>
       <Row>
