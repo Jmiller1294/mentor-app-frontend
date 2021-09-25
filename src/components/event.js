@@ -11,9 +11,9 @@ const AddButton = styled.button`
   background-color: orange;
   height: 40px;
   width: 100px;
-  border-radius: 25px;
-  margin-left: auto;
-  margin-top: auto;
+`
+const Header = styled.h3`
+
 `
 const FavButton = styled.button`
   background: ${props => props.filled 
@@ -22,14 +22,14 @@ const FavButton = styled.button`
   height: 32px;
   width: 32px;
   border: none;
+  margin-bottom: 20px;
 `
 const EventContainer = styled.div`
   display: flex;
-  flex-direction: column;
   height: 220px;
-  width: 80%;
-  padding: 15px 15px 10px 15px;
+  width: 100%;
   box-shadow: 5px 10px 18px #888888;
+  border-radius: 10px;
   margin: 5px;
 
   &:hover {
@@ -40,9 +40,37 @@ const EventContainer = styled.div`
 `
 const ButtonCont = styled.div`
   display: flex;
-  flex-direction: row;
-  margin-top: auto;
+  align-items: flex-end;
 `
+const EventInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 62%;
+  padding: 10px;
+`
+const EventPictureCon = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: red;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+`
+const Item = styled.span`
+  display: flex;
+  line-height: 1.5;
+`
+const Date = styled.span`
+  display: flex;
+  line-height: 1.5;
+  color: orange;
+`
+const Likes = styled.span`
+  display: flex;
+  line-height: 1.5;
+  font-weight: bold;
+`
+
 
 const Event = ({ event, rerenderParentCallback,value }) => {
   const [active, setActive] = useState(value);
@@ -131,13 +159,16 @@ const Event = ({ event, rerenderParentCallback,value }) => {
   if(user) {
     return(
       <EventContainer>
-        <h3>{event.name}</h3>
-        <span style={{color: 'orange'}}>
-          {event.date} at {event.time}
-        </span>
-        <span>Location: {event.location}</span>
-        <span>Description: {event.description}</span>
-        <span>{event.likes} Likes</span>
+         <EventPictureCon>
+
+        </EventPictureCon>
+        <EventInfo>
+          <Header>{event.name}</Header>
+          <Date>{event.date} at {event.time}</Date>
+          <Item>Location: {event.location}</Item>
+          <Item>Description: {event.description}</Item>
+          <Likes>{event.likes} Likes</Likes>
+        </EventInfo>
         <ButtonCont> 
           {active ? 
             <FavButton 
@@ -145,7 +176,6 @@ const Event = ({ event, rerenderParentCallback,value }) => {
               onClick={(e) => FavButtonClick(e)}
             ></FavButton> 
           : <FavButton onClick={(evt) => FavButtonClick(evt)}></FavButton>}
-          <AddButton onClick={newRoute}>Register</AddButton>
         </ButtonCont>
       </EventContainer>
     )
@@ -153,13 +183,16 @@ const Event = ({ event, rerenderParentCallback,value }) => {
   else {
     return(
       <EventContainer>
-        <h3>{event.name}</h3>
-        <span style={{color: 'orange'}}>
-          {event.date} at {event.time}
-        </span>
-        <span>Location: {event.location}</span>
-        <span>Description: {event.description}</span>
-        <span>{event.likes} Likes</span>
+        <EventPictureCon>
+
+        </EventPictureCon>
+        <EventInfo>
+          <Header>{event.name}</Header>
+          <Date>{event.date} at {event.time}</Date>
+          <Item>Location: {event.location}</Item>
+          <Item>Description: {event.description}</Item>
+          <Likes>{event.likes} Likes</Likes>
+        </EventInfo>
       </EventContainer>
     )
   }
