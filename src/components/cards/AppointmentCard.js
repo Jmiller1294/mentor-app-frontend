@@ -76,19 +76,24 @@ const AppointmentCard = ({ appointment }) => {
     newRoute();
   }
 
-
-  return (
-    <AppointmentCon>
-      <Header>{appointment.mentor.name}</Header>
-        <Info>
-          Day: {appointment.day} <br></br>
-          Time: {appointment.time} <br></br>
-        </Info>
-        <ButtonCon>
-          <Button onClick={(e) => handleUpdateClick(e)}>Reschedule Appointment</Button>
-          <Button onClick={(e) => handleDeleteClick(e)}>Cancel Appointment</Button>
-        </ButtonCon>
-    </AppointmentCon>
-  )
+  if(appointment) {
+    return (
+      <AppointmentCon>
+        <Header>{appointment.mentor.name}</Header>
+          <Info>
+            Day: {appointment.day} <br></br>
+            Time: {appointment.time} <br></br>
+          </Info>
+          <ButtonCon>
+            <Button onClick={(e) => handleUpdateClick(e)}>Reschedule Appointment</Button>
+            <Button onClick={(e) => handleDeleteClick(e)}>Cancel Appointment</Button>
+          </ButtonCon>
+      </AppointmentCon>
+    )
+  }
+  else {
+    return null
+  }
+  
 }
 export default AppointmentCard;

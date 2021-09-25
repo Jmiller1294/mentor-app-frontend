@@ -20,9 +20,9 @@ const SidebarContainer = styled.div`
   display: flex;
   position: fixed;
   height: 900px;
-  width: 20%;
+  width: 25%;
   flex-direction: column;
-  background-color: gray;
+  background-color: #D3D3D3;
   padding: 15px;
 `
 const SidebarHeader = styled.h2`
@@ -131,13 +131,13 @@ const EventsPage = () => {
   return (
     <Grid>
       <Row>
-        <Col size={1}>
+        <Col size={2}>
           <SidebarContainer>
-            <SidebarHeader>Filters</SidebarHeader>
+            <SidebarHeader>Filter by</SidebarHeader>
             <Sidebar onChildClick={(active, data) => handleCallback(active, data)} />
           </SidebarContainer>
         </Col>
-        <Col size={3}>
+        <Col size={4}>
           <SearchBar 
             onChildClick={(term) => handleChildClick(term)} 
             text="Search Events"
@@ -165,7 +165,7 @@ const EventsPage = () => {
           }
           </EventList>
         </Col>
-        <Col size={2} />
+        <Col size={1} />
       </Row>
     </Grid>
   )

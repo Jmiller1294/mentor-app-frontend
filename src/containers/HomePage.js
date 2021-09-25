@@ -255,7 +255,7 @@ const HomePage = () => {
                 get on the right track.
                 <br></br>
                 <br></br>
-                {testimonials[0].name}
+                - {testimonials[0].name}
               </TestimonialItem>
               <TestimonialItem>
                 <Avatar  src={testimonials[1].avatar} alt="avatar2" />
@@ -265,7 +265,7 @@ const HomePage = () => {
                 You will not regret making the decision.
                 <br></br>
                 <br></br>
-                {testimonials[1].name}
+                - {testimonials[1].name}
               </TestimonialItem>
               <TestimonialItem>
                 <Avatar  src={testimonials[2].avatar} alt="avatar3" />
@@ -274,7 +274,7 @@ const HomePage = () => {
                 talk to people who have proven experience.
                 <br></br>
                 <br></br>
-                {testimonials[2].name}
+                - {testimonials[2].name}
               </TestimonialItem>
               <TestimonialItem>
                 <Avatar src={testimonials[3].avatar} alt="avatar4" />
@@ -284,7 +284,7 @@ const HomePage = () => {
                 my dream job!
                 <br></br>
                 <br></br>
-                {testimonials[3].name}
+                - {testimonials[3].name}
               </TestimonialItem>
               <TestimonialItem>
                 <Avatar  src={testimonials[4].avatar} alt="avatar5" />
@@ -294,7 +294,7 @@ const HomePage = () => {
                 get the advice I needed to get a job.
                 <br></br>
                 <br></br>
-                {testimonials[4].name}
+                - {testimonials[4].name}
               </TestimonialItem>
               <TestimonialItem>
                 <Avatar  src={testimonials[5].avatar} alt="avatar6" />
@@ -305,7 +305,7 @@ const HomePage = () => {
                 and connecting.
                 <br></br>
                 <br></br>
-              {testimonials[5].name}
+              - {testimonials[5].name}
                 </CardDesc>
               </TestimonialItem>
             </List>

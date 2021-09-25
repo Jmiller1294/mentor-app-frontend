@@ -31,6 +31,19 @@ export const checkLoggedInStatus = () => {
   }
 }
 
+export const getAccountInfo = (userId) => {
+  return(dispatch) => {
+    fetch(`http://localhost:3001/users/${userId}`)
+    .then(resp => resp.json())
+    .then(data => dispatch(setAccountInfo(data)))
+  }
+}
+
+export const setAccountInfo = (data) => ({
+  type: "SET_ACCOUNT_INFO",
+  payload: data
+})
+
 //sets the current user
 export const setCurrentUser = (data) => ({
   type: "SET_CURRENT_USER",

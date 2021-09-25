@@ -70,9 +70,6 @@ const LoginPage = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(startLogin(loginInfo));
-    setTimeout(() => {
-      if(!loggedIn) setError('Invalid Username/Password');
-    },500)
   }
 
   return(

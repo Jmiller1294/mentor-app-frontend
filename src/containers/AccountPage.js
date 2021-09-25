@@ -6,8 +6,9 @@ import AppointmentCard from '../components/cards/AppointmentCard';
 import { Grid, Row, Col } from '../components/styled/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEvents } from '../actions/eventActions';
-import { getMentors } from '../actions/mentorActions';
+import { getUserMentors } from '../actions/mentorActions';
 import { getAppointments } from '../actions/appointmentActions';
+import { getAccountInfo } from '../actions/userActions';
 import styled from 'styled-components';
 import profile from '../assets/profile-img.jpg';
 
@@ -45,32 +46,31 @@ const Text = styled.span`
 `
 
 const AccountPage = () => {
-  const userInfo = useSelector(state => state.currentUser);
+  const user = useSelector(state => state.currentUser);
+  const accountInfo = useSelector(state => state.accountInfo);
   const mentors = useSelector(state => state.mentors);
   const events = useSelector(state => state.events);
   const appointments = useSelector(state => state.appointments);
   const [profileImg, setProfileImg] = useState(null);
   const dispatch = useDispatch();
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    console.log('clicked')
-  }
-
+ 
   useEffect(() => {
-    dispatch(getMentors(userInfo.id));
-    dispatch(getEvents(userInfo.id));
-    dispatch(getAppointments(userInfo.id));
-  }, [dispatch, userInfo.id])
+    dispatch(getEvents(user.id));
+    dispatch(getAppointments(user.id))
+    dispatch(getUserMentors(user.id));
+    dispatch(getAccountInfo(user.id));
+    console.log(window.performance.now('AccountPage'))
+  }, [dispatch, user.id])
 
   return(
-    !!userInfo ?
+    !!user ?
     <Grid margin={'30px'}>
       <Row>
         {profileImg === null ? 
           <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
         : <AccountImg src={profile} />}
-        <UserName>{userInfo.name}</UserName>
+        <UserName>{user.name}</UserName>
       </Row>
       <Row>
         <Col size={1}>

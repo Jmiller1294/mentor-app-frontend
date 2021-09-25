@@ -8,6 +8,7 @@ const persistConfig = {
 
 const INITIAL_STATE = {
   currentUser: null,
+  accountInfo: null,
   loggedIn: false,
   mentors: [],
   events: [],
@@ -30,8 +31,12 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
     case "SET_CURRENT_USER":
       return {
         ...state,
-        currentUser: action.payload.user,
-        loggedIn: action.payload.logged_in
+        currentUser: action.payload.user
+      }
+    case "SET_ACCOUNT_INFO":
+      return {
+        ...state,
+        accountInfo: action.payload
       }
     case "LOGIN":
       return {
