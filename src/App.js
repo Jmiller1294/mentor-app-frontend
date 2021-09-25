@@ -50,6 +50,7 @@ const App = () => {
         <ProtectedRoute exact path="/register" component={EventRegistration} />
         <ProtectedRoute exact path="/appointment" component={AppointmentPage} />
         <ProtectedRoute exact path="/message" component={Message} />
+        <ProtectedRoute exact path="/upload" component={AppointmentPage} />
       </Switch>
       <GlobalStyle />
     </React.Fragment>
