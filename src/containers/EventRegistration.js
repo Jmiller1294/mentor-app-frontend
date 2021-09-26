@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
@@ -42,7 +42,7 @@ const Button = styled.button`
 
 const EventRegistration = (props) => {
   const user = useSelector(state => state.currentUser);
-  const event = props.location.state.data;
+  const event = props.location.state.event;
   const history = useHistory();
   
   const [registrationInfo, setRegistrationInfo] = useState({
@@ -91,6 +91,10 @@ const EventRegistration = (props) => {
     createEventRegistration(user.id,registrationInfo);
     newRoute();
   }
+
+  useEffect(() => {
+    console.log(props)
+  })
 
   return (
     <Grid>

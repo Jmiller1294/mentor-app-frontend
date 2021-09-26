@@ -86,7 +86,7 @@ const Icon = styled.img`
 `
 
 
-const Event = ({ event, rerenderParentCallback,value }) => {
+const Event = ({ event, rerenderParentCallback, value }) => {
   const [active, setActive] = useState(value);
   const [image, setImage] = useState(null);
   const user = useSelector(state => state.currentUser);
@@ -94,11 +94,11 @@ const Event = ({ event, rerenderParentCallback,value }) => {
 
   
   const newRoute = () => { 
-    let path = `register`; 
+    let path = `description`; 
     history.push({
       pathname: path,
       state: {
-        data: event
+        data: {event: event, image: image}
       }
     });
   }
@@ -183,7 +183,7 @@ const Event = ({ event, rerenderParentCallback,value }) => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    console.log('clicked')
+    newRoute();
   }
 
   console.log(event.image)

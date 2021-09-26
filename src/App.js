@@ -17,6 +17,7 @@ import FileUploadPage from "./containers/FileUploadPage";
 import { createGlobalStyle } from 'styled-components';
 import { checkLoggedInStatus } from "./actions/userActions";
 import AppointmentPage from "./containers/AppointmentPage";
+import DescriptionPage from "./containers/DescriptionPage";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -52,6 +53,7 @@ const App = () => {
         <ProtectedRoute exact path="/appointment" component={AppointmentPage} />
         <ProtectedRoute exact path="/message" component={Message} />
         <ProtectedRoute exact path="/upload" component={FileUploadPage} />
+        <ProtectedRoute exact path="/description" component={DescriptionPage} />
       </Switch>
       <GlobalStyle />
     </React.Fragment>
