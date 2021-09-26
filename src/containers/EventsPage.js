@@ -26,7 +26,7 @@ const SidebarContainer = styled.div`
   padding: 15px;
 `
 const SidebarHeader = styled.h2`
-  margin-top: 20px; 
+  margin-top: 45px; 
   border-bottom: black 2px solid; 
   padding-bottom: 10px;
 `

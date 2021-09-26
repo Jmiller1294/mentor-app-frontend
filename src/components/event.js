@@ -181,10 +181,15 @@ const Event = ({ event, rerenderParentCallback,value }) => {
     getImage();
   },[])
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log('clicked')
+  }
+
   console.log(event.image)
   if(user) {
     return(
-      <EventContainer>
+      <EventContainer onClick={(e) => handleClick(e)}>
         <EventPictureCon>
           <EventImage src={`http://localhost:3001/${image}`}/>
         </EventPictureCon>
@@ -209,14 +214,13 @@ const Event = ({ event, rerenderParentCallback,value }) => {
     return(
       <EventContainer>
         <EventPictureCon>
-
+          <EventImage src={`http://localhost:3001/${image}`}/>
         </EventPictureCon>
         <EventInfo>
           <Header>{event.name}</Header>
-          <Date>{event.date} at {event.time}</Date>
-          <Item>Location: {event.location}</Item>
-          <Item>Description: {event.description}</Item>
-          <Likes>{event.likes} Likes</Likes>
+          <Date><Icon src={Calender}/>{event.date} at {event.time}</Date>
+          <Item><Icon src={Pin}/>Location: {event.location}</Item>
+          <Likes><Icon src={Clock}/>{event.likes} People favorited</Likes>
         </EventInfo>
       </EventContainer>
     )
