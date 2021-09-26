@@ -22,7 +22,6 @@ const Container = styled.div`
 const AccountImg = styled.img`
   height: 75px;
   width: 75px;
-  margin-right: 20px;
   border: 1px solid black;
   border-radius: 40px;
 `
@@ -30,19 +29,26 @@ const EmptyAvatar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-self: center;
+  align-self: center;
   text-align: center;
-  height: 75px;
-  width: 75px;
+  height: 130px;
+  width: 130px;
   margin-right: 20px;
+  margin-bottom: 20px;
   border: 1px solid black;
-  border-radius: 40px;
+  border-radius: 65px;
 `
 const UserName = styled.span`
-  font-size: 25px;
+  align-self: center;
+  font-size: 20px;
   font-weight: bold;
 `
 const Text = styled.span`
   color: blue;
+`
+const Headers = styled.h2`
+  text-align: center;
 `
 
 const AccountPage = () => {
@@ -65,16 +71,18 @@ const AccountPage = () => {
 
   return(
     !!user ?
-    <Grid margin={'30px'}>
-      <Row>
+    <Grid margin={'70px'}>
+      <Row minHeight={'200px'}>
+        <Col size={1}>
         {profileImg === null ? 
           <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
         : <AccountImg src={profile} />}
         <UserName>{user.name}</UserName>
+        </Col>
       </Row>
-      <Row>
+      <Row minHeight={'200px'} height={'400px'}>
         <Col size={1}>
-          <h2>Mentors</h2>
+          <Headers>Mentors</Headers>
           <Container>
             {mentors.map(mentor => 
             <MentorCard 
@@ -84,9 +92,9 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row>
+      <Row minHeight={'200px'} height={'400px'}>
         <Col size={1}>
-          <h2>Upcoming Events</h2>
+          <Headers>Upcoming Events</Headers>
           <Container>
             {events.map(event => 
               <EventCard 
@@ -97,9 +105,9 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row>
+      <Row minHeight={'200px'} height={'400px'}>
         <Col size={1}>
-          <h2>Upcoming Appointments</h2>
+          <Headers>Upcoming Appointments</Headers>
           <Container>
             {appointments.map(appointment => 
               <AppointmentCard 

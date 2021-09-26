@@ -5,6 +5,7 @@ export const Grid = styled.div`
 `
 export const Row = styled.div`
   display: flex;
+  min-height: ${ (props) => props.minHeight};
   height: ${ (props) => props.height};
   background: ${ (props) => props.background};
 `

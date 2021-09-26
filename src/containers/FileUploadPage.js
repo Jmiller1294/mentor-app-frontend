@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const UploadCon = styled.div`
@@ -11,24 +12,25 @@ const UploadCon = styled.div`
 
 const FileUploadPage = () => {
   const [file, setFile] = useState(null);
+  const user = useSelector(state => state.currentUser);
+  const formData = new FormData();
+  formData.append("file", file);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0])
   }
 
   const handleFileUpload = (event) => {
-    fetch('http://localhost:3001/upload', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'content-type' : 'application/json'
-      },
-      body: JSON.stringify(file)
+    /* console.log(file)
+    fetch(`http://localhost:3001/users/${user.id}`, {
+      method: 'PATCH',
+      body: formData
     })
     .then(resp => resp.json())
     .then(data => console.log(data))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err)) */
   }
+
 
   return(
     <UploadCon>

@@ -186,14 +186,14 @@ const Event = ({ event, rerenderParentCallback, value }) => {
     newRoute();
   }
 
-  console.log(event.image)
+  console.log(user)
   if(user) {
     return(
-      <EventContainer onClick={(e) => handleClick(e)}>
-        <EventPictureCon>
+      <EventContainer>
+        <EventPictureCon onClick={(e) => handleClick(e)}>
           <EventImage src={`http://localhost:3001/${image}`}/>
         </EventPictureCon>
-        <EventInfo>
+        <EventInfo onClick={(e) => handleClick(e)}>
           <Header>{event.name}</Header>
           <Date><Icon src={Calender}/>{event.date} at {event.time}</Date>
           <Item><Icon src={Pin}/>Location: {event.location}</Item>
