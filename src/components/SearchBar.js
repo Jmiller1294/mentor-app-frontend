@@ -11,15 +11,17 @@ const SearchForm = styled.form`
   height: 55px;
 `
 const SearchInput = styled.input`
-  background: url(${magnifier})left center;    
+  background: url(${magnifier});    
   background-repeat: no-repeat;
+  background-position: left 10px top 11px;
   text-indent: 40px;
-  width: 60%;
+  width: 65%;
   height: 50px;
   border: none;
   outline: none;
   font-size: 20px;
-  border-bottom: 2px solid;
+  border: 2px solid;
+  border-radius: 25px;
 `
 
 const SearchBar = ({ onChildClick, text }) => {

@@ -5,6 +5,9 @@ import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
 import UnfilledHeartIcon from '../assets/unfilled-heart.svg';
 import FilledHeartIcon from '../assets/filled-heart.png';
+import Clock from '../assets/clock.svg';
+import Pin from '../assets/pin.svg';
+import Calender from '../assets/calender.svg';
 
 
 const AddButton = styled.button`
@@ -13,7 +16,7 @@ const AddButton = styled.button`
   width: 100px;
 `
 const Header = styled.h3`
-
+  margin-bottom: 50px;
 `
 const FavButton = styled.button`
   background: ${props => props.filled 
@@ -52,7 +55,6 @@ const EventPictureCon = styled.div`
   display: flex;
   flex-direction: column;
   width: 30%;
-  background-color: red;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 `
@@ -70,10 +72,23 @@ const Likes = styled.span`
   line-height: 1.5;
   font-weight: bold;
 `
+const EventImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+`
+const Icon = styled.img`
+  margin-top: 3px;
+  margin-right: 10px; 
+  height: 16px;
+  width: 16px;
+`
 
 
 const Event = ({ event, rerenderParentCallback,value }) => {
   const [active, setActive] = useState(value);
+  const [image, setImage] = useState(null);
   const user = useSelector(state => state.currentUser);
   const history = useHistory();
 
@@ -86,6 +101,13 @@ const Event = ({ event, rerenderParentCallback,value }) => {
         data: event
       }
     });
+  }
+
+  const getImage = () => {
+    fetch(`http://localhost:3001/events/${event.id}`)
+    .then(resp => resp.json())
+    .then(data => setImage(data.image))
+    .catch(err => console.log(err))
   }
 
   const addFavorite = (favorite, user) => {
@@ -155,19 +177,22 @@ const Event = ({ event, rerenderParentCallback,value }) => {
     setActive(value);
   },[value])
 
+  useEffect(() => {
+    getImage();
+  },[])
 
+  console.log(event.image)
   if(user) {
     return(
       <EventContainer>
-         <EventPictureCon>
-
+        <EventPictureCon>
+          <EventImage src={`http://localhost:3001/${image}`}/>
         </EventPictureCon>
         <EventInfo>
           <Header>{event.name}</Header>
-          <Date>{event.date} at {event.time}</Date>
-          <Item>Location: {event.location}</Item>
-          <Item>Description: {event.description}</Item>
-          <Likes>{event.likes} Likes</Likes>
+          <Date><Icon src={Calender}/>{event.date} at {event.time}</Date>
+          <Item><Icon src={Pin}/>Location: {event.location}</Item>
+          <Likes><Icon src={Clock}/>{event.likes} People favorited</Likes>
         </EventInfo>
         <ButtonCont> 
           {active ? 
