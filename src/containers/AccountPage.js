@@ -22,6 +22,7 @@ const Container = styled.div`
 const AccountImg = styled.img`
   height: 75px;
   width: 75px;
+  margin-right: 20px;
   border: 1px solid black;
   border-radius: 40px;
 `
@@ -72,7 +73,7 @@ const AccountPage = () => {
   return(
     !!user ?
     <Grid margin={'70px'}>
-      <Row minHeight={'200px'}>
+      <Row minHeight={'220px'}>
         <Col size={1}>
         {profileImg === null ? 
           <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
@@ -80,7 +81,7 @@ const AccountPage = () => {
         <UserName>{user.name}</UserName>
         </Col>
       </Row>
-      <Row minHeight={'200px'} height={'400px'}>
+      <Row minHeight={'220px'} height={'420px'}>
         <Col size={1}>
           <Headers>Mentors</Headers>
           <Container>
@@ -92,7 +93,7 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row minHeight={'200px'} height={'400px'}>
+      <Row minHeight={'200px'} height={'420px'}>
         <Col size={1}>
           <Headers>Upcoming Events</Headers>
           <Container>
@@ -105,7 +106,7 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row minHeight={'200px'} height={'400px'}>
+      <Row minHeight={'220px'} height={'420px'}>
         <Col size={1}>
           <Headers>Upcoming Appointments</Headers>
           <Container>
