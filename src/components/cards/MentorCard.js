@@ -1,22 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { Card } from '../styled/Card';
 
-const MentorCardCon = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 350px;   
-  width: 22%;
-  margin: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  
-  &:hover {
-    -moz-box-shadow: 0 0 10px #777777;
-    -webkit-box-shadow: 0 0 10px #777777;
-    box-shadow: 0 0 10px #777777;
-  }
-`
+
 const AvatarImage = styled.img`
   height: 35%;
   width: 30%;
@@ -79,7 +66,7 @@ const MentorCard = ({ mentor }) => {
   }
 
   return (
-    <MentorCardCon>
+    <Card height={'350px'} padding={'15px'}>
       <AvatarImage src={mentor.avatar}/>
       <Header>{mentor.name}</Header>
         <Title>{mentor.title}</Title>
@@ -99,7 +86,7 @@ const MentorCard = ({ mentor }) => {
           </Bio>
         </InfoCon>
         <Button onClick={(e) => handleClick(e)}>Make Appointment</Button>
-    </MentorCardCon>
+    </Card>
   )
 }
 export default MentorCard;

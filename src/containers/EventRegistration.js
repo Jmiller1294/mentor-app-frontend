@@ -70,7 +70,7 @@ const EventRegistration = (props) => {
       headers: { 
         "Content-Type": "application/json",
       },
-        body: JSON.stringify(Object.assign(registrationInfo, event))
+        body: JSON.stringify(Object.assign(registrationInfo, event, props.location.state.image))
     })
     .then(resp => resp.json())
     .then(event => console.log(event))

@@ -1,34 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Card } from '../styled/Card';
 
-const EventCon = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: auto;   
-  width: 20%;
-  margin: 10px;
-  padding: 5px;
-  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
-  
-  &:hover {
-    -moz-box-shadow: 0 0 10px #777777;
-    -webkit-box-shadow: 0 0 10px #777777;
-    box-shadow: 0 0 10px #777777;
-  }
-`
-const Header = styled.h2`
+const Header = styled.h3`
   height: 10px;
   align-self: center;
+  margin-bottom: 0;
 `
 const Info = styled.p`
+  padding: 20px;
+  padding-top: 0;
+  line-height: 1.5;
   align-self: center;
+  margin: 0;
+`
+const EventImage = styled.img`
+  display: flex;
+  justify-self: flex-start;
+  height: 35%;
+  width: 100%;
 `
 
-
 const EventCard = ({ event }) => {
+  const [image, setImage] = useState(null);
+
+  const getImage = () => {
+    fetch(`http://localhost:3001/events/${event.id}`)
+    .then(resp => resp.json())
+    .then(data => setImage(data.image))
+    .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    getImage()
+  }, [])
+
   return (
-    <EventCon>
-      <Header>{event.title} </Header>
+    <Card height={'300px'} padding={'0'}>
+      <EventImage src={`http://localhost:3001/${image}`} />
+      <Header>{event.name} </Header>
       <Info>
         <span style={{color: 'orange'}}><br></br>
           {event.date} at {event.time}<br></br>
@@ -36,7 +46,7 @@ const EventCard = ({ event }) => {
         <span>Location: {event.location}</span><br></br>
         <span>Description: {event.description}</span><br></br>
       </Info>
-    </EventCon>
+    </Card>
   )
 }
 export default EventCard;

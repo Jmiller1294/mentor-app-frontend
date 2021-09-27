@@ -67,7 +67,7 @@ const AccountPage = () => {
     dispatch(getAppointments(user.id))
     dispatch(getUserMentors(user.id));
     dispatch(getAccountInfo(user.id));
-    console.log(window.performance.now('AccountPage'))
+    console.log()
   }, [dispatch, user.id])
 
   return(
@@ -81,7 +81,7 @@ const AccountPage = () => {
         <UserName>{user.name}</UserName>
         </Col>
       </Row>
-      <Row minHeight={'220px'} height={'420px'}>
+      <Row minHeight={'150px'} height={'420px'}>
         <Col size={1}>
           <Headers>Mentors</Headers>
           <Container>
@@ -93,7 +93,7 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row minHeight={'200px'} height={'420px'}>
+      <Row minHeight={'150px'} height={'420px'}>
         <Col size={1}>
           <Headers>Upcoming Events</Headers>
           <Container>
@@ -101,12 +101,13 @@ const AccountPage = () => {
               <EventCard 
                 key={event.id} 
                 event={event.event}
+                image={event.image}
               >
               </EventCard>)}
           </Container>
         </Col>
       </Row>
-      <Row minHeight={'220px'} height={'420px'}>
+      <Row minHeight={'150px'} height={'420px'}>
         <Col size={1}>
           <Headers>Upcoming Appointments</Headers>
           <Container>

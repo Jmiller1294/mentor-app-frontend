@@ -1,23 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { Card } from "../styled/Card";
 import { useHistory } from "react-router";
 
 
-const AppointmentCon = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: auto;   
-  width: 22%;
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  
-  &:hover {
-    -moz-box-shadow: 0 0 10px #777777;
-    -webkit-box-shadow: 0 0 10px #777777;
-    box-shadow: 0 0 10px #777777;
-  }
-`
 const Header = styled.h3`
   height: 10px;
   align-self: center;
@@ -25,6 +11,7 @@ const Header = styled.h3`
 const Info = styled.p`
   display: flex;
   height: 50px;
+  line-height: 1.5;
   justify-content: center;
   align-content: center;
 `
@@ -35,6 +22,7 @@ const Button = styled.button`
   margin: 5px;
 `
 const ButtonCon = styled.div`
+  margin-top: 40px;
   display: flex;
   justify-content: center;
 `
@@ -78,7 +66,7 @@ const AppointmentCard = ({ appointment }) => {
 
   if(appointment) {
     return (
-      <AppointmentCon>
+      <Card height={'300px'} padding={'15px'}>
         <Header>{appointment.mentor.name}</Header>
           <Info>
             Day: {appointment.day} <br></br>
@@ -88,7 +76,7 @@ const AppointmentCard = ({ appointment }) => {
             <Button onClick={(e) => handleUpdateClick(e)}>Reschedule Appointment</Button>
             <Button onClick={(e) => handleDeleteClick(e)}>Cancel Appointment</Button>
           </ButtonCon>
-      </AppointmentCon>
+      </Card>
     )
   }
   else {
