@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { DirectUpload } from 'activestorage';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
@@ -17,18 +18,28 @@ const FileUploadPage = () => {
   formData.append("file", file);
 
   const handleFileChange = (event) => {
+    console.log(event.target.files[0])
     setFile(event.target.files[0])
   }
 
-  const handleFileUpload = (event) => {
-    /* console.log(file)
-    fetch(`http://localhost:3001/users/${user.id}`, {
-      method: 'PATCH',
-      body: formData
+  const UploadFile = (file, userData) => {
+    const upload = new DirectUpload(
+      file, 
+      'http://localhost:3001/rails/active_storage/direct_uploads'
+    );
+    upload.create((err, blob) => {
+      if(err) {
+        console.log(err);
+      }
+      else {
+        console.log('no error')
+      }
     })
-    .then(resp => resp.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err)) */
+  }
+  
+
+  const handleFileUpload = () => {
+    UploadFile(file, user)
   }
 
 

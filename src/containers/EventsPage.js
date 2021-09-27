@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import LazyLoad from "vanilla-lazyload";
 import { useDispatch, useSelector } from 'react-redux';
 import { setDate, setLocation, setTime } from '../actions/eventActions';
 import { getFavorites } from '../actions/favoriteActions';

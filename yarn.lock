@@ -11578,6 +11578,11 @@
   "resolved" "https://registry.npmjs.org/value-equal/-/value-equal-1.0.1.tgz"
   "version" "1.0.1"
 
+"vanilla-lazyload@^17.5.0":
+  "integrity" "sha512-1d2kjFT2BTrA2ynBBbJ58kIZqtB6TxocAvUFwmzjJ34RqLDlVPy4VmBDuAi6xgv+3LSmP6coKstU2eeRdI+ixw=="
+  "resolved" "https://registry.npmjs.org/vanilla-lazyload/-/vanilla-lazyload-17.5.0.tgz"
+  "version" "17.5.0"
+
 "vary@~1.1.2":
   "integrity" "sha1-IpnwLG3tMNSllhsLn3RSShj2NPw="
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"

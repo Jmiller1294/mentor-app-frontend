@@ -41,7 +41,8 @@ const EmptyAvatar = styled.div`
   border-radius: 65px;
 `
 const UserName = styled.span`
-  align-self: center;
+  position: relative;
+  top: 50px;
   font-size: 20px;
   font-weight: bold;
 `
@@ -73,13 +74,11 @@ const AccountPage = () => {
   return(
     !!user ?
     <Grid margin={'70px'}>
-      <Row minHeight={'220px'}>
-        <Col size={1}>
+      <Row minHeight={'220px'} height={'250px'}>
         {profileImg === null ? 
           <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
         : <AccountImg src={profile} />}
         <UserName>{user.name}</UserName>
-        </Col>
       </Row>
       <Row minHeight={'150px'} height={'420px'}>
         <Col size={1}>

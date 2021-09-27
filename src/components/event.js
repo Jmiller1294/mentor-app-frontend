@@ -191,7 +191,7 @@ const Event = ({ event, rerenderParentCallback, value }) => {
     return(
       <EventContainer>
         <EventPictureCon onClick={(e) => handleClick(e)}>
-          <EventImage src={`http://localhost:3001/${image}`}/>
+          <EventImage src={`http://localhost:3001/${image}`} />
         </EventPictureCon>
         <EventInfo onClick={(e) => handleClick(e)}>
           <Header>{event.name}</Header>
