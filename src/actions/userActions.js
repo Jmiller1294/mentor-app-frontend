@@ -62,7 +62,7 @@ export const startLogin = (data) => {
       headers: { 
         "Content-type": "application/json",
       },
-      body: JSON.stringify({email: data.email.toLowerCase(), password: data.password})
+      body: JSON.stringify({ email: data.email.toLowerCase(), password: data.password })
     })
     .then(resp => resp.json())
     .then(data => dispatch(finishLogin(data)))
@@ -89,6 +89,11 @@ export const logout = () => {
 //logout action creator
 export const finishLogout = () => ({
   type: "LOGOUT"
+})
+
+export const setAvatar = (data) => ({
+  type: "SET_AVATAR",
+  payload: data
 })
 
 

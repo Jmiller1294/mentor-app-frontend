@@ -20,11 +20,18 @@ const Container = styled.div`
   width: 100%;
 `
 const AccountImg = styled.img`
-  height: 75px;
-  width: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  height: 130px;
+  width: 130px;
   margin-right: 20px;
+  margin-bottom: 20px;
   border: 1px solid black;
-  border-radius: 40px;
+  border-radius: 65px;
 `
 const EmptyAvatar = styled.div`
   display: flex;
@@ -54,31 +61,30 @@ const Headers = styled.h2`
 `
 
 const AccountPage = () => {
-  const user = useSelector(state => state.currentUser);
+  const currentUser = useSelector(state => state.currentUser);
   const accountInfo = useSelector(state => state.accountInfo);
   const mentors = useSelector(state => state.mentors);
   const events = useSelector(state => state.events);
   const appointments = useSelector(state => state.appointments);
-  const [profileImg, setProfileImg] = useState(null);
+  const [profileImg, setProfileImg] = useState('');
   const dispatch = useDispatch();
 
  
   useEffect(() => {
-    dispatch(getEvents(user.id));
-    dispatch(getAppointments(user.id))
-    dispatch(getUserMentors(user.id));
-    dispatch(getAccountInfo(user.id));
-    console.log()
-  }, [dispatch, user.id])
+    dispatch(getEvents(currentUser.id));
+    dispatch(getAppointments(currentUser.id))
+    dispatch(getUserMentors(currentUser.id));
+    dispatch(getAccountInfo(currentUser.id));
+  }, [dispatch, currentUser.id])
 
   return(
-    !!user ?
+    !!currentUser ?
     <Grid margin={'70px'}>
       <Row minHeight={'220px'} height={'250px'}>
         {profileImg === null ? 
           <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
-        : <AccountImg src={profile} />}
-        <UserName>{user.name}</UserName>
+        : <Link to="/upload"><AccountImg  src={`http://localhost:3001/${currentUser.avatar}`}/></Link>}
+        <UserName>{currentUser.user.name}</UserName>
       </Row>
       <Row minHeight={'150px'} height={'420px'}>
         <Col size={1}>

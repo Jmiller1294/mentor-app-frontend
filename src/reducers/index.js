@@ -56,6 +56,14 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
         ...state,
         events: action.payload
       }
+    case "SET_AVATAR":
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          avatar: action.payload
+        }
+      }
     case "SET_APPOINTMENTS":
       return {
         ...state,
