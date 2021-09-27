@@ -93,7 +93,7 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row minHeight={'150px'} height={'420px'}>
+      <Row minHeight={'150px'} height={'440px'}>
         <Col size={1}>
           <Headers>Upcoming Events</Headers>
           <Container>

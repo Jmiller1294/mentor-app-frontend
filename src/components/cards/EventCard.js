@@ -9,16 +9,16 @@ const Header = styled.h3`
 `
 const Info = styled.p`
   padding: 20px;
-  padding-top: 0;
+  height: 55%;
   line-height: 1.5;
   align-self: center;
   margin: 0;
 `
 const EventImage = styled.img`
   display: flex;
-  justify-self: flex-start;
-  height: 35%;
-  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 40%;
 `
 
 const EventCard = ({ event }) => {
@@ -36,7 +36,7 @@ const EventCard = ({ event }) => {
   }, [])
 
   return (
-    <Card height={'300px'} padding={'0'}>
+    <Card height={'350px'} padding={'0'}>
       <EventImage src={`http://localhost:3001/${image}`} />
       <Header>{event.name} </Header>
       <Info>
