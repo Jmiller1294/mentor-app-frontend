@@ -19,19 +19,19 @@ const Container = styled.div`
   height: auto;
   width: 100%;
 `
-const AccountImg = styled.img`
+const Avatar = styled.img`
   display: flex;
   flex-direction: column;
   justify-content: center;
   justify-self: center;
   align-self: center;
   text-align: center;
-  height: 130px;
-  width: 130px;
+  height: 160px;
+  width: 160px;
   margin-right: 20px;
   margin-bottom: 20px;
   border: 1px solid black;
-  border-radius: 65px;
+  border-radius: 80px;
 `
 const EmptyAvatar = styled.div`
   display: flex;
@@ -62,31 +62,29 @@ const Headers = styled.h2`
 
 const AccountPage = () => {
   const currentUser = useSelector(state => state.currentUser);
-  const accountInfo = useSelector(state => state.accountInfo);
   const mentors = useSelector(state => state.mentors);
   const events = useSelector(state => state.events);
   const appointments = useSelector(state => state.appointments);
-  const [profileImg, setProfileImg] = useState('');
   const dispatch = useDispatch();
 
  
   useEffect(() => {
-    dispatch(getEvents(currentUser.id));
-    dispatch(getAppointments(currentUser.id))
-    dispatch(getUserMentors(currentUser.id));
-    dispatch(getAccountInfo(currentUser.id));
-  }, [dispatch, currentUser.id])
+    dispatch(getEvents(currentUser.user.id));
+    dispatch(getAppointments(currentUser.user.id))
+    dispatch(getUserMentors(currentUser.user.id));
+    dispatch(getAccountInfo(currentUser.user.id));
+  }, [dispatch, currentUser.user.id])
 
   return(
     !!currentUser ?
     <Grid margin={'70px'}>
       <Row minHeight={'220px'} height={'250px'}>
-        {profileImg === null ? 
+        {currentUser.avatar === null ? 
           <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
-        : <Link to="/upload"><AccountImg  src={`http://localhost:3001/${currentUser.avatar}`}/></Link>}
+        : <Link to="/upload"><Avatar  src={`http://localhost:3001/${currentUser.avatar}`}/></Link>}
         <UserName>{currentUser.user.name}</UserName>
       </Row>
-      <Row minHeight={'150px'} height={'420px'}>
+      <Row minHeight={'150px'} height={'460px'}>
         <Col size={1}>
           <Headers>Mentors</Headers>
           <Container>
@@ -98,7 +96,7 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row minHeight={'150px'} height={'440px'}>
+      <Row minHeight={'150px'} height={'460px'}>
         <Col size={1}>
           <Headers>Upcoming Events</Headers>
           <Container>

@@ -37,7 +37,7 @@ const EventsPage = () => {
   const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const date = useSelector(state => state.date);
-  const user = useSelector(state => state.currentUser);
+  const user = useSelector(state => state.currentUser.user);
   const location = useSelector(state => state.location);
   const favorites = useSelector(state => state.favorites);
   const time = useSelector(state => state.time);

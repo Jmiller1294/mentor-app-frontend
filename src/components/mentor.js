@@ -36,7 +36,7 @@ const AddButton = styled.button`
 `
 
 const Mentor = ({ mentor }) => {
-  const user = useSelector(state => state.currentUser)
+  const user = useSelector(state => state.currentUser.user)
 
   const createBooking = (mentor, userId) => {
     fetch(`http://localhost:3001/users/${userId}/bookings`, {
@@ -73,30 +73,3 @@ const Mentor = ({ mentor }) => {
   )
 }
 export default Mentor;
-
-
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
- const reverseList = function(head) {
-    
-  let curr = head;
-  let prev = null;
-  let suc;
-  
-  while(curr !== null) {
-      suc = curr.next;
-      curr.next = prev;
-      prev = curr;
-      curr = suc;
-  }
-  return prev;
-}

@@ -7,7 +7,7 @@ export const getEvents = (userId) => {
 }
 
 export const setEvents = (events) => ({
-  type: 'SET_ATTENDEES',
+  type: 'SET_EVENTS',
   payload: events
 })
 

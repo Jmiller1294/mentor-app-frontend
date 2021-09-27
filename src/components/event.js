@@ -89,7 +89,7 @@ const Icon = styled.img`
 const Event = ({ event, rerenderParentCallback, value }) => {
   const [active, setActive] = useState(value);
   const [image, setImage] = useState(null);
-  const user = useSelector(state => state.currentUser);
+  const user = useSelector(state => state.currentUser.user);
   const history = useHistory();
 
   

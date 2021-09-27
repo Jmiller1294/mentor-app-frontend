@@ -41,7 +41,7 @@ const Button = styled.button`
 `
 
 const EventRegistration = (props) => {
-  const user = useSelector(state => state.currentUser);
+  const user = useSelector(state => state.currentUser.user);
   const event = props.location.state.event;
   const history = useHistory();
   
@@ -75,12 +75,6 @@ const EventRegistration = (props) => {
     .then(resp => resp.json())
     .then(event => console.log(event))
   }
-  
-  /* const deleteEventRegistration = (userId, eventId) => {
-    fetch(`http://localhost:3001/users/${userId}/event_registrations/${eventId}`, {
-      method: "DELETE",
-    })
-  } */
 
   const handleInputChange = (event) => {
     setRegistrationInfo({...registrationInfo, [event.target.name]: event.target.value})
@@ -91,10 +85,6 @@ const EventRegistration = (props) => {
     createEventRegistration(user.id,registrationInfo);
     newRoute();
   }
-
-  useEffect(() => {
-    console.log(props)
-  })
 
   return (
     <Grid>

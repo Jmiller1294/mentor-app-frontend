@@ -51,7 +51,7 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
         ...state,
         mentors: action.payload
       }
-    case "SET_ATTENDEES":
+    case "SET_EVENTS":
       return {
         ...state,
         events: action.payload
