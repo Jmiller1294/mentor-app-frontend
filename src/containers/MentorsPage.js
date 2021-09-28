@@ -31,6 +31,7 @@ const MentorsPage = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    console.log(count)
     fetch('http://localhost:3001/mentors')
     .then(resp => resp.json())
     .then(data => setMentors(data))
@@ -41,8 +42,9 @@ const MentorsPage = () => {
     setSearchTerm(term)
   }
 
-  const handleParentCallback = (num) => {
-    setCount(num);
+  const handleParentCallback = (count) => {
+    console.log(count)
+    setCount(count);
   }
 
   let filteredItems = (mentors.filter(mentor => {
@@ -51,7 +53,6 @@ const MentorsPage = () => {
     || mentor.title.toLowerCase().includes(searchTerm.toLowerCase()) 
   }))
 
-  console.log(count);
   if(filteredItems && filteredItems.length !== 0) {
     return(
       <Grid>
@@ -101,7 +102,7 @@ const MentorsPage = () => {
     )
   }
   else {
-    return <LoaderCon><Loader parentCallback={(num) => handleParentCallback(num)} /></LoaderCon>
+    return <LoaderCon><Loader parentCallback={(count) => handleParentCallback(count)} /></LoaderCon>
   }
 }
 export default MentorsPage;

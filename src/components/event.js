@@ -86,9 +86,8 @@ const Icon = styled.img`
 `
 
 
-const Event = ({ event, rerenderParentCallback, value }) => {
+const Event = ({ event, rerenderParentCallback, value, image }) => {
   const [active, setActive] = useState(value);
-  const [image, setImage] = useState(null);
   const user = useSelector(state => state.currentUser.user);
   const history = useHistory();
 
@@ -101,13 +100,6 @@ const Event = ({ event, rerenderParentCallback, value }) => {
         data: {event: event, image: image}
       }
     });
-  }
-
-  const getImage = () => {
-    fetch(`http://localhost:3001/events/${event.id}`)
-    .then(resp => resp.json())
-    .then(data => setImage(data.image))
-    .catch(err => console.log(err))
   }
 
   const addFavorite = (favorite, user) => {
@@ -178,7 +170,6 @@ const Event = ({ event, rerenderParentCallback, value }) => {
   },[value])
 
   useEffect(() => {
-    getImage();
   },[])
 
   const handleClick = (event) => {
@@ -186,7 +177,6 @@ const Event = ({ event, rerenderParentCallback, value }) => {
     newRoute();
   }
 
-  console.log(user)
   if(user) {
     return(
       <EventContainer>

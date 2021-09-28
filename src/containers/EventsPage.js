@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import LazyLoad from "vanilla-lazyload";
+import Loader from '../components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDate, setLocation, setTime } from '../actions/eventActions';
 import { getFavorites } from '../actions/favoriteActions';
@@ -31,11 +31,17 @@ const SidebarHeader = styled.h2`
   border-bottom: black 2px solid; 
   padding-bottom: 10px;
 `
+const LoaderCon = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+`
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [count, setCount] = useState(0);
   const date = useSelector(state => state.date);
   const user = useSelector(state => state.currentUser.user);
   const location = useSelector(state => state.location);
@@ -109,19 +115,25 @@ const EventsPage = () => {
 
   let filteredItems = (events.filter(event => {
     let month = getMon();
-    let timeOfDay = TimeOfDay(event.time);
+    let timeOfDay = TimeOfDay(event.event.time);
 
-    return (event.date.toLowerCase().includes(month.toLowerCase()) 
-    && event.location.toLowerCase().includes(location.toLowerCase())
+    return (event.event.date.toLowerCase().includes(month.toLowerCase()) 
+    && event.event.location.toLowerCase().includes(location.toLowerCase())
     && timeOfDay.toLowerCase().includes(time.toLowerCase()))
   }))
 
   let filteredByTerm = (events.filter(event => {
-    return event.name.toLowerCase().includes(searchTerm.toLowerCase())
-    || event.location.toLowerCase().includes(searchTerm.toLowerCase())
+    return event.event.name.toLowerCase().includes(searchTerm.toLowerCase())
+    || event.event.location.toLowerCase().includes(searchTerm.toLowerCase())
   }))
 
+  const handleParentCallback = (num) => {
+    console.log(count)
+    setCount(num);
+  }
+
   useEffect(() => {
+    console.log(events)
     fetch('http://localhost:3001/events')
     .then(resp => resp.json())
     .then(data => setEvents(data))
@@ -129,46 +141,49 @@ const EventsPage = () => {
     if(user) { dispatch(getFavorites(user.id)) };
   }, [isActive])
 
-  return (
-    <Grid>
-      <Row>
-        <Col size={2}>
-          <SidebarContainer>
-            <SidebarHeader>Filter by</SidebarHeader>
-            <Sidebar onChildClick={(active, data) => handleCallback(active, data)} />
-          </SidebarContainer>
-        </Col>
-        <Col size={4}>
-          <SearchBar 
-            onChildClick={(term) => handleChildClick(term)} 
-            text="Search Events"
-          />
-          <EventList>
-          {searchTerm !== '' ?
-            filteredByTerm.length !== 0 ? filteredByTerm.map(event => 
-              <Event 
-                key={event.id} 
-                event={event}
-                rerenderParentCallback={rerenderParentCallback}
-              /> 
-            ) : <h2>No Events Found</h2>
-          : 
-          filteredItems.length !== 0 ? filteredItems.map(function(event) {
-              let value;
-              if (favorites.includes(event.id)) value = true;
-              return <Event 
-                key={event.id} 
-                event={event}
-                value={value}
-                rerenderParentCallback={rerenderParentCallback}
-              /> 
-          }) : <h2>No Events Found</h2>
-          }
-          </EventList>
-        </Col>
-        <Col size={1} />
-      </Row>
-    </Grid>
-  )
+
+    return (
+      <Grid>
+        <Row>
+          <Col size={2}>
+            <SidebarContainer>
+              <SidebarHeader>Filter by</SidebarHeader>
+              <Sidebar onChildClick={(active, data) => handleCallback(active, data)} />
+            </SidebarContainer>
+          </Col>
+          <Col size={4}>
+            <SearchBar 
+              onChildClick={(term) => handleChildClick(term)} 
+              text="Search Events"
+            />
+            <EventList>
+            {searchTerm !== '' ?
+              filteredByTerm.length !== 0 ? filteredByTerm.map(event => 
+                <Event 
+                  image={event.image}
+                  key={event.event.id} 
+                  event={event.event}
+                  rerenderParentCallback={rerenderParentCallback}
+                /> 
+              ) : <h2>No Events Found</h2>
+            : 
+            filteredItems.length !== 0 ? filteredItems.map(function(event) {
+                let value;
+                if (favorites.includes(event.event.id)) value = true;
+                return <Event 
+                  image={event.image}
+                  key={event.event.id} 
+                  event={event.event}
+                  value={value}
+                  rerenderParentCallback={rerenderParentCallback}
+                /> 
+            }) : <h2>No Events Found</h2>
+            }
+            </EventList>
+          </Col>
+          <Col size={1} />
+        </Row>
+      </Grid>
+    )
 }
 export default EventsPage;

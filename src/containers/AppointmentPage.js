@@ -62,7 +62,7 @@ const times = [
 const AppointmentPage = (props) => {
   const [dayOption, setDayOption] = useState(days[0]);
   const [timeOption, setTimeOption] = useState(times[0]);
-  const user = useSelector(state => state.currentUser);
+  const user = useSelector(state => state.currentUser.user);
   const history = useHistory();
   const appointmentId = props.location.state.appointmentId;
 

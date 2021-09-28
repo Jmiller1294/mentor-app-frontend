@@ -16,14 +16,15 @@ const Spinner = styled.div`
   }
 `
 
-const Loader = ({ parentCallback }) => {
+const Loader = ({ parentCallback, time }) => {
+
   const history = useHistory();
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let id = setInterval(() => {
-      setCount(count + 1);
       parentCallback(count);
+      setCount(count + 1);
     }, 1000)
     return () => clearInterval(id)
   },[count])
