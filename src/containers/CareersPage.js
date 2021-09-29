@@ -5,11 +5,11 @@ import { fields } from '../data/fields';
 
 const CareersCon = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
   height: 1000px;
-  padding: 200px;
+  padding: 50px 200px;
 `
 
 const CareersPage = () => {
