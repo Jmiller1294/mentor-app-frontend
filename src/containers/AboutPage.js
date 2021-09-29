@@ -26,15 +26,18 @@ const BackgroundImg = styled.img`
   height: 100%;
 `
 const MissionStatement = styled.p`
+  height: 'auto';
   text-align: center;
   font-size: 28px;
-  margin: 30px 280px;
+  
 `
 const LeadershipCon = styled.div`
   display: flex;
   justify-content: center;
-  height: 400px;
+  flex-wrap: wrap;
+  height: auto;
   width: 100%;
+  margin: 20px;
 `
 const Leaders = styled.img`
   display: flex;
@@ -47,9 +50,11 @@ const LeaderName = styled.span`
   margin-top: 10px;
 `
 const LeaderTitle = styled.span`
+  display: flex;
 `
 const Bio = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   margin: 35px;
 `
@@ -57,9 +62,8 @@ const PartnersCon = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 400px;
+  height: auto;
   width: 100%;
-  padding: 50px 350px;
 `
 const Line = styled.hr`
   width: 5%;
@@ -67,7 +71,7 @@ const Line = styled.hr`
   background-color: orange;
 `
 const Logo = styled.img`
-  width: 120px;
+  width: 20%;
   height: 50px;
   margin: 20px;
 `
@@ -75,13 +79,13 @@ const Logo = styled.img`
 const AboutPage = () => {
 
   return(
-    <Grid>
+    <Grid margin={'0 0 150px 0'}>
       <Row height={'470px'}>
         <Col size={1}>
           <BackgroundImg src={backgroundPic}></BackgroundImg>
         </Col>
       </Row>
-      <Row height={'450px'}>
+      <Row height={'auto'}>
         <Col size={1}>
           <Header>Our Mission</Header>
           <Line />
@@ -93,7 +97,7 @@ const AboutPage = () => {
           </MissionStatement>
         </Col>
       </Row>
-      <Row>
+      <Row height={'auto'}>
         <Col size={1}>
           <Header>Our Team</Header>
           <Line />
@@ -116,7 +120,7 @@ const AboutPage = () => {
           </LeadershipCon>
         </Col>
       </Row>
-      <Row>
+      <Row height={'200px'}>
         <Col size={1}>
           <Header>Partners</Header>
           <Line />

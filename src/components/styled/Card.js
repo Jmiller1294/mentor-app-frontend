@@ -6,7 +6,7 @@ export const Card = styled.div`
   justify-content: center;
   height: ${ (props) => props.height};
   padding: ${ (props) => props.padding};;   
-  width: 22%;
+  flex-basis: 22%;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   

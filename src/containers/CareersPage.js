@@ -8,17 +8,27 @@ const CareersCon = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  height: 1000px;
+  height: auto;
   padding: 50px 200px;
+  padding-top: 0;
+`
+const Header = styled.h1`
+  font-size: 40px;
+  text-decoration: underline;
+  text-align: center;
+  margin: 100px;
 `
 
 const CareersPage = () => {
   return(
+    <>
+    <Header>Careers</Header>
     <CareersCon>
       {fields.map( field => 
         <Careers title={field.title} careers={field.jobs}/>
       )}
     </CareersCon>
+    </>
   )
 }
 export default CareersPage;

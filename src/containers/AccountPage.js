@@ -15,9 +15,11 @@ import profile from '../assets/profile-img.jpg';
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   height: auto;
   width: 100%;
+  margin: 70px 0;
 `
 const Avatar = styled.img`
   display: flex;
@@ -84,7 +86,7 @@ const AccountPage = () => {
         : <Link to="/upload"><Avatar  src={`http://localhost:3001/${currentUser.avatar}`}/></Link>}
         <UserName>{currentUser.user.name}</UserName>
       </Row>
-      <Row minHeight={'150px'} height={'460px'}>
+      <Row minHeight={'150px'} height={'auto'}>
         <Col size={1}>
           <Headers>Mentors</Headers>
           <Container>
@@ -96,7 +98,7 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row minHeight={'150px'} height={'460px'}>
+      <Row minHeight={'150px'} height={'auto'}>
         <Col size={1}>
           <Headers>Upcoming Events</Headers>
           <Container>
@@ -110,7 +112,7 @@ const AccountPage = () => {
           </Container>
         </Col>
       </Row>
-      <Row minHeight={'150px'} height={'420px'}>
+      <Row minHeight={'150px'} height={'auto'}>
         <Col size={1}>
           <Headers>Upcoming Appointments</Headers>
           <Container>

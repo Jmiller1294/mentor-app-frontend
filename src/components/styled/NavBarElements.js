@@ -5,6 +5,7 @@ import { Link as Scroll } from 'react-scroll';
 export const Nav = styled.nav`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   background: #f8f7f2;
   height: 70px;
   padding: 25px;
