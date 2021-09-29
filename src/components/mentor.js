@@ -36,7 +36,7 @@ const AddButton = styled.button`
 `
 
 const Mentor = ({ mentor }) => {
-  const user = useSelector(state => state.currentUser.user)
+  const user = useSelector(state => state.currentUser)
 
   const createBooking = (mentor, userId) => {
     fetch(`http://localhost:3001/users/${userId}/bookings`, {
@@ -67,7 +67,7 @@ const Mentor = ({ mentor }) => {
           City: {mentor.city} <br></br>
           Age: {mentor.age}
         </Bio>
-        {user ? <AddButton onClick={() => handleClick(user)}>Book Mentor</AddButton> : null}
+        {user ? <AddButton onClick={() => handleClick(user.user)}>Book Mentor</AddButton> : null}
       </InfoContainer>
     </ListItem>
   )

@@ -19,7 +19,7 @@ const NavBar = () => {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/mentors">Mentors</NavLink>
         <NavLink to="/events">Events</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/careers">Careers</NavLink>
         {location.pathname === '/' ?
           <ScrollLink 
             to="contact-form" 
@@ -31,9 +31,9 @@ const NavBar = () => {
           >Contact</ScrollLink>
           : null
         }
+        <NavLink to="/about">About</NavLink>
         {!loggedIn ? <NavLink to="/registration">Signup</NavLink> : null}
         {loggedIn ? <NavLink to="/accounts">Account</NavLink> : null}
-        {loggedIn ? <NavLink to="/careers">Careers</NavLink> : null}
         <NavBtn>
           {loggedIn ? 
             <NavBtnLink 

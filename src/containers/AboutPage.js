@@ -17,7 +17,7 @@ import logo8 from '../assets/nba.svg';
 const Header = styled.h1`
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 150px;
   margin-bottom: 0;
   font-size: 50px;
 `
@@ -29,7 +29,7 @@ const MissionStatement = styled.p`
   height: 'auto';
   text-align: center;
   font-size: 28px;
-  
+  padding: 10px 285px;
 `
 const LeadershipCon = styled.div`
   display: flex;
@@ -64,6 +64,7 @@ const PartnersCon = styled.div`
   justify-content: center;
   height: auto;
   width: 100%;
+  padding: 45px;
 `
 const Line = styled.hr`
   width: 5%;
@@ -80,7 +81,7 @@ const AboutPage = () => {
 
   return(
     <Grid margin={'0 0 150px 0'}>
-      <Row height={'470px'}>
+      <Row height={'500px'}>
         <Col size={1}>
           <BackgroundImg src={backgroundPic}></BackgroundImg>
         </Col>
@@ -120,7 +121,7 @@ const AboutPage = () => {
           </LeadershipCon>
         </Col>
       </Row>
-      <Row height={'200px'}>
+      <Row height={'520px'}>
         <Col size={1}>
           <Header>Partners</Header>
           <Line />

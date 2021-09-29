@@ -17,9 +17,10 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-self: space-around;
   height: auto;
-  width: 100%;
-  margin: 70px 0;
+  flex-basis: 100%;
+  margin: 60px 0;
 `
 const Avatar = styled.img`
   display: flex;
@@ -52,6 +53,7 @@ const EmptyAvatar = styled.div`
 const UserName = styled.span`
   position: relative;
   top: 50px;
+  height: auto;
   font-size: 20px;
   font-weight: bold;
 `
@@ -79,7 +81,7 @@ const AccountPage = () => {
 
   return(
     !!currentUser ?
-    <Grid margin={'70px'}>
+    <Grid margin={'50px'}>
       <Row minHeight={'220px'} height={'250px'}>
         {currentUser.avatar === null ? 
           <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 

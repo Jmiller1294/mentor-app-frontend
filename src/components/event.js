@@ -10,11 +10,6 @@ import Pin from '../assets/pin.svg';
 import Calender from '../assets/calender.svg';
 
 
-const AddButton = styled.button`
-  background-color: orange;
-  height: 40px;
-  width: 100px;
-`
 const Header = styled.h3`
   margin-bottom: 50px;
 `
@@ -29,11 +24,12 @@ const FavButton = styled.button`
 `
 const EventContainer = styled.div`
   display: flex;
-  height: 220px;
-  width: 100%;
+  flex-wrap: wrap;
+  height: auto;
+  width: 80%;
   box-shadow: 5px 10px 18px #888888;
   border-radius: 10px;
-  margin: 5px;
+  margin: 15px;
 
   &:hover {
     -moz-box-shadow: 0 0 10px #777777;
@@ -49,12 +45,14 @@ const EventInfo = styled.div`
   display: flex;
   flex-direction: column;
   width: 62%;
+  height: 100%;
   padding: 10px;
 `
 const EventPictureCon = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
+  flex-basis: 30%;
+  height: 100%;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 `
@@ -73,8 +71,9 @@ const Likes = styled.span`
   font-weight: bold;
 `
 const EventImage = styled.img`
+  display: flex;
   width: 100%;
-  height: 100%;
+  height: 200px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 `

@@ -32,10 +32,21 @@ const FileInput = styled.input`
   font-size: 20px;
   width: 50%;
 `
-const UploadBtn = styled.button`
+const ButtonCon = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  width: 50%;
+`
+const UploadBttn = styled.button`
   font-size: 15px;
   height: 50px;
-  width: 20%;
+  width: 47%;
+`
+const CancelBttn = styled.button`
+  font-size: 15px;
+  height: 50px;
+  width: 47%;
 `
 
 const FileUploadPage = () => {
@@ -91,19 +102,35 @@ const FileUploadPage = () => {
   const handleFileChange = (event) => {
     if(event.target.files[0]) {
       console.log(event.target.files[0])
-      setFile(event.target.files[0]);
-      setVisible(false);
+      if(event.target.files[0].type === "image/heic") {
+        console.log("Please upload a .jpeg or .png file")
+      }
+      else {
+        setFile(event.target.files[0]);
+        setVisible(false);
+      }
     }
     else {
       console.log('no file added')
     }
   }
 
+  const CancelFileUpload = (event) => {
+    event.preventDefault();
+    setFile(null);
+    setVisible(true);
+  }
+
   return(
     <Container>
       <UploadCon>
         <FileName>{file ? file.name : null}</FileName>
-        {file ? <UploadBtn onClick={(e) => handleFileUpload(e)}>Upload Image</UploadBtn> : null}
+        {file ? 
+          <ButtonCon>
+            <CancelBttn onClick={(e) => CancelFileUpload(e)}>Cancel</CancelBttn>
+            <UploadBttn onClick={(e) => handleFileUpload(e)}>Upload Image</UploadBttn>
+          </ButtonCon> 
+        : null}
         {visible ? 
           <FileInput type="file" onChange={(e) => handleFileChange(e)}/> 
         : null}

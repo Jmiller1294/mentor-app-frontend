@@ -7,8 +7,7 @@ const persistConfig = {
 }
 
 const INITIAL_STATE = {
-  currentUser: null,
-  accountInfo: null,
+  currentUser: { user: null} ,
   loggedIn: false,
   mentors: [],
   events: [],
