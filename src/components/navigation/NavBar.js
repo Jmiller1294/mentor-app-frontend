@@ -33,6 +33,7 @@ const NavBar = () => {
         }
         {!loggedIn ? <NavLink to="/registration">Signup</NavLink> : null}
         {loggedIn ? <NavLink to="/accounts">Account</NavLink> : null}
+        {loggedIn ? <NavLink to="/careers">Careers</NavLink> : null}
         <NavBtn>
           {loggedIn ? 
             <NavBtnLink 

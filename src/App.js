@@ -18,6 +18,7 @@ import { createGlobalStyle } from 'styled-components';
 import { checkLoggedInStatus } from "./actions/userActions";
 import AppointmentPage from "./containers/AppointmentPage";
 import DescriptionPage from "./containers/DescriptionPage";
+import CareersPage from "./containers/CareersPage";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -48,6 +49,7 @@ const App = () => {
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/mentors" component={MentorsPage} />
         <Route exact path="/registration" component={RegistrationPage} />
+        <Route exact path="/careers" component={CareersPage} />
         <ProtectedRoute exact path="/accounts" component={AccountPage} />
         <ProtectedRoute exact path="/register" component={EventRegistration} />
         <ProtectedRoute exact path="/appointment" component={AppointmentPage} />
