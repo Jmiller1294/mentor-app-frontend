@@ -1,10 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
+import Careers from '../components/Careers';
+import { fields } from '../data/fields';
+
+const CareersCon = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 1000px;
+  padding: 200px;
+`
 
 const CareersPage = () => {
   return(
-    <div>
-      CareersPage
-    </div>
+    <CareersCon>
+      {fields.map( field => 
+        <Careers title={field.title} careers={field.jobs}/>
+      )}
+    </CareersCon>
   )
 }
 export default CareersPage;
