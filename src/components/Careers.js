@@ -21,7 +21,13 @@ const Careers = ({ title, careers }) => {
     <CareerCon>
       <Header>{title}</Header>
       {careers.map(career => 
-        <Career><a href={career.url} target="_blank" rel="noreferrer">{career.name}</a></Career>
+        <Career>
+          <a 
+            href={career.url} 
+            target="_blank" 
+            rel="noreferrer"
+          >{career.name}</a>
+        </Career>
       )}
     </CareerCon>
   )

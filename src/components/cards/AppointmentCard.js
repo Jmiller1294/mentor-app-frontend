@@ -17,9 +17,12 @@ const Info = styled.p`
 `
 const Button = styled.button`
   display: flex;
-  height: 40px;
-  width: 100px;
+  flex-wrap: wrap;
+  height: 90%;
+  flex-basis: 45%;
   margin: 5px;
+  background-color: #FF9531;
+  border-radius: 20px;
 `
 const ButtonCon = styled.div`
   margin-top: 40px;

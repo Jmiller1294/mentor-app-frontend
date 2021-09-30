@@ -70,7 +70,7 @@ const PartnersCon = styled.div`
 const Line = styled.hr`
   width: 5%;
   height: 7px;
-  background-color: orange;
+  background-color: #FF9531;
 `
 const Logo = styled.img`
   width: 20%;

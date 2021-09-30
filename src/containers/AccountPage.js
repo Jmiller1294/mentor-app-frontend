@@ -58,11 +58,11 @@ const UserName = styled.span`
 const Headers = styled.h2`
   text-align: center;
 `
-const Text = styled.h2`
-  height: 10px;
-  width: 30px;
-  justify-self: center;
-  align-self: center;
+const Text = styled.span`
+  text-align: center;
+  height: 100px;
+  width: 170px;
+  margin: auto;
   font-size: 16px;
 `
 

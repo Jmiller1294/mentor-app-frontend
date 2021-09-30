@@ -34,10 +34,10 @@ const Title = styled.span`
   font-size: 15px;
 `
 const Button = styled.button`
-  height: 35px;
+  height: 14%;
   width: 60%;
   border-radius: 25px;
-  background-color: orange;
+  background-color: #FF9531;
   margin: 0 auto;
 `
 const InfoCon = styled.div`

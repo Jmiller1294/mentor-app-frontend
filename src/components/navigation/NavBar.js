@@ -32,7 +32,7 @@ const NavBar = () => {
           : null
         }
         <NavLink to="/about">About</NavLink>
-        {!loggedIn ? <NavLink to="/registration">Signup</NavLink> : null}
+        {!loggedIn ? <NavLink to="/signup">Signup</NavLink> : null}
         {loggedIn ? <NavLink to="/accounts">Account</NavLink> : null}
         <NavBtn>
           {loggedIn ? 

@@ -22,12 +22,12 @@ const Header = styled.h1`
 const CareersPage = () => {
   return(
     <>
-    <Header>Careers</Header>
-    <CareersCon>
-      {fields.map( field => 
-        <Careers title={field.title} careers={field.jobs}/>
-      )}
-    </CareersCon>
+      <Header>Careers</Header>
+      <CareersCon>
+        {fields.map( field => 
+          <Careers title={field.title} careers={field.jobs}/>
+        )}
+      </CareersCon>
     </>
   )
 }

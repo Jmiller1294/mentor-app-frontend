@@ -31,8 +31,9 @@ const InfoContainer = styled.div`
 const AddButton = styled.button`
   background-color: orange;
   border-radius: 20px;
-  height: 25px;
-  width: 120px;
+  height: 35%;
+  width: 80%;
+  font-size: 16px;
 `
 
 const Mentor = ({ mentor }) => {

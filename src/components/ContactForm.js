@@ -38,11 +38,13 @@ const Message = styled.textarea`
   margin-top: 10px;
 `
 const SubmitButton = styled.button`
+  text-align: center;
+  font-size: 16px;
+  background-color: #FF9531;
   height: 40px;
-  width: 140px;
-  margin-right: auto;
-  margin-top: 25px;
-  margin-left: 35px;
+  width: 40%;
+  margin: 20px 0;
+  border-radius: 10px;
 `
 
 const ContactForm = () => {

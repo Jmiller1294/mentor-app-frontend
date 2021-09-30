@@ -63,7 +63,7 @@ const Item = styled.span`
 const Date = styled.span`
   display: flex;
   line-height: 1.5;
-  color: orange;
+  color: #FF9531;
 `
 const Likes = styled.span`
   display: flex;

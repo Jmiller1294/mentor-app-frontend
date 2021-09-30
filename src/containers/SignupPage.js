@@ -4,31 +4,32 @@ import { startCreateUser } from '../actions/userActions';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
 
-const RegistrationForm = styled.form`
+const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f8f7f2;
-  height: 50%;
+  height: 60%;
   flex-basis: 35%;
   border-radius: 20px;
   justify-content: center;
 `
 const FormInput = styled.input` 
   height: 10%;
-  width: 50%;
+  width: 70%;
   align-self: center;
   margin: 10px;
+  border-radius: 20px;
 `
-const RegistrationBtn = styled.button`
-  color: #005776;
-  width: 25%;
-  height: 35px;
-  background-color: #808080;
-  border-radius: 5px;
+const SignupBtn = styled.button`
+  width: 70%;
+  height: 12%;
+  background-color: #FF9531;
+  border-radius: 20px;
   font-size: 20px;
   align-self: center;
+  margin-top: 20px;
 `
-const RegistrationContainer = styled.div`
+const SignupContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -36,11 +37,11 @@ const RegistrationContainer = styled.div`
   height: 700px;
 `
 
-const RegistrationPage = (props) => {
+const SignupPage = (props) => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.loggedIn);
   const initialRender = useRef(true);
-  const [registrationInfo, setRegistrationInfo] = useState({
+  const [signupInfo, setSignupInfo] = useState({
     name: '',
     email: '',
     password: '',
@@ -64,25 +65,25 @@ const RegistrationPage = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('clicked', registrationInfo);
-    dispatch(startCreateUser(registrationInfo));
+    console.log('clicked', signupInfo);
+    dispatch(startCreateUser(signupInfo));
   }
 
   const handleInputChange = (event) => {
-    setRegistrationInfo({...registrationInfo, [event.target.name]: event.target.value})
+    setSignupInfo({...signupInfo, [event.target.name]: event.target.value})
   }
   
   return(
     <Grid>
       <Row>
         <Col size={1}>
-          <RegistrationContainer>
-            <RegistrationForm>
+          <SignupContainer>
+            <SignupForm>
               <h2 style={{textAlign: 'center'}}>Signup</h2>
               <FormInput 
                 type="text" 
                 name="name" 
-                value={registrationInfo.name} 
+                value={signupInfo.name} 
                 placeholder="Full Name"
                 onChange={(e) => handleInputChange(e)} 
               >
@@ -90,7 +91,7 @@ const RegistrationPage = (props) => {
               <FormInput 
                 type="text" 
                 name="email" 
-                value={registrationInfo.email} 
+                value={signupInfo.email} 
                 placeholder="Email"
                 onChange={(e) => handleInputChange(e)} 
               >
@@ -98,7 +99,7 @@ const RegistrationPage = (props) => {
               <FormInput 
                 type="password" 
                 name="password" 
-                value={registrationInfo.password} 
+                value={signupInfo.password} 
                 placeholder="Password"
                 onChange={(e) => handleInputChange(e)} 
               >
@@ -106,17 +107,17 @@ const RegistrationPage = (props) => {
               <FormInput 
                 type="password" 
                 name="passwordConfirmation" 
-                value={registrationInfo.passwordConfirmation} 
+                value={signupInfo.passwordConfirmation} 
                 placeholder="Retype Password"
                 onChange={(e) => handleInputChange(e)} 
               >
               </FormInput>
-              <RegistrationBtn onClick={(e) => handleSubmit(e)}>Signup</RegistrationBtn>
-            </RegistrationForm>
-          </RegistrationContainer>
+              <SignupBtn onClick={(e) => handleSubmit(e)}>Signup</SignupBtn>
+            </SignupForm>
+          </SignupContainer>
         </Col>
       </Row>
     </Grid>
   )
 }
-export default RegistrationPage;
+export default SignupPage;

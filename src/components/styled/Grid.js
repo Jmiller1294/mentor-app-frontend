@@ -9,7 +9,6 @@ export const Row = styled.div`
   height: ${ (props) => props.height};
   background: ${ (props) => props.background};
 `
-
 export const Col = styled.div`
   flex: ${ (props) => props.size};
 `

@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
 import { startLogin } from '../actions/userActions';
 
+const Header = styled.h2`
+  margin-top: 0;
+`
 const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f8f7f2;
-  margin-top: 100px;
-  height: 300px;
+  height: 65%;
   flex-basis: 35%;
   border-radius: 20px;
   justify-content: center;
@@ -17,23 +19,28 @@ const LoginForm = styled.form`
 const LoginInput = styled.input`
   border-radius: 25px;
   height: 10%;
-  width: 50%;
+  width: 70%;
   align-self: center;
   margin: 10px;
 `
 const LoginBtn = styled.button`
-  color: #005776;
-  width: 100px;
-  height: 35px;
-  background-color: #808080;
-  border-radius: 10px;
-  font-size: 20px;
+  color: #000000;
+  width: 70%;
+  height: 10%;
+  background-color: #FF9531;
+  border-radius: 20px;
+  font-size: 22px;
+  letter-spacing: 5px;
   align-self: center;
+  margin-top: 10px;
 `
 const LoginContainer = styled.div`
   display: flex;
   flex-direction: row;
+  height: 100%;
+  flex-basis: 50%;
   justify-content: center;
+  align-items: center;
 `
 const Message = styled.p`
   color: red;
@@ -74,26 +81,26 @@ const LoginPage = (props) => {
 
   return(
     <Grid>
-      <Row>
+      <Row height={'600px'}>
         <Col size={1}>
-        <LoginContainer>
-          <LoginForm>
-            <Message>{error}</Message>
-            <h2 style={{textAlign: 'center'}}>Please Login</h2>
-            <LoginInput onChange={(e) => handleInputChange(e)} 
-              type="text" 
-              name="email" 
-              value={loginInfo.email} 
-              placeholder="Email">
-            </LoginInput>
-            <LoginInput onChange={(e) => handleInputChange(e)} 
-              type="password" 
-              name="password" 
-              value={loginInfo.password} 
-              placeholder="Password">
-            </LoginInput>
-            <LoginBtn onClick={(e) => handleSubmit(e)}>Login</LoginBtn>
-          </LoginForm>
+          <LoginContainer>
+            <LoginForm>
+              <Message>{error}</Message>
+              <Header style={{textAlign: 'center'}}>Please Login</Header>
+              <LoginInput onChange={(e) => handleInputChange(e)} 
+                type="text" 
+                name="email" 
+                value={loginInfo.email} 
+                placeholder="Email">
+              </LoginInput>
+              <LoginInput onChange={(e) => handleInputChange(e)} 
+                type="password" 
+                name="password" 
+                value={loginInfo.password} 
+                placeholder="Password">
+              </LoginInput>
+              <LoginBtn onClick={(e) => handleSubmit(e)}>Login</LoginBtn>
+            </LoginForm>
           </LoginContainer>
         </Col>
       </Row>

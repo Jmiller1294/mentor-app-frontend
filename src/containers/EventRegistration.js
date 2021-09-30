@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import { Grid, Col, Row } from '../components/styled/Grid';
 const FormCon = styled.div`
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: 800px;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -16,16 +16,17 @@ const EventForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #f8f7f2;
   align-items: center;
-  height: 80%;
-  width: 100%;
+  height: 70%;
+  width: 45%;
   margin: 0 300px;
+  border-radius: 20px;
 `
 const InputCon = styled.div`
   display: flex;
   width: 450px;
-  height: 20%;
-  margin-bottom: 20px;
+  height: 18%;
   justify-content: center;
 `
 const FormInput = styled.input`
@@ -34,10 +35,17 @@ const FormInput = styled.input`
   margin: 0 10px;
 `
 const Button = styled.button`
-  background-color: orange;
+  background-color: #FF9531;
   height: 10%;
-  width: 10%;
+  width: 70%;
   border-radius: 25px;
+  font-size: 18px;
+  letter-spacing: 2px;
+`
+const Header = styled.h1`
+  justify-content: flex-start;
+  margin-top: 0;
+  margin-bottom: 65px;
 `
 
 const EventRegistration = (props) => {
@@ -92,7 +100,7 @@ const EventRegistration = (props) => {
         <Col size={1}>
           <FormCon>
             <EventForm>
-              <h2>Contact Information</h2>
+            <Header>Contact Information</Header>
               <InputCon>
                 <FormInput 
                   onChange={handleInputChange} 

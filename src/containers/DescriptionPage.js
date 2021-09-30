@@ -19,8 +19,8 @@ const EventInfo = styled.div`
   padding: 20px;
   
 `
-const EventTitle = styled.h3`
-
+const EventTitle = styled.h2`
+  margin-bottom: 2px;
 `
 const ButtonCon = styled.div`
   display: flex;
@@ -32,18 +32,23 @@ const ButtonCon = styled.div`
 const Button = styled.button`
   height: 50px;
   width: 300px;
+  font-size: 16px;
+  letter-spacing: 2px;
   flex-direction: flex-end;
   background-color: orange;
 `
 const Header = styled.h2`
 
 `
+const Text = styled.span`
+  margin-top: 5px;
+`
 
 const DescriptionPage = (props) => {
   const history = useHistory();
 
   const newRoute = () => { 
-    let path = `/register`; 
+    let path = `/registration`; 
     history.push({
       pathname: path,
       state: {
@@ -66,7 +71,8 @@ const DescriptionPage = (props) => {
             <EventImage src={`http://localhost:3001/${props.location.state.data.image}`}/>
             <EventInfo>
               <EventTitle>{props.location.state.data.event.name}</EventTitle>
-              {props.location.state.data.event.location}
+              <Text>{props.location.state.data.event.date} at, {props.location.state.data.event.time}<br /></Text>
+              <Text>in {props.location.state.data.event.location}</Text>
             </EventInfo>
           </DescriptionCon>
         </Col>
