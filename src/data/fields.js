@@ -68,12 +68,36 @@ export const fields = [
         url: 'https://www.recruiter.com/careers/civil-engineers/'
       },
       {
+        name: 'Construction and Building Inspectors',
+        url: 'https://www.recruiter.com/careers/construction-and-building-inspectors/'
+      },
+      {
+        name: 'Crane and Tower Operators',
+        url: 'https://www.recruiter.com/careers/crane-and-tower-operators/'
+      },
+      {
+        name: 'Elevator and Escalator Installers and Repairers',
+        url: 'https://www.recruiter.com/careers/elevator-and-escalator-installers-and-repairers/'
+      },
+      {
         name: 'Dredge Operators',
         url: 'https://www.recruiter.com/careers/dredge-operators/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Glaziers',
+        url: 'https://www.recruiter.com/careers/glaziers/'
+      },
+      {
+        name: 'Interior Designers',
+        url: 'https://www.recruiter.com/careers/interior-designers/'
+      },
+      {
+        name: 'Landscape Architects',
+        url: 'https://www.recruiter.com/careers/landscape-architects/'
+      },
+      {
+        name: 'Plumbers',
+        url: 'https://www.recruiter.com/careers/plumbers/'
       },
     ]
   },
@@ -81,12 +105,24 @@ export const fields = [
     title: "Education",
     jobs: [
       {
+        name: 'Archivists',
+        url: 'https://www.recruiter.com/careers/archivists/'
+      },
+      {
+        name: 'English as a Second Language Instructors',
+        url: 'https://www.recruiter.com/careers/adult-basic-education-adult-secondary-education-and-english-as-a-second-language-instructors/'
+      },
+      {
         name: 'Preschool and Daycare Education',
         url: 'https://www.recruiter.com/careers/preschool-and-daycare-education-and-childcare-administrators/'
       },
       {
         name: 'Postsecondary Education Teachers',
         url: 'https://www.recruiter.com/careers/postsecondary-education-teachers/'
+      },
+      {
+        name: 'Fitness and Wellness Coordinators',
+        url: 'https://www.recruiter.com/careers/fitness-and-wellness-coordinators/'
       },
       {
         name: 'Librarians',
@@ -261,25 +297,49 @@ export const fields = [
     title: "Goverment and Public Administration",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Air Crew Members',
+        url: 'https://www.recruiter.com/careers/air-crew-members/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Appraisers and Assessors of Real Estate',
+        url: 'https://www.recruiter.com/careers/appraisers-and-assessors-of-real-estate/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'City and Regional Planning Aides',
+        url: 'https://www.recruiter.com/careers/city-and-regional-planning-aides/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Climate Change Policy Analysts',
+        url: 'https://www.recruiter.com/careers/climate-change-policy-analysts/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Coroners',
+        url: 'https://www.recruiter.com/careers/coroners/'
       },
+      {
+        name: 'Court Clerks',
+        url: 'https://www.recruiter.com/careers/court-clerks/'
+      },
+      {
+        name: 'Detectives and Criminal Investigators',
+        url: 'https://www.recruiter.com/careers/detectives-and-criminal-investigators/https://www.recruiter.com/careers/electricians/'
+      },
+      {
+        name: 'Economists',
+        url: 'https://www.recruiter.com/careers/economists/'
+      },
+      {
+        name: 'Legislators',
+        url: 'https://www.recruiter.com/careers/legislators/'
+      },
+      {
+        name: 'Postal Service Clerks',
+        url: 'https://www.recruiter.com/careers/postal-service-clerks/'
+      },
+      {
+        name: 'Radar and Sonar Technicians',
+        url: 'https://www.recruiter.com/careers/radar-and-sonar-technicians/'
+      }
     ]
   },
   { 
@@ -361,24 +421,20 @@ export const fields = [
     title: "Information Technology",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Geographic Information Systems Technicians',
+        url: 'https://www.recruiter.com/careers/geographic-information-systems-technicians/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Informatics Nurse Specialists',
+        url: 'https://www.recruiter.com/careers/informatics-nurse-specialists/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Software Applications Developers',
+        url: 'https://www.recruiter.com/careers/software-applications-developers'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
-      },
-      {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Software Systems Developers',
+        url: 'https://www.recruiter.com/careers/software-systems-developers/'
       },
     ]
   },
