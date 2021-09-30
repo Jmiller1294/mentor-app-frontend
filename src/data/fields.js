@@ -81,24 +81,24 @@ export const fields = [
     title: "Education",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Preschool and Daycare Education',
+        url: 'https://www.recruiter.com/careers/preschool-and-daycare-education-and-childcare-administrators/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Postsecondary Education Teachers',
+        url: 'https://www.recruiter.com/careers/postsecondary-education-teachers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Librarians',
+        url: 'https://www.recruiter.com/careers/librarians/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Special Education Teachers',
+        url: 'https://www.recruiter.com/careers/middle-school-special-education-teachers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Teacher Assistants',
+        url: 'https://www.recruiter.com/careers/teacher-assistants/'
       },
     ]
   },
@@ -106,24 +106,40 @@ export const fields = [
     title: "Business Management and Administration",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Accountants',
+        url: 'https://www.recruiter.com/careers/accountants/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Administrative Services Managers',
+        url: 'https://www.recruiter.com/careers/administrative-services-managers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Auditors',
+        url: 'https://www.recruiter.com/careers/auditors/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Budget Analysts',
+        url: 'https://www.recruiter.com/careers/budget-analysts/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Chief Executives',
+        url: 'https://www.recruiter.com/careers/chief-executives/'
+      },
+      {
+        name: 'Financial Managers',
+        url: 'https://www.recruiter.com/careers/financial-managers/'
+      },
+      {
+        name: 'Supply Chain Managers',
+        url: 'https://www.recruiter.com/careers/supply-chain-managers/'
+      },
+      {
+        name: 'Telephone Operators',
+        url: 'https://www.recruiter.com/careers/telephone-operators/'
+      },
+      {
+        name: 'Treasurers and Controllers',
+        url: 'https://www.recruiter.com/careers/treasurers-and-controllers/'
       },
     ]
   },
@@ -131,24 +147,56 @@ export const fields = [
     title: "Arts and Communication",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Actors',
+        url: 'https://www.recruiter.com/careers/actors/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Postsecondary Art, Drama, and Music Teachers',
+        url: 'https://www.recruiter.com/careers/postsecondary-art-drama-and-music-teachers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Audio and Video Technicians',
+        url: 'https://www.recruiter.com/careers/audio-and-video-technicians/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Broadcast Announcers and Radio Disc Jockeys',
+        url: 'https://www.recruiter.com/careers/broadcast-announcers-and-radio-disc-jockeys/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Broadcast Technicians',
+        url: 'https://www.recruiter.com/careers/broadcast-technicians/'
+      },
+      {
+        name: 'Choreographers',
+        url: 'https://www.recruiter.com/careers/choreographers/'
+      },
+      {
+        name: 'Directors',
+        url: 'https://www.recruiter.com/careers/directors-stage-motion-pictures-television-and-radio/'
+      },
+      {
+        name: 'Editors',
+        url: 'https://www.recruiter.com/careers/editors/'
+      },
+      {
+        name: 'Graphic Designers',
+        url: 'https://www.recruiter.com/careers/graphic-designers/'
+      },
+      {
+        name: 'Music Directors',
+        url: 'https://www.recruiter.com/careers/music-directors/'
+      },
+      {
+        name: 'Photographer',
+        url: 'https://www.recruiter.com/careers/photographers/'
+      },
+      {
+        name: 'Producers',
+        url: 'https://www.recruiter.com/careers/producers/'
+      },
+      {
+        name: 'Reporters and Correspondents',
+        url: 'https://www.recruiter.com/careers/reporters-and-correspondents/'
       },
     ]
   },
@@ -156,24 +204,56 @@ export const fields = [
     title: "Finance",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Actuaries',
+        url: 'https://www.recruiter.com/careers/actuaries/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Bill and Account Collectors',
+        url: 'https://www.recruiter.com/careers/bill-and-account-collectors/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Credit Analysts',
+        url: 'https://www.recruiter.com/careers/credit-analysts/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Claims Adjusters, Examiners, and Investigators',
+        url: 'https://www.recruiter.com/careers/claims-adjusters-examiners-and-investigators/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Financial and Investment Analysts',
+        url: 'https://www.recruiter.com/careers/financial-and-investment-analysts/'
+      },
+      {
+        name: 'Fraud Examiners, Investigators and Analysts',
+        url: 'https://www.recruiter.com/careers/fraud-examiners-investigators-and-analysts/'
+      },
+      {
+        name: 'Insurance Adjusters, Examiners, and Investigators',
+        url: 'https://www.recruiter.com/careers/insurance-adjusters-examiners-and-investigators/'
+      },
+      {
+        name: 'Loan Officers',
+        url: 'https://www.recruiter.com/careers/loan-officers/'
+      },
+      {
+        name: 'Personal Financial Advisors',
+        url: 'https://www.recruiter.com/careers/personal-financial-advisors/'
+      },
+      {
+        name: 'Risk Management Specialists',
+        url: 'https://www.recruiter.com/careers/risk-management-specialists/'
+      },
+      {
+        name: 'Securities and Commodities Traders',
+        url: 'https://www.recruiter.com/careers/securities-and-commodities-traders/'
+      },
+      {
+        name: 'Tax Preparers',
+        url: 'https://www.recruiter.com/careers/tax-preparers/'
+      },
+      {
+        name: 'Tellers',
+        url: 'https://www.recruiter.com/careers/tellers/'
       },
     ]
   },

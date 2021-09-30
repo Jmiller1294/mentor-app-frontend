@@ -10,14 +10,12 @@ import { getUserMentors } from '../actions/mentorActions';
 import { getAppointments } from '../actions/appointmentActions';
 import { getAccountInfo } from '../actions/userActions';
 import styled from 'styled-components';
-import profile from '../assets/profile-img.jpg';
 
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-self: space-around;
   height: auto;
   flex-basis: 100%;
   margin: 60px 0;
@@ -57,11 +55,15 @@ const UserName = styled.span`
   font-size: 20px;
   font-weight: bold;
 `
-const Text = styled.span`
-  color: blue;
-`
 const Headers = styled.h2`
   text-align: center;
+`
+const Text = styled.h2`
+  height: 10px;
+  width: 30px;
+  justify-self: center;
+  align-self: center;
+  font-size: 16px;
 `
 
 const AccountPage = () => {
@@ -88,15 +90,16 @@ const AccountPage = () => {
         : <Link to="/upload"><Avatar  src={`http://localhost:3001/${currentUser.avatar}`}/></Link>}
         <UserName>{currentUser.user.name}</UserName>
       </Row>
-      <Row minHeight={'150px'} height={'auto'}>
+      <Row minHeight={'250px'} height={'auto'}>
         <Col size={1}>
           <Headers>Mentors</Headers>
           <Container>
-            {mentors.map(mentor => 
+            {mentors.length !== 0 ? mentors.map(mentor => 
             <MentorCard 
               key={mentor.id} 
               mentor={mentor.mentor}
-            ></MentorCard>)}
+            ></MentorCard>
+          ): <Text>No Mentors</Text>}
           </Container>
         </Col>
       </Row>
@@ -104,13 +107,14 @@ const AccountPage = () => {
         <Col size={1}>
           <Headers>Upcoming Events</Headers>
           <Container>
-            {events.map(event => 
+            {events.length !== 0 ? events.map(event => 
               <EventCard 
                 key={event.id} 
                 event={event.event}
                 image={event.image}
               >
-              </EventCard>)}
+              </EventCard>
+            ) : <Text>No Upcoming Events</Text>}
           </Container>
         </Col>
       </Row>
@@ -118,12 +122,12 @@ const AccountPage = () => {
         <Col size={1}>
           <Headers>Upcoming Appointments</Headers>
           <Container>
-            {appointments.map(appointment => 
+            {appointments.length !== 0 ? appointments.map(appointment => 
               <AppointmentCard 
                 key={appointment.id}
                 appointment={appointment}
               />
-            )}
+            ) : <Text>No Upcoming Appointments</Text>}
           </Container>
         </Col>
       </Row>

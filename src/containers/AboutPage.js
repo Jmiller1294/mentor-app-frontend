@@ -26,6 +26,7 @@ const BackgroundImg = styled.img`
   height: 100%;
 `
 const MissionStatement = styled.p`
+  line-height: 1.7;
   height: 'auto';
   text-align: center;
   font-size: 28px;
