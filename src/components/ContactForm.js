@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import breakpoint from '../commons/breakpoints';
 
 const FormCon = styled.div`
   text-align: left;
@@ -19,6 +20,16 @@ const Form = styled.form`
   background-color: #f8f7f2;
   margin: 30px 0;
   border-radius: 25px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    padding: 20px;
+    flex-basis: 100%;
+  }
+
+  @media only screen and (${breakpoint.device.tablet}){
+    padding: 0;
+    flex-basis: 100%;
+  }
 `
 const FormInput = styled.input`
   height: 8%;

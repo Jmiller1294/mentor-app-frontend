@@ -1,14 +1,13 @@
-/* eslint-disable import/no-anonymous-default-export */
 
 const size = {
-  xs: '320px',
-  sm: '768px',
+  sm: '425px',
+  md: '768px',
   lg: '1200px'
 }
 
 const device = {
-  xs: `(min-width: ${size.xs})`,
-  sm: `(min-widht: ${size.sm})`,
-  lg: `(min-width: ${size.lg})`
+  phone: `max-width: ${size.sm}`,
+  tablet: `max-width: ${size.md}`,
+  laptop: `max-width: ${size.lg}`
 }
 export default {size, device}

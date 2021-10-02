@@ -26,7 +26,7 @@ import linkedIn from '../assets/linkedIn.png';
 import twitter from '../assets/twitter.png';
 import youtube from '../assets/youtube.png';
 import github from '../assets/github.png';
-import { useHistory } from 'react-router';
+import breakpoint from '../commons/breakpoints';
 
 const faker = require('faker');
 
@@ -37,50 +37,78 @@ const Header = styled.h1`
   color: #005776;
   margin: 200px auto;
   text-align: center;
-`
-const CityName = styled.span`
-  font-weight: bold;
-  font-size: 20px;
-  margin: 10px 0;
+
+  @media only screen and (${breakpoint.device.phone}){
+    font-size: 30px;
+    margin: 150px auto;
+  }
 `
 const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
+  height: auto;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   margin: 75px 0;
+`
+const Card = styled.div`
+  text-align: center;
+  height: 400px;
+  width: 400px;
+  margin: 10px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    height: 470px;
+    width: 250px;
+    margin: 20px;
+  }
+
+  @media only screen and (${breakpoint.device.laptop}){
+    margin: 35px 10px;
+    flex-direction: column;
+  }
+`
+const CardAvatar = styled.img`
+  height: 60%;
+  width: 100%;
+`
+const CardDescription = styled.p`
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  width: 100%;
+  overflow: hidden;
+  line-height: 2.5;
+  overflow-wrap: break-word; 
+
+  @media only screen and (${breakpoint.device.phone}){
+    margin-bottom: 0;
+  }
 `
 const LogoContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin: 50px;
-`
-const Card = styled.div`
-  text-align: center;
-  height: 340px;
-  width: 350px;
-`
-const CardAvatar = styled.img`
-  height: 200px;
-  width: 100%;
-`
-const CardDescription = styled.p`
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  line-height: 2.5;
-  overflow-wrap: break-word; 
+  margin: 30px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    margin-top: 5px;
+  }
 `
 const Logo = styled.img`
   height: 35px;
-  width: 150px;
+  width: 180px;
   justify-content: space-between;
-  margin: 0 35px 15px 35px;
+  margin: 5px 35px 15px 35px;
+  
+  @media only screen and (${breakpoint.device.phone}){
+    margin-top: 20px;
+  }
 `
-const List = styled.ul`
+const TestimonialList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -96,40 +124,66 @@ const TestimonialItem = styled.li`
   flex-basis: 32%;
   margin: 5px;
   padding: 55px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    flex-basis: 100%;
+  }
+
+  @media only screen and (${breakpoint.device.tablet}){
+    padding: 0;
+    margin: 30px;
+  }
+`
+const CityList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-left: 40px;
+  margin-right: 40px;
+  column-gap: 10px;
+  padding-left: 0;
+
+  @media only screen and (${breakpoint.device.phone}){
+   margin: 5px;
+  }
 `
 const CityItem = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
-  flex-basis: 15%;
+  width: 16%;
   margin: 20px;
   padding: 5px;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    padding: 0;
+    width: 40%;
+  }
+
+  @media only screen and (${breakpoint.device.phone}){
+    padding: 0;
+    width: 100%;
+  }
+
+  @media only screen and (${breakpoint.device.tablet}){
+    padding: 0;
+    width: 60%;
+  }
 `
-const Avatar = styled.img`
-  display: block;
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-  margin-bottom: 20px;
-`
-const CardImage = styled.img`
+const CityImage = styled.img`
   width: 100%;
   height: 150px;
 `
-const CardDesc = styled.p`
-  
-`
-const Footer = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-left: 0;
-  flex-wrap: wrap;
-`
-const FooterIcon = styled.img`
-  height: 35px;
-  margin: 10px 75px;
+const CityName = styled.span`
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px 0;
 `
 const Icon = styled.img`
   display: flex;
@@ -166,6 +220,44 @@ const IconContainer = styled.div`
   display: flex;
   width: 100%;
   position: relative;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    
+  }
+`
+const Avatar = styled.img`
+  display: block;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+`
+const CardDesc = styled.p`
+  
+`
+const Footer = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 0;
+  flex-wrap: wrap;
+
+  @media only screen and (${breakpoint.device.phone}){
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+`
+const FooterIcon = styled.img`
+  height: 35px;
+  margin: 10px 75px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    height: 25px;
+    width: 25px;
+    margin: 5px;
+  }
 `
 
 
@@ -193,7 +285,7 @@ const HomePage = () => {
             <Header>Where young professionals <br></br>can find Mentors</Header>
           </Col>
         </Row>
-        <Row background={'#f8f7f2'}>
+        <Row background={'#f8f7f2'} height={'auto'}>
           <Col size={1}>
             <CardContainer>
               <Card>
@@ -246,7 +338,7 @@ const HomePage = () => {
         </Row>
         <Row>
           <Col size={1}>
-            <List>
+            <TestimonialList>
               <TestimonialItem>
                 <Avatar src={testimonials[0].avatar} alt="avatar1" />  
                 Mentors changed my life without
@@ -308,14 +400,14 @@ const HomePage = () => {
               - {testimonials[5].name}
                 </CardDesc>
               </TestimonialItem>
-            </List>
+            </TestimonialList>
           </Col>
         </Row>
         <Row background={'#f8f7f2'}>
           <Col size={1}>
-            <List>
+            <CityList>
               <CityItem>
-                  <CardImage src={cityImg1}></CardImage>
+                  <CityImage src={cityImg1}></CityImage>
                   <CityName>New York</CityName>
                   <IconContainer>
                     <IconImageContainer>
@@ -333,7 +425,7 @@ const HomePage = () => {
                 </IconContainer>
               </CityItem>
               <CityItem>
-                  <CardImage src={cityImg5}></CardImage>
+                  <CityImage src={cityImg5}></CityImage>
                   <CityName>Los Angeles</CityName>
                   <IconContainer>
                     <IconImageContainer>
@@ -351,7 +443,7 @@ const HomePage = () => {
                 </IconContainer>
               </CityItem>
               <CityItem>
-                  <CardImage src={cityImg3}></CardImage>
+                  <CityImage src={cityImg3}></CityImage>
                   <CityName>Chicago</CityName>
                   <IconContainer>
                     <IconImageContainer>
@@ -369,7 +461,7 @@ const HomePage = () => {
                 </IconContainer>
               </CityItem>
               <CityItem>
-                  <CardImage src={cityImg2}></CardImage>
+                  <CityImage src={cityImg2}></CityImage>
                   <CityName>Houston</CityName>
                   <IconContainer>
                     <IconImageContainer>
@@ -387,7 +479,7 @@ const HomePage = () => {
                 </IconContainer>
               </CityItem>
               <CityItem>
-                  <CardImage src={cityImg4}></CardImage>
+                  <CityImage src={cityImg4}></CityImage>
                   <CityName>Atlanta</CityName>
                   <IconContainer>
                     <IconImageContainer>
@@ -404,7 +496,7 @@ const HomePage = () => {
                   </IconTextContainer>
                 </IconContainer>
               </CityItem>
-            </List>
+            </CityList>
           </Col>
         </Row>
         <Row height={'650px'}>
