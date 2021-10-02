@@ -61,7 +61,7 @@ const Headers = styled.h2`
 const Text = styled.span`
   text-align: center;
   height: 100px;
-  width: 170px;
+  width: 200px;
   margin: auto;
   font-size: 16px;
 `
