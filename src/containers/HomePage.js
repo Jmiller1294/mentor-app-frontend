@@ -161,19 +161,17 @@ const CityItem = styled.div`
   margin: 20px;
   padding: 5px;
 
-  @media only screen and (${breakpoint.device.laptop}){
-    padding: 0;
-    width: 40%;
-  }
-
   @media only screen and (${breakpoint.device.phone}){
-    padding: 0;
     width: 100%;
   }
 
   @media only screen and (${breakpoint.device.tablet}){
     padding: 0;
     width: 60%;
+  }
+
+  @media only screen and (${breakpoint.device.laptop}){
+    width: 40%;
   }
 `
 const CityImage = styled.img`

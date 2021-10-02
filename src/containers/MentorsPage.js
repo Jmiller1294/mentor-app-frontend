@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar';
 import Loader from '../components/Loader';
 import styled from 'styled-components';
 import { Col, Grid, Row } from '../components/styled/Grid';
+import breakpoint from '../commons/breakpoints';
 
 
 const List = styled.ul`
@@ -11,9 +12,21 @@ const List = styled.ul`
   flex-direction: column;
   list-style: none;
   padding: 0;
+
+  @media only screen and (${breakpoint.device.phone}){
+    margin-top: 0;
+  }
 `
 const MentorCount = styled.h2`
   margin-left: 35px;
+  margin-bottom: 35px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    text-align: center;
+    font-size: 20px;
+    margin-left: 0;
+    margin-bottom: 70px;
+  }
 `
 const LoaderCon = styled.div`
   display: flex;

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { createBooking } from '../actions/userActions';
+import breakpoint from '../commons/breakpoints';
 
 
 const ListItem = styled.li`
@@ -10,12 +11,20 @@ const ListItem = styled.li`
   border: 1px solid #f8f7f2;
   padding: 35px;
   padding-bottom: 30px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    margin-bottom: 0;
+    height: 190px;
+    font-size: 12px;
+    padding: 10px;
+  }
 `
 const AvatarImage = styled.img`
   height: 50%;
   flex-basis: 7%;
   border-radius: 50%;
   margin-right: 30px;
+
 `
 const Header = styled.h2`
   height: 10px;
@@ -34,6 +43,11 @@ const AddButton = styled.button`
   height: 35%;
   width: 80%;
   font-size: 16px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    height: 30px;
+    width: 140px;
+  }
 `
 
 const Mentor = ({ mentor }) => {
