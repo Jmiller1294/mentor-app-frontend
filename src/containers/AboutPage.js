@@ -13,38 +13,56 @@ import logo5 from '../assets/microsoft.svg';
 import logo6 from '../assets/amazon.svg';
 import logo7 from '../assets/facebook.svg';
 import logo8 from '../assets/nba.svg';
+import breakpoint from '../commons/breakpoints';
 
 const Header = styled.h1`
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: auto;
   margin-top: 150px;
   margin-bottom: 0;
   font-size: 50px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    font-size: 30px;
+  }
 `
 const BackgroundImg = styled.img`
   width: 100%;
   height: 100%;
+
+  @media only screen and (${breakpoint.device.tablet}){
+   
+  }
 `
 const MissionStatement = styled.p`
   line-height: 1.7;
   height: 'auto';
+  width: 100%;
+  flex-wrap: wrap;
   text-align: center;
   font-size: 28px;
   padding: 10px 285px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    padding: 20px;
+    font-size: 16px;
+  } 
 `
 const LeadershipCon = styled.div`
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   height: auto;
   width: 100%;
-  margin: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `
 const Leaders = styled.img`
   display: flex;
   flex-direction: column;
   height: 200px;
-  width: 200px;
+  width: 180px;
 `
 const LeaderName = styled.span`
   font-weight: bold;
@@ -61,27 +79,35 @@ const Bio = styled.div`
 `
 const PartnersCon = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: auto;
   width: 100%;
-  padding: 45px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 200px;
 `
 const Line = styled.hr`
   width: 5%;
   height: 7px;
+  margin-bottom: 100px;
   background-color: #FF9531;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    width: 30%;
+    margin-bottom: 50px;
+  } 
 `
 const Logo = styled.img`
-  width: 20%;
-  height: 50px;
+  width: 25%;
+  height: 60px;
   margin: 20px;
 `
 
 const AboutPage = () => {
 
   return(
-    <Grid margin={'0 0 150px 0'}>
+    <Grid>
       <Row height={'500px'}>
         <Col size={1}>
           <BackgroundImg src={backgroundPic}></BackgroundImg>
@@ -122,7 +148,7 @@ const AboutPage = () => {
           </LeadershipCon>
         </Col>
       </Row>
-      <Row height={'520px'}>
+      <Row height={'auto'}>
         <Col size={1}>
           <Header>Partners</Header>
           <Line />
@@ -133,8 +159,6 @@ const AboutPage = () => {
             <Logo src={logo4}/> 
             <Logo src={logo5}/>
             <Logo src={logo6}/>
-            <Logo src={logo7}/>
-            <Logo src={logo8}/>
           </PartnersCon>
         </Col>
       </Row>

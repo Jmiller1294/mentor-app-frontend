@@ -23,6 +23,11 @@ const Header = styled.h1`
   text-decoration: underline;
   text-align: center;
   margin: 100px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    margin: 50px;
+    margin-top: 80px;
+  } 
 `
 
 const CareersPage = () => {
