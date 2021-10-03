@@ -11,8 +11,6 @@ import logo3 from '../assets/nasa.svg';
 import logo4 from '../assets/tesla.svg';
 import logo5 from '../assets/microsoft.svg';
 import logo6 from '../assets/amazon.svg';
-import logo7 from '../assets/facebook.svg';
-import logo8 from '../assets/nba.svg';
 import breakpoint from '../commons/breakpoints';
 
 const Header = styled.h1`
@@ -25,16 +23,17 @@ const Header = styled.h1`
   font-size: 50px;
 
   @media only screen and (${breakpoint.device.tablet}){
-    font-size: 30px;
+    font-size: 28px;
+    margin-top: 50px;
   }
 `
 const BackgroundImg = styled.img`
   width: 100%;
-  height: 100%;
+  height: 650px;
 
   @media only screen and (${breakpoint.device.tablet}){
-   
-  }
+    height: 300px;
+  } 
 `
 const MissionStatement = styled.p`
   line-height: 1.7;
@@ -94,7 +93,6 @@ const Line = styled.hr`
   background-color: #FF9531;
 
   @media only screen and (${breakpoint.device.tablet}){
-    width: 30%;
     margin-bottom: 50px;
   } 
 `
@@ -108,7 +106,7 @@ const AboutPage = () => {
 
   return(
     <Grid>
-      <Row height={'500px'}>
+      <Row height={'auto'}>
         <Col size={1}>
           <BackgroundImg src={backgroundPic}></BackgroundImg>
         </Col>

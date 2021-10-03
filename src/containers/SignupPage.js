@@ -3,31 +3,42 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startCreateUser } from '../actions/userActions';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
+import breakpoint from '../commons/breakpoints';
 
 const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f8f7f2;
   height: 60%;
-  flex-basis: 35%;
+  flex-basis: 65%;
+  max-width: 800px;
   border-radius: 20px;
   justify-content: center;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    flex-basis: 85%;
+  } 
 `
 const FormInput = styled.input` 
-  height: 10%;
+  height: 15%;
   width: 70%;
   align-self: center;
   margin: 10px;
   border-radius: 20px;
+
+  @media only screen and (${breakpoint.device.laptop}){
+   height: 10%;
+  } 
 `
 const SignupBtn = styled.button`
   width: 70%;
-  height: 12%;
+  height: 15%;
   background-color: #FF9531;
   border-radius: 20px;
   font-size: 20px;
   align-self: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 `
 const SignupContainer = styled.div`
   display: flex;
