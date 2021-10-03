@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoint from "../../commons/breakpoints";
 
 export const Card = styled.div`
   display: flex;
@@ -6,7 +7,9 @@ export const Card = styled.div`
   justify-content: center;
   height: ${ (props) => props.height};
   padding: ${ (props) => props.padding};;   
-  flex-basis: 22%;
+  width: 25%;
+  min-width: 300px;
+  max-width: 400px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
@@ -15,4 +18,8 @@ export const Card = styled.div`
     -webkit-box-shadow: 0 0 10px #777777;
     box-shadow: 0 0 10px #777777;
   }
+
+  @media only screen and (${breakpoint.device.laptop}){
+    width: 300px;
+  } 
 `

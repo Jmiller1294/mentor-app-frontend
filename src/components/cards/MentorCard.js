@@ -17,17 +17,16 @@ const Header = styled.h3`
 `
 const Bio = styled.div`
   display: flex;
-  line-height: 1.5;
   flex-direction: column;
   overflow-wrap: break-word;
-  height: 100px;
+  height: 200px;
   width: 60%;
 `
 const LabelCon = styled.div`
-line-height: 1.5;
   flex-direction: column;
-  height: 100px;
+  height: 200px;
   width: 40%;
+  line-height: 2.5;
 `
 const Title = styled.span`
   align-self: center;
@@ -39,12 +38,25 @@ const Button = styled.button`
   border-radius: 25px;
   background-color: #FF9531;
   margin: 0 auto;
+  min-height: 40px;
+  margin-bottom: 10px;
 `
 const InfoCon = styled.div`
   margin-top: 20px;
-  height: 60%;
+  height: 200px;
+  flex-wrap: wrap;
   display: flex;
   flex-direction: row;
+  line-height: 2.5;
+`
+
+const Email = styled.span`
+  height: 30px;
+  margin-top: 10px;
+  line-height: 1;
+`
+const E = styled.span`
+  
 `
 
 const MentorCard = ({ mentor }) => {
@@ -66,21 +78,20 @@ const MentorCard = ({ mentor }) => {
   }
 
   return (
-    <Card height={'350px'} padding={'15px'}>
+    <Card height={'500px'} padding={'15px'}>
       <AvatarImage src={mentor.avatar}/>
       <Header>{mentor.name}</Header>
         <Title>{mentor.title}</Title>
         <InfoCon>
           <LabelCon>
             Industry:<br/>
-            Email:<br/>
-            <br/>
+            <E>Email:</E><br/>
             City:<br/>
             Age:<br/>
           </LabelCon>
           <Bio>
             {mentor.field}<br/>
-            {mentor.email}<br/>
+            <Email>{mentor.email}</Email>
             {mentor.city}<br/>
             {mentor.age}<br/>
           </Bio>

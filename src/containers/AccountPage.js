@@ -10,6 +10,7 @@ import { getUserMentors } from '../actions/mentorActions';
 import { getAppointments } from '../actions/appointmentActions';
 import { getAccountInfo } from '../actions/userActions';
 import styled from 'styled-components';
+import breakpoint from '../commons/breakpoints';
 
 
 const Container = styled.div`
@@ -17,22 +18,46 @@ const Container = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   height: auto;
-  flex-basis: 100%;
+  width: 100%;
   margin: 60px 0;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    flex-direction: column;
+    justify-content: content;
+    align-items: center;
+  } 
+`
+
+const AvatarCon = styled.div`
+  display: flex;
+  margin-top: 65px;
+  width: 30%;
+  height: 380px;
+  margin-left: 35px;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 50px;
+    text-align: center;
+    margin-left: 0;
+  } 
 `
 const Avatar = styled.img`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-self: center;
-  align-self: center;
-  text-align: center;
   height: 160px;
   width: 160px;
-  margin-right: 20px;
-  margin-bottom: 20px;
   border: 1px solid black;
   border-radius: 80px;
+  margin-right: 10px;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    height: 130px;
+    width: 130px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  } 
 `
 const EmptyAvatar = styled.div`
   display: flex;
@@ -47,16 +72,22 @@ const EmptyAvatar = styled.div`
   margin-bottom: 20px;
   border: 1px solid black;
   border-radius: 65px;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    height: 130px;
+    width: 130px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  } 
 `
 const UserName = styled.span`
-  position: relative;
-  top: 50px;
   height: auto;
   font-size: 20px;
   font-weight: bold;
 `
-const Headers = styled.h2`
+const Headers = styled.h1`
   text-align: center;
+  top: 20px;
 `
 const Text = styled.span`
   text-align: center;
@@ -83,12 +114,14 @@ const AccountPage = () => {
 
   return(
     !!currentUser ?
-    <Grid margin={'50px'}>
-      <Row minHeight={'220px'} height={'250px'}>
-        {currentUser.avatar === null ? 
-          <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
-        : <Link to="/upload"><Avatar  src={`http://localhost:3001/${currentUser.avatar}`}/></Link>}
-        <UserName>{currentUser.user.name}</UserName>
+    <Grid margin={'20px'}>
+      <Row minHeight={'220px'} height={'auto'}>
+        <AvatarCon>
+          {currentUser.avatar === null ? 
+            <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
+          : <Link to="/upload"><Avatar  src={`http://localhost:3001/${currentUser.avatar}`}/></Link>}
+          <UserName>{currentUser.user.name}</UserName>
+        </AvatarCon>
       </Row>
       <Row minHeight={'250px'} height={'auto'}>
         <Col size={1}>

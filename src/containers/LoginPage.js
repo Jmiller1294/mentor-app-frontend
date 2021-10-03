@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Grid, Row, Col } from '../components/styled/Grid';
 import { startLogin } from '../actions/userActions';
+import breakpoint from '../commons/breakpoints';
 
 const Header = styled.h2`
   margin-top: 0;
@@ -11,10 +12,15 @@ const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f8f7f2;
-  height: 65%;
+  height: 45%;
   flex-basis: 35%;
   border-radius: 20px;
   justify-content: center;
+  max-width: 800px;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    flex-basis: 85%;
+  } 
 `
 const LoginInput = styled.input`
   border-radius: 25px;
@@ -30,7 +36,6 @@ const LoginBtn = styled.button`
   background-color: #FF9531;
   border-radius: 20px;
   font-size: 22px;
-  letter-spacing: 5px;
   align-self: center;
   margin-top: 10px;
 `
@@ -81,7 +86,7 @@ const LoginPage = (props) => {
 
   return(
     <Grid>
-      <Row height={'600px'}>
+      <Row height={'700px'}>
         <Col size={1}>
           <LoginContainer>
             <LoginForm>

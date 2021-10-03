@@ -9,7 +9,7 @@ const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f8f7f2;
-  height: 60%;
+  height: 55%;
   flex-basis: 65%;
   max-width: 800px;
   border-radius: 20px;
@@ -25,7 +25,7 @@ const FormInput = styled.input`
   align-self: center;
   margin: 10px;
   border-radius: 20px;
-
+  
   @media only screen and (${breakpoint.device.laptop}){
    height: 10%;
   } 
@@ -38,14 +38,14 @@ const SignupBtn = styled.button`
   font-size: 20px;
   align-self: center;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `
 const SignupContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 700px;
+  height: 750px;
 `
 
 const SignupPage = (props) => {
