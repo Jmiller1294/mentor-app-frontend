@@ -2,19 +2,33 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setDate, setLocation, setTime } from '../../actions/eventActions';
 import styled from 'styled-components';
+import breakpoint from '../../commons/breakpoints';
 
 const AccordionItem = styled.div`
-  height: 100%;
-  flex-basis: 100%;
+  height: 30px;
+  width: 100%;
+  margin: 10px 0;
+
+  @media only screen and (${breakpoint.device.tablet}){
+   
+  }
 ` 
 const Header = styled.h2`
   display: inline;
   font-size: 25px;
   margin-right: auto;
+
+  @media only screen and (${breakpoint.device.phone}){
+   font-size: 20px;
+  }
 `
 const Expand = styled.span`
   float: right;
   font-size: 25px;
+
+  @media only screen and (${breakpoint.device.phone}){
+   float: none;
+  }
 `
 const Categories = styled.form`
   margin: 15px 0;

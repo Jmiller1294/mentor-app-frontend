@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Accordion from './Accordion';
+import breakpoint from '../../commons/breakpoints';
 
 const data = [
   {
@@ -22,7 +23,15 @@ const AccordionContainer = styled.div`
   flex-direction: column;
   height: 17%;
   width: 100%;
-` 
+
+
+  @media only screen and (${breakpoint.device.tablet}){
+    margin: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
+
 const Sidebar = ({ onChildClick }) => {
   
   return(

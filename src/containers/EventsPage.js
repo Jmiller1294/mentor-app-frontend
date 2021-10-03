@@ -7,6 +7,7 @@ import Event from '../components/Event';
 import SearchBar from '../components/SearchBar';
 import Sidebar from '../components/sidebar/Sidebar';
 import { Grid, Row, Col }from '../components/styled/Grid';
+import breakpoint from '../commons/breakpoints';
 
 
 const EventList = styled.ul`
@@ -17,6 +18,10 @@ const EventList = styled.ul`
   list-style: none;
   margin-bottom: 30px;
   padding: 0;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    align-items: flex-start;
+  }
 `
 const SidebarContainer = styled.div`
   display: flex;
@@ -24,13 +29,26 @@ const SidebarContainer = styled.div`
   height: 900px;
   width: 25%;
   flex-direction: column;
-  background-color: #D3D3D3;
+  background-color: #f8f7f2;
   padding: 15px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    padding: 0;
+    z-index: 1;
+  }
 `
 const SidebarHeader = styled.h2`
   margin-top: 45px; 
   border-bottom: black 2px solid; 
   padding-bottom: 10px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+   border-bottom: 0;
+   font-size: 0;
+  }
 `
 
 const EventsCon = styled.div`
@@ -38,6 +56,12 @@ const EventsCon = styled.div`
   flex-direction: column;
   height: auto;
   flex-basis: 100%;
+  
+  @media only screen and (${breakpoint.device.tablet}){
+    margin-top: 100px;
+    position: absolute;
+    top: 18%;
+  }
 `
 
 

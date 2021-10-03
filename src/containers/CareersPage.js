@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Careers from '../components/Careers';
 import { fields } from '../data/fields';
+import breakpoint from '../commons/breakpoints';
 
 const CareersCon = styled.div`
   display: flex;
@@ -11,6 +12,11 @@ const CareersCon = styled.div`
   height: auto;
   padding: 50px 200px;
   padding-top: 0;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    flex-direction: column;
+    padding: 0;
+  }
 `
 const Header = styled.h1`
   font-size: 40px;

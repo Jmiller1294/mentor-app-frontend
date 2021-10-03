@@ -8,6 +8,7 @@ import FilledHeartIcon from '../assets/filled-heart.png';
 import Clock from '../assets/clock.svg';
 import Pin from '../assets/pin.svg';
 import Calender from '../assets/calender.svg';
+import breakpoint from '../commons/breakpoints';
 
 
 const Header = styled.h3`
@@ -35,6 +36,11 @@ const EventContainer = styled.div`
     -moz-box-shadow: 0 0 10px #777777;
     -webkit-box-shadow: 0 0 10px #777777;
     box-shadow: 0 0 10px #777777;
+  }
+
+  @media only screen and (${breakpoint.device.tablet}){
+    margin: 15px 0;
+    flex-direction: column;
   }
 `
 const ButtonCont = styled.div`

@@ -14,7 +14,7 @@ const ListItem = styled.li`
 
   @media only screen and (${breakpoint.device.phone}){
     margin-bottom: 0;
-    height: 190px;
+    height: 210px;
     font-size: 12px;
     padding: 10px;
   }
@@ -51,7 +51,7 @@ const AddButton = styled.button`
 `
 
 const Mentor = ({ mentor }) => {
-  const user = useSelector(state => state.currentUser)
+  const user = useSelector(state => state.currentUser.user)
 
   const createBooking = (mentor, userId) => {
     fetch(`http://localhost:3001/users/${userId}/bookings`, {
@@ -82,7 +82,7 @@ const Mentor = ({ mentor }) => {
           City: {mentor.city} <br></br>
           Age: {mentor.age}
         </Bio>
-        {user ? <AddButton onClick={() => handleClick(user.user)}>Book Mentor</AddButton> : null}
+        {user !== null ? <AddButton onClick={() => handleClick(user.user)}>Book Mentor</AddButton> : null}
       </InfoContainer>
     </ListItem>
   )

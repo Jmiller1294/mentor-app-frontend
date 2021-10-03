@@ -19,10 +19,7 @@ const SearchForm = styled.form`
   }
 
   @media only screen and (${breakpoint.device.tablet}){
-    margin-top: 70px;
-    margin-bottom: 0;
-    margin-left: 10px;
-    margin-right: 10px;
+   
   }
 `
 const SearchInput = styled.input`
@@ -39,15 +36,9 @@ const SearchInput = styled.input`
   border: 2px solid;
   border-radius: 25px;
 
-  @media only screen and (${breakpoint.device.phone}){
-    width: 95%;
-  }
-
-  @media only screen and (${breakpoint.device.tablet}){
-    width: 85%;
-  }
   @media only screen and (${breakpoint.device.laptop}){
     width: 85%;
+    font-size: 15px;
   }
 `
 

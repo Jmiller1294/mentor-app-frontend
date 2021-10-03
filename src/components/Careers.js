@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import breakpoint from '../commons/breakpoints';
 
 const CareerCon = styled.div`
   flex-direction: column;
   margin: 20px;
   height: auto;
   width: 22%;
+
+  @media only screen and (${breakpoint.device.tablet}){
+   width: 90%;
+  }
 `
 const Header = styled.h3`
   text-decoration: underline;
