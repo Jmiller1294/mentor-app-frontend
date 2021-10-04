@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
 import { Grid, Col, Row } from '../components/styled/Grid';
+import breakpoint from '../commons/breakpoints';
 
 const FormCon = styled.div`
   display: flex;
@@ -11,6 +12,10 @@ const FormCon = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    margin: 0;
+  }
 `
 const EventForm = styled.form`
   display: flex;
@@ -20,12 +25,20 @@ const EventForm = styled.form`
   align-items: center;
   height: 70%;
   width: 45%;
-  margin: 0 300px;
   border-radius: 20px;
+  max-width: 800px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    width: 90%;
+  }
+
+  @media only screen and (${breakpoint.device.laptop}){
+    width: 85%;
+  }
 `
 const InputCon = styled.div`
   display: flex;
-  width: 450px;
+  width: 80%;
   height: 18%;
   justify-content: center;
 `
@@ -33,6 +46,11 @@ const FormInput = styled.input`
   height: 60px;
   width: 80%;
   margin: 0 10px;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    height: 55%;
+    width: 45%;
+  }
 `
 const Button = styled.button`
   background-color: #FF9531;
@@ -46,6 +64,10 @@ const Header = styled.h1`
   justify-content: flex-start;
   margin-top: 0;
   margin-bottom: 65px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    font-size: 22px;
+  }
 `
 
 const EventRegistration = (props) => {

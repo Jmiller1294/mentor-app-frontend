@@ -67,6 +67,7 @@ const Mentor = ({ mentor }) => {
 }
   
   const handleClick = (user) => {
+    console.log(user)
     createBooking(mentor, user.id);
   }
 
@@ -82,7 +83,7 @@ const Mentor = ({ mentor }) => {
           City: {mentor.city} <br></br>
           Age: {mentor.age}
         </Bio>
-        {user !== null ? <AddButton onClick={() => handleClick(user.user)}>Book Mentor</AddButton> : null}
+        {user !== null ? <AddButton onClick={() => handleClick(user)}>Book Mentor</AddButton> : null}
       </InfoContainer>
     </ListItem>
   )

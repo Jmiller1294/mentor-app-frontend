@@ -1,7 +1,17 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
-import { Grid, Row, Col } from '../components/styled/Grid';
+import { Row, Col } from '../components/styled/Grid';
+import breakpoint from '../commons/breakpoints';
+
+const DescPageCon = styled.div`
+  margin: 100px 200px;
+
+  @media only screen and (${breakpoint.device.laptop}){
+   margin-left: 20px;
+   margin-right: 20px;
+  }
+`
 
 const DescriptionCon = styled.div`
   display: flex;
@@ -12,6 +22,11 @@ const EventImage = styled.img`
   display: flex;
   height: 300px;
   width: 60%;
+
+  @media only screen and (${breakpoint.device.laptop}){
+    width: 50%;
+    height: 220px;
+  }
 `
 const EventInfo = styled.div`
   display: flex;
@@ -36,6 +51,11 @@ const Button = styled.button`
   letter-spacing: 2px;
   flex-direction: flex-end;
   background-color: orange;
+
+  @media only screen and (${breakpoint.device.phone}){
+   justify-self: center;
+   margin: 0 auto;
+  }
 `
 const Header = styled.h2`
 
@@ -64,7 +84,7 @@ const DescriptionPage = (props) => {
 
   console.log(props.location.state.data.image)
   return(
-    <Grid margin={'100px 200px'}>
+    <DescPageCon>
       <Row height={'auto'}>
         <Col size={1}>
           <DescriptionCon>
@@ -90,7 +110,7 @@ const DescriptionPage = (props) => {
           <p>{props.location.state.data.event.description}</p>
         </Col>
       </Row>
-    </Grid>
+    </DescPageCon>
   )
 }
 export default DescriptionPage;

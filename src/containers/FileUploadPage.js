@@ -13,12 +13,13 @@ const UploadCon = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
+  max-width: 700px;
   height: 400px;
   border: 5px solid grey;
   border-top: 35px solid grey;
   
   @media only screen and (${breakpoint.device.tablet}){
-    width: 90%;
+    width: 80%;
     height: 320px;
   }
 `
