@@ -5,12 +5,12 @@ import styled from 'styled-components';
 import breakpoint from '../../commons/breakpoints';
 
 const AccordionItem = styled.div`
-  height: 30px;
+  height: 230px;
   width: 100%;
   margin: 10px 0;
 
   @media only screen and (${breakpoint.device.tablet}){
-   
+   height: 150px;
   }
 ` 
 const Header = styled.h2`
@@ -18,7 +18,7 @@ const Header = styled.h2`
   font-size: 25px;
   margin-right: auto;
 
-  @media only screen and (${breakpoint.device.phone}){
+  @media only screen and (${breakpoint.device.tablet}){
    font-size: 20px;
   }
 `
@@ -26,12 +26,19 @@ const Expand = styled.span`
   float: right;
   font-size: 25px;
 
-  @media only screen and (${breakpoint.device.phone}){
+  @media only screen and (${breakpoint.device.tablet}){
    float: none;
   }
 `
 const Categories = styled.form`
   margin: 15px 0;
+  
+  @media only screen and (${breakpoint.device.tablet}){
+    background-color: #f8f7f2;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 10px;
+  }
 `
 const Accordion = ({ title, names, onChildClick }) => {
   const [isActive, setIsActive] = useState(false);

@@ -11,15 +11,10 @@ const SearchForm = styled.form`
   height: 55px;
   
 
-  @media only screen and (${breakpoint.device.phone}){
-    margin-top: 70px;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
   @media only screen and (${breakpoint.device.tablet}){
-   
+    margin: 70px 0;
+    margin-top: 40px;
+    width: 100%;
   }
 `
 const SearchInput = styled.input`

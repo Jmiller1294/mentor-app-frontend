@@ -18,10 +18,6 @@ const EventList = styled.ul`
   list-style: none;
   margin-bottom: 30px;
   padding: 0;
-
-  @media only screen and (${breakpoint.device.tablet}){
-    align-items: flex-start;
-  }
 `
 const SidebarContainer = styled.div`
   display: flex;
@@ -34,9 +30,10 @@ const SidebarContainer = styled.div`
 
   @media only screen and (${breakpoint.device.tablet}){
     flex-direction: row;
+    position: absolute;
     width: 100%;
     height: 70px;
-    padding: 0;
+    padding: 0 40px;
     z-index: 1;
   }
 `
@@ -58,9 +55,26 @@ const EventsCon = styled.div`
   flex-basis: 100%;
   
   @media only screen and (${breakpoint.device.tablet}){
-    margin-top: 100px;
-    position: absolute;
-    top: 18%;
+   justify-content: center;
+   align-items: center;
+   margin-top: 150px;
+  }
+`
+const SearchBarCon =  styled.div`
+  
+
+  @media only screen and (${breakpoint.device.tablet}){
+    display: flex;
+    width: 350px;
+    align-items: flex-start;
+  }
+`
+
+const SidebarCol = styled.div`
+  flex: 1;
+
+  @media only screen and (${breakpoint.device.tablet}){
+   flex: 0;
   }
 `
 
@@ -167,18 +181,20 @@ const EventsPage = () => {
     return (
       <Grid>
         <Row>
-          <Col size={1}>
+          <SidebarCol size={1}>
             <SidebarContainer>
               <SidebarHeader>Filter by</SidebarHeader>
               <Sidebar onChildClick={(active, data) => handleCallback(active, data)} />
             </SidebarContainer>
-          </Col>
+          </SidebarCol>
           <Col size={3}>
             <EventsCon>
-              <SearchBar 
-                onChildClick={(term) => handleChildClick(term)} 
-                text="Search Events"
-              />
+              <SearchBarCon>
+                <SearchBar 
+                  onChildClick={(term) => handleChildClick(term)} 
+                  text="Search Events"
+                />
+              </SearchBarCon>
               <EventList>
                 {searchTerm !== '' ?
                   filteredByTerm.length !== 0 ? filteredByTerm.map(function(event) {

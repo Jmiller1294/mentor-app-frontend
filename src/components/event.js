@@ -13,6 +13,10 @@ import breakpoint from '../commons/breakpoints';
 
 const Header = styled.h3`
   margin-bottom: 50px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    margin: 15px 0;
+  }
 `
 const FavButton = styled.button`
   background: ${props => props.filled 
@@ -22,6 +26,10 @@ const FavButton = styled.button`
   width: 32px;
   border: none;
   margin-bottom: 20px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    margin: 20px
+  }
 `
 const EventContainer = styled.div`
   display: flex;
@@ -41,6 +49,8 @@ const EventContainer = styled.div`
   @media only screen and (${breakpoint.device.tablet}){
     margin: 15px 0;
     flex-direction: column;
+    align-items: center;
+    line-height: 1.5;
   }
 `
 const ButtonCont = styled.div`
@@ -60,7 +70,11 @@ const EventPictureCon = styled.div`
   flex-basis: 30%;
   height: 100%;
   border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  @media only screen and (${breakpoint.device.tablet}){
+   width: 100%;
+  }
 `
 const Item = styled.span`
   display: flex;
@@ -81,7 +95,7 @@ const EventImage = styled.img`
   width: 100%;
   height: 200px;
   border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
 `
 const Icon = styled.img`
   margin-top: 3px;
