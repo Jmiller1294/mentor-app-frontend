@@ -35,6 +35,7 @@ const Categories = styled.form`
   
   @media only screen and (${breakpoint.device.tablet}){
     background-color: #f8f7f2;
+    height: 70%;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     font-size: 10px;

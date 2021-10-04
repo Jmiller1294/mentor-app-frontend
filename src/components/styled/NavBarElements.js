@@ -58,25 +58,24 @@ export const NavBtn = styled.nav`
   height: 55%;
   width: 8%;
   margin-right: 24px;
+  text-align: center;
 
   @media only screen and (${breakpoint.device.phone}){
-    padding: 5px;
-  }
-
-  @media only screen and (${breakpoint.device.tablet}){
-    padding: 5px;
+    margin-right: 15px;
+    height: 40%;
   }
 `
 export const NavBtnLink = styled(Link)`
+  display: flex;
   border-radius: 10px;
   background: #FF9531;
-  text-align: center;
   padding: 10px;
   flex-basis: 100%;
   font-weight: bold;
   color: black;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+  justify-content: center;
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
@@ -84,9 +83,8 @@ export const NavBtnLink = styled(Link)`
   }
 
   @media only screen and (${breakpoint.device.phone}){
-    padding: 5px;
     height: 60%;
-    margin-top: 5px;
+    justify-content: center;
   }
 
   @media only screen and (${breakpoint.device.tablet}){

@@ -5,6 +5,7 @@ import { DirectUpload } from 'activestorage';
 import { useSelector } from 'react-redux';
 import { setAvatar } from '../actions/userActions';
 import styled from 'styled-components';
+import breakpoint from '../commons/breakpoints';
 
 const UploadCon = styled.div`
   display: flex;
@@ -15,6 +16,11 @@ const UploadCon = styled.div`
   height: 400px;
   border: 5px solid grey;
   border-top: 35px solid grey;
+  
+  @media only screen and (${breakpoint.device.tablet}){
+    width: 90%;
+    height: 320px;
+  }
 `
 const Container = styled.div`
   line-height: 2.5;
@@ -31,6 +37,10 @@ const FileName = styled.span`
 const FileInput = styled.input`
   font-size: 20px;
   width: 50%;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    font-size: 12px;
+  }
 `
 const ButtonCon = styled.div`
   display: flex;
@@ -42,11 +52,21 @@ const UploadBttn = styled.button`
   font-size: 15px;
   height: 50px;
   width: 47%;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    height: 96%;
+    font-size: 10px;
+  }
 `
 const CancelBttn = styled.button`
   font-size: 15px;
   height: 50px;
   width: 47%;
+
+  @media only screen and (${breakpoint.device.tablet}){
+    height: 96%;
+    font-size: 10px;
+  }
 `
 
 const FileUploadPage = () => {
