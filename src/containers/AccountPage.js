@@ -155,7 +155,7 @@ const AccountPage = () => {
         <Col size={1}>
           <Headers>Upcoming Appointments</Headers>
           <Container>
-            {appointments.length !== 0 ? appointments.map(appointment => 
+            {appointments.length !== 0 ? appointments.sort().map(appointment => 
               <AppointmentCard 
                 key={appointment.id}
                 appointment={appointment}

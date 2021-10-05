@@ -25,6 +25,8 @@ const FormInput = styled.input`
   width: 70%;
   align-self: center;
   margin: 10px;
+  margin-top: 20px;
+  margin-bottom: 0;
   border-radius: 10px;
   @media only screen and (${breakpoint.device.laptop}){
    height: 6%;
@@ -87,19 +89,19 @@ const SignupPage = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(signupInfo.name === '') {
-      setNameError('name cant be blank');
+      setNameError('Name cant be blank');
     }
     if(signupInfo.password !== signupInfo.passwordConfirmation) {
-      setConfirmationError('passwords dont match');
+      setConfirmationError('Passwords dont match');
     }
     if(signupInfo.password === '') {
-      setPasswordError('password cant be blank');
+      setPasswordError('Password cant be blank');
     }
     if(signupInfo.email === '') {
-      setEmailError('email cant be blank');
+      setEmailError('Email cant be blank');
     }
     if(!signupInfo.email.includes('@')) {
-      setEmailError('email does not have @');
+      setEmailError('Email does not have @');
     }
     dispatch(startCreateUser(signupInfo));
   }

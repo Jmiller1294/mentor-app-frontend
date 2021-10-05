@@ -157,27 +157,37 @@ const EventsPage = () => {
   let filteredItems = (events.filter(event => {
     let month = getMon();
     let timeOfDay = TimeOfDay(event.event.time);
-
     return (event.event.date.toLowerCase().includes(month.toLowerCase()) 
     && event.event.location.toLowerCase().includes(location.toLowerCase())
     && timeOfDay.toLowerCase().includes(time.toLowerCase()))
-  }))
+    }))
+  
 
   let filteredByTerm = (events.filter(event => {
     return event.event.name.toLowerCase().includes(searchTerm.toLowerCase())
     || event.event.location.toLowerCase().includes(searchTerm.toLowerCase())
   }))
 
+  
   useEffect(() => {
-    console.log(events)
     fetch('http://localhost:3001/events')
     .then(resp => resp.json())
     .then(data => setEvents(data))
     .catch((error) => console.error('Error:', error))
-    if(user !== null) { dispatch(getFavorites(user.user.id)) };
-  }, [isActive])
- 
 
+    if(user) dispatch(getFavorites(user.user.id));
+  },[isActive])
+
+  function compareIds(a, b) {
+    if (a.event.id < b.event.id) {
+      return -1;
+    }
+    if (a.event.id > b.event.id) {
+      return 1;
+    }
+    return 0;
+  }
+  
     return (
       <Grid>
         <Row>
@@ -209,7 +219,7 @@ const EventsPage = () => {
                       /> 
                   }) : <h2>No Events Found</h2>
                 : 
-                filteredItems.length !== 0 ? filteredItems.map(function(event) {
+                filteredItems.length !== 0 ? filteredItems.sort(compareIds).map(function(event) {
                     let value;
                     if (favorites.includes(event.event.id)) value = true;
                       return <Event 

@@ -1,9 +1,9 @@
 import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import sessionStorage from 'redux-persist/es/storage/session';
 
 const persistConfig = {
   key: 'root',
-  storage
+  storage: sessionStorage
 }
 
 const INITIAL_STATE = {

@@ -29,6 +29,9 @@ const LoginInput = styled.input`
   width: 70%;
   align-self: center;
   margin: 10px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  border-radius: 10px;
 `
 const LoginBtn = styled.button`
   color: #000000;
@@ -38,7 +41,7 @@ const LoginBtn = styled.button`
   border-radius: 10px;
   font-size: 22px;
   align-self: center;
-  margin-top: 10px;
+  margin-top: 20px;
 `
 const LoginContainer = styled.div`
   display: flex;
@@ -59,7 +62,7 @@ const ErrorMess = styled.div`
   justify-content: center;
   margin: 10px auto;
   width: 100%;
-  height: 60px;
+  height: 30px;
   font-size: 16px;
 `
 
@@ -100,13 +103,13 @@ const LoginPage = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(loginInfo.password === '') {
-      setPasswordError('password cant be blank');
+      setPasswordError('Password cant be blank');
     }
     if(loginInfo.email === '') {
-      setEmailError('email cant be blank');
+      setEmailError('Email cant be blank');
     }
     else {
-      setError('Invalid email/password combination')
+      setTimeout(() => setError('Invalid Email/Password combination'), 500); 
     }
     dispatch(startLogin(loginInfo));
   }

@@ -9,6 +9,7 @@ import Clock from '../assets/clock.svg';
 import Pin from '../assets/pin.svg';
 import Calender from '../assets/calender.svg';
 import breakpoint from '../commons/breakpoints';
+import { getFavorites } from '../actions/favoriteActions';
 
 
 const Header = styled.h3`
@@ -95,7 +96,7 @@ const EventImage = styled.img`
   width: 100%;
   height: 200px;
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 `
 const Icon = styled.img`
   margin-top: 3px;
@@ -107,7 +108,9 @@ const Icon = styled.img`
 
 const Event = ({ event, rerenderParentCallback, value, image }) => {
   const [active, setActive] = useState(value);
+  const [reload, setReload] = useState(false);
   const user = useSelector(state => state.currentUser);
+  const favorites = useSelector(state => state.favorites);
   const history = useHistory();
 
   
@@ -181,7 +184,8 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
     },500)
     setTimeout(() => {
       rerenderParentCallback();
-    }, 700);
+    },700)
+    
   }
 
   useEffect(()=> {
@@ -189,8 +193,10 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
   },[value])
 
   useEffect(() => {
-  },[])
 
+  }, [event])
+
+  
   const handleClick = (event) => {
     event.preventDefault();
     newRoute();
@@ -209,7 +215,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
           <Likes><Icon src={Clock}/>{event.likes} People favorited</Likes>
         </EventInfo>
         <ButtonCont> 
-          {active ? 
+          {active ?
             <FavButton 
               filled 
               onClick={(e) => FavButtonClick(e)}

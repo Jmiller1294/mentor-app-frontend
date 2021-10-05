@@ -188,6 +188,11 @@ const Icon = styled.img`
   height: 25px;
   width: 25px;
   margin: 5px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    margin-bottom: 10px;
+    margin-top: 11px;
+  }
 `
 const IconText = styled.span`
   display: flex;
@@ -199,11 +204,15 @@ const IconText = styled.span`
   margin-bottom: 5px;
   top: -20px;
   right: -40px;
+
+  @media only screen and (${breakpoint.device.phone}){
+    margin-bottom: 15px;
+  }
 `
 const IconImageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 100%;
   width: 25%;
 `
 const IconTextContainer = styled.div`
@@ -211,17 +220,14 @@ const IconTextContainer = styled.div`
   flex-direction: column;
   padding-left: 5px;
   padding-top: 5px;
-  height: 200px;
+  height: 100%;
   width: 100%;
 `
 const IconContainer = styled.div`
   display: flex;
   width: 100%;
+  height: 220px;
   position: relative;
-
-  @media only screen and (${breakpoint.device.tablet}){
-    
-  }
 `
 const Avatar = styled.img`
   display: block;
@@ -432,12 +438,12 @@ const HomePage = () => {
                       <Icon src={calenderIcon}></Icon>
                       <Icon src={schoolIcon}></Icon>
                     </IconImageContainer>
-                  <IconTextContainer>
-                    <IconText>1200+ Members</IconText>
-                    <IconText>400+ Jobs Landed</IconText>
-                    <IconText>100 Local Events </IconText>
-                    <IconText>200 Mentors</IconText>
-                  </IconTextContainer>
+                    <IconTextContainer>
+                      <IconText>1200+ Members</IconText>
+                      <IconText>400+ Jobs Landed</IconText>
+                      <IconText>100 Local Events </IconText>
+                      <IconText>200 Mentors</IconText>
+                    </IconTextContainer>
                 </IconContainer>
               </CityItem>
               <CityItem>

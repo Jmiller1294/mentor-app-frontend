@@ -17,8 +17,11 @@ const Info = styled.p`
 `
 const Button = styled.button`
   display: flex;
+  justify-content: center;
+  align-content: center;
   flex-wrap: wrap;
   height: 90%;
+  min-height: 25px;
   flex-basis: 45%;
   margin: 5px;
   background-color: #FF9531;
