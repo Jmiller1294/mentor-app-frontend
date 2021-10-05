@@ -1,7 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { createBooking } from '../actions/userActions';
 import breakpoint from '../commons/breakpoints';
 
 
@@ -51,7 +50,7 @@ const AddButton = styled.button`
 `
 
 const Mentor = ({ mentor }) => {
-  const user = useSelector(state => state.currentUser.user)
+  const user = useSelector(state => state.currentUser)
 
   const createBooking = (mentor, userId) => {
     fetch(`http://localhost:3001/users/${userId}/bookings`, {
@@ -66,9 +65,9 @@ const Mentor = ({ mentor }) => {
     .then(mentor => console.log(mentor))
 }
   
-  const handleClick = (user) => {
+  const handleClick = () => {
     console.log(user)
-    createBooking(mentor, user.id);
+    createBooking(mentor, user.user.id);
   }
 
   return (
@@ -83,7 +82,7 @@ const Mentor = ({ mentor }) => {
           City: {mentor.city} <br></br>
           Age: {mentor.age}
         </Bio>
-        {user !== null ? <AddButton onClick={() => handleClick(user)}>Book Mentor</AddButton> : null}
+        {user !== null ? <AddButton onClick={() => handleClick()}>Book Mentor</AddButton> : null}
       </InfoContainer>
     </ListItem>
   )

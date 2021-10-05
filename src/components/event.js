@@ -107,7 +107,7 @@ const Icon = styled.img`
 
 const Event = ({ event, rerenderParentCallback, value, image }) => {
   const [active, setActive] = useState(value);
-  const user = useSelector(state => state.currentUser.user);
+  const user = useSelector(state => state.currentUser);
   const history = useHistory();
 
   
@@ -140,7 +140,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
       headers: { 
         "Content-type": "application/json",
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(user.user)
     })
     .then(resp => resp.json())
   }
@@ -174,7 +174,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
     }
     else {
       console.log('inactive');
-      addFavorite(event, user); 
+      addFavorite(event, user.user); 
     }
     setTimeout(() => {
       updateLikes();

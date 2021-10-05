@@ -73,7 +73,7 @@ const MentorCard = ({ mentor }) => {
     });
   }
 
-  const handleClick = (event, mentor) => {
+  const handleClick = (event) => {
     event.preventDefault();
     newRoute();
   }

@@ -22,6 +22,7 @@ export const Nav = styled.nav`
 
   @media only screen and (${breakpoint.device.phone}){
     padding: 5px;
+    padding-right: 0;
   }
 `
 export const NavLink = styled(Link)`
@@ -79,12 +80,17 @@ export const NavBtnLink = styled(Link)`
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
-    color: #808080;
+    color: #000000;
   }
 
   @media only screen and (${breakpoint.device.phone}){
     height: 60%;
     justify-content: center;
+    font-size: 8px;
+    padding: 8px 0;
+    &:hover {
+    background: orange;
+    color: #000000
   }
 
   @media only screen and (${breakpoint.device.tablet}){

@@ -17,8 +17,6 @@ const Spinner = styled.div`
 `
 
 const Loader = ({ parentCallback, time }) => {
-
-  const history = useHistory();
   const [count, setCount] = useState(0);
 
   useEffect(() => {

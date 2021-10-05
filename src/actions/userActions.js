@@ -10,6 +10,9 @@ export const startCreateUser = (data) => {
     })
     .then(resp => resp.json())
     .then(data => dispatch(finishCreateUser(data)))
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
 }
 

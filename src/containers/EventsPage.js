@@ -84,7 +84,7 @@ const EventsPage = () => {
   const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const date = useSelector(state => state.date);
-  const user = useSelector(state => state.currentUser.user);
+  const user = useSelector(state => state.currentUser);
   const location = useSelector(state => state.location);
   const favorites = useSelector(state => state.favorites);
   const time = useSelector(state => state.time);
@@ -174,7 +174,7 @@ const EventsPage = () => {
     .then(resp => resp.json())
     .then(data => setEvents(data))
     .catch((error) => console.error('Error:', error))
-    if(user) { dispatch(getFavorites(user.id)) };
+    if(user !== null) { dispatch(getFavorites(user.user.id)) };
   }, [isActive])
  
 

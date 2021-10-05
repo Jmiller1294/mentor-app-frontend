@@ -8,7 +8,6 @@ const MessageCon = styled.div`
   margin-top: 100px;
 `
 const Header = styled.h1`
-
 `
 
 const Message = (props) => {

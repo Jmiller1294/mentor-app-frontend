@@ -12,18 +12,19 @@ const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f8f7f2;
-  height: 45%;
+  height: 80%;
   flex-basis: 35%;
-  border-radius: 20px;
+  border-radius: 10px;
   justify-content: center;
-  max-width: 800px;
+  max-width: 500px;
 
   @media only screen and (${breakpoint.device.laptop}){
-    flex-basis: 85%;
+    flex-basis: 90%;
+    height: 70%;
   } 
 `
 const LoginInput = styled.input`
-  border-radius: 25px;
+  border-radius: 10px;
   height: 10%;
   width: 70%;
   align-self: center;
@@ -34,7 +35,7 @@ const LoginBtn = styled.button`
   width: 70%;
   height: 10%;
   background-color: #FF9531;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 22px;
   align-self: center;
   margin-top: 10px;

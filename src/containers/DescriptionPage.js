@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Row, Col } from '../components/styled/Grid';
 import breakpoint from '../commons/breakpoints';
 
+
 const DescPageCon = styled.div`
   margin: 100px 200px;
 
@@ -12,7 +13,6 @@ const DescPageCon = styled.div`
    margin-right: 20px;
   }
 `
-
 const DescriptionCon = styled.div`
   display: flex;
   justify-content: center;
@@ -58,7 +58,6 @@ const Button = styled.button`
   }
 `
 const Header = styled.h2`
-
 `
 const Text = styled.span`
   margin-top: 5px;
