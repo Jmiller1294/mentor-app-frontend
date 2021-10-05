@@ -7,6 +7,7 @@ import { Nav, NavLink, NavBtn, NavBtnLink, ScrollLink } from '../styled/NavBarEl
 
 const NavBar = () => {
   const loggedIn = useSelector(state => state.loggedIn);
+  const user = useSelector(state => state.currentUser);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -33,7 +34,7 @@ const NavBar = () => {
         }
         <NavLink to="/about">About</NavLink>
         {!loggedIn ? <NavLink to="/signup">Signup</NavLink> : null}
-        {loggedIn ? <NavLink to="/accounts">Account</NavLink> : null}
+        {loggedIn ? <NavLink to={`/accounts/${user.user.id}`}>Account</NavLink> : null}
         <NavBtn>
           {loggedIn ? 
             <NavBtnLink 

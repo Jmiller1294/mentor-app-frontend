@@ -48,12 +48,12 @@ const App = () => {
         <Route exact path="/mentors" component={MentorsPage} />
         <Route exact path="/signup" component={SignupPage} />
         <Route exact path="/careers" component={CareersPage} />
-        <ProtectedRoute exact path="/accounts" component={AccountPage} />
+        <ProtectedRoute exact path="/accounts/:id" component={AccountPage} />
         <ProtectedRoute exact path="/registration" component={EventRegistration} />
         <ProtectedRoute exact path="/appointment" component={AppointmentPage} />
         <ProtectedRoute exact path="/message" component={Message} />
         <ProtectedRoute exact path="/upload" component={FileUploadPage} />
-        <ProtectedRoute exact path="/description" component={DescriptionPage} />
+        <ProtectedRoute exact path="/descriptions/:id" component={DescriptionPage} />
       </Switch>
       <GlobalStyle />
     </React.Fragment>
