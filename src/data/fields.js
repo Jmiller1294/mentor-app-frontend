@@ -166,6 +166,10 @@ export const fields = [
         url: 'https://www.recruiter.com/careers/financial-managers/'
       },
       {
+        name: 'Sales Managers',
+        url: 'https://www.recruiter.com/careers/sales-managers/'
+      },
+      {
         name: 'Supply Chain Managers',
         url: 'https://www.recruiter.com/careers/supply-chain-managers/'
       },
@@ -346,24 +350,67 @@ export const fields = [
     title: "Health Science",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Acupuncturists',
+        url: 'https://www.recruiter.com/careers/acupuncturists/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Allergists and Immunologists',
+        url: 'https://www.recruiter.com/careers/allergists-and-immunologists/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Anesthesiologists',
+        url: 'https://www.recruiter.com/careers/anesthesiologists/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Athletic Trainers',
+        url: 'https://www.recruiter.com/careers/athletic-trainers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Biologists',
+        url: 'https://www.recruiter.com/careers/biologists/'
+      },
+      {
+        name: 'Cardiologists',
+        url: 'https://www.recruiter.com/careers/cardiologists/'
+      },
+      {
+        name: 'Chiropractors',
+        url: 'https://www.recruiter.com/careers/chiropractors/'
+      },
+      {
+        name: 'Dentists',
+        url: 'https://www.recruiter.com/careers/general-dentists/'
+      },
+      {
+        name: 'Dermatologists',
+        url: 'https://www.recruiter.com/careers/dermatologists/'
+      },
+      {
+        name: 'Midwives',
+        url: 'https://www.recruiter.com/careers/midwives/'
+      },
+      {
+        name: 'Neurologists',
+        url: 'https://www.recruiter.com/careers/neurologists/'
+      },
+      {
+        name: 'Occupational Therapists',
+        url: 'https://www.recruiter.com/careers/occupational-therapists/'
+      },{
+        name: 'Obstetricians and Gynecologist',
+        url: 'https://www.recruiter.com/careers/obstetricians-and-gynecologists/'
+      },
+      {
+        name: 'Optometrists',
+        url: 'https://www.recruiter.com/careers/optometrists/'
+      },
+      {
+        name: 'Pharmacists',
+        url: 'https://www.recruiter.com/careers/pharmacists/'
+      },
+      {
+        name: 'Surgeons',
+        url: 'https://www.recruiter.com/careers/surgeons/'
       },
     ]
   },
@@ -371,24 +418,52 @@ export const fields = [
     title: "Hospitality and Tourism",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Animal Trainers',
+        url: 'https://www.recruiter.com/careers/animal-trainers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Chefs and Head Cooks',
+        url: 'https://www.recruiter.com/careers/chefs-and-head-cooks/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Gambling Dealers',
+        url: 'https://www.recruiter.com/careers/gambling-dealers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Interpreters and Translators',
+        url: 'https://www.recruiter.com/careers/interpreters-and-translators/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Lodging Managers',
+        url: 'https://www.recruiter.com/careers/lodging-managers/'
+      },
+      {
+        name: 'Motion Picture Projectionists',
+        url: 'https://www.recruiter.com/careers/motion-picture-projectionists/'
+      },
+      {
+        name: 'Museum Technicians and Conservators',
+        url: 'https://www.recruiter.com/careers/museum-technicians-and-conservators/'
+      },
+      {
+        name: 'Recreation Workers',
+        url: 'https://www.recruiter.com/careers/recreation-workers/'
+      },
+      {
+        name: 'Travel Agents',
+        url: 'https://www.recruiter.com/careers/travel-agents/'
+      },
+      {
+        name: 'Umpires, Referees, and Other Sports Officials',
+        url: 'https://www.recruiter.com/careers/umpires-referees-and-other-sports-officials/'
+      },
+      {
+        name: 'Ushers, Lobby Attendants, and Ticket Takers',
+        url: 'https://www.recruiter.com/careers/ushers-lobby-attendants-and-ticket-takers/'
+      },
+      {
+        name: 'Waiters and Waitresses',
+        url: 'https://www.recruiter.com/careers/waiters-and-waitresses/'
       },
     ]
   },
@@ -396,24 +471,44 @@ export const fields = [
     title: "Human Services",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Barbers',
+        url: 'https://www.recruiter.com/careers/barbers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Social Workers',
+        url: 'https://www.recruiter.com/careers/child-family-and-school-social-workers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Clergies',
+        url: 'https://www.recruiter.com/careers/clergies/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Embalmers',
+        url: 'https://www.recruiter.com/careers/embalmers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Funeral Service Managers',
+        url: 'https://www.recruiter.com/careers/funeral-service-managers/'
+      },
+      {
+        name: 'Massage Therapists',
+        url: 'https://www.recruiter.com/careers/massage-therapists/'
+      },
+      {
+        name: 'Mental Health Counselors',
+        url: 'https://www.recruiter.com/careers/mental-health-counselors/'
+      },
+      {
+        name: 'Sociologists',
+        url: 'https://www.recruiter.com/careers/sociologists/'
+      },
+      {
+        name: 'Spa Managers',
+        url: 'https://www.recruiter.com/careers/spa-managers/'
+      },
+      {
+        name: 'Substance Abuse and Behavioral Disorder Counselors',
+        url: 'https://www.recruiter.com/careers/substance-abuse-and-behavioral-disorder-counselors/'
       },
     ]
   },
@@ -442,24 +537,40 @@ export const fields = [
     title: "Law and Public Safety",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Judges, Adjudicators, and Hearing Officers',
+        url: 'https://www.recruiter.com/careers/administrative-law-judges-adjudicators-and-hearing-officers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Bailiffs',
+        url: 'https://www.recruiter.com/careers/bailiffs/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Criminal Investigators and Special Agents',
+        url: 'https://www.recruiter.com/careers/criminal-investigators-and-special-agents/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Customs and Border Protection Officers',
+        url: 'https://www.recruiter.com/careers/customs-and-border-protection-officers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Digital Forensics Analysts',
+        url: 'https://www.recruiter.com/careers/digital-forensics-analysts/'
+      },
+      {
+        name: 'Emergency Medical Technicians',
+        url: 'https://www.recruiter.com/careers/emergency-medical-technicians/'
+      },
+      {
+        name: 'Firefighters',
+        url: 'https://www.recruiter.com/careers/firefighters/'
+      },
+      {
+        name: 'Lawyers',
+        url: 'https://www.recruiter.com/careers/lawyers/'
+      },
+      {
+        name: 'Police Detectives',
+        url: 'https://www.recruiter.com/careers/police-detectives/'
       },
     ]
   },
@@ -467,24 +578,56 @@ export const fields = [
     title: "Manufacturing",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Adhesive Bonding Machine Operators and Tenders',
+        url: 'https://www.recruiter.com/careers/adhesive-bonding-machine-operators-and-tenders/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Aircraft Structure, Surfaces, Rigging, and Systems Assemblers',
+        url: 'https://www.recruiter.com/careers/aircraft-structure-surfaces-rigging-and-systems-assemblers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Audiovisual Equipment Installers and Repairers',
+        url: 'https://www.recruiter.com/careers/audiovisual-equipment-installers-and-repairers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Biomass Plant Technicians',
+        url: 'https://www.recruiter.com/careers/biomass-plant-technicians/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Boilermakers',
+        url: 'https://www.recruiter.com/careers/boilermakers/'
+      },
+      {
+        name: 'Hand Cutters and Trimmers',
+        url: 'https://www.recruiter.com/careers/hand-cutters-and-trimmers/'
+      },
+      {
+        name: 'Electromechanical Equipment Assemblers',
+        url: 'https://www.recruiter.com/careers/electromechanical-equipment-assemblers/'
+      },
+      {
+        name: 'Etchers and Engravers',
+        url: 'https://www.recruiter.com/careers/etchers-and-engravers/'
+      },
+      {
+        name: 'Industrial Machinery Mechanics',
+        url: 'https://www.recruiter.com/careers/industrial-machinery-mechanics/'
+      },
+      {
+        name: 'Locksmiths and Safe Repairers',
+        url: 'https://www.recruiter.com/careers/locksmiths-and-safe-repairers/'
+      },
+      {
+        name: 'Power Plant Operators',
+        url: 'https://www.recruiter.com/careers/power-plant-operators/'
+      },
+      {
+        name: 'Precious Metal Workers',
+        url: 'https://www.recruiter.com/careers/precious-metal-workers/'
+      },
+      {
+        name: 'Robotics Technicians',
+        url: 'https://www.recruiter.com/careers/robotics-technicians/'
       },
     ]
   },
@@ -492,24 +635,40 @@ export const fields = [
     title: "Marketing Sales and Service",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Appraisers',
+        url: 'https://www.recruiter.com/careers/real-estate-appraisers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Fashion Designers',
+        url: 'https://www.recruiter.com/careers/fashion-designers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Models',
+        url: 'https://www.recruiter.com/careers/models/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Public Relations Managers',
+        url: 'https://www.recruiter.com/careers/public-relations-managers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Real Estate Brokers',
+        url: 'https://www.recruiter.com/careers/real-estate-brokers/'
+      },
+      {
+        name: 'Sales Engineers',
+        url: 'https://www.recruiter.com/careers/sales-engineers/'
+      },
+      {
+        name: 'Sales Floor Stock Clerks',
+        url: 'https://www.recruiter.com/careers/sales-floor-stock-clerks/'
+      },
+      {
+        name: 'Telemarketers',
+        url: 'https://www.recruiter.com/careers/telemarketers/'
+      },
+      {
+        name: 'Wholesale and Retail Buyers',
+        url: 'https://www.recruiter.com/careers/wholesale-and-retail-buyers-of-non-farm-products/'
       },
     ]
   },
@@ -517,24 +676,76 @@ export const fields = [
     title: "Science, Technology, Engineering and Math",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Aerospace Engineers',
+        url: 'https://www.recruiter.com/careers/aerospace-engineers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Anthropologists',
+        url: 'https://www.recruiter.com/careers/anthropologists/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Archeologists',
+        url: 'https://www.recruiter.com/careers/archeologists/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Astronomers',
+        url: 'https://www.recruiter.com/careers/astronomers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Biochemical Engineers',
+        url: 'https://www.recruiter.com/careers/biochemical-engineers/'
+      },
+      {
+        name: 'Chemists',
+        url: 'https://www.recruiter.com/careers/chemists/'
+      },
+      {
+        name: 'Data Scientists',
+        url: 'https://www.recruiter.com/careers/data-scientists/'
+      },
+      {
+        name: 'Electrical Engineers',
+        url: 'https://www.recruiter.com/careers/electrical-engineers/'
+      },
+      {
+        name: 'Geneticists',
+        url: 'https://www.recruiter.com/careers/geneticists/'
+      },
+      {
+        name: 'Historians',
+        url: 'https://www.recruiter.com/careers/historians/'
+      },
+      {
+        name: 'Marine Engineers',
+        url: 'https://www.recruiter.com/careers/marine-engineers/'
+      },
+      {
+        name: 'Materials Scientists',
+        url: 'https://www.recruiter.com/careers/materials-scientists/'
+      },
+      {
+        name: 'Mathematicians',
+        url: 'https://www.recruiter.com/careers/mathematicians/'
+      },
+      {
+        name: 'Mechanical Engineers',
+        url: 'https://www.recruiter.com/careers/mechanical-engineers/'
+      },
+      {
+        name: 'Microbiologists',
+        url: 'https://www.recruiter.com/careers/microbiologists/'
+      },
+      {
+        name: 'Molecular and Cellular Biologists',
+        url: 'https://www.recruiter.com/careers/molecular-and-cellular-biologists/'
+      },
+      {
+        name: 'Nanosystems Engineers',
+        url: 'https://www.recruiter.com/careers/nanosystems-engineers/'
+      },
+      {
+        name: 'Physicists',
+        url: 'https://www.recruiter.com/careers/physicists/'
       },
     ]
   },
@@ -542,24 +753,44 @@ export const fields = [
     title: "Transportation, Distribution and Logistics",
     jobs: [
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Air Traffic Controllers',
+        url: 'https://www.recruiter.com/careers/air-traffic-controllers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Airline Pilots, Copilots, and Flight Engineers',
+        url: 'https://www.recruiter.com/careers/airline-pilots-copilots-and-flight-engineers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Automotive Body and Related Repairers',
+        url: 'https://www.recruiter.com/careers/automotive-body-and-related-repairers/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Avionics Technicians',
+        url: 'https://www.recruiter.com/careers/avionics-technicians/'
       },
       {
-        name: 'Electricians',
-        url: 'https://www.recruiter.com/careers/electricians/'
+        name: 'Captains, Mates, and Pilots of Water Vessels',
+        url: 'https://www.recruiter.com/careers/captains-mates-and-pilots-of-water-vessels/'
+      },
+      {
+        name: 'Commercial Pilots',
+        url: 'https://www.recruiter.com/careers/commercial-pilots/'
+      },
+      {
+        name: 'Locomotive Engineers',
+        url: 'https://www.recruiter.com/careers/locomotive-engineers/'
+      },
+      {
+        name: 'Motorboat Operators',
+        url: 'https://www.recruiter.com/careers/motorboat-operators/'
+      },
+      {
+        name: 'Subway and Streetcar Operators',
+        url: 'https://www.recruiter.com/careers/subway-and-streetcar-operators/'
+      },
+      {
+        name: 'Taxi Drivers',
+        url: 'https://www.recruiter.com/careers/taxi-drivers/'
       },
     ]
   },

@@ -7,6 +7,7 @@ import { Card } from '../styled/Card';
 const AvatarImage = styled.img`
   height: 35%;
   width: 30%;
+  min-width: 120px;
   border-radius: 50%;
   align-self: center;
 `
