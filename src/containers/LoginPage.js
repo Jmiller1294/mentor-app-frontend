@@ -48,19 +48,33 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
-const Message = styled.p`
+const ErrorCon = styled.div`
+  margin: 0 auto;
+  height: 20px;
+  font-size: 16px;
   color: red;
-  text-align: center;
 `
+const ErrorMess = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  width: 100%;
+  height: 60px;
+  font-size: 16px;
+`
+
 const LoginPage = (props) => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.loggedIn);
-  const [error, setError] = useState('')
   const initialRender = useRef(true);
+  const [error, setError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: ''
   });
+
 
   useEffect(() => {
     if(!initialRender.current) {
@@ -77,11 +91,23 @@ const LoginPage = (props) => {
   }, [loggedIn, props.history])
 
   const handleInputChange = (event) => {
+    setError('');
+    if (event.target.name === 'email')setEmailError('');
+    if (event.target.name === 'password')setPasswordError('');
     setLoginInfo({...loginInfo, [event.target.name]: event.target.value})
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if(loginInfo.password === '') {
+      setPasswordError('password cant be blank');
+    }
+    if(loginInfo.email === '') {
+      setEmailError('email cant be blank');
+    }
+    else {
+      setError('Invalid email/password combination')
+    }
     dispatch(startLogin(loginInfo));
   }
 
@@ -91,7 +117,7 @@ const LoginPage = (props) => {
         <Col size={1}>
           <LoginContainer>
             <LoginForm>
-              <Message>{error}</Message>
+            <ErrorMess>{error}</ErrorMess>
               <Header style={{textAlign: 'center'}}>Please Login</Header>
               <LoginInput onChange={(e) => handleInputChange(e)} 
                 type="text" 
@@ -99,12 +125,14 @@ const LoginPage = (props) => {
                 value={loginInfo.email} 
                 placeholder="Email">
               </LoginInput>
+              {emailError !== '' ?<ErrorCon>{emailError}</ErrorCon> : null}
               <LoginInput onChange={(e) => handleInputChange(e)} 
                 type="password" 
                 name="password" 
                 value={loginInfo.password} 
                 placeholder="Password">
               </LoginInput>
+              {passwordError !== '' ?<ErrorCon>{passwordError}</ErrorCon> : null}
               <LoginBtn onClick={(e) => handleSubmit(e)}>Login</LoginBtn>
             </LoginForm>
           </LoginContainer>

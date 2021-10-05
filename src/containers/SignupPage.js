@@ -58,16 +58,16 @@ const SignupPage = (props) => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.loggedIn);
   const initialRender = useRef(true);
+  const [nameError, setNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [ConfirmationError, setConfirmationError] = useState('');
   const [signupInfo, setSignupInfo] = useState({
     name: '',
     email: '',
     password: '',
     passwordConfirmation: ''
   })
-  const [nameError, setNameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [ConfirmationError, setConfirmationError] = useState('');
   
 
   useEffect(() => {

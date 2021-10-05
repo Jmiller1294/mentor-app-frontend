@@ -62,8 +62,9 @@ export const NavBtn = styled.nav`
   text-align: center;
 
   @media only screen and (${breakpoint.device.phone}){
-    margin-right: 15px;
+    margin-right: 2px;
     height: 40%;
+    width: 10%;
   }
 `
 export const NavBtnLink = styled(Link)`
