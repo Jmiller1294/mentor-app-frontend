@@ -27,12 +27,31 @@ const Header = styled.h1`
     margin-top: 50px;
   }
 `
+const ImageCon = styled.div`
+  display: flex;
+  position: relative;
+  text-align: center;
+  color: white;
+`
 const BackgroundImg = styled.img`
   width: 100%;
-  height: 650px;
+  height: 600px;
 
   @media only screen and (${breakpoint.device.tablet}){
     height: 300px;
+  } 
+`
+
+const ImageHeader = styled.h1`
+  font-size: 80px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media only screen and (${breakpoint.device.phone}){
+    top: 40%;
+    font-size: 50px;
   } 
 `
 const MissionStatement = styled.p`
@@ -108,7 +127,10 @@ const AboutPage = () => {
     <Grid>
       <Row height={'auto'}>
         <Col size={1}>
-          <BackgroundImg src={backgroundPic}></BackgroundImg>
+          <ImageCon>
+            <BackgroundImg src={backgroundPic}></BackgroundImg>
+            <ImageHeader>About</ImageHeader>
+          </ImageCon>
         </Col>
       </Row>
       <Row height={'auto'}>

@@ -5,7 +5,8 @@ import breakpoint from "../../commons/breakpoints";
 import { useLocation as location } from 'react-router-dom'
 
 export const Nav = styled.nav`
-   
+  position: ${props => props.fixed ? 'fixed' : 'none'};
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

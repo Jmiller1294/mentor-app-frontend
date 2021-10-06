@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { useLocation } from "react-router"; 
 import {Route, Switch } from 'react-router-dom';
 import ProtectedRoute from "./components/navigation/ProtectedRoute";
 import HomePage from './containers/HomePage';
@@ -31,15 +32,17 @@ export const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   const dispatch = useDispatch()
+  const location = useLocation();
 
   useEffect(() => {
    dispatch(checkLoggedInStatus)
-   console.log('loaded')
+   console.log('loaded');
+   console.log(location);
   }, );
 
   return (
     <React.Fragment>
-      <NavBar />
+      {location.pathname === '/events' ? <NavBar fixed/> : <NavBar />}
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/events" component={EventsPage} />
