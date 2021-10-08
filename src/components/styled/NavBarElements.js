@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 import { Link as Scroll } from 'react-scroll';
 import breakpoint from "../../commons/breakpoints";
-import { useLocation as location } from 'react-router-dom'
+
 
 export const Nav = styled.nav`
   position: ${props => props.fixed ? 'fixed' : 'none'};

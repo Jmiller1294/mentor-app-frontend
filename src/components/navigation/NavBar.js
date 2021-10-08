@@ -5,7 +5,7 @@ import { useLocation } from 'react-router';
 import { Nav, NavLink, NavBtn, NavBtnLink, ScrollLink } from '../styled/NavBarElements';
 
 
-const NavBar = () => {
+const NavBar = (props) => {
   const loggedIn = useSelector(state => state.loggedIn);
   const user = useSelector(state => state.currentUser);
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const NavBar = () => {
   }
   return(
     <>
-      <Nav>
+      <Nav {...props}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/mentors">Mentors</NavLink>
         <NavLink to="/events">Events</NavLink>

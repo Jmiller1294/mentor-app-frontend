@@ -22,6 +22,7 @@ const EventList = styled.ul`
 const SidebarContainer = styled.div`
   display: flex;
   position: fixed;
+  margin-top: 70px;
   height: 900px;
   width: 25%;
   flex-direction: column;
@@ -61,7 +62,7 @@ const EventsCon = styled.div`
   }
 `
 const SearchBarCon =  styled.div`
-  
+  margin-top: 100px;
 
   @media only screen and (${breakpoint.device.tablet}){
     display: flex;

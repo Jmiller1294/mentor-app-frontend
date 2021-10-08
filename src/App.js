@@ -37,7 +37,6 @@ const App = () => {
   useEffect(() => {
    dispatch(checkLoggedInStatus)
    console.log('loaded');
-   console.log(location);
   }, );
 
   return (
@@ -56,7 +55,7 @@ const App = () => {
         <ProtectedRoute exact path="/appointment" component={AppointmentPage} />
         <ProtectedRoute exact path="/message" component={Message} />
         <ProtectedRoute exact path="/upload" component={FileUploadPage} />
-        <ProtectedRoute exact path="/descriptions/:id" component={DescriptionPage} />
+        <ProtectedRoute exact path="/event_info/:id" component={DescriptionPage} />
       </Switch>
       <GlobalStyle />
     </React.Fragment>

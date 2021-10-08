@@ -115,7 +115,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
 
   
   const newRoute = () => { 
-    let path = `description`; 
+    let path = `event_info/${event.id}`; 
     history.push({
       pathname: path,
       state: {

@@ -138,10 +138,11 @@ const AboutPage = () => {
           <Header>Our Mission</Header>
           <Line />
           <MissionStatement>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          In eu mi bibendum neque. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl. Natoque penatibus et magnis dis parturient montes. 
-          Nunc faucibus a pellentesque sit amet. Consectetur adipiscing elit ut aliquam purus sit. Accumsan in nisl nisi scelerisque eu. 
-          Quam viverra orci sagittis eu volutpat odio facilisis mauris sit. Semper risus in hendrerit gravida rutrum.  
+            We believe that mentors are necessary for a person's professional development. 
+            Mentors can help guide young professionals who may not know what they want to do but have an idea. 
+            We aim to help make it easier for young professionals to pair with mentors. 
+            We are a platform that makes it easy for professional networking through events and community building. 
+            We hope to help guide our members through the difficult process of finding a building a successful career. 
           </MissionStatement>
         </Col>
       </Row>
