@@ -1,6 +1,6 @@
 export const getAppointments = (UserId) => {
   return(dispatch) => {
-    fetch(`http://localhost:3001/users/${UserId}/appointments`)
+    fetch(`https://mentor-app-api.herokuapp.com/${UserId}/appointments`)
     .then(resp => resp.json())
     .then(data => dispatch(setAppointments(data)))
   }

@@ -1,6 +1,6 @@
 export const startCreateUser = (data) => {
   return (dispatch) => {
-    fetch("http://localhost:3001/registrations", {
+    fetch("https://mentor-app-api.herokuapp.com/registrations", {
       method: "POST",
       credentials: "include",
       headers: { 
@@ -26,7 +26,7 @@ const finishCreateUser = (data) => {
 //checks if a user is logged in
 export const checkLoggedInStatus = () => {
   return(dispatch) => {
-    fetch("http://localhost:3001/logged_in", {
+    fetch("https://mentor-app-api.herokuapp.com/logged_in", {
       credentials: "include"
     })
     .then(resp => resp.json())
@@ -36,7 +36,7 @@ export const checkLoggedInStatus = () => {
 
 export const getAccountInfo = (userId) => {
   return(dispatch) => {
-    fetch(`http://localhost:3001/users/${userId}`)
+    fetch(`https://mentor-app-api.herokuapp.com/${userId}`)
     .then(resp => resp.json())
     .then(data => dispatch(setAccountInfo(data)))
   }
@@ -59,7 +59,7 @@ user data via dispatch function to the user reducer
 */
 export const startLogin = (data) => {
   return(dispatch) => {
-    fetch("http://localhost:3001/sessions", {
+    fetch("https://mentor-app-api.herokuapp.com/sessions", {
       method: "POST",
       credentials: "include",
       headers: { 
@@ -81,7 +81,7 @@ export const finishLogin = (data) => ({
 //logs out a user 
 export const logout = () => {
   return(dispatch) => {
-    fetch("http://localhost:3001/logout", {
+    fetch("https://mentor-app-api.herokuapp.com/logout", {
       method: "DELETE",
       credentials: "include"
     })

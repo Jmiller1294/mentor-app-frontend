@@ -1,6 +1,6 @@
 export const getFavorites = (userId) => {
   return(dispatch) => {
-    fetch(`http://localhost:3001/users/${userId}/favorites`)
+    fetch(`https://mentor-app-api.herokuapp.com/${userId}/favorites`)
     .then(resp => resp.json())
     .then(data => dispatch(setFavorites(data)))
   }

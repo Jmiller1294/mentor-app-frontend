@@ -67,7 +67,7 @@ const AppointmentPage = (props) => {
   const appointmentId = props.location.state.appointmentId;
 
   const addAppointment = (userId, data) => {
-    fetch(`http://localhost:3001/users/${userId}/appointments`, {
+    fetch(`https://mentor-app-api.herokuapp.com/${userId}/appointments`, {
       method: 'POST',
       credentials: "include",
       headers: { 
@@ -82,7 +82,7 @@ const AppointmentPage = (props) => {
    
   const updateAppointment = (data) => {
     console.log(appointmentId)
-    fetch(`http://localhost:3001/appointments/${appointmentId}`, {
+    fetch(`https://mentor-app-api.herokuapp.com/appointments/${appointmentId}`, {
       method: "PATCH",
       credentials: "include",
       headers: { 

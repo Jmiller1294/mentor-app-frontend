@@ -87,7 +87,7 @@ const DescriptionPage = (props) => {
       <Row height={'auto'}>
         <Col size={1}>
           <DescriptionCon>
-            <EventImage src={`http://localhost:3001/${props.location.state.data.image}`}/>
+            <EventImage src={`https://mentor-app-api.herokuapp.com/${props.location.state.data.image}`}/>
             <EventInfo>
               <EventTitle>{props.location.state.data.event.name}</EventTitle>
               <Text>{props.location.state.data.event.date} at, {props.location.state.data.event.time}<br /></Text>

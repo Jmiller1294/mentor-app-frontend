@@ -90,7 +90,7 @@ const FileUploadPage = () => {
   const uploadFile = (file) => {
     const upload = new DirectUpload(
       file, 
-      'http://localhost:3001/rails/active_storage/direct_uploads'
+      'https://mentor-app-api.herokuapp.com/rails/active_storage/direct_uploads'
     );
     upload.create((err, blob) => {
       if(err) {
@@ -103,7 +103,7 @@ const FileUploadPage = () => {
   }
 
   const updateUser = (blob) => {
-    fetch(`http://localhost:3001/users/${user.id}`, {
+    fetch(`https://mentor-app-api.herokuapp.com/users/${user.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type' : 'application/json',

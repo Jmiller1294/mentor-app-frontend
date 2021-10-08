@@ -95,7 +95,9 @@ export const NavBtnLink = styled(Link)`
     &:hover {
     background: orange;
     color: #000000
+    }
   }
+
 
   @media only screen and (${breakpoint.device.tablet}){
     height: 100%;

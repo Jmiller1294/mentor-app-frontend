@@ -45,7 +45,7 @@ const MentorsPage = () => {
 
   useEffect(() => {
     console.log(count)
-    fetch('http://localhost:3001/mentors')
+    fetch('https://mentor-app-api.herokuapp.com/mentors')
     .then(resp => resp.json())
     .then(data => setMentors(data))
     .catch((error) => console.error('Error:', error))

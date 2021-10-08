@@ -158,7 +158,7 @@ const HomePage = () => {
   const [testimonials, setTestimonials] = useState([]);
   
   useEffect(() => {
-    fetch('http://localhost:3001/mentors')
+    fetch('https://mentor-app-api.herokuapp.com/mentors')
     .then(resp => resp.json())
     .then(data => setTestimonials(data.slice(0, 6)))
     .catch((error) => console.error('Error:', error))

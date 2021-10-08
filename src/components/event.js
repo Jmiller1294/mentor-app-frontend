@@ -9,7 +9,6 @@ import Clock from '../assets/clock.svg';
 import Pin from '../assets/pin.svg';
 import Calender from '../assets/calender.svg';
 import breakpoint from '../commons/breakpoints';
-import { getFavorites } from '../actions/favoriteActions';
 
 
 const Header = styled.h3`
@@ -108,9 +107,7 @@ const Icon = styled.img`
 
 const Event = ({ event, rerenderParentCallback, value, image }) => {
   const [active, setActive] = useState(value);
-  const [reload, setReload] = useState(false);
   const user = useSelector(state => state.currentUser);
-  const favorites = useSelector(state => state.favorites);
   const history = useHistory();
 
   
@@ -125,7 +122,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
   }
 
   const addFavorite = (favorite, user) => {
-    fetch('http://localhost:3001/favorites' , {
+    fetch('https://mentor-app-api.herokuapp.com/favorites' , {
       method: "POST",
       credentials: "include",
       headers: { 
@@ -137,7 +134,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
   }
 
   const deleteFavorite = (eventId) => {
-    fetch(`http://localhost:3001/favorites/${eventId}`, {
+    fetch(`https://mentor-app-api.herokuapp.com/${eventId}`, {
       method: "DELETE",
       credentials: "include",
       headers: { 
@@ -156,7 +153,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
     else {
       likeCount = event.likes + 1;
     }
-    fetch(`http://localhost:3001/events/${event.id}` , {
+    fetch(`https://mentor-app-api.herokuapp.com/events/${event.id}` , {
       method: "PATCH",
       credentials: "include",
       headers: { 
@@ -206,7 +203,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
     return(
       <EventContainer>
         <EventPictureCon onClick={(e) => handleClick(e)}>
-          <EventImage src={`http://localhost:3001/${image}`} />
+          <EventImage src={`https://mentor-app-api.herokuapp.com/${image}`} />
         </EventPictureCon>
         <EventInfo onClick={(e) => handleClick(e)}>
           <Header>{event.name}</Header>
@@ -229,7 +226,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
     return(
       <EventContainer>
         <EventPictureCon>
-          <EventImage src={`http://localhost:3001/${image}`}/>
+          <EventImage src={`https://mentor-app-api.herokuapp.com/${image}`}/>
         </EventPictureCon>
         <EventInfo>
           <Header>{event.name}</Header>

@@ -83,7 +83,7 @@ const ContactForm = () => {
   }
 
   const sendContactInfo = () => {
-    fetch('http://localhost:3001/contact_infos', {
+    fetch('https://mentor-app-api.herokuapp.com/contact_infos', {
       method: "POST",
       credentials: "include",
       headers: {

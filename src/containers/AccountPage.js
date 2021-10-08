@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MentorCard from '../components/cards/MentorCard';
 import EventCard from '../components/cards/EventCard';
@@ -119,7 +119,7 @@ const AccountPage = () => {
         <AvatarCon>
           {currentUser.avatar === null ? 
             <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
-          : <Link to="/upload"><Avatar  src={`http://localhost:3001/${currentUser.avatar}`}/></Link>}
+          : <Link to="/upload"><Avatar  src={`https://mentor-app-api.herokuapp.com/${currentUser.avatar}`}/></Link>}
           <UserName>{currentUser.user.name}</UserName>
         </AvatarCon>
       </Row>

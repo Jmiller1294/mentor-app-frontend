@@ -171,7 +171,7 @@ const EventsPage = () => {
 
   
   useEffect(() => {
-    fetch('http://localhost:3001/events')
+    fetch('https://mentor-app-api.herokuapp.com/events')
     .then(resp => resp.json())
     .then(data => setEvents(data))
     .catch((error) => console.error('Error:', error))
