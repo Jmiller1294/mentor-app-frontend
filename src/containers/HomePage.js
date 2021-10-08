@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {Grid, Row, Col }from '../components/styled/Grid';
 import { BackgroundImage }from '../components/styled/BackgroundImage';
 import ContactForm from '../components/ContactForm';
+import Testimonial from '../components/Testimonial';
+import City from '../components/City';
 import Background from '../assets/background.jpg';
 import Pic1 from '../assets/pic1.jpg';
 import Pic2 from '../assets/pic2.jpg';
@@ -12,23 +14,15 @@ import logo2 from '../assets/logo2.png';
 import logo3 from '../assets/logo3.png';
 import logo4 from '../assets/logo4.png';
 import logo5 from '../assets/logo5.png';
-import cityImg1 from '../assets/newYork.jpg';
-import cityImg2 from '../assets/houston.jpg';
-import cityImg3 from '../assets/chicago.jpg';
-import cityImg4 from '../assets/atlanta.jpg';
-import cityImg5 from '../assets/losAngeles.jpg';
-import peopleIcon from '../assets/people.svg';
-import breiefcaseIcon from '../assets/briefcase.svg';
-import calenderIcon from '../assets/calender.svg';
-import schoolIcon from '../assets/school.svg';
 import instagram from '../assets/instagram.png';
 import linkedIn from '../assets/linkedIn.png';
 import twitter from '../assets/twitter.png';
 import youtube from '../assets/youtube.png';
 import github from '../assets/github.png';
+import testimonialText from '../data/testimonials';
+import cities from '../data/cities';
 import breakpoint from '../commons/breakpoints';
 
-const faker = require('faker');
 
 const Header = styled.h1`
   font-size: 40px;
@@ -119,25 +113,6 @@ const TestimonialList = styled.ul`
   column-gap: 10px;
   padding-left: 0;
 `
-const TestimonialItem = styled.li`
-  height: auto;
-  flex-basis: 32%;
-  margin: 5px;
-  padding: 55px;
-
-  @media only screen and (${breakpoint.device.phone}){
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 0;
-    flex-basis: 100%;
-  }
-
-  @media only screen and (${breakpoint.device.tablet}){
-    padding: 0;
-    margin: 30px;
-  }
-`
 const CityList = styled.ul`
   list-style: none;
   display: flex;
@@ -152,92 +127,6 @@ const CityList = styled.ul`
   @media only screen and (${breakpoint.device.phone}){
    margin: 5px;
   }
-`
-const CityItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  width: 16%;
-  margin: 20px;
-  padding: 5px;
-
-  @media only screen and (${breakpoint.device.phone}){
-    width: 100%;
-  }
-
-  @media only screen and (${breakpoint.device.tablet}){
-    padding: 0;
-    width: 60%;
-  }
-
-  @media only screen and (${breakpoint.device.laptop}){
-    width: 40%;
-  }
-`
-const CityImage = styled.img`
-  width: 100%;
-  height: 150px;
-`
-const CityName = styled.span`
-  font-weight: bold;
-  font-size: 20px;
-  margin: 10px 0;
-`
-const Icon = styled.img`
-  display: flex;
-  height: 25px;
-  width: 25px;
-  margin: 5px;
-
-  @media only screen and (${breakpoint.device.phone}){
-    margin-bottom: 10px;
-    margin-top: 11px;
-  }
-`
-const IconText = styled.span`
-  display: flex;
-  font-weight: bold;
-  font-size: 17px;
-  height: 25px;
-  width: 100;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  top: -20px;
-  right: -40px;
-
-  @media only screen and (${breakpoint.device.phone}){
-    margin-bottom: 15px;
-  }
-`
-const IconImageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 25%;
-`
-const IconTextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-left: 5px;
-  padding-top: 5px;
-  height: 100%;
-  width: 100%;
-`
-const IconContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 220px;
-  position: relative;
-`
-const Avatar = styled.img`
-  display: block;
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-  margin-bottom: 20px;
-`
-const CardDesc = styled.p`
-  
 `
 const Footer = styled.ul`
   list-style: none;
@@ -343,163 +232,20 @@ const HomePage = () => {
         <Row>
           <Col size={1}>
             <TestimonialList>
-              <TestimonialItem>
-                <Avatar src={testimonials[0].avatar} alt="avatar1" />  
-                Mentors changed my life without
-                this program I dont Know where 
-                I would be. This website helped 
-                get on the right track.
-                <br></br>
-                <br></br>
-                - {testimonials[0].name}
-              </TestimonialItem>
-              <TestimonialItem>
-                <Avatar  src={testimonials[1].avatar} alt="avatar2" />
-                Mentors.com is a great website. This
-                is an easy way to get paired up 
-                with mentors an jumpstart your career.
-                You will not regret making the decision.
-                <br></br>
-                <br></br>
-                - {testimonials[1].name}
-              </TestimonialItem>
-              <TestimonialItem>
-                <Avatar  src={testimonials[2].avatar} alt="avatar3" />
-                This website is essential for finding 
-                finding something in your field. Being able to 
-                talk to people who have proven experience.
-                <br></br>
-                <br></br>
-                - {testimonials[2].name}
-              </TestimonialItem>
-              <TestimonialItem>
-                <Avatar src={testimonials[3].avatar} alt="avatar4" />
-                The events that mentors.com hosts are 
-                great ways to network and meet people.
-                I waas able to connect with a mentor and land
-                my dream job!
-                <br></br>
-                <br></br>
-                - {testimonials[3].name}
-              </TestimonialItem>
-              <TestimonialItem>
-                <Avatar  src={testimonials[4].avatar} alt="avatar5" />
-                After graduating college I was lost 
-                and I needed some guidance. Mentor.com
-                helped me find a mentor and start to 
-                get the advice I needed to get a job.
-                <br></br>
-                <br></br>
-                - {testimonials[4].name}
-              </TestimonialItem>
-              <TestimonialItem>
-                <Avatar  src={testimonials[5].avatar} alt="avatar6" />
-                <CardDesc>
-                Mentors are an important part of 
-                become a career professional. Thats why
-                I joined. I dont regret taking the step 
-                and connecting.
-                <br></br>
-                <br></br>
-              - {testimonials[5].name}
-                </CardDesc>
-              </TestimonialItem>
+              {testimonials.map((testimonial, index) => 
+                <Testimonial 
+                  key={index} 
+                  testimonial={testimonial} 
+                  text={testimonialText[index]} 
+                />
+              )}
             </TestimonialList>
           </Col>
         </Row>
         <Row background={'#f8f7f2'}>
           <Col size={1}>
             <CityList>
-              <CityItem>
-                  <CityImage src={cityImg1}></CityImage>
-                  <CityName>New York</CityName>
-                  <IconContainer>
-                    <IconImageContainer>
-                      <Icon src={peopleIcon}></Icon>
-                      <Icon src={breiefcaseIcon}></Icon>
-                      <Icon src={calenderIcon}></Icon>
-                      <Icon src={schoolIcon}></Icon>
-                    </IconImageContainer>
-                  <IconTextContainer>
-                    <IconText>3800+ Members</IconText>
-                    <IconText>900+ Jobs Landed</IconText>
-                    <IconText>300 Local Events</IconText>
-                    <IconText>100 Mentors</IconText>
-                  </IconTextContainer>
-                </IconContainer>
-              </CityItem>
-              <CityItem>
-                  <CityImage src={cityImg5}></CityImage>
-                  <CityName>Los Angeles</CityName>
-                  <IconContainer>
-                    <IconImageContainer>
-                      <Icon src={peopleIcon}></Icon>
-                      <Icon src={breiefcaseIcon}></Icon>
-                      <Icon src={calenderIcon}></Icon>
-                      <Icon src={schoolIcon}></Icon>
-                    </IconImageContainer>
-                    <IconTextContainer>
-                      <IconText>1200+ Members</IconText>
-                      <IconText>400+ Jobs Landed</IconText>
-                      <IconText>100 Local Events </IconText>
-                      <IconText>200 Mentors</IconText>
-                    </IconTextContainer>
-                </IconContainer>
-              </CityItem>
-              <CityItem>
-                  <CityImage src={cityImg3}></CityImage>
-                  <CityName>Chicago</CityName>
-                  <IconContainer>
-                    <IconImageContainer>
-                      <Icon src={peopleIcon}></Icon>
-                      <Icon src={breiefcaseIcon}></Icon>
-                      <Icon src={calenderIcon}></Icon>
-                      <Icon src={schoolIcon}></Icon>
-                    </IconImageContainer>
-                  <IconTextContainer>
-                    <IconText>1800+ Members</IconText>
-                    <IconText>300+ Jobs Landed</IconText>
-                    <IconText>100 Local Events</IconText>
-                    <IconText>200 Mentors</IconText>
-                  </IconTextContainer>
-                </IconContainer>
-              </CityItem>
-              <CityItem>
-                  <CityImage src={cityImg2}></CityImage>
-                  <CityName>Houston</CityName>
-                  <IconContainer>
-                    <IconImageContainer>
-                      <Icon src={peopleIcon}></Icon>
-                      <Icon src={breiefcaseIcon}></Icon>
-                      <Icon src={calenderIcon}></Icon>
-                      <Icon src={schoolIcon}></Icon>
-                    </IconImageContainer>
-                  <IconTextContainer>
-                    <IconText>1000+ Members</IconText>
-                    <IconText>250+ Jobs Landed</IconText>
-                    <IconText>90 Local Events</IconText>
-                    <IconText>150 Mentors</IconText>
-                  </IconTextContainer>
-                </IconContainer>
-              </CityItem>
-              <CityItem>
-                  <CityImage src={cityImg4}></CityImage>
-                  <CityName>Atlanta</CityName>
-                  <IconContainer>
-                    <IconImageContainer>
-                      <Icon src={peopleIcon}></Icon>
-                      <Icon src={breiefcaseIcon}></Icon>
-                      <Icon src={calenderIcon}></Icon>
-                      <Icon src={schoolIcon}></Icon>
-                    </IconImageContainer>
-                  <IconTextContainer>
-                    <IconText>1000+ Members</IconText>
-                    <IconText>200+ Jobs Landed</IconText>
-                    <IconText>75 Local Events</IconText>
-                    <IconText>90 Mentors</IconText>
-                  </IconTextContainer>
-                </IconContainer>
-              </CityItem>
+                {cities.map((city, index) => <City key={index} city={city}/>)}
             </CityList>
           </Col>
         </Row>
