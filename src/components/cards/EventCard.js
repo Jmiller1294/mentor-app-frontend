@@ -37,7 +37,7 @@ const EventCard = ({ event }) => {
 
   return (
     <Card height={'350px'} padding={'0'}>
-      <EventImage src={`http://localhost:3001/${image}`} />
+      <EventImage src={`https://mentor-app-api.herokuapp.com/${image}`} />
       <Header>{event.name} </Header>
       <Info>
         <span style={{color: 'orange'}}><br></br>
