@@ -1,6 +1,6 @@
 export const getEvents = (userId) => {
   return(dispatch) => {
-    fetch(`https://mentor-app-api.herokuapp.com/${userId}/event_registrations`)
+    fetch(`https://mentor-app-api.herokuapp.com/users/${userId}/event_registrations`)
     .then(resp => resp.json())
     .then(events => dispatch(setEvents(events)))
   }
