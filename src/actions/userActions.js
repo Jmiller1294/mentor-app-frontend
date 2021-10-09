@@ -2,7 +2,7 @@ export const startCreateUser = (data) => {
   return (dispatch) => {
     fetch("https://mentor-app-api.herokuapp.com/registrations", {
       method: "POST",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         'content-type': 'application/json',
       },
@@ -27,7 +27,7 @@ const finishCreateUser = (data) => {
 export const checkLoggedInStatus = () => {
   return(dispatch) => {
     fetch("https://mentor-app-api.herokuapp.com/logged_in", {
-      credentials: "include"
+      //credentials: "include"
     })
     .then(resp => resp.json())
     .then(data => dispatch(setCurrentUser(data)))
@@ -61,7 +61,7 @@ export const startLogin = (data) => {
   return(dispatch) => {
     fetch("https://mentor-app-api.herokuapp.com/sessions", {
       method: "POST",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-type": "application/json",
       },
@@ -83,7 +83,7 @@ export const logout = () => {
   return(dispatch) => {
     fetch("https://mentor-app-api.herokuapp.com/logout", {
       method: "DELETE",
-      credentials: "include"
+      //credentials: "include"
     })
     .then(() => dispatch(finishLogout()))
   }

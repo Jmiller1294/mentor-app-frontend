@@ -84,7 +84,7 @@ const AppointmentPage = (props) => {
     console.log(appointmentId)
     fetch(`https://mentor-app-api.herokuapp.com/appointments/${appointmentId}`, {
       method: "PATCH",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-type": "application/json",
       },

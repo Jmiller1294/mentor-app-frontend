@@ -55,7 +55,7 @@ const Mentor = ({ mentor }) => {
   const createBooking = (mentor, userId) => {
     fetch(`https://mentor-app-api.herokuapp.com/bookings`, {
       method: "POST",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-type": "application/json",
       },

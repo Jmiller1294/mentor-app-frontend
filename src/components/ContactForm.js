@@ -85,7 +85,7 @@ const ContactForm = () => {
   const sendContactInfo = () => {
     fetch('https://mentor-app-api.herokuapp.com/contact_infos', {
       method: "POST",
-      credentials: "include",
+      //credentials: "include",
       headers: {
         "Content-type": "application/json",
       },

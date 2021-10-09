@@ -47,6 +47,7 @@ const EventContainer = styled.div`
   }
 
   @media only screen and (${breakpoint.device.tablet}){
+    width: 300px;
     margin: 15px 0;
     flex-direction: column;
     align-items: center;
@@ -124,7 +125,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
   const addFavorite = (favorite, user) => {
     fetch('https://mentor-app-api.herokuapp.com/favorites' , {
       method: "POST",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-type": "application/json",
       },
@@ -136,7 +137,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
   const deleteFavorite = (eventId) => {
     fetch(`https://mentor-app-api.herokuapp.com/${eventId}`, {
       method: "DELETE",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-type": "application/json",
       },
@@ -155,7 +156,7 @@ const Event = ({ event, rerenderParentCallback, value, image }) => {
     }
     fetch(`https://mentor-app-api.herokuapp.com/events/${event.id}` , {
       method: "PATCH",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-type": "application/json",
       },

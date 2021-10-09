@@ -96,7 +96,7 @@ const EventRegistration = (props) => {
   const createEventRegistration = (userId) => {
     fetch(`https://mentor-app-api.herokuapp.com/event_registrations`, {
       method: "POST",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-Type": "application/json",
       },
