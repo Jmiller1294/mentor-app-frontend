@@ -37,7 +37,7 @@ const AppointmentCard = ({ appointment }) => {
   const history = useHistory();
 
   const deleteAppointment = () => {
-    fetch(`http://localhost:3001/appointments/${appointment.id}`, {
+    fetch(`https://mentor-app-api.herokuapp.com/${appointment.id}`, {
       method: "DELETE",
       credentials: "include",
       headers: { 

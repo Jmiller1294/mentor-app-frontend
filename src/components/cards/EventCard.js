@@ -25,7 +25,7 @@ const EventCard = ({ event }) => {
   const [image, setImage] = useState(null);
 
   const getImage = () => {
-    fetch(`http://localhost:3001/events/${event.id}`)
+    fetch(`https://mentor-app-api.herokuapp.com/events/${event.id}`)
     .then(resp => resp.json())
     .then(data => setImage(data.image))
     .catch(err => console.log(err))
