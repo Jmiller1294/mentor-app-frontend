@@ -53,7 +53,7 @@ const Mentor = ({ mentor }) => {
   const user = useSelector(state => state.currentUser)
 
   const createBooking = (mentor, userId) => {
-    fetch(`https://mentor-app-api.herokuapp.com/bookings`, {
+    fetch(`https://mentor-app-api.herokuapp.com/users/${userId}/bookings`, {
       method: "POST",
       //credentials: "include",
       headers: { 
