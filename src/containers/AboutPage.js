@@ -139,9 +139,10 @@ const AboutPage = () => {
           <Line />
           <MissionStatement>
             We believe that mentors are necessary for a person's professional development. 
-            Mentors can help guide young professionals who may not know what they want to do but have an idea. 
-            We aim to help make it easier for young professionals to pair with mentors. 
-            We are a platform that makes it easy for professional networking through events and community building. 
+            Our organization is focused on helping guide young professionals 
+            who may not know what they want to do for a career, and putting them on the right track. 
+            We aim to help make it easier for young professionals to pair with mentors and other professionals. 
+            We are a platform that makes it easy to network through events and community building. 
             We hope to help guide our members through the difficult process of finding a building a successful career. 
           </MissionStatement>
         </Col>

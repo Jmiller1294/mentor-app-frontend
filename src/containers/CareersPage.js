@@ -35,8 +35,8 @@ const CareersPage = () => {
     <>
       <Header>Careers</Header>
       <CareersCon>
-        {fields.map( field => 
-          <Careers title={field.title} careers={field.jobs}/>
+        {fields.map((field, index )=> 
+          <Careers key={index} title={field.title} careers={field.jobs}/>
         )}
       </CareersCon>
     </>

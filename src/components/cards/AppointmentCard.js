@@ -37,9 +37,10 @@ const AppointmentCard = ({ appointment }) => {
   const history = useHistory();
 
   const deleteAppointment = () => {
-    fetch(`https://mentor-app-api.herokuapp.com/${appointment.id}`, {
+    console.log(appointment.id)
+    fetch(`https://mentor-app-api.herokuapp.com/appointments/${appointment.id}`, {
       method: "DELETE",
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-type": "application/json",
       }
@@ -48,14 +49,13 @@ const AppointmentCard = ({ appointment }) => {
     .then(res => console.log(res))
   }
 
-  const handleDeleteClick = () => {
-    console.log('deleted');
+  const handleDeleteClick = (event) => {
+    event.preventDefault();
     deleteAppointment();
-    window.location.reload(false);
+    setTimeout(() => window.location.reload(false), 1000);
   }
 
-  const handleUpdateClick = () => {
-    console.log('updated');
+  const handleUpdateClick = (event) => {
 
     const newRoute = () => {
       let path = '/appointment';

@@ -10,7 +10,7 @@ const AccordionItem = styled.div`
   margin: 10px 0;
 
   @media only screen and (${breakpoint.device.tablet}){
-   height: 150px;
+   height: 120px;
   }
 ` 
 const Header = styled.h2`

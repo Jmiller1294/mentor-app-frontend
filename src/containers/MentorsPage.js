@@ -44,7 +44,6 @@ const MentorsPage = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log(count)
     fetch('https://mentor-app-api.herokuapp.com/mentors')
     .then(resp => resp.json())
     .then(data => setMentors(data))

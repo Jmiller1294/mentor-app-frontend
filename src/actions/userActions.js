@@ -34,13 +34,6 @@ export const checkLoggedInStatus = () => {
   }
 }
 
-export const getAccountInfo = (userId) => {
-  return(dispatch) => {
-    fetch(`https://mentor-app-api.herokuapp.com/${userId}`)
-    .then(resp => resp.json())
-    .then(data => dispatch(setAccountInfo(data)))
-  }
-}
 
 export const setAccountInfo = (data) => ({
   type: "SET_ACCOUNT_INFO",

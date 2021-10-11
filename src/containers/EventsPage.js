@@ -48,7 +48,6 @@ const SidebarHeader = styled.h2`
    font-size: 0;
   }
 `
-
 const EventsCon = styled.div`
   display: flex;
   flex-direction: column;
@@ -67,6 +66,7 @@ const SearchBarCon =  styled.div`
   @media only screen and (${breakpoint.device.tablet}){
     display: flex;
     width: 350px;
+    margin-top: 50px;
     align-items: flex-start;
   }
 `

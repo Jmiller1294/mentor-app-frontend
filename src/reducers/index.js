@@ -32,11 +32,6 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
         ...state,
         currentUser: action.payload.user
       }
-    case "SET_ACCOUNT_INFO":
-      return {
-        ...state,
-        accountInfo: action.payload
-      }
     case "LOGIN":
       return {
         ...state,

@@ -25,8 +25,8 @@ const Careers = ({ title, careers }) => {
   return (
     <CareerCon>
       <Header>{title}</Header>
-      {careers.map(career => 
-        <Career>
+      {careers.map((career, index) => 
+        <Career key={index}>
           <a 
             href={career.url} 
             target="_blank" 

@@ -67,9 +67,9 @@ const AppointmentPage = (props) => {
   const appointmentId = props.location.state.appointmentId;
 
   const addAppointment = (userId, data) => {
-    fetch(`https://mentor-app-api.herokuapp.com/user/${userId}/appointments`, {
+    fetch(`https://mentor-app-api.herokuapp.com/users/${userId}/appointments`, {
       method: 'POST',
-      credentials: "include",
+      //credentials: "include",
       headers: { 
         "Content-Type": "application/json",
       },

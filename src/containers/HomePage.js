@@ -175,7 +175,7 @@ const HomePage = () => {
         </Row>
         <Row>
           <Col size={1}>
-            <Header>Where young professionals <br></br>can find Mentors</Header>
+            <Header>The perfect place<br></br>for young professionals</Header>
           </Col>
         </Row>
         <Row background={'#f8f7f2'} height={'auto'}>
@@ -185,7 +185,7 @@ const HomePage = () => {
                 <CardAvatar src={Pic1} />
                 <CardDescription>
                   Meet and network with professionals in your field.
-                  We host weekly events that in major cities around the country.
+                  We host weekly events that are in major cities around the country.
                   This is a great opportunity to meet new people.
                 </CardDescription>
               </Card>
@@ -193,16 +193,16 @@ const HomePage = () => {
                 <CardAvatar src={Pic2} />
                 <CardDescription>
                   We help turn new graduates into career professionals.
-                  By helping members develop the skills 
-                  crucial to thriving in your career path. Get started now!
+                  members develop the skills crucial to thriving in their chosen career path. 
+                  Come join and get started now!
                 </CardDescription>
               </Card>
               <Card>
                 <CardAvatar src={Pic3} />
                 <CardDescription>
                   We offer materials to help develop you 
-                  into a perfect canidate for potential jobs. We over a 
-                  range of career developemnt classes in person and online.
+                  into a perfect canidate for potential jobs. We offer a 
+                  range of career development classes in person and online.
                 </CardDescription>
               </Card>
             </CardContainer>

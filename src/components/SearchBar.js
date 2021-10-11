@@ -13,6 +13,7 @@ const SearchForm = styled.form`
 
   @media only screen and (${breakpoint.device.tablet}){
     margin: 70px 0;
+    margin-bottom: 50px;
     margin-top: 40px;
     width: 100%;
   }

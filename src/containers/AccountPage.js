@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getEvents } from '../actions/eventActions';
 import { getUserMentors } from '../actions/mentorActions';
 import { getAppointments } from '../actions/appointmentActions';
-import { getAccountInfo } from '../actions/userActions';
 import styled from 'styled-components';
 import breakpoint from '../commons/breakpoints';
 
@@ -63,15 +62,13 @@ const EmptyAvatar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-self: center;
-  align-self: center;
-  text-align: center;
-  height: 130px;
-  width: 130px;
+  align-items: center;
+  height: 160px;
+  width: 160px;
   margin-right: 20px;
   margin-bottom: 20px;
   border: 1px solid black;
-  border-radius: 65px;
+  border-radius: 80px;
 
   @media only screen and (${breakpoint.device.laptop}){
     height: 130px;
@@ -109,7 +106,6 @@ const AccountPage = () => {
     dispatch(getEvents(currentUser.user.id));
     dispatch(getAppointments(currentUser.user.id))
     dispatch(getUserMentors(currentUser.user.id));
-    dispatch(getAccountInfo(currentUser.user.id));
   }, [dispatch, currentUser.user.id])
 
   return(
@@ -119,7 +115,7 @@ const AccountPage = () => {
         <AvatarCon>
           {currentUser.avatar === null ? 
             <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
-          : <Link to="/upload"><Avatar  src={`https://mentor-app-api.herokuapp.com/${currentUser.avatar}`}/></Link>}
+          : null} 
           <UserName>{currentUser.user.name}</UserName>
         </AvatarCon>
       </Row>
@@ -169,3 +165,5 @@ const AccountPage = () => {
   )
 }
 export default AccountPage;
+
+//<Link to="/upload"><Avatar  src={`https://mentor-app-api.herokuapp.com/${currentUser.avatar}`}/></Link>}
