@@ -78,13 +78,8 @@ const FileUploadPage = () => {
   const history = useHistory();
  
   const newRoute = () => { 
-    let path = `/accounts`; 
-    history.push({
-      pathname: path,
-      state: {
-        
-      }
-    });
+    let path = `/accounts/${user.id}`; 
+    setTimeout(() => history.push(path), 500);
   }
 
   const uploadFile = (file) => {
