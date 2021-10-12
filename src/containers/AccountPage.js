@@ -115,7 +115,7 @@ const AccountPage = () => {
         <AvatarCon>
           {currentUser.avatar === null ? 
             <EmptyAvatar><Link to="/upload">Upload Image</Link></EmptyAvatar> 
-          : null} 
+          : <Link to="/upload"><Avatar  src={`https://mentor-app-api.herokuapp.com/${currentUser.avatar}`}/></Link>}
           <UserName>{currentUser.user.name}</UserName>
         </AvatarCon>
       </Row>
@@ -166,4 +166,3 @@ const AccountPage = () => {
 }
 export default AccountPage;
 
-//<Link to="/upload"><Avatar  src={`https://mentor-app-api.herokuapp.com/${currentUser.avatar}`}/></Link>}

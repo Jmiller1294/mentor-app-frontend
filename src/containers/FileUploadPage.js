@@ -104,7 +104,7 @@ const FileUploadPage = () => {
 
   const updateUser = (blob) => {
     fetch(`https://mentor-app-api.herokuapp.com/users/${user.id}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
         'Content-Type' : 'application/json',
         'Accept' : 'application/json'
